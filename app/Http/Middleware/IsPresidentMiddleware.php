@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class IsUserMiddleware
+class IsPresidentMiddleware
 {
     /**
      * Handle an incoming request.
@@ -17,7 +17,7 @@ class IsUserMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::check() && Auth::user()->role == 3) {
+        if (Auth::check() && Auth::user()->role == 2) {
             return $next($request);
         } else {
             return redirect()->route('login');

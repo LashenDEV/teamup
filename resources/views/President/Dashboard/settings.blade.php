@@ -6,7 +6,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">{{ __('Dashboard') }}</div>
-                    <h4>Hi User: {{ Auth::user()->name }}</h4>
+                    <h4>Hi President: {{ Auth::user()->name }}</h4>
                     <hr>
                     SETTINGS
                     <div class="card-body">

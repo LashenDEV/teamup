@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin;
+use App\Http\Controllers\President;
 use App\Http\Controllers\User;
 
 /*
@@ -27,6 +28,12 @@ Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin', 'auth']], functio
     Route::get('dashboard', [Admin\AdminController::class, 'index'])->name('admin.dashboard');
     Route::get('profile', [Admin\AdminController::class, 'profile'])->name('admin.profile');
     Route::get('settings', [Admin\AdminController::class, 'settings'])->name('admin.settings');
+});
+
+Route::group(['prefix' => 'president', 'middleware' => ['isPresident', 'auth']], function () {
+    Route::get('dashboard', [President\PresidentController::class, 'index'])->name('president.dashboard');
+    Route::get('profile', [President\PresidentController::class, 'profile'])->name('president.profile');
+    Route::get('settings', [President\PresidentController::class, 'settings'])->name('president.settings');
 });
 
 Route::group(['prefix' => 'user', 'middleware' => ['isUser', 'auth']], function () {

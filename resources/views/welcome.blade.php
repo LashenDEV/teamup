@@ -112,7 +112,7 @@
 
             <div class="carousel-inner" role="listbox">
 
-                <div class="carousel-item active" style="background-image: url({{asset('')}}frontend/assets/img/hero-carousel/1.jpg)">
+                <div class="carousel-item active" style="background-image: url({{asset('frontend/assets/img/hero-carousel/1.jpg')}})">
                     <div class="carousel-container">
                         <div class="container">
                             <h2 class="animate__animated animate__fadeInDown">Welcome!</h2>
@@ -122,7 +122,7 @@
                     </div>
                 </div>
 
-                <div class="carousel-item" style="background-image: url({{asset('')}}frontend/assets/img/hero-carousel/2.jpg)">
+                <div class="carousel-item" style="background-image: url({{asset('frontend/assets/img/hero-carousel/2.jpg')}})">
                     <div class="carousel-container">
                         <div class="container">
                             <h2 class="animate__animated animate__fadeInDown">At vero eos et accusamus</h2>
@@ -132,7 +132,7 @@
                     </div>
                 </div>
 
-                <div class="carousel-item" style="background-image: url({{asset('')}}/img/hero-carousel/3.jpg)">
+                <div class="carousel-item" style="background-image: url({{asset('frontend/assets/img/hero-carousel/3.jpg')}})">
                     <div class="carousel-container">
                         <div class="container">
                             <h2 class="animate__animated animate__fadeInDown">Temporibus autem quibusdam</h2>
@@ -142,7 +142,7 @@
                     </div>
                 </div>
 
-                <div class="carousel-item" style="background-image: url({{asset('')}}frontend/assets/img/hero-carousel/4.jpg)">
+                <div class="carousel-item" style="background-image: url({{asset('frontend/assets/img/hero-carousel/4.jpg')}})">
                     <div class="carousel-container">
                         <div class="container">
                             <h2 class="animate__animated animate__fadeInDown">Nam libero tempore</h2>
@@ -152,7 +152,7 @@
                     </div>
                 </div>
 
-                <div class="carousel-item" style="background-image: url({{asset('')}}/img/hero-carousel/5.jpg)">
+                <div class="carousel-item" style="background-image: url({{asset('frontend/assets/img/hero-carousel/5.jpg')}})">
                     <div class="carousel-container">
                         <div class="container">
                             <h2 class="animate__animated animate__fadeInDown">Magnam aliquam quaerat</h2>
@@ -243,7 +243,7 @@
                 <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="about-col">
                         <div class="img">
-                            <img src="{{asset('')}}/img/about-mission.jpg" alt="" class="img-fluid">
+                            <img src="{{asset('frontend/assets/img/about-mission.jpg')}}" alt="" class="img-fluid">
                             <div class="icon"><i class="bi bi-bar-chart"></i></div>
                         </div>
                         <h2 class="title"><a href="#">Our Mission</a></h2>
@@ -256,7 +256,7 @@
                 <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
                     <div class="about-col">
                         <div class="img">
-                            <img src="{{asset('')}}/img/about-plan.jpg" alt="" class="img-fluid">
+                            <img src="{{asset('frontend/assets/img/about-plan.jpg')}}" alt="" class="img-fluid">
                             <div class="icon"><i class="bi bi-brightness-high"></i></div>
                         </div>
                         <h2 class="title"><a href="#">Our Plan</a></h2>
@@ -269,7 +269,7 @@
                 <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
                     <div class="about-col">
                         <div class="img">
-                            <img src="{{asset('')}}/img/about-vision.jpg" alt="" class="img-fluid">
+                            <img src="{{asset('frontend/assets/img/about-vision.jpg')}}" alt="" class="img-fluid">
                             <div class="icon"><i class="bi bi-calendar4-week"></i></div>
                         </div>
                         <h2 class="title"><a href="#">Our Vision</a></h2>
@@ -414,7 +414,7 @@
             </div>
 
             <div class="facts-img">
-                <img src="{{asset('')}}frontend/assets/img/facts-img.png" alt="" class="img-fluid">
+                <img src="{{asset('frontend/assets/img/facts-img.png')}}" alt="" class="img-fluid">
             </div>
 
         </div>
@@ -444,8 +444,8 @@
             <div class="col-lg-4 col-md-6 portfolio-item filter-app">
                 <div class="portfolio-wrap">
                     <figure>
-                        <img src="{{asset('')}}frontend/assets/img/portfolio/app1.jpg" class="img-fluid" alt="">
-                        <a href="{{asset('')}}frontend/assets/img/portfolio/app1.jpg" data-lightbox="portfolio" data-title="App 1" class="link-preview"><i class="bi bi-plus"></i></a>
+                        <img src="{{asset('frontend/assets/img/portfolio/app1.jpg')}}" class="img-fluid" alt="">
+                        <a href="{{asset('frontend/assets/img/portfolio/app1.jpg')}}" data-lightbox="portfolio" data-title="App 1" class="link-preview"><i class="bi bi-plus"></i></a>
                         <a href="portfolio-details.html" class="link-details" title="More Details"><i class="bi bi-link"></i></a>
                     </figure>
 
@@ -459,8 +459,8 @@
             <div class="col-lg-4 col-md-6 portfolio-item filter-web">
                 <div class="portfolio-wrap">
                     <figure>
-                        <img src="{{asset('')}}frontend/assets/img/portfolio/web3.jpg" class="img-fluid" alt="">
-                        <a href="{{asset('')}}frontend/assets/img/portfolio/web3.jpg" class="link-preview portfolio-lightbox" data-gallery="portfolioGallery" title="Web 3"><i class="bi bi-plus"></i></a>
+                        <img src="{{asset('frontend/assets/img/portfolio/web3.jpg')}}" class="img-fluid" alt="">
+                        <a href="{{asset('frontend/assets/img/portfolio/web3.jpg')}}" class="link-preview portfolio-lightbox" data-gallery="portfolioGallery" title="Web 3"><i class="bi bi-plus"></i></a>
                         <a href="portfolio-details.html" class="link-details" title="More Details"><i class="bi bi-link"></i></a>
                     </figure>
 
@@ -474,8 +474,8 @@
             <div class="col-lg-4 col-md-6 portfolio-item filter-app">
                 <div class="portfolio-wrap">
                     <figure>
-                        <img src="{{asset('')}}frontend/assets/img/portfolio/app2.jpg" class="img-fluid" alt="">
-                        <a href="{{asset('')}}frontend/assets/img/portfolio/app2.jpg" class="link-preview portfolio-lightbox" data-gallery="portfolioGallery" title="App 2"><i class="bi bi-plus"></i></a>
+                        <img src="{{asset('frontend/assets/img/portfolio/app2.jpg')}}" class="img-fluid" alt="">
+                        <a href="{{asset('frontend/assets/img/portfolio/app2.jpg')}}" class="link-preview portfolio-lightbox" data-gallery="portfolioGallery" title="App 2"><i class="bi bi-plus"></i></a>
                         <a href="portfolio-details.html" class="link-details" title="More Details"><i class="bi bi-link"></i></a>
                     </figure>
 
@@ -489,8 +489,8 @@
             <div class="col-lg-4 col-md-6 portfolio-item filter-card">
                 <div class="portfolio-wrap">
                     <figure>
-                        <img src="{{asset('')}}frontend/assets/img/portfolio/card2.jpg" class="img-fluid" alt="">
-                        <a href="{{asset('')}}frontend/assets/img/portfolio/card2.jpg" class="link-preview portfolio-lightbox" data-gallery="portfolioGallery" title="Card 2"><i class="bi bi-plus"></i></a>
+                        <img src="{{asset('frontend/assets/img/portfolio/card2.jpg')}}" class="img-fluid" alt="">
+                        <a href="{{asset('frontend/assets/img/portfolio/card2.jpg')}}" class="link-preview portfolio-lightbox" data-gallery="portfolioGallery" title="Card 2"><i class="bi bi-plus"></i></a>
                         <a href="portfolio-details.html" class="link-details" title="More Details"><i class="bi bi-link"></i></a>
                     </figure>
 
@@ -504,8 +504,8 @@
             <div class="col-lg-4 col-md-6 portfolio-item filter-web">
                 <div class="portfolio-wrap">
                     <figure>
-                        <img src="{{asset('')}}frontend/assets/img/portfolio/web2.jpg" class="img-fluid" alt="">
-                        <a href="{{asset('')}}frontend/assets/img/portfolio/web2.jpg" class="link-preview portfolio-lightbox" data-gallery="portfolioGallery" title="Web 2"><i class="bi bi-plus"></i></a>
+                        <img src="{{asset('frontend/assets/img/portfolio/web2.jpg')}}" class="img-fluid" alt="">
+                        <a href="{{asset('frontend/assets/img/portfolio/web2.jpg')}}" class="link-preview portfolio-lightbox" data-gallery="portfolioGallery" title="Web 2"><i class="bi bi-plus"></i></a>
                         <a href="portfolio-details.html" class="link-details" title="More Details"><i class="bi bi-link"></i></a>
                     </figure>
 
@@ -519,8 +519,8 @@
             <div class="col-lg-4 col-md-6 portfolio-item filter-app">
                 <div class="portfolio-wrap">
                     <figure>
-                        <img src="{{asset('')}}frontend/assets/img/portfolio/app3.jpg" class="img-fluid" alt="">
-                        <a href="{{asset('')}}frontend/assets/img/portfolio/app3.jpg" class="link-preview portfolio-lightbox" data-gallery="portfolioGallery" title="App 3"><i class="bi bi-plus"></i></a>
+                        <img src="{{asset('frontend/assets/img/portfolio/app3.jpg')}}" class="img-fluid" alt="">
+                        <a href="{{asset('frontend/assets/img/portfolio/app3.jpg')}}" class="link-preview portfolio-lightbox" data-gallery="portfolioGallery" title="App 3"><i class="bi bi-plus"></i></a>
                         <a href="portfolio-details.html" class="link-details" title="More Details"><i class="bi bi-link"></i></a>
                     </figure>
 
@@ -534,8 +534,8 @@
             <div class="col-lg-4 col-md-6 portfolio-item filter-card">
                 <div class="portfolio-wrap">
                     <figure>
-                        <img src="{{asset('')}}frontend/assets/img/portfolio/card1.jpg" class="img-fluid" alt="">
-                        <a href="{{asset('')}}frontend/assets/img/portfolio/card1.jpg" class="link-preview portfolio-lightbox" data-gallery="portfolioGallery" title="Card 1"><i class="bi bi-plus"></i></a>
+                        <img src="{{asset('frontend/assets/img/portfolio/card1.jpg')}}" class="img-fluid" alt="">
+                        <a href="{{asset('frontend/assets/img/portfolio/card1.jpg')}}" class="link-preview portfolio-lightbox" data-gallery="portfolioGallery" title="Card 1"><i class="bi bi-plus"></i></a>
                         <a href="portfolio-details.html" class="link-details" title="More Details"><i class="bi bi-link"></i></a>
                     </figure>
 
@@ -549,8 +549,8 @@
             <div class="col-lg-4 col-md-6 portfolio-item filter-card">
                 <div class="portfolio-wrap">
                     <figure>
-                        <img src="{{asset('')}}frontend/assets/img/portfolio/card3.jpg" class="img-fluid" alt="">
-                        <a href="{{asset('')}}frontend/assets/img/portfolio/card3.jpg" class="link-preview portfolio-lightbox" data-gallery="portfolioGallery" title="Card 3"><i class="bi bi-plus"></i></a>
+                        <img src="{{asset('frontend/assets/img/portfolio/card3.jpg')}}" class="img-fluid" alt="">
+                        <a href="{{asset('frontend/assets/img/portfolio/card3.jpg')}}" class="link-preview portfolio-lightbox" data-gallery="portfolioGallery" title="Card 3"><i class="bi bi-plus"></i></a>
                         <a href="portfolio-details.html" class="link-details" title="More Details"><i class="bi bi-link"></i></a>
                     </figure>
 
@@ -564,8 +564,8 @@
             <div class="col-lg-4 col-md-6 portfolio-item filter-web">
                 <div class="portfolio-wrap">
                     <figure>
-                        <img src="{{asset('')}}frontend/assets/img/portfolio/web1.jpg" class="img-fluid" alt="">
-                        <a href="{{asset('')}}frontend/assets/img/portfolio/web1.jpg" class="link-preview portfolio-lightbox" data-gallery="portfolioGallery" title="Web 1"><i class="bi bi-plus"></i></a>
+                        <img src="{{asset('frontend/assets/img/portfolio/web1.jpg')}}" class="img-fluid" alt="">
+                        <a href="{{asset('frontend/assets/img/portfolio/web1.jpg')}}" class="link-preview portfolio-lightbox" data-gallery="portfolioGallery" title="Web 1"><i class="bi bi-plus"></i></a>
                         <a href="portfolio-details.html" class="link-details" title="More Details"><i class="bi bi-link"></i></a>
                     </figure>
 
@@ -591,14 +591,14 @@
 
             <div class="clients-slider swiper">
                 <div class="swiper-wrapper align-items-center">
-                    <div class="swiper-slide"><img src="{{asset('')}}frontend/assets/img/clients/client-1.png" class="img-fluid" alt=""></div>
-                    <div class="swiper-slide"><img src="{{asset('')}}frontend/assets/img/clients/client-2.png" class="img-fluid" alt=""></div>
-                    <div class="swiper-slide"><img src="{{asset('')}}frontend/assets/img/clients/client-3.png" class="img-fluid" alt=""></div>
-                    <div class="swiper-slide"><img src="{{asset('')}}frontend/assets/img/clients/client-4.png" class="img-fluid" alt=""></div>
-                    <div class="swiper-slide"><img src="{{asset('')}}frontend/assets/img/clients/client-5.png" class="img-fluid" alt=""></div>
-                    <div class="swiper-slide"><img src="{{asset('')}}frontend/assets/img/clients/client-6.png" class="img-fluid" alt=""></div>
-                    <div class="swiper-slide"><img src="{{asset('')}}frontend/assets/img/clients/client-7.png" class="img-fluid" alt=""></div>
-                    <div class="swiper-slide"><img src="{{asset('')}}frontend/assets/img/clients/client-8.png" class="img-fluid" alt=""></div>
+                    <div class="swiper-slide"><img src="{{asset('frontend/assets/img/clients/client-1.png')}}" class="img-fluid" alt=""></div>
+                    <div class="swiper-slide"><img src="{{asset('frontend/assets/img/clients/client-2.png')}}" class="img-fluid" alt=""></div>
+                    <div class="swiper-slide"><img src="{{asset('frontend/assets/img/clients/client-3.png')}}" class="img-fluid" alt=""></div>
+                    <div class="swiper-slide"><img src="{{asset('frontend/assets/img/clients/client-4.png')}}" class="img-fluid" alt=""></div>
+                    <div class="swiper-slide"><img src="{{asset('frontend/assets/img/clients/client-5.png')}}" class="img-fluid" alt=""></div>
+                    <div class="swiper-slide"><img src="{{asset('frontend/assets/img/clients/client-6.png')}}" class="img-fluid" alt=""></div>
+                    <div class="swiper-slide"><img src="{{asset('frontend/assets/img/clients/client-7.png')}}" class="img-fluid" alt=""></div>
+                    <div class="swiper-slide"><img src="{{asset('frontend/assets/img/clients/client-8.png')}}" class="img-fluid" alt=""></div>
                 </div>
                 <div class="swiper-pagination"></div>
             </div>
@@ -619,65 +619,65 @@
 
                     <div class="swiper-slide">
                         <div class="testimonial-item">
-                            <img src="{{asset('')}}frontend/assets/img/testimonial-1.jpg" class="testimonial-img" alt="">
+                            <img src="{{asset('frontend/assets/img/testimonial-1.jpg')}}" class="testimonial-img" alt="">
                             <h3>Saul Goodman</h3>
                             <h4>Ceo &amp; Founder</h4>
                             <p>
-                                <img src="{{asset('')}}frontend/assets/img/quote-sign-left.png" class="quote-sign-left" alt="">
+                                <img src="{{asset('frontend/assets/img/quote-sign-left.png')}}" class="quote-sign-left" alt="">
                                 Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
-                                <img src="{{asset('')}}frontend/assets/img/quote-sign-right.png" class="quote-sign-right" alt="">
+                                <img src="{{asset('frontend/assets/img/quote-sign-right.png')}}" class="quote-sign-right" alt="">
                             </p>
                         </div>
                     </div><!-- End testimonial item -->
 
                     <div class="swiper-slide">
                         <div class="testimonial-item">
-                            <img src="{{asset('')}}frontend/assets/img/testimonial-2.jpg" class="testimonial-img" alt="">
+                            <img src="{{asset('frontend/assets/img/testimonial-2.jpg')}}" class="testimonial-img" alt="">
                             <h3>Sara Wilsson</h3>
                             <h4>Designer</h4>
                             <p>
-                                <img src="{{asset('')}}frontend/assets/img/quote-sign-left.png" class="quote-sign-left" alt="">
+                                <img src="{{asset('frontend/assets/img/quote-sign-left.png')}}" class="quote-sign-left" alt="">
                                 Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
-                                <img src="{{asset('')}}frontend/assets/img/quote-sign-right.png" class="quote-sign-right" alt="">
+                                <img src="{{asset('frontend/assets/img/quote-sign-right.png')}}" class="quote-sign-right" alt="">
                             </p>
                         </div>
                     </div><!-- End testimonial item -->
 
                     <div class="swiper-slide">
                         <div class="testimonial-item">
-                            <img src="{{asset('')}}frontend/assets/img/testimonial-3.jpg" class="testimonial-img" alt="">
+                            <img src="{{asset('frontend/assets/img/testimonial-3.jpg')}}" class="testimonial-img" alt="">
                             <h3>Jena Karlis</h3>
                             <h4>Store Owner</h4>
                             <p>
-                                <img src="{{asset('')}}frontend/assets/img/quote-sign-left.png" class="quote-sign-left" alt="">
+                                <img src="{{asset('frontend/assets/img/quote-sign-left.png')}}" class="quote-sign-left" alt="">
                                 Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
-                                <img src="{{asset('')}}frontend/assets/img/quote-sign-right.png" class="quote-sign-right" alt="">
+                                <img src="{{asset('frontend/assets/img/quote-sign-right.png')}}" class="quote-sign-right" alt="">
                             </p>
                         </div>
                     </div><!-- End testimonial item -->
 
                     <div class="swiper-slide">
                         <div class="testimonial-item">
-                            <img src="{{asset('')}}frontend/assets/img/testimonial-4.jpg" class="testimonial-img" alt="">
+                            <img src="{{asset('frontend/assets/img/testimonial-4.jpg')}}" class="testimonial-img" alt="">
                             <h3>Matt Brandon</h3>
                             <h4>Freelancer</h4>
                             <p>
-                                <img src="{{asset('')}}frontend/assets/img/quote-sign-left.png" class="quote-sign-left" alt="">
+                                <img src="{{asset('frontend/assets/img/quote-sign-left.png')}}" class="quote-sign-left" alt="">
                                 Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
-                                <img src="{{asset('')}}frontend/assets/img/quote-sign-right.png" class="quote-sign-right" alt="">
+                                <img src="{{asset('frontend/assets/img/quote-sign-right.png')}}" class="quote-sign-right" alt="">
                             </p>
                         </div>
                     </div><!-- End testimonial item -->
 
                     <div class="swiper-slide">
                         <div class="testimonial-item">
-                            <img src="{{asset('')}}frontend/assets/img/testimonial-5.jpg" class="testimonial-img" alt="">
+                            <img src="{{asset('frontend/assets/img/testimonial-5.jpg')}}" class="testimonial-img" alt="">
                             <h3>John Larson</h3>
                             <h4>Entrepreneur</h4>
                             <p>
-                                <img src="{{asset('')}}frontend/assets/img/quote-sign-left.png" class="quote-sign-left" alt="">
+                                <img src="{{asset('frontend/assets/img/quote-sign-left.png')}}" class="quote-sign-left" alt="">
                                 Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
-                                <img src="{{asset('')}}frontend/assets/img/quote-sign-right.png" class="quote-sign-right" alt="">
+                                <img src="{{asset('frontend/assets/img/quote-sign-right.png')}}" class="quote-sign-right" alt="">
                             </p>
                         </div>
                     </div><!-- End testimonial item -->
@@ -701,7 +701,7 @@
 
                 <div class="col-lg-3 col-md-6">
                     <div class="member" data-aos="fade-up" data-aos-delay="100">
-                        <img src="{{asset('')}}frontend/assets/img/team-1.jpg" class="img-fluid" alt="">
+                        <img src="{{asset('frontend/assets/img/team-1.jpg')}}" class="img-fluid" alt="">
                         <div class="member-info">
                             <div class="member-info-content">
                                 <h4>Walter White</h4>
@@ -719,7 +719,7 @@
 
                 <div class="col-lg-3 col-md-6">
                     <div class="member" data-aos="fade-up" data-aos-delay="200">
-                        <img src="{{asset('')}}/img/team-2.jpg" class="img-fluid" alt="">
+                        <img src="{{asset('frontend/assets/img/team-2.jpg')}}" class="img-fluid" alt="">
                         <div class="member-info">
                             <div class="member-info-content">
                                 <h4>Sarah Jhonson</h4>
@@ -737,7 +737,7 @@
 
                 <div class="col-lg-3 col-md-6">
                     <div class="member" data-aos="fade-up" data-aos-delay="300">
-                        <img src="{{asset('')}}/img/team-3.jpg" class="img-fluid" alt="">
+                        <img src="{{asset('frontend/assets/img/team-3.jpg')}}" class="img-fluid" alt="">
                         <div class="member-info">
                             <div class="member-info-content">
                                 <h4>William Anderson</h4>
@@ -755,7 +755,7 @@
 
                 <div class="col-lg-3 col-md-6">
                     <div class="member" data-aos="fade-up" data-aos-delay="400">
-                        <img src="{{asset('')}}/img/team-4.jpg" class="img-fluid" alt="">
+                        <img src="{{asset('frontend/assets/img/team-4.jpg')}}" class="img-fluid" alt="">
                         <div class="member-info">
                             <div class="member-info-content">
                                 <h4>Amanda Jepson</h4>
@@ -918,17 +918,16 @@
 <!-- <div id="preloader"></div> -->
 
 <!-- Vendor JS Files -->
-<script src="{{asset('')}}frontend/assets/vendor/purecounter/purecounter.js"></script>
-<script src="{{asset('')}}frontend/assets/vendor/aos/aos.js"></script>
-<script src="{{asset('')}}frontend/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="{{asset('')}}frontend/assets/vendor/glightbox/js/glightbox.min.js"></script>
-<script src="{{asset('')}}frontend/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-<script src="{{asset('')}}frontend/assets/vendor/swiper/swiper-bundle.min.js"></script>
-<script src="{{asset('')}}frontend/assets/vendor/waypoints/noframework.waypoints.js"></script>
-<script src="{{asset('')}}frontend/assets/vendor/php-email-form/validate.js"></script>
+<script src="{{asset('frontend/assets/vendor/purecounter/purecounter.js')}}"></script>
+<script src="{{asset('frontend/assets/vendor/aos/aos.js')}}"></script>
+<script src="{{asset('frontend/assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{asset('frontend/assets/vendor/glightbox/js/glightbox.min.js')}}"></script>
+<script src="{{asset('frontend/assets/vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
+<script src="{{asset('frontend/assets/vendor/waypoints/noframework.waypoints.js')}}"></script>
+<script src="{{asset('frontend/assets/vendor/php-email-form/validate.js')}}"></script>
 
 <!-- Template Main JS File -->
-<script src="{{asset('')}}/js/main.js"></script>
+<script src="{{asset('frontend/assets/js/main.js')}}"></script>
 
 </body>
 

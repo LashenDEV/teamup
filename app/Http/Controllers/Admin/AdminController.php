@@ -9,7 +9,7 @@ class AdminController extends Controller
 {
     public function index()
     {
-        return view('Admin.Dashboard.index');
+        return view('layouts.admin');
     }
 
     public function profile()

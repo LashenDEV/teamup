@@ -12,7 +12,8 @@ class SliderController extends Controller
 {
     public function slider()
     {
-        return view('president.slider.index');
+        $sliders = Slider::all();
+        return view('president.slider.index',compact('sliders'));
     }
 
     public function add()
@@ -26,7 +27,7 @@ class SliderController extends Controller
             $slider_image = $request->file('image');
 
             $name_gen = hexdec(uniqid()) . '.' . $slider_image->getClientOriginalExtension();
-            Image::make($slider_image)->resize(1920, 1088)->save('image/slider/' . $name_gen);
+            Image::make($slider_image)->resize(1920, 1280)->save('image/slider/' . $name_gen);
 
             $last_img = 'image/slider/' . $name_gen;
 

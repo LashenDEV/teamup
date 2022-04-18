@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-    <title>@yield('title')</title>
+    <title>Easy - Admin Dashboard Template</title>
 
     <!-- GOOGLE FONTS -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500|Poppins:400,500,600,700|Roboto:400,500"
@@ -100,14 +100,14 @@
 
 
                                 <li class="active">
-                                    <a class="sidenav-item-link" href="index.html">
-                                        <span class="nav-text">Slider</span>
+                                    <a class="sidenav-item-link" href="{{route('president.slider')}}">
+                                        <span class="nav-text">Sliders</span>
 
                                     </a>
                                 </li>
                                 <li class="active">
                                     <a class="sidenav-item-link" href="index.html">
-                                        <span class="nav-text">Members</span>
+                                        <span class="nav-text">Home About</span>
 
                                     </a>
                                 </li>

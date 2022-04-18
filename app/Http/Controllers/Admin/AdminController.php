@@ -9,16 +9,16 @@ class AdminController extends Controller
 {
     public function index()
     {
-        return view('layouts.admin');
+        return view('Admin.dashboard.index');
     }
 
     public function profile()
     {
-        return view('Admin.Dashboard.profile');
+        return view('Admin.dashboard.profile');
     }
 
     public function settings()
     {
-        return view('Admin.Dashboard.settings');
+        return view('Admin.dashboard.settings');
     }
 }

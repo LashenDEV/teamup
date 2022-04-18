@@ -24,9 +24,9 @@ class HomeController extends Controller
     public function index()
     {
         if (\Auth::user()->role == 1) {
-            return view('Admin.Dashboard.index');
+            return view('Admin.dashboard.index');
         } elseif (\Auth::user()->role == 2) {
-            return view('President.Dashboard.index');
+            return view('President.dashboard.index');
         }elseif (\Auth::user()->role == 3) {
             return view('User.Dashboard.index');
         }

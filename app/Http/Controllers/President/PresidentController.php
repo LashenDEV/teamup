@@ -9,16 +9,16 @@ class PresidentController extends Controller
 {
     public function index()
     {
-        return view('President.Dashboard.index');
+        return view('president.dashboard.index');
     }
 
     public function profile()
     {
-        return view('President.Dashboard.profile');
+        return view('President.dashboard.profile');
     }
 
     public function settings()
     {
-        return view('President.Dashboard.settings');
+        return view('President.dashboard.settings');
     }
 }

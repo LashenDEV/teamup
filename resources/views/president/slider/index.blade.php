@@ -5,10 +5,11 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="container">
                 <div class="row">
-                    <h4>Home Slider</h4>
+                    <div class="d-flex w-100 justify-content-between p-2"><h4>Home Slider</h4>
                     <a href="{{route('president.add.slider')}}">
                         <button class="btn btn-info">Add Slider</button>
-                    </a>
+                    </a></div>
+                    
                     <br><br>
                     <div class="col-md-12">
                         @if(session('success'))
@@ -34,13 +35,13 @@
                                 </thead>
                                 <tbody>
                                 @php($i=1)
-                                {{--                                @foreach($sliders as $slider)--}}
+                                @foreach($sliders as $slider)
                                 <tr>
                                     <th scope="row">{{$i++}}</th>
-                                    {{--                                        <td>{{$slider->title}}</td>--}}
-                                    {{--                                        <td>{{$slider->description}}</td>--}}
-                                    {{--                                        <td><img src="{{asset($slider->image)}}" style="height: 40px; width: 70px">--}}
-                                    {{--                                        </td>--}}
+                                    <td>{{$slider->title}}</td>
+                                    <td>{{$slider->description}}</td>
+                                    <td><img src="{{asset($slider->image)}}" style="height: 40px; width: 70px">
+                                    </td>
                                     <td>
                                         <a href="#"
                                            class="btn btn-info">Edit
@@ -51,7 +52,7 @@
                                         </a>
                                     </td>
                                 </tr>
-                                {{--                                @endforeach--}}
+                                @endforeach
                                 </tbody>
                             </table>
                         </div>

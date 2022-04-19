@@ -28,17 +28,17 @@ Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin', 'auth']], functio
     Route::get('dashboard', [Admin\AdminController::class, 'index'])->name('admin.dashboard');
     Route::get('profile', [Admin\AdminController::class, 'profile'])->name('admin.profile');
     Route::get('settings', [Admin\AdminController::class, 'settings'])->name('admin.settings');
+
+    //Sliders
+    Route::get('slider', [Admin\SliderController::class, 'slider'])->name('slider');
+    Route::get('slider/add', [Admin\SliderController::class, 'add'])->name('add.slider');
+    Route::post('slider/store', [Admin\SliderController::class, 'store'])->name('store.slider');
 });
 
 Route::group(['as' => 'president.','prefix' => 'president', 'middleware' => ['isPresident', 'auth']], function () {
     Route::get('dashboard', [President\PresidentController::class, 'index'])->name('dashboard');
     Route::get('profile', [President\PresidentController::class, 'profile'])->name('profile');
     Route::get('settings', [President\PresidentController::class, 'settings'])->name('settings');
-
-    //Sliders
-    Route::get('slider', [President\SliderController::class, 'slider'])->name('slider');
-    Route::get('slider/add', [President\SliderController::class, 'add'])->name('add.slider');
-    Route::post('slider/store', [President\SliderController::class, 'store'])->name('store.slider');
 });
 
 Route::group(['prefix' => 'user', 'middleware' => ['isUser', 'auth']], function () {

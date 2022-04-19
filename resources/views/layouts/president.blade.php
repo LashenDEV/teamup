@@ -100,7 +100,7 @@
 
 
                                 <li class="active">
-                                    <a class="sidenav-item-link" href="{{route('president.slider')}}">
+                                    <a class="sidenav-item-link" href="#">
                                         <span class="nav-text">Sliders</span>
 
                                     </a>

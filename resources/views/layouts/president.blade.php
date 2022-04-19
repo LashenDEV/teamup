@@ -100,8 +100,8 @@
 
 
                                 <li class="active">
-                                    <a class="sidenav-item-link" href="#">
-                                        <span class="nav-text">Sliders</span>
+                                    <a class="sidenav-item-link" href="{{ route('president.club') }}">
+                                        <span class="nav-text">Club</span>
 
                                     </a>
                                 </li>

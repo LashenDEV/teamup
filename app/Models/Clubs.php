@@ -13,6 +13,9 @@ class Clubs extends Model
         'president_id',
         'name',
         'description',
+        'vision',
+        'mission',
         'image',
+        'approval',
     ];
 }

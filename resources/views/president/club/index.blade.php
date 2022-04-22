@@ -9,9 +9,9 @@
 
 <!-- Button -->
 <div class="text-right">
-    <button type="button" class="btn btn-primary">+Add Your Club</button>
-<button type="button" class="btn btn-dark">Back</button>
-</div>
+  <button type="button" class="btn btn-primary btn-sm">+Add Your Club</button>
+  <button type="button" class="btn btn-secondary btn-sm">Back</button>
+</div><br>
 <!-- Button -->
 
 <h1 >ART CLUB</h1><br>

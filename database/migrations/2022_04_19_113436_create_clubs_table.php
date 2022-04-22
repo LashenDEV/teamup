@@ -18,7 +18,10 @@ class CreateClubsTable extends Migration
             $table->unsignedBigInteger('president_id');
             $table->string('name');
             $table->text('description');
+            $table->text('vision');
+            $table->text('mission');
             $table->string('image');
+            $table->boolean('approval');
             $table->timestamps();
         });
     }

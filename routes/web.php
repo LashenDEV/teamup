@@ -26,9 +26,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 //Routes for Admin
 Route::group(['as' => 'admin.','prefix' => 'admin', 'middleware' => ['isAdmin', 'auth']], function () {
-    Route::get('dashboard', [Admin\AdminController::class, 'index'])->name('admin.dashboard');
-    Route::get('profile', [Admin\AdminController::class, 'profile'])->name('admin.profile');
-    Route::get('settings', [Admin\AdminController::class, 'settings'])->name('admin.settings');
+    Route::get('dashboard', [Admin\AdminController::class, 'index'])->name('dashboard');
+    Route::get('profile', [Admin\AdminController::class, 'profile'])->name('profile');
+    Route::get('settings', [Admin\AdminController::class, 'settings'])->name('settings');
 
     //Sliders
     Route::get('slider', [Admin\SliderController::class, 'slider'])->name('slider');

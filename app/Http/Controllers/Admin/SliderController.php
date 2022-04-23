@@ -13,12 +13,12 @@ class SliderController extends Controller
     public function slider()
     {
         $sliders = Slider::all();
-        return view('president.slider.index', compact('sliders'));
+        return view('admin.slider.index', compact('sliders'));
     }
 
     public function add()
     {
-        return view('president.slider.add');
+        return view('admin.slider.add');
     }
 
     public function store(Request $request)
@@ -38,7 +38,7 @@ class SliderController extends Controller
                 'created_at' => Carbon::now()
             ]);
 
-            return redirect()->route('president.slider')->with('success', 'Slider Inserted Successfully');
+            return redirect()->route('admin.slider')->with('success', 'Slider Inserted Successfully');
         }
     }
 }

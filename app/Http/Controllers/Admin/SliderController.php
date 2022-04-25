@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\President;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Slider;
@@ -13,17 +13,16 @@ class SliderController extends Controller
     public function slider()
     {
         $sliders = Slider::all();
-        return view('president.slider.index',compact('sliders'));
+        return view('admin.slider.index', compact('sliders'));
     }
 
     public function add()
     {
-        return view('president.slider.add');
+        return view('admin.slider.add');
     }
 
     public function store(Request $request)
-    {
-        {
+    { {
             $slider_image = $request->file('image');
 
             $name_gen = hexdec(uniqid()) . '.' . $slider_image->getClientOriginalExtension();
@@ -39,7 +38,7 @@ class SliderController extends Controller
                 'created_at' => Carbon::now()
             ]);
 
-            return redirect()->route('president.slider')->with('success', 'Slider Inserted Successfully');
+            return redirect()->route('admin.slider')->with('success', 'Slider Inserted Successfully');
         }
     }
 }

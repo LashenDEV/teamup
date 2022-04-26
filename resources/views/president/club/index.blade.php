@@ -2,6 +2,19 @@
 @section('title', 'club')
 @section('content')
     <!-- Button -->
+    <div class="text-right">
+        @if ($your_club == null)
+            <a href="{{ route('president.new.club') }}" class="btn btn-primary item-center">
+                <i class="fa-solid fa-plus"></i>
+                Add Your Club</a>
+        @else
+            <a href="{{ route('president.edit.club') }}" class="btn btn-primary item-center">
+                <i class="fa-solid fa-pen-to-square"></i>
+                Edit Your Club</a>
+        @endif
+        <a href="{{ route('president.dashboard') }}" class="btn btn-secondary">Back</a>
+    </div><br>
+    <!-- Button -->
     <div class="text-right py-2">
         @if ($your_club != null)
             <a href="{{ route('president.club.edit', $your_club->id) }}" class="btn btn-primary item-center">

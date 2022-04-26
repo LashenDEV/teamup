@@ -47,6 +47,7 @@ Route::group(['as' => 'president.','prefix' => 'president', 'middleware' => ['is
     Route::get('club', [President\ClubController::class, 'index'])->name('club');
     Route::get('club/new', [President\ClubController::class, 'new'])->name('new.club');
     Route::post('club/store', [President\ClubController::class, 'store'])->name('store.club');
+    Route::get('club/edit', [President\ClubController::class, 'edit'])->name('edit.club');
 });
 
 

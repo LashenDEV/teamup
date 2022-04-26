@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Clubs;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Image;
 use Laravel\Ui\Presets\React;
 
@@ -13,7 +14,8 @@ class ClubController extends Controller
 {
     public function index()
     {
-        return view('president.club.index');
+        $your_club = Clubs::where('president_id' , Auth::user()->id)->first();
+        return view('president.club.index', compact('your_club'));
     }
 
     public function new(){
@@ -39,9 +41,7 @@ class ClubController extends Controller
             'created_at' => Carbon::now()
         ]);
 
-        return redirect()->route('president.slider')->with('success', 'Club Inserted Successfully');
-
-        return view('president.club.new');
+        return redirect()->route('president.slider')->with('success', 'Your Club Is Created Successfully');
     }
 
     public function edit()

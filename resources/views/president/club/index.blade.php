@@ -1,64 +1,68 @@
 @extends('layouts.president')
 @section('title', 'club')
 @section('content')
-    {{-- //show the club here please remove this comment after done the job
-//Add a href button as "Add Your Club" --}}
-    <style>
-        h1 {
-            text-align: center;
-        }
-
-    </style>
-
     <!-- Button -->
     <div class="text-right">
-        <a href="{{ route('president.new.club') }}" class="btn btn-primary item-center"><i class="fa-solid fa-plus"></i> Add Your Club</a>
-        <button type="button" class="btn btn-secondary">Back</button>
+        @if ($your_club == null)
+            <a href="{{ route('president.new.club') }}" class="btn btn-primary item-center">
+                <i class="fa-solid fa-plus"></i>
+                Add Your Club</a>
+        @else
+            <a href="{{ route('president.edit.club') }}" class="btn btn-primary item-center">
+                <i class="fa-solid fa-pen-to-square"></i>
+                Edit Your Club</a>
+        @endif
+        <a href="{{ route('president.dashboard') }}" class="btn btn-secondary">Back</a>
     </div><br>
     <!-- Button -->
 
-    <h1>ART CLUB</h1><br>
+    @if (session('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>{{ session('success') }}</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
+
+    <h1 class="text-center text-dark">{{ $your_club->name }}</h1><br>
 
     <!-- Background image -->
-    <div class="bg-image" style="
-            height: 50vh;
-          ">
-        <img src="{{ asset('image/clubs/Art.jpeg') }}" alt="" class="img-fluid" > <span class="rounded"></span> 
-        </div> 
+    <div class="bg-image d-flex justify-content-center mb-5">
+        <img src="{{ asset($your_club->image) }}" alt="" class="img-fluid rounded img-thumbnail" style="height: 400px !important;">
+    </div>
     <!-- Background image -->
 
     <!-- Card -->
     <div class="card-deck">
         <div class="card">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Description:</h5>
-                <p class="card-text">The Art Club is a place for practicing artists to hone in on their skills, develop
-                    their techniques and portfolios, collaborate with other artists like themselves, create bonds with the
-                    community through the arts, and learn how to work together through group projects that will beautify the
-                    university and community.</p>
+            <div class="d-flex align-items-center">
+                <img src="{{ asset('assets/images/Icons/Clubs/description.png') }}"
+                    class="m-2 p-2" alt="..." width="60px" height="60px">
+                <h5 class="text-dark">Description:</h5>
+            </div>
+            <div class="card-body pt-0">
+                <p class="card-text">{{ $your_club->description }}</p>
             </div>
         </div>
         <div class="card">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Goals of Club:</h5>
-                <p class="card-text">To provide students with a safe environment to explore the visual arts; To create
-                    experiences that are not provided in a regular classroom environment for art students; To enhance
-                    connections to the arts between our students and the community at large.</p>
+            <div class="d-flex align-items-center">
+                <img src="{{ asset('assets/images/Icons/Clubs/vision.png') }}"
+                    class="m-2 p-2" alt="..." width="60px" height="60px">
+                <h5 class="text-dark">Goals of the Club:</h5>
+            </div>
+            <div class="card-body pt-0">
+                <p class="card-text">{{ $your_club->vision }}</p>
             </div>
         </div>
         <div class="card">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Mission:</h5>
-                <p class="card-text">Our mission is to provide art club members with an opportunity to express their
-                    individuality through the creation of artworks and give back to our community, school, and others, using
-                    our talents and gifts in unique ways.</p>
+            <div class="d-flex align-items-center">
+                <img src="{{ asset('assets/images/Icons/Clubs/mission.png') }}"
+                class="m-2 p-2" alt="..." width="60px" height="60px">
+            <h5 class="text-dark">Mission of the Club:</h5>
+        </div>
+            <div class="card-body pt-0">
+                <p class="card-text">{{ $your_club->mission }}</p>
             </div>
         </div>
-    </div> <br>
+    </div>
     <!-- card -->
-
-   
 @endsection

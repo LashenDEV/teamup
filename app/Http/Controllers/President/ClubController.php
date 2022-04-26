@@ -16,6 +16,10 @@ class ClubController extends Controller
         return view('president.club.index');
     }
 
+    public function new(){
+        return view('president.club.new');
+    }
+
     public function store(Request $request)
     {
         $club_image = $request->file('image');

@@ -12,7 +12,7 @@
 
     <!-- Button -->
     <div class="text-right">
-        <button type="button" class="btn btn-primary item-center"><i class="fa-solid fa-plus"></i> Add Your Club</button>
+        <a href="{{ route('president.new.club') }}" class="btn btn-primary item-center"><i class="fa-solid fa-plus"></i> Add Your Club</a>
         <button type="button" class="btn btn-secondary">Back</button>
     </div><br>
     <!-- Button -->

@@ -23,11 +23,13 @@
         </div>
     @endif
 
-    <h1 class="text-center text-dark">{{ $your_club->name }}</h1><br>
+    
 
     <!-- Background image -->
-    <div class="bg-image d-flex justify-content-center mb-5">
-        <img src="{{ asset($your_club->image) }}" alt="" class="img-fluid rounded img-thumbnail" style="height: 400px !important;">
+    <div class="bg-image mb-5 bg-white">
+        <h1 class="text-center text-dark py-2">{{ $your_club->name }}</h1>
+        <img src="{{ asset($your_club->image) }}" alt="" class="img-fluid"
+            style="height: 500px; width:100% !important;">
     </div>
     <!-- Background image -->
 
@@ -35,8 +37,8 @@
     <div class="card-deck">
         <div class="card">
             <div class="d-flex align-items-center">
-                <img src="{{ asset('assets/images/Icons/Clubs/description.png') }}"
-                    class="m-2 p-2" alt="..." width="60px" height="60px">
+                <img src="{{ asset('assets/images/Icons/Clubs/description.png') }}" class="m-2 p-2" alt="..."
+                    width="60px" height="60px">
                 <h5 class="text-dark">Description:</h5>
             </div>
             <div class="card-body pt-0">
@@ -45,8 +47,8 @@
         </div>
         <div class="card">
             <div class="d-flex align-items-center">
-                <img src="{{ asset('assets/images/Icons/Clubs/vision.png') }}"
-                    class="m-2 p-2" alt="..." width="60px" height="60px">
+                <img src="{{ asset('assets/images/Icons/Clubs/vision.png') }}" class="m-2 p-2" alt="..."
+                    width="60px" height="60px">
                 <h5 class="text-dark">Goals of the Club:</h5>
             </div>
             <div class="card-body pt-0">
@@ -55,10 +57,10 @@
         </div>
         <div class="card">
             <div class="d-flex align-items-center">
-                <img src="{{ asset('assets/images/Icons/Clubs/mission.png') }}"
-                class="m-2 p-2" alt="..." width="60px" height="60px">
-            <h5 class="text-dark">Mission of the Club:</h5>
-        </div>
+                <img src="{{ asset('assets/images/Icons/Clubs/mission.png') }}" class="m-2 p-2" alt="..."
+                    width="60px" height="60px">
+                <h5 class="text-dark">Mission of the Club:</h5>
+            </div>
             <div class="card-body pt-0">
                 <p class="card-text">{{ $your_club->mission }}</p>
             </div>

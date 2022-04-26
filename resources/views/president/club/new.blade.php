@@ -8,13 +8,13 @@
             <h2>Create Club</h2>
         </div>
         <div class="card-body">
-            <form action="" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('president.store.club') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <input type="hidden" name="president_id" value="{{auth()->user()->id}}">
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Club Name</label>
                     <input type="text" class="form-control" id="exampleFormControlInput1"
-                           placeholder="Club Name" name="title">
+                           placeholder="Club Name" name="name">
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1">Club Description</label>
@@ -22,15 +22,15 @@
                               rows="3"
                               name="description"></textarea><br>
                     
-                    <label for="exampleFormControlTextarea1">Goals of Club</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Club Vision"
+                    <label for="exampleFormControlTextarea1">Goal of the Club</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Goals of Club"
                                rows="3"
-                               name="description"></textarea><br>
+                               name="vision"></textarea><br>
 
-                    <label for="exampleFormControlTextarea1">Club Mission</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Club Mission"
+                    <label for="exampleFormControlTextarea1">Mission of the Club</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Mission of the Club"
                                 rows="3"
-                                name="description"></textarea>
+                                name="mission"></textarea>
 
                 </div>
                 <div class="form-group">

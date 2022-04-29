@@ -1,7 +1,7 @@
 @extends('layouts.president')
 @section('title', 'new club')
 @section('content')
-{{-- //new club here please remove this comment after done the job --}}
+<div class="content">
 <div class="col-lg-12">
     <div class="card card-default">
         <div class="card-header card-header-border-bottom">
@@ -43,4 +43,5 @@
             </form>
         </div>
     </div>
+</div>
 @endsection

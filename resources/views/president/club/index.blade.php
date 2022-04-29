@@ -11,6 +11,9 @@
             <a href="{{ route('president.edit.club') }}" class="btn btn-primary item-center">
                 <i class="fa-solid fa-pen-to-square"></i>
                 Edit Your Club</a>
+            <a href="{{ route('president.edit.club') }}" class="btn btn-danger item-center" >
+                <i class="fa-solid fa-trash-can"></i>
+                Delete</a>
         @endif
         <a href="{{ route('president.dashboard') }}" class="btn btn-secondary">Back</a>
     </div><br>

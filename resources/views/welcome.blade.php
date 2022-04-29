@@ -200,21 +200,7 @@
                     <button class="button button2">More</button>
                 </div>
 
-                <div class="col-lg-4 box box-bg">
-                    <i class="bi bi-card-checklist"></i>
-                    <h4 class="title"><a href="">Art Club</a></h4>
-                    <p class="description">If theater is a big priority for you in college, learn which kinds of performance opportunities exist. Musical groups are easy to find in many universities as well. Join a group focused on your degree and increase your skills in an area you are passionate about. </p>
-                    <button class="button button1">Join Now</button>
-                    <button class="button button2">More</button>
-                </div>
 
-                <div class="col-lg-4 box box-bg">
-                    <i class="bi bi-card-checklist"></i>
-                    <h4 class="title"><a href="">Media & Publication Groups</a></h4>
-                    <p class="description">A media or publication club focuses on producing a university newspaper, website, or broadcast. Many student-run newspapers are real influencers, both in university and in the community. Employers are pleased to see this activity on your résumé as it matches your career ambitions.</p>
-                    <button class="button button1">Join Now</button>
-                    <button class="button button2">More</button>
-                </div>
 
                 <div class="col-lg-4 box box-bg">
                     <i class="bi bi-card-checklist"></i>
@@ -244,7 +230,7 @@
 
             <header class="section-header">
                 <h3>About Us</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <p>we are a group of undergraduate students, concentrating on forming a community of students that will work as a team to study web development and be interested in digitalization. Through this web application, we hope to bring all the clubs in the University closer to the students through the online methodology.</p>
             </header>
 
             <div class="row about-cols">
@@ -257,7 +243,7 @@
                         </div>
                         <h2 class="title"><a href="#">Our Mission</a></h2>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            To digitize and maintain all the societies within the university system.
                         </p>
                     </div>
                 </div>
@@ -283,7 +269,7 @@
                         </div>
                         <h2 class="title"><a href="#">Our Vision</a></h2>
                         <p>
-                            Nemo enim ipsam voluptatem quia voluptas sit aut odit aut fugit, sed quia magni dolores eos qui ratione voluptatem sequi nesciunt Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.
+                            To efficiently manage and maintain the societies within the University.
                         </p>
                     </div>
                 </div>

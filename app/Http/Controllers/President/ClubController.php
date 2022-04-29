@@ -33,7 +33,7 @@ class ClubController extends Controller
 
         Clubs::insert([
             'president_id' => $request->president_id,
-            'title' => $request->title,
+            'name' => $request->name,
             'description' => $request->description,
             'vision' => $request->vision,
             'mission' => $request->mission,
@@ -41,7 +41,7 @@ class ClubController extends Controller
             'created_at' => Carbon::now()
         ]);
 
-        return redirect()->route('president.slider')->with('success', 'Your Club Is Created Successfully');
+        return redirect()->route('president.club')->with('success', 'Your Club Is Created Successfully');
     }
 
     public function edit()
@@ -63,7 +63,7 @@ class ClubController extends Controller
             unlink($old_image);
             Clubs::find($id)->update([
                 'president_id' => $request->president_id,
-                'title' => $request->title,
+                'name' => $request->name,
                 'description' => $request->description,
                 'vision' => $request->vision,
                 'mission' => $request->mission,
@@ -73,7 +73,7 @@ class ClubController extends Controller
         } else {
             Clubs::find($id)->update([
                 'president_id' => $request->president_id,
-                'title' => $request->title,
+                'name' => $request->name,
                 'description' => $request->description,
                 'vision' => $request->vision,
                 'mission' => $request->mission,

@@ -72,8 +72,8 @@
                 <!-- Aplication Brand -->
                 <div class="app-brand">
                     <a href="/index.html" class="p-0">
-                        <img class="brand-icon p-2" src="{{ asset('assets/images/logos/teamup logo.png') }}" alt="" width="75px"
-                            height="75px">
+                        <img class="brand-icon p-2" src="{{ asset('assets/images/logos/teamup logo.png') }}" alt=""
+                            width="75px" height="75px">
                         <span class="brand-name ml-0">President Dashboard</span>
                     </a>
                 </div>
@@ -503,9 +503,9 @@
 
 
             <div class="content-wrapper">
-                <div class="content">
+                
                     @yield('content')
-                </div>
+                {{-- </div> --}}
             </div>
 
             <footer class="footer mt-auto">

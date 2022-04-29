@@ -1,19 +1,26 @@
 @extends('layouts.president')
 @section('title', 'club')
 @section('content')
-    <!-- Button -->
-    <div class="text-right">
-        @if ($your_club == null)
-            <a href="{{ route('president.new.club') }}" class="btn btn-primary item-center">
-                <i class="fa-solid fa-plus"></i>
-                Add Your Club</a>
-        @else
-            <a href="{{ route('president.edit.club') }}" class="btn btn-primary item-center">
-                <i class="fa-solid fa-pen-to-square"></i>
-                Edit Your Club</a>
-            <a href="{{ route('president.edit.club') }}" class="btn btn-danger item-center" >
-                <i class="fa-solid fa-trash-can"></i>
-                Delete</a>
+    <div class="content">
+        <!-- Button -->
+        <div class="text-right py-2">
+            @if ($your_club != null)
+                <a href="{{ route('president.edit.club') }}" class="btn btn-primary item-center">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                    Edit Your Club</a>
+                <a href="{{ route('president.edit.club') }}" class="btn btn-danger item-center">
+                    <i class="fa-solid fa-trash-can"></i>
+                    Delete</a>
+            @endif
+            <a href="{{ route('president.dashboard') }}" class="btn btn-secondary">Back</a>
+        </div>
+        <!-- Button -->
+
+        @if (session('success'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>{{ session('success') }}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
         @endif
         <a href="{{ route('president.dashboard') }}" class="btn btn-secondary">Back</a>
     </div><br>

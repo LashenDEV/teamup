@@ -35,7 +35,6 @@
 
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.1.1/css/all.css">
-
     <!--
       HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries
     -->

@@ -43,11 +43,13 @@ Route::group(['as' => 'president.','prefix' => 'president', 'middleware' => ['is
     Route::get('profile', [President\PresidentController::class, 'profile'])->name('profile');
     Route::get('settings', [President\PresidentController::class, 'settings'])->name('settings');
 
-    //Sliders
-    Route::get('club', [President\ClubController::class, 'index'])->name('club');
-    Route::get('club/new', [President\ClubController::class, 'new'])->name('new.club');
-    Route::post('club/store', [President\ClubController::class, 'store'])->name('store.club');
-    Route::get('club/edit', [President\ClubController::class, 'edit'])->name('edit.club');
+    //Clubs
+    Route::get('club', [President\ClubController::class, 'index'])->name('club.index');
+    Route::get('club/create', [President\ClubController::class, 'create'])->name('club.create');
+    Route::post('club/store', [President\ClubController::class, 'store'])->name('club.store');
+    Route::get('club/{id}/edit/', [President\ClubController::class, 'edit'])->name('club.edit');
+    Route::put('club/{id}/update', [President\ClubController::class, 'update'])->name('club.update');
+    Route::delete('club/{id}', [President\ClubController::class, 'destroy'])->name('club.destroy');
 });
 
 

@@ -5,23 +5,17 @@
         <!-- Button -->
         <div class="text-right py-2">
             @if ($your_club != null)
-                <a href="{{ route('president.edit.club') }}" class="btn btn-primary item-center">
+                <a href="{{ route('president.club.edit', $your_club->id) }}" class="btn btn-primary item-center">
                     <i class="fa-solid fa-pen-to-square"></i>
                     Edit Your Club</a>
-                <a href="{{ route('president.edit.club') }}" class="btn btn-danger item-center">
+                <a href="#deleteModal" class="trigger-btn btn btn-danger item-center" data-toggle="modal"
+                    class="btn btn-danger item-center">
                     <i class="fa-solid fa-trash-can"></i>
                     Delete</a>
             @endif
             <a href="{{ route('president.dashboard') }}" class="btn btn-secondary">Back</a>
         </div>
         <!-- Button -->
-
-        @if (session('success'))
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                <strong>{{ session('success') }}</strong>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        @endif
 
         @if ($your_club != null)
             <!-- Background image -->
@@ -66,11 +60,12 @@
                 </div>
             </div>
             <!-- card -->
+            @include('components.deleteModal')
         @else
             <div class="d-flex justify-content-center flex-column align-items-center p-5" style="height: 61vh">
                 <h1 class="text-center">
                     {{ __('Please Add Your Club') }}</h1>
-                <a href="{{ route('president.new.club') }}"><i class="fa-solid fa-folder-plus fa-10x m-5"></i></a>
+                <a href="{{ route('president.club.create') }}"><i class="fa-solid fa-folder-plus fa-10x m-5"></i></a>
             </div>
         @endif
     </div>

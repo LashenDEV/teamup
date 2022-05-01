@@ -8,7 +8,7 @@
             <h2>Create Club</h2>
         </div>
         <div class="card-body">
-            <form action="{{ route('president.store.club') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('president.club.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <input type="hidden" name="president_id" value="{{auth()->user()->id}}">
                 <div class="form-group">

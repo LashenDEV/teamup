@@ -3,83 +3,87 @@
 namespace App\Http\Controllers\President;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreClubRequest;
+use App\Http\Requests\UpdateClubRequest;
 use App\Models\Clubs;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Image;
-use Laravel\Ui\Presets\React;
 
 class ClubController extends Controller
 {
+    private function save(Clubs $club, Request $request, $club_image)
+    {
+        $name_gen = hexdec(uniqid()) . '.' . $club_image->getClientOriginalExtension();
+        Image::make($club_image)->resize(1920, 1280)->save('image/club/' . $name_gen);
+        $last_img = 'image/club/' . $name_gen;
+
+        $club->president_id = $request->president_id;
+        $club->name = $request->name;
+        $club->description = $request->description;
+        $club->vision = $request->vision;
+        $club->mission = $request->mission;
+        $club->image = $last_img;
+        $club->created_at = Carbon::now();
+        $club->save();
+    }
+
     public function index()
     {
-        $your_club = Clubs::where('president_id' , Auth::user()->id)->first();
+        $your_club = Clubs::where('president_id', Auth::user()->id)->first();
         return view('president.club.index', compact('your_club'));
     }
 
-    public function new(){
+    public function create()
+    {
         return view('president.club.new');
     }
 
-    public function store(Request $request)
+    public function store(StoreClubRequest $request)
     {
         $club_image = $request->file('image');
 
-        $name_gen = hexdec(uniqid()) . '.' . $club_image->getClientOriginalExtension();
-        Image::make($club_image)->resize(1920, 1280)->save('image/club/' . $name_gen);
+        $club = new Clubs();
+        $this->save($club, $request, $club_image);
 
-        $last_img = 'image/club/' . $name_gen;
 
-        Clubs::insert([
-            'president_id' => $request->president_id,
-            'name' => $request->name,
-            'description' => $request->description,
-            'vision' => $request->vision,
-            'mission' => $request->mission,
-            'image' => $last_img,
-            'created_at' => Carbon::now()
-        ]);
-
-        return redirect()->route('president.club')->with('success', 'Your Club Is Created Successfully');
+        return redirect()->route('president.club.index')->with('success', 'Your Club Is Created Successfully');
     }
 
-    public function edit()
+    public function edit($id)
     {
-        return view('president.club.edit');
+        $your_club = Clubs::findOrFail($id);
+        return view('president.club.edit', compact('your_club'));
     }
 
-    public function update(Request $request)
+    public function update(UpdateClubRequest $request, $id)
     {
         $old_image = $request->old_image;
-        $image = $request->file('image');
+        $club_image = $request->file('image');
 
-        if ($image) {
-
-            $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
-            Image::make($image)->resize(300, 200)->save('image/club/' . $name_gen);
-            $last_img = 'image/club/' . $name_gen;
-
+        if ($club_image) {
             unlink($old_image);
-            Clubs::find($id)->update([
-                'president_id' => $request->president_id,
-                'name' => $request->name,
-                'description' => $request->description,
-                'vision' => $request->vision,
-                'mission' => $request->mission,
-                'image' => $last_img,
-                'created_at' => Carbon::now()
-            ]);
+            $club = Clubs::findOrFail($id);
+            $this->save($club, $request, $club_image);
         } else {
-            Clubs::find($id)->update([
-                'president_id' => $request->president_id,
-                'name' => $request->name,
-                'description' => $request->description,
-                'vision' => $request->vision,
-                'mission' => $request->mission,
-                'created_at' => Carbon::now()
-            ]);
+            $club = Clubs::findOrFail($id);
+            $club->president_id = $request->president_id;
+            $club->name = $request->name;
+            $club->description = $request->description;
+            $club->vision = $request->vision;
+            $club->mission = $request->mission;
+            $club->created_at = Carbon::now();
+            $club->save();
         }
-        return redirect()->back()->with('success', 'Club Updated Successfully');
+        return redirect()->route('president.club.index')->with('success', 'Club Updated Successfully');
+    }
+
+    public function destroy($id)
+    {
+        $image =  Clubs::where('id', $id)->firstOrFail()->image;
+        unlink($image);
+        Clubs::find($id)->delete();
+        return redirect()->back()->with('success', 'Club deleted Successfully');
     }
 }

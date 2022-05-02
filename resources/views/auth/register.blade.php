@@ -1,5 +1,5 @@
 @extends('layouts.auth')
-
+@section('title', 'Register')
 @section('content')
 
     <body class="bg-light-gray" id="body"

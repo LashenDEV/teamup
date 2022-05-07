@@ -1,62 +1,74 @@
 @extends('layouts.president')
 @section('title', 'club')
 @section('content')
-{{-- //show the club here please remove this comment after done the job
-//Add a href button as "Add Your Club" --}}
-<style>
-    h1{text-align:center; }
-</style>
-
-<!-- Button -->
-<div class="text-right">
-  <button type="button" class="btn btn-primary btn-sm">+Add Your Club</button>
-  <button type="button" class="btn btn-secondary btn-sm">Back</button>
-</div><br>
-<!-- Button -->
-
-<h1 >ART CLUB</h1><br>
-
-<!-- Background image -->
-<div
-  class="bg-image"
-  style="
-    background-image:https://www.stonnington.vic.gov.au/files/assets/public/community/events/art-club.jpg?dimension=pageimagefullwidth&w=1140;
-    height: 50vh;
-  "
-></div> <br>
-<!-- Background image -->
-
-<!-- Card -->
-<div class="card-deck">
-    <div class="card">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Description:</h5>
-        <p class="card-text">The Art Club is a place for practicing artists to hone in on their skills, develop their techniques and portfolios, collaborate with other artists like themselves, create bonds with the community through the arts, and learn how to work together through group projects that will beautify the university and community.</p>
-      </div>
+    <!-- Button -->
+    <div class="text-right py-2">
+        @if ($your_club != null)
+            <a href="{{ route('president.club.edit', $your_club->id) }}" class="btn btn-primary item-center">
+                <i class="fa-solid fa-pen-to-square"></i>
+                Edit Your Club</a>
+            <a href="#deleteModal" class="trigger-btn btn btn-danger item-center" data-toggle="modal"
+                class="btn btn-danger item-center">
+                <i class="fa-solid fa-trash-can"></i>
+                Delete</a>
+        @endif
+        <a href="{{ route('president.dashboard') }}" class="btn btn-secondary">Back</a>
     </div>
-    <div class="card">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Goals of Club:</h5>
-        <p class="card-text">To provide students with a safe environment to explore the visual arts; To create experiences that are not provided in a regular classroom environment for art students; To enhance connections to the arts between our students and the community at large.</p>
-      </div>
-    </div>
-    <div class="card">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Mission:</h5>
-        <p class="card-text">Our mission is to provide art club members with an opportunity to express their individuality through the creation of artworks and give back to our community, school, and others, using our talents and gifts in unique ways.</p>
-      </div>
-    </div>
-  </div> <br>
-  <!-- card -->
+    @if ($your_club != null)
+        <!-- Button -->
+        <div class="card card-deafault rounded">
+            <div class="card body">
+                <!-- Background image -->
+                <div class="bg-image mb-5 d-flex align-items-center flex-column" style="background-color: #fff">
+                    <h1 class="text-dark py-4">{{ $your_club->name }}</h1>
+                    <img src="{{ asset($your_club->image) }}" alt="" class="img-fluid"
+                        style="height: 500px; width:95% !important;">
+                </div>
+                <!-- Background image -->
 
-<!-- Insert Image -->
-<label for="avatar"><h5>Insert Image:</h5></label>
-<input type="file"
-       id="avatar" name="avatar"
-       accept="image/png, image/jpeg">
-<!-- Insert Image -->
+                <!-- Card -->
+                <div class="card-deck mx-4 mb-3 bg-white">
+                    <div class="card shadow p-3 mb-5 rounded">
+                        <div class="d-flex align-items-center">
+                            <img src="{{ asset('assets/images/Icons/Clubs/description.png') }}" class="m-2 p-2"
+                                alt="..." width="60px" height="60px">
+                            <h5 class="text-dark">Description:</h5>
+                        </div>
+                        <div class="card-body pt-0">
+                            <p class="card-text">{{ $your_club->description }}</p>
+                        </div>
+                    </div>
+                    <div class="card shadow p-3 mb-5 rounded">
 
+                        <div class="d-flex align-items-center">
+                            <img src="{{ asset('assets/images/Icons/Clubs/vision.png') }}" class="m-2 p-2"
+                                alt="..." width="60px" height="60px">
+                            <h5 class="text-dark">Goals of the Club:</h5>
+                        </div>
+                        <div class="card-body pt-0">
+                            <p class="card-text">{{ $your_club->vision }}</p>
+                        </div>
+                    </div>
+                    <div class="card shadow p-3 mb-5 rounded">
+                        <div class="d-flex align-items-center">
+                            <img src="{{ asset('assets/images/Icons/Clubs/mission.png') }}" class="m-2 p-2"
+                                alt="..." width="60px" height="60px">
+                            <h5 class="text-dark">Mission of the Club:</h5>
+                        </div>
+                        <div class="card-body pt-0">
+                            <p class="card-text">{{ $your_club->mission }}</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- card -->
+                @include('components.deleteModal')
+            </div>
+        </div>
+    @else
+        <div class="d-flex justify-content-center flex-column align-items-center p-5" style="height: 61vh">
+            <h1 class="text-center">
+                {{ __('Please Add Your Club') }}</h1>
+            <a href="{{ route('president.club.create') }}"><i class="fa-solid fa-folder-plus fa-10x m-5"></i></a>
+        </div>
+    @endif
 @endsection

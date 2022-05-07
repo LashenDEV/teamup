@@ -21,7 +21,7 @@ class CreateClubsTable extends Migration
             $table->text('vision');
             $table->text('mission');
             $table->string('image');
-            $table->boolean('approval');
+            $table->boolean('approval')->nullable();
             $table->timestamps();
         });
     }

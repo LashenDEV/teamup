@@ -12,7 +12,7 @@
                     <h2>Are you sure?</h2>
                     <p>Do you really want to delete these records? This process cannot be undone.</p>
                 </div>
-                <div class="modal-footer border-0">
+                <div class="modal-footer border-0 justify-content-center">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                     <form method="POST" action="{{ route('president.club.destroy', $your_club->id) }}">
                         @csrf

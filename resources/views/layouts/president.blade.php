@@ -524,7 +524,9 @@
                         </button>
                     </div>
                 @endif
-                @yield('content')
+                <div class="content p-4">
+                    @yield('content')
+                </div>
             </div>
 
             <footer class="footer mt-auto">

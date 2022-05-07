@@ -1,11 +1,14 @@
 @extends('layouts.president')
 @section('title', 'new club')
 @section('content')
-<div class="content">
 <div class="col-lg-12">
+    <div class="text-right py-2">
+        <a href="{{ route('president.club.index') }}" class="btn btn-secondary">Back</a>
+    </div>
+
     <div class="card card-default">
         <div class="card-header card-header-border-bottom">
-            <h2>Create Club</h2>
+            <h2>Create Your Club</h2>
         </div>
         <div class="card-body">
             <form action="{{ route('president.club.store') }}" method="POST" enctype="multipart/form-data">
@@ -43,5 +46,4 @@
             </form>
         </div>
     </div>
-</div>
 @endsection

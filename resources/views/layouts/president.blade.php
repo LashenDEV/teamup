@@ -80,15 +80,16 @@
 
                     <!-- sidebar menu -->
                     <ul class="nav sidebar-inner" id="sidebar-menu">
-                        <li class="has-sub active expand">
+                        <li class="has-sub @if (url()->current() == (route('president.club.index') || route('president.club.edit') || route('president.club.create'))) active expand @endif">
                             <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
-                                data-target="#dashboard" aria-expanded="false" aria-controls="dashboard">
+                                data-target="#clubs" aria-expanded="false" aria-controls="clubs">
                                 <i class="mdi mdi-home-assistant"></i>
                                 <span class="nav-text">Your Club</span> <b class="caret"></b>
                             </a>
-                            <ul class="collapse show" id="dashboard" data-parent="#sidebar-menu">
+                            <ul class="collapse @if (url()->current() == (route('president.club.index')|| route('president.club.edit') || route('president.club.create'))) show @endif" id="clubs"
+                                data-parent="#sidebar-menu">
                                 <div class="sub-menu">
-                                    <li class="@if (url()->current() == route('president.club.index')) active @endif">
+                                    <li class="@if (url()->current() == (route('president.club.index') || route('president.club.edit') || route('president.club.create'))) active @endif">
                                         <a class="sidenav-item-link" href="{{ route('president.club.index') }}">
                                             <i class="fa-solid fa-list-check mr-3"></i>
                                             <span class="nav-text">Manage Your Club</span>
@@ -117,26 +118,20 @@
                                             <span class="nav-text">Meetings</span>
                                         </a>
                                     </li>
-                                    <li class="">
-                                        <a class="sidenav-item-link" href="#">
-                                            <i class="fa-solid fa-users-line mr-3"></i>
-                                            <span class="nav-text">Members</span>
-
-                                        </a>
-                                    </li>
                                 </div>
                             </ul>
                         </li>
-                        <li class="has-sub">
+                        <li class="has-sub @if (url()->current() == route('president.members.index')) active expand @endif">
                             <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
-                                data-target="#charts" aria-expanded="false" aria-controls="charts">
+                                data-target="#members" aria-expanded="false" aria-controls="charts">
                                 <i class="mdi mdi-account-group"></i>
                                 <span class="nav-text">Members</span> <b class="caret"></b>
                             </a>
-                            <ul class="collapse" id="charts" data-parent="#sidebar-menu">
+                            <ul class="collapse @if (url()->current() == route('president.members.index')) show @endif" id="members"
+                                data-parent="#sidebar-menu">
                                 <div class="sub-menu">
-                                    <li class="">
-                                        <a class="sidenav-item-link" href="index.html">
+                                    <li class="@if (url()->current() == route('president.members.index')) active @endif">
+                                        <a class="sidenav-item-link" href="{{ route('president.members.index') }}">
                                             <span class="nav-text">Manage Members</span>
 
                                         </a>

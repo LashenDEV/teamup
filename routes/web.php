@@ -25,7 +25,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //Routes for Admin
-Route::group(['as' => 'admin.','prefix' => 'admin', 'middleware' => ['isAdmin', 'auth']], function () {
+Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['isAdmin', 'auth']], function () {
     Route::get('dashboard', [Admin\AdminController::class, 'index'])->name('dashboard');
     Route::get('profile', [Admin\AdminController::class, 'profile'])->name('profile');
     Route::get('settings', [Admin\AdminController::class, 'settings'])->name('settings');
@@ -38,7 +38,7 @@ Route::group(['as' => 'admin.','prefix' => 'admin', 'middleware' => ['isAdmin', 
 
 
 //Routes for Presidents
-Route::group(['as' => 'president.','prefix' => 'president', 'middleware' => ['isPresident', 'auth']], function () {
+Route::group(['as' => 'president.', 'prefix' => 'president', 'middleware' => ['isPresident', 'auth']], function () {
     Route::get('dashboard', [President\PresidentController::class, 'index'])->name('dashboard');
     Route::get('profile', [President\PresidentController::class, 'profile'])->name('profile');
     Route::get('settings', [President\PresidentController::class, 'settings'])->name('settings');
@@ -50,6 +50,9 @@ Route::group(['as' => 'president.','prefix' => 'president', 'middleware' => ['is
     Route::get('club/{id}/edit/', [President\ClubController::class, 'edit'])->name('club.edit');
     Route::put('club/{id}/update', [President\ClubController::class, 'update'])->name('club.update');
     Route::delete('club/{id}', [President\ClubController::class, 'destroy'])->name('club.destroy');
+
+    //Members
+    Route::get('members', [President\MemberController::class, 'index'])->name('members.index');
 });
 
 

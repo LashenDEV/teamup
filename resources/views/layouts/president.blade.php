@@ -525,7 +525,7 @@
                 @endif
                 <div class="content p-4">
                     @yield('content')
-                {{-- </div> --}}
+                </div>
             </div>
 
             <footer class="footer mt-auto">

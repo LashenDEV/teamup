@@ -101,6 +101,11 @@
                                             <span class="nav-text">Events</span>
                                         </a>
                                     </li>
+                                    <li class="{{ request()->routeIs('president.notice*') ? 'active' : '' }}">
+                                        <a class="sidenav-item-link" href="{{ route('president.notice.index') }}">
+                                            <span class="material-symbols-sharp mr-2">
+                                                edit_note
+                                            </span>
                                     <li class="">
                                         <a class="sidenav-item-link" href="index.html">
                                             <i class="fa-duotone fa-notes mr-3"></i>
@@ -122,8 +127,8 @@
                                 <i class="mdi mdi-account-group"></i>
                                 <span class="nav-text">Members</span> <b class="caret"></b>
                             </a>
-                            <ul class="collapse {{ request()->routeIs('president.members*') ? 'show' : '' }}" id="members"
-                                data-parent="#sidebar-menu">
+                            <ul class="collapse {{ request()->routeIs('president.members*') ? 'show' : '' }}"
+                                id="members" data-parent="#sidebar-menu">
                                 <div class="sub-menu">
                                     <li class="{{ request()->routeIs('president.members*') ? 'active' : '' }}">
                                         <a class="sidenav-item-link" href="{{ route('president.members.index') }}">
@@ -503,7 +508,7 @@
                 @endif
                 @if (session('error'))
                     <div class="alert alert-success alert-dismissible fade show m-0" role="alert">
-                        <strong>{{ session('$error') }}</strong>
+                        <strong>{{ session('success') }}</strong>
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>

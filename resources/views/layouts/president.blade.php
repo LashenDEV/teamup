@@ -79,23 +79,23 @@
 
                     <!-- sidebar menu -->
                     <ul class="nav sidebar-inner" id="sidebar-menu">
-                        <li class="has-sub @if (url()->current() == route('president.club.index'))) active expand @endif">
+                        <li class="has-sub {{ (request()->routeIs('president.club*') or request()->routeIs('president.event*')) ? 'active expand' : '' }}">
                             <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
                                 data-target="#clubs" aria-expanded="false" aria-controls="clubs">
                                 <i class="mdi mdi-home-assistant"></i>
                                 <span class="nav-text">Your Club</span> <b class="caret"></b>
                             </a>
-                            <ul class="collapse @if (url()->current() == route('president.club.index')) show @endif" id="clubs"
-                                data-parent="#sidebar-menu">
+                            <ul class="collapse {{ (request()->routeIs('president.club*') or request()->routeIs('president.event*')) ? 'show' : '' }}"
+                                id="clubs" data-parent="#sidebar-menu">
                                 <div class="sub-menu">
-                                    <li class="@if (url()->current() == (route('president.club.index') || route('president.club.edit') || route('president.club.create'))) active @endif">
+                                    <li class="{{ request()->routeIs('president.club*') ? 'active' : '' }}">
                                         <a class="sidenav-item-link" href="{{ route('president.club.index') }}">
                                             <i class="fa-solid fa-list-check mr-3"></i>
                                             <span class="nav-text">Manage Your Club</span>
                                         </a>
                                     </li>
-                                    <li class="">
-                                        <a class="sidenav-item-link" href="index.html">
+                                    <li class="{{ request()->routeIs('president.event*') ? 'active' : '' }}">
+                                        <a class="sidenav-item-link" href="{{ route('president.event.index') }}">
                                             <i class="fa-solid fa-calendar-days mr-3">
                                             </i>
                                             <span class="nav-text">Events</span>
@@ -120,16 +120,16 @@
                                 </div>
                             </ul>
                         </li>
-                        <li class="has-sub @if (url()->current() == route('president.members.index')) active expand @endif">
+                        <li class="has-sub {{ request()->routeIs('president.members*') ? 'active expand' : '' }}">
                             <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
                                 data-target="#members" aria-expanded="false" aria-controls="members">
                                 <i class="mdi mdi-account-group"></i>
                                 <span class="nav-text">Members</span> <b class="caret"></b>
                             </a>
-                            <ul class="collapse @if (url()->current() == route('president.members.index')) show @endif" id="members"
+                            <ul class="collapse {{ request()->routeIs('president.members*') ? 'show' : '' }}" id="members"
                                 data-parent="#sidebar-menu">
                                 <div class="sub-menu">
-                                    <li class="@if (url()->current() == route('president.members.index')) active @endif">
+                                    <li class="{{ request()->routeIs('president.members*') ? 'active' : '' }}">
                                         <a class="sidenav-item-link" href="{{ route('president.members.index') }}">
                                             <span class="nav-text">Manage Members</span>
 

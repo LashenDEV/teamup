@@ -79,13 +79,13 @@
 
                     <!-- sidebar menu -->
                     <ul class="nav sidebar-inner" id="sidebar-menu">
-                        <li class="has-sub @if (url()->current() == (route('president.club.index') || route('president.club.edit') || route('president.club.create'))) active expand @endif">
+                        <li class="has-sub @if (url()->current() == route('president.club.index'))) active expand @endif">
                             <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
                                 data-target="#clubs" aria-expanded="false" aria-controls="clubs">
                                 <i class="mdi mdi-home-assistant"></i>
                                 <span class="nav-text">Your Club</span> <b class="caret"></b>
                             </a>
-                            <ul class="collapse @if (url()->current() == (route('president.club.index')|| route('president.club.edit') || route('president.club.create'))) show @endif" id="clubs"
+                            <ul class="collapse @if (url()->current() == route('president.club.index')) show @endif" id="clubs"
                                 data-parent="#sidebar-menu">
                                 <div class="sub-menu">
                                     <li class="@if (url()->current() == (route('president.club.index') || route('president.club.edit') || route('president.club.create'))) active @endif">
@@ -122,7 +122,7 @@
                         </li>
                         <li class="has-sub @if (url()->current() == route('president.members.index')) active expand @endif">
                             <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
-                                data-target="#members" aria-expanded="false" aria-controls="charts">
+                                data-target="#members" aria-expanded="false" aria-controls="members">
                                 <i class="mdi mdi-account-group"></i>
                                 <span class="nav-text">Members</span> <b class="caret"></b>
                             </a>

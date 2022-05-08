@@ -79,13 +79,14 @@
 
                     <!-- sidebar menu -->
                     <ul class="nav sidebar-inner" id="sidebar-menu">
-                        <li class="has-sub {{ (request()->routeIs('president.club*') or request()->routeIs('president.event*')) ? 'active expand' : '' }}">
+                        <li
+                            class="has-sub {{ (request()->routeIs('president.club*') or request()->routeIs('president.event*') or request()->routeIs('president.notice*')) ? 'active expand' : '' }}">
                             <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
                                 data-target="#clubs" aria-expanded="false" aria-controls="clubs">
                                 <i class="mdi mdi-home-assistant"></i>
                                 <span class="nav-text">Your Club</span> <b class="caret"></b>
                             </a>
-                            <ul class="collapse {{ (request()->routeIs('president.club*') or request()->routeIs('president.event*')) ? 'show' : '' }}"
+                            <ul class="collapse {{ (request()->routeIs('president.club*') or request()->routeIs('president.event*') or request()->routeIs('president.notice*')) ? 'show' : '' }}"
                                 id="clubs" data-parent="#sidebar-menu">
                                 <div class="sub-menu">
                                     <li class="{{ request()->routeIs('president.club*') ? 'active' : '' }}">
@@ -101,8 +102,8 @@
                                             <span class="nav-text">Events</span>
                                         </a>
                                     </li>
-                                    <li class="">
-                                        <a class="sidenav-item-link" href="index.html">
+                                    <li class="{{ request()->routeIs('president.notice*') ? 'active' : '' }}">
+                                        <a class="sidenav-item-link" href="{{ route('president.notice.index') }}">
                                             <span class="material-symbols-sharp mr-2">
                                                 edit_note
                                             </span>
@@ -126,8 +127,8 @@
                                 <i class="mdi mdi-account-group"></i>
                                 <span class="nav-text">Members</span> <b class="caret"></b>
                             </a>
-                            <ul class="collapse {{ request()->routeIs('president.members*') ? 'show' : '' }}" id="members"
-                                data-parent="#sidebar-menu">
+                            <ul class="collapse {{ request()->routeIs('president.members*') ? 'show' : '' }}"
+                                id="members" data-parent="#sidebar-menu">
                                 <div class="sub-menu">
                                     <li class="{{ request()->routeIs('president.members*') ? 'active' : '' }}">
                                         <a class="sidenav-item-link" href="{{ route('president.members.index') }}">

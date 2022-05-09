@@ -11,13 +11,23 @@
                         <div class="card-header bg-primary">
                             <div class="app-brand">
                                 <a href="/index.html" class="pl-0">
-                                    <img src="{{ asset('logos/teamup logo.png') }}" alt="">
-                                    <span class="brand-name"><h1>Teamup</h1></span>
+                                    <img src="{{asset('assets/images/logos/teamup logo.png')}}" alt="">
+                                    <span class="brand-name">
+                                        <h1>Teamup</h1>
+                                    </span>
                                 </a>
                             </div>
                         </div>
                         <div class="card-body p-5">
-                            <h4 class="text-dark mb-5">Sign In</h4>
+                            <h4 class="text-dark mb-3">Sign In</h4>
+                            @if (session('error'))
+                                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                    <strong>{{ session('error') }}</strong>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            @endif
                             <form method="POST" action="{{ route('login') }}">
                                 @csrf
                                 <div class="row">
@@ -72,7 +82,7 @@
                 </div>
             </div>
             <div class="copyright pl-0 fixed-bottom">
-                <p class="text-center" >&copy; 2022 Copyright by <a href="{{ url('https://teamup.test') }}">Teamup</a>
+                <p class="text-center">&copy; 2022 Copyright by <a href="{{ url('https://teamup.test') }}">Teamup</a>
                 </p>
             </div>
         </div>

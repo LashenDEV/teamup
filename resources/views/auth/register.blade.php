@@ -17,10 +17,10 @@
                                         <h1>Teamup</h1>
                                     </span>
                                 </a>
-                            </div>f
+                            </div>
                         </div>
                         <div class="card-body p-5">
-                            <h4 class="text-dark mb-5">Sign Up</h4>
+                            <h4 class="text-dark mb-3">Sign Up</h4>
                             <form method="POST" action="{{ route('register') }}">
                                 @csrf
                                 <div class="row">

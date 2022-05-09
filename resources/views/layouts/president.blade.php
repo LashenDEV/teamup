@@ -27,7 +27,7 @@
 
 
     <!-- FAVICON -->
-    <link href="{{ asset('logos/teamup fav-icon.png') }}" rel="shortcut icon" />
+    <link href="{{ asset('assets/images/logos/teamup fav-icon.png') }}" rel="shortcut icon" />
 
     <!-- Material Icons CDN -->
     <link rel="stylesheet"
@@ -505,8 +505,8 @@
                     </div>
                 @endif
                 @if (session('error'))
-                    <div class="alert alert-success alert-dismissible fade show" role="alert">
-                        <strong>{{ session('success') }}</strong>
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>{{ session('error') }}</strong>
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>

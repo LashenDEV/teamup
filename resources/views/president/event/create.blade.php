@@ -22,18 +22,35 @@
                         <input type="name" class="form-control" id="exampleFormControlInput1"
                             placeholder="Enter Event Name" name="name">
                         <input type="hidden" name="president_id" value="{{ auth()->user()->id }}">
+                        
                     </div>
 
                     <div class="form-group">
                         <label for="exampleFormControlInput1">Description</label>
                         <input type="name" class="form-control" id="exampleFormControlInput1"
-                            placeholder="Enter Description" name="description">
+                            placeholder="Enter the Description" name="description">
                     </div>
 
+                    <div class="form-group">
+                            <label for="enter date">Date</label>
+                            <p><input type="date" class="form-control" id="date" name="date"></p>
+                    </div>
+
+                    <div class="form-group">
+                            <label for="appt">Time</label>
+                            <p><input type="time" class="form-control" id="time" name="time"></p>
+                          </form>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Venue</label>
+                        <input type="name" class="form-control" id="exampleFormControlInput1"
+                            placeholder="Enter location" name="venue">
+                    </div>
 
                     <div class="form-group">
                         <label for="exampleFormControlFile1">Image</label>
-                        <input type="file" class="form-control-file" id="exampleFormControlFile1" name="image">
+                        <input type="file" class="form-control-file" id="image">
                     </div>
 
                     <div class="form-footer pt-4 pt-5 mt-4 border-top">

@@ -1,21 +1,20 @@
 @extends('layouts.president')
 @section('title', 'Events')
 @section('content')
-    <div class="d-flex justify-content-between">
-        <div class="text-leftt py-2">
-            <h1>Events</h1>
-        </div>
-        <div class="text-right py-2">
-            <a href="{{ route('president.event.create') }}"><button type="button" class="btn btn-primary"><i
-                        class="fa-light fa-plus"></i> Create An Event </button>
-            </a>
-            <button type="button" class="btn btn-secondary">Back</button>
-            <div class="input-group pt-1">
+    <div class="card card-default">
+        <div class="card-header d-flex  justify-content-between p-3" style="background-color: #c3d4fa !important">
+            <div class="text-leftt py-2">
+                <h1>All Events</h1>
+            </div>
+            <div class="text-right py-2">
+                <a href="{{ route('president.event.create') }}"><button type="button" class="btn btn-primary"><i
+                            class="fa-light fa-plus"></i> Create An Event </button>
+                </a>
+                <button type="button" class="btn btn-secondary">Back</button>
+                <div class="input-group pt-1">
+                </div>
             </div>
         </div>
-    </div>
-
-    <div class="card card-default">
 
         <div class="card-body">
 

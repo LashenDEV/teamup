@@ -20,9 +20,9 @@ class EventController extends Controller
         $event->president_id = $request->president_id;
         $event->name = $request->name;
         $event->description = $request->description;
-        $event->date = "2022-05-11";
-        $event->time = "19:34";
-        $event->venue = "Avenra Hotel";
+        $event->date = $request->date;;
+        $event->time = $request->time;;
+        $event->venue = $request->venue;
         $event->image = $last_img;
         $event->created_at = Carbon::now();
         $event->save();

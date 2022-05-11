@@ -23,6 +23,9 @@
                             <div class="card-body p-2 ">
                                 <h5 class="card-title text-primary">{{ $event->name }}</h5>
                                 <p class="card-text pb-3">{{ $event->description }}</p>
+                                <p class="card-text pb-3">{{ $event->date }}</p>
+                                <p class="card-text pb-3">{{ $event->time }}</p>
+                                <p class="card-text pb-3">{{ $event->venue }}</p>
                                 <div class="text-right py-2">
                                     <button type="button" class="btn btn-success">Publish</button>
                                     <button type="button" class="btn btn-info">Edit</button>

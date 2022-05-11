@@ -2,122 +2,37 @@
 @section('title', 'Events')
 @section('content')
     <div class="card card-default">
-        <div class="card-header d-flex  justify-content-between p-3" style="background-color: #c3d4fa !important">
-            <div class="text-leftt py-2">
+        <div class="card-header d-flex  justify-content-between p-4" style="background-color: #4c84ff !important">
+            <div class="text-leftt text-white">
                 <h1>All Events</h1>
             </div>
-            <div class="text-right py-2">
-                <a href="{{ route('president.event.create') }}"><button type="button" class="btn btn-primary"><i
+            <div class="text-right">
+                <a href="{{ route('president.event.create') }}"><button type="button" class="btn btn-success"><i
                             class="fa-light fa-plus"></i> Create An Event </button>
                 </a>
                 <button type="button" class="btn btn-secondary">Back</button>
-                <div class="input-group pt-1">
-                </div>
             </div>
         </div>
 
-        <div class="card-body">
-
-            <div class="card-deck">
-
-                <div class="card shadow-sm p-3 bg-white rounded">
-                    <img class="card-img-top" src="{{ asset('assets/images/auth/signin.jpg') }}" alt="Card image cap">
-                    <div class="card-body p-2 ">
-                        <h5 class="card-title text-primary">Event Name</h5>
-                        <p class="card-text pb-3">This is a wider card with supporting text below as a natural lead-in to
-                            additional content. This card has even longer content than the first to show that equal height
-                            action.</p>
-
-                        <div class="text-right py-2">
-                            <button type="button" class="btn btn-success">Publish</button>
-                            <button type="button" class="btn btn-info">Edit</button>
-                            <button type="button" class="btn btn-danger">Delete</button>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="card shadow-sm p-3 bg-white rounded">
-                    <img class="card-img-top" src="{{ asset('assets/images/auth/singup.jpg') }}" alt="Card image cap">
-                    <div class="card-body p-2">
-                        <h5 class="card-title text-primary">Card Title</h5>
-                        <p class="card-text pb-3">his is a wider card with supporting text below as a natural lead-in to
-                            additional content. This card has even longer
-                            content than the first to show that equal height action.</p>
-                        <div class="text-right py-2">
-                            <button type="button" class="btn btn-success">Publish</button>
-                            <button type="button" class="btn btn-info">Edit</button>
-                            <button type="button" class="btn btn-danger">Delete</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card shadow-sm p-3 bg-white rounded">
-                    <img class="card-img-top" src="{{ asset('assets/images/auth/singup.jpg') }}" alt="Card image cap">
-                    <div class="card-body p-2">
-                        <h5 class="card-title text-primary">Card Title</h5>
-                        <p class="card-text pb-3">This is a wider card with supporting text below as a natural lead-in to
-                            additional content. This card has even longer
-                            content than the first to show that equal height action.</p>
-                        <div class="text-right py-2">
-                            <button type="button" class="btn btn-success">Publish</button>
-                            <button type="button" class="btn btn-info">Edit</button>
-                            <button type="button" class="btn btn-danger">Delete</button>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="input-group pt-5">
-
-                    <div class="card shadow-sm p-3 bg-white rounded">
-                        <img class="card-img-top" src="{{ asset('assets/images/auth/singup.jpg') }}"
-                            alt="Card image cap">
-                        <div class="card-body p-2">
-                            <h5 class="card-title text-primary">Card Title</h5>
-                            <p class="card-text pb-3">This is a wider card with supporting text below as a natural lead-in
-                                to additional content. This card has even longer
-                                content than the first to show that equal height action.</p>
-                            <div class="text-right py-2">
-                                <button type="button" class="btn btn-success">Publish</button>
-                                <button type="button" class="btn btn-info">Edit</button>
-                                <button type="button" class="btn btn-danger">Delete</button>
+        <div class="container-fluid mb-3">
+            <div class="row">
+                @foreach ($events as $event)
+                    <div class="col-sm-4 mt-3">
+                        <div class="card shadow-sm p-3 bg-white rounded">
+                            <img class="card-img-top" src="{{ asset($event->image) }}" alt="Card image cap">
+                            <div class="card-body p-2 ">
+                                <h5 class="card-title text-primary">{{ $event->name }}</h5>
+                                <p class="card-text pb-3">{{ $event->description }}</p>
+                                <div class="text-right py-2">
+                                    <button type="button" class="btn btn-success">Publish</button>
+                                    <button type="button" class="btn btn-info">Edit</button>
+                                    <button type="button" class="btn btn-danger">Delete</button>
+                                </div>
                             </div>
                         </div>
                     </div>
-
-                    <div class="card shadow-sm p-3 bg-white rounded">
-                        <img class="card-img-top" src="{{ asset('assets/images/auth/singup.jpg') }}"
-                            alt="Card image cap">
-                        <div class="card-body p-2">
-                            <h5 class="card-title text-primary">Card Title</h5>
-                            <p class="card-text pb-3">This is a wider card with supporting text below as a natural lead-in
-                                to additional content. This card has even longer
-                                content than the first to show that equal height action.</p>
-                            <div class="text-right py-2">
-                                <button type="button" class="btn btn-success">Publish</button>
-                                <button type="button" class="btn btn-info">Edit</button>
-                                <button type="button" class="btn btn-danger">Delete</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card shadow-sm p-3 bg-white rounded">
-                        <img class="card-img-top" src="{{ asset('assets/images/auth/singup.jpg') }}"
-                            alt="Card image cap">
-                        <div class="card-body p-2">
-                            <h5 class="card-title text-primary">Card Title</h5>
-                            <p class="card-text pb-3">This is a wider card with supporting text below as a natural lead-in
-                                to additional content. This card has even longer
-                                content than the first to show that equal height action.</p>
-                            <div class="text-right py-2">
-                                <button type="button" class="btn btn-success">Publish</button>
-                                <button type="button" class="btn btn-info">Edit</button>
-                                <button type="button" class="btn btn-danger">Delete</button>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
+                @endforeach
             </div>
-
-        @endsection
+        </div>
+    </div>
+@endsection

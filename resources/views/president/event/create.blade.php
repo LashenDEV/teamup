@@ -24,9 +24,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="exampleFormControlInput1">Description</label>
-                        <input type="name" class="form-control" id="exampleFormControlInput1"
-                            placeholder="Enter the Description" name="description">
+                        <label for="exampleFormControlTextarea1">Discription</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1"  placeholder="Enter the Description" name="description" rows="3"></textarea>
                     </div>
 
                     <div class="form-group">

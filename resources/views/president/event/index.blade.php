@@ -44,7 +44,7 @@
                                                     class="fa-duotone fa-paper-plane-top mr-1"></i>Publish</button>
                                         </a>
                                         <a href="{{ route('president.event.edit', $event->id) }}" class="pl-1">
-                                            <button type="button" class="btn btn-info"><i
+                                            <button type="button" class="btn btn-dark"><i
                                                     class="fa-duotone fa-pen-circle mr-1"></i>Edit</button>
                                         </a>
                                         <form action="{{ route('president.event.destroy', $event->id) }}" method="POST"

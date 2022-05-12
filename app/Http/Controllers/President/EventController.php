@@ -69,11 +69,11 @@ class EventController extends Controller
             $event->description = $request->description;
             $event->date = $request->date;
             $event->time = $request->time;
-            $event->value = $request->value;
+            $event->venue = $request->venue;
             $event->created_at = Carbon::now();
             $event->save();
         }
-        return redirect()->route('president.event.index')->with('success', 'event Updated Successfully');
+        return redirect()->route('president.event.index')->with('success', 'Event Updated Successfully');
     }
 
     public function destroy($id)

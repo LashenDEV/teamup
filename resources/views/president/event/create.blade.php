@@ -4,9 +4,9 @@
 
     <div class="col-lg-12">
         <div class="card card-default">
-            <div class="card-header d-flex  justify-content-between p-4" style="background-color: #4c84ff !important">
-                <div class="text-leftt text-white">
-                    <h1>Create An Event</h1>
+            <div class="card-header d-flex  justify-content-md-between justify-content-center p-4" style="background-color: #4c84ff !important">
+                <div class="text-leftt text-white pb-1 pb-md-0">
+                    <h1>Create an Event</h1>
                 </div>
                 <div class="text-right">
                     <a href="{{ route('president.event.index') }}"><button type="button" class="btn btn-secondary">Back</button></a>
@@ -50,7 +50,7 @@
                     </div>
 
                     <div class="form-footer pt-4 pt-5 mt-4 border-top">
-                        <button type="submit" class="btn btn-primary btn-default">Submit</button>
+                        <button type="submit" class="btn btn-primary btn-default">Create</button>
                     </div>
                 </form>
             </div>

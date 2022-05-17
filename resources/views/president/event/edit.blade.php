@@ -4,8 +4,8 @@
 
     <div class="col-lg-12">
         <div class="card card-default">
-            <div class="card-header d-flex  justify-content-between p-4" style="background-color: #4c84ff !important">
-                <div class="text-leftt text-white">
+            <div class="card-header d-flex  justify-content-md-between justify-content-center p-4" style="background-color: #4c84ff !important">
+                <div class="text-leftt text-white pb-1 pb-md-0">
                     <h1>Edit the Event</h1>
                 </div>
                 <div class="text-right">
@@ -27,8 +27,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="exampleFormControlTextarea1">Discription</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1"  placeholder="Enter the Description" name="description" rows="3"></textarea>
+                        <label for="exampleFormControlTextarea1">Description</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1"  placeholder="Enter the Description" name="description" rows="3">{{ $event->description }}</textarea>
                     </div>
 
                     <div class="form-group">

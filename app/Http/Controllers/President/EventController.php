@@ -20,8 +20,8 @@ class EventController extends Controller
         $event->president_id = $request->president_id;
         $event->name = $request->name;
         $event->description = $request->description;
-        $event->date = $request->date;;
-        $event->time = $request->time;;
+        $event->date = $request->date;
+        $event->time = $request->time;
         $event->venue = $request->venue;
         $event->image = $last_img;
         $event->created_at = Carbon::now();
@@ -30,7 +30,7 @@ class EventController extends Controller
 
     public function index()
     {
-        $events = Event::where('president_id', Auth::user()->id)->get();
+        $events = Event::where('president_id', Auth::user()->id)->latest()->paginate(3);
         return view('president.event.index', compact('events'));
     }
 
@@ -44,7 +44,7 @@ class EventController extends Controller
         $event_image = $request->file('image');
         $event = new Event();
         $this->save($event, $request, $event_image);
-        return redirect()->route('president.event.index')->with('success', 'Your Event Is Created Successfully');
+        return redirect()->route('president.event.index')->with('success', 'EVENT IS CREATED SUCCESSFULLY');
     }
 
     public function edit($id)
@@ -73,7 +73,7 @@ class EventController extends Controller
             $event->created_at = Carbon::now();
             $event->save();
         }
-        return redirect()->route('president.event.index')->with('success', 'Event Updated Successfully');
+        return redirect()->route('president.event.index')->with('success', 'EVENT UPDATED SUCCESSFULLY');
     }
 
     public function destroy($id)
@@ -81,6 +81,6 @@ class EventController extends Controller
         $event = Event::findOrFail($id);
         unlink($event->image);
         $event->delete();
-        return redirect()->back()->with('success', 'Event Deleted Successfully');
+        return redirect()->back()->with('success', 'EVENT DELETED SUCCESSFULLY');
     }
 }

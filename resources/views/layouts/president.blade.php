@@ -34,10 +34,7 @@
         href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
     <!-- Font Awesome CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.1.1/css/all.css">
     <!--
       HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries
     -->
@@ -72,8 +69,8 @@
                 <!-- Aplication Brand -->
                 <div class="app-brand">
                     <a href="/index.html" class="p-0">
-                        <img class="brand-icon p-2" src="{{ asset('logos/teamup logo.png') }}" alt="" width="75px"
-                            height="75px">
+                        <img class="brand-icon p-2" src="{{ asset('assets/images/logos/teamup logo.png') }}" alt=""
+                            width="75px" height="75px">
                         <span class="brand-name ml-0">President Dashboard</span>
                     </a>
                 </div>
@@ -82,16 +79,17 @@
 
                     <!-- sidebar menu -->
                     <ul class="nav sidebar-inner" id="sidebar-menu">
-                        <li class="has-sub active expand">
+                        <li class="has-sub @if (url()->current() == (route('president.club.index') || route('president.club.edit') || route('president.club.create'))) active expand @endif">
                             <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
-                                data-target="#dashboard" aria-expanded="false" aria-controls="dashboard">
+                                data-target="#clubs" aria-expanded="false" aria-controls="clubs">
                                 <i class="mdi mdi-home-assistant"></i>
                                 <span class="nav-text">Your Club</span> <b class="caret"></b>
                             </a>
-                            <ul class="collapse show" id="dashboard" data-parent="#sidebar-menu">
+                            <ul class="collapse @if (url()->current() == (route('president.club.index')|| route('president.club.edit') || route('president.club.create'))) show @endif" id="clubs"
+                                data-parent="#sidebar-menu">
                                 <div class="sub-menu">
-                                    <li class="@if (url()->current() == route('president.club')) active @endif">
-                                        <a class="sidenav-item-link" href="{{ route('president.club') }}">
+                                    <li class="@if (url()->current() == (route('president.club.index') || route('president.club.edit') || route('president.club.create'))) active @endif">
+                                        <a class="sidenav-item-link" href="{{ route('president.club.index') }}">
                                             <i class="fa-solid fa-list-check mr-3"></i>
                                             <span class="nav-text">Manage Your Club</span>
                                         </a>
@@ -119,26 +117,20 @@
                                             <span class="nav-text">Meetings</span>
                                         </a>
                                     </li>
-                                    <li class="">
-                                        <a class="sidenav-item-link" href="#">
-                                            <i class="fa-solid fa-users-line mr-3"></i>
-                                            <span class="nav-text">Members</span>
-
-                                        </a>
-                                    </li>
                                 </div>
                             </ul>
                         </li>
-                        <li class="has-sub">
+                        <li class="has-sub @if (url()->current() == route('president.members.index')) active expand @endif">
                             <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
-                                data-target="#charts" aria-expanded="false" aria-controls="charts">
+                                data-target="#members" aria-expanded="false" aria-controls="charts">
                                 <i class="mdi mdi-account-group"></i>
                                 <span class="nav-text">Members</span> <b class="caret"></b>
                             </a>
-                            <ul class="collapse" id="charts" data-parent="#sidebar-menu">
+                            <ul class="collapse @if (url()->current() == route('president.members.index')) show @endif" id="members"
+                                data-parent="#sidebar-menu">
                                 <div class="sub-menu">
-                                    <li class="">
-                                        <a class="sidenav-item-link" href="index.html">
+                                    <li class="@if (url()->current() == route('president.members.index')) active @endif">
+                                        <a class="sidenav-item-link" href="{{ route('president.members.index') }}">
                                             <span class="nav-text">Manage Members</span>
 
                                         </a>
@@ -502,8 +494,36 @@
             </header>
 
 
-            <div class="content-wrapper">
-                <div class="content">
+            <div class="content-wrapper text-dark">
+                @if (session('success'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>{{ session('success') }}</strong>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                @endif
+                @if (session('error'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>{{ session('success') }}</strong>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                @endif
+                @if ($errors->any())
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li><strong>{{ $error }}</strong></li>
+                            @endforeach
+                        </ul>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                @endif
+                <div class="content p-4">
                     @yield('content')
                 </div>
             </div>

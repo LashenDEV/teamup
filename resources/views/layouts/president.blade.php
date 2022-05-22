@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Teamup - President Dashboard</title>
+    <title>Teamup | @yield('title')</title>
 
     <!-- GOOGLE FONTS -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500|Poppins:400,500,600,700|Roboto:400,500"
@@ -79,23 +79,23 @@
 
                     <!-- sidebar menu -->
                     <ul class="nav sidebar-inner" id="sidebar-menu">
-                        <li class="has-sub @if (url()->current() == (route('president.club.index') || route('president.club.edit') || route('president.club.create'))) active expand @endif">
+                        <li class="has-sub {{ (request()->routeIs('president.club*') or request()->routeIs('president.event*')) ? 'active expand' : '' }}">
                             <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
                                 data-target="#clubs" aria-expanded="false" aria-controls="clubs">
                                 <i class="mdi mdi-home-assistant"></i>
                                 <span class="nav-text">Your Club</span> <b class="caret"></b>
                             </a>
-                            <ul class="collapse @if (url()->current() == (route('president.club.index')|| route('president.club.edit') || route('president.club.create'))) show @endif" id="clubs"
-                                data-parent="#sidebar-menu">
+                            <ul class="collapse {{ (request()->routeIs('president.club*') or request()->routeIs('president.event*')) ? 'show' : '' }}"
+                                id="clubs" data-parent="#sidebar-menu">
                                 <div class="sub-menu">
-                                    <li class="@if (url()->current() == (route('president.club.index') || route('president.club.edit') || route('president.club.create'))) active @endif">
+                                    <li class="{{ request()->routeIs('president.club*') ? 'active' : '' }}">
                                         <a class="sidenav-item-link" href="{{ route('president.club.index') }}">
                                             <i class="fa-solid fa-list-check mr-3"></i>
                                             <span class="nav-text">Manage Your Club</span>
                                         </a>
                                     </li>
-                                    <li class="">
-                                        <a class="sidenav-item-link" href="index.html">
+                                    <li class="{{ request()->routeIs('president.event*') ? 'active' : '' }}">
+                                        <a class="sidenav-item-link" href="{{ route('president.event.index') }}">
                                             <i class="fa-solid fa-calendar-days mr-3">
                                             </i>
                                             <span class="nav-text">Events</span>
@@ -120,16 +120,16 @@
                                 </div>
                             </ul>
                         </li>
-                        <li class="has-sub @if (url()->current() == route('president.members.index')) active expand @endif">
+                        <li class="has-sub {{ request()->routeIs('president.members*') ? 'active expand' : '' }}">
                             <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
-                                data-target="#members" aria-expanded="false" aria-controls="charts">
+                                data-target="#members" aria-expanded="false" aria-controls="members">
                                 <i class="mdi mdi-account-group"></i>
                                 <span class="nav-text">Members</span> <b class="caret"></b>
                             </a>
-                            <ul class="collapse @if (url()->current() == route('president.members.index')) show @endif" id="members"
+                            <ul class="collapse {{ request()->routeIs('president.members*') ? 'show' : '' }}" id="members"
                                 data-parent="#sidebar-menu">
                                 <div class="sub-menu">
-                                    <li class="@if (url()->current() == route('president.members.index')) active @endif">
+                                    <li class="{{ request()->routeIs('president.members*') ? 'active' : '' }}">
                                         <a class="sidenav-item-link" href="{{ route('president.members.index') }}">
                                             <span class="nav-text">Manage Members</span>
 
@@ -496,7 +496,7 @@
 
             <div class="content-wrapper text-dark">
                 @if (session('success'))
-                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <div class="alert alert-success alert-dismissible fade show m-0" role="alert">
                         <strong>{{ session('success') }}</strong>
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
@@ -504,7 +504,7 @@
                     </div>
                 @endif
                 @if (session('error'))
-                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <div class="alert alert-success alert-dismissible fade show m-0" role="alert">
                         <strong>{{ session('success') }}</strong>
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
@@ -512,7 +512,7 @@
                     </div>
                 @endif
                 @if ($errors->any())
-                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <div class="alert alert-warning alert-dismissible fade show m-0" role="alert">
                         <ul>
                             @foreach ($errors->all() as $error)
                                 <li><strong>{{ $error }}</strong></li>
@@ -566,8 +566,9 @@
     <script src="{{ asset('backend/assets/js/date-range.js') }}"></script>
     <script src="{{ asset('backend/assets/js/map.js') }}"></script>
     <script src="{{ asset('backend/assets/js/custom.js') }}"></script>
-
-
+    {{--    CKEditor--}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor5/34.0.0/ckeditor.min.js" integrity="sha512-d1WD+hDYM2nEFaZBZdRBVXaTLrVb4Bno5hCBcrIZZ45hNKQWD7s9CllB6NqkgebX/qwMkbuWM804gfFr2cisqA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    @yield('scripts')
 </body>
 
 </html>

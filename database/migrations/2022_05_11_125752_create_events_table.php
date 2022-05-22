@@ -19,7 +19,6 @@ class CreateEventsTable extends Migration
             $table->string('name');
             $table->text('description');
             $table->string('image');
-            $table->string('link')->nullable();
             $table->date('date')->nullable();
             $table->time('time')->nullable();
             $table->string('venue')->nullable();

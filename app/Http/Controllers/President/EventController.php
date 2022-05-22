@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\President;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreEventRequest;
 use App\Models\Event;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
@@ -39,7 +40,7 @@ class EventController extends Controller
         return view('president.event.create');
     }
 
-    public function store(Request $request)
+    public function store(StoreEventRequest $request)
     {
         $event_image = $request->file('image');
         $event = new Event();

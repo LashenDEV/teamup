@@ -566,8 +566,9 @@
     <script src="{{ asset('backend/assets/js/date-range.js') }}"></script>
     <script src="{{ asset('backend/assets/js/map.js') }}"></script>
     <script src="{{ asset('backend/assets/js/custom.js') }}"></script>
-
-
+    {{--    CKEditor--}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor5/34.0.0/ckeditor.min.js" integrity="sha512-d1WD+hDYM2nEFaZBZdRBVXaTLrVb4Bno5hCBcrIZZ45hNKQWD7s9CllB6NqkgebX/qwMkbuWM804gfFr2cisqA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    @yield('scripts')
 </body>
 
 </html>

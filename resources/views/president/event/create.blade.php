@@ -4,12 +4,15 @@
 
     <div class="col-lg-12">
         <div class="card card-default">
-            <div class="card-header d-flex  justify-content-md-between justify-content-center p-4" style="background-color: #4c84ff !important">
+            <div class="card-header d-flex  justify-content-md-between justify-content-center p-4"
+                 style="background-color: #4c84ff !important">
                 <div class="text-leftt text-white pb-1 pb-md-0">
                     <h1>Create an Event</h1>
                 </div>
                 <div class="text-right">
-                    <a href="{{ route('president.event.index') }}"><button type="button" class="btn btn-secondary">Back</button></a>
+                    <a href="{{ route('president.event.index') }}">
+                        <button type="button" class="btn btn-secondary">Back</button>
+                    </a>
                 </div>
             </div>
             <div class="card-body">
@@ -18,14 +21,15 @@
                     <div class="form-group">
                         <label for="exampleFormControlInput1">Event Name</label>
                         <input type="name" class="form-control" id="exampleFormControlInput1"
-                            placeholder="Enter Event Name" name="name">
+                               placeholder="Enter Event Name" name="name">
                         <input type="hidden" name="president_id" value="{{ auth()->user()->id }}">
 
                     </div>
 
                     <div class="form-group">
-                        <label for="exampleFormControlTextarea1">Discription</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1"  placeholder="Enter the Description" name="description" rows="3"></textarea>
+                        <label for="exampleFormControlTextarea1">Description</label>
+                        <textarea class="form-control" id="description" placeholder="Enter the Description"
+                                  name="description" rows="3"></textarea>
                     </div>
 
                     <div class="form-group">
@@ -40,8 +44,9 @@
 
                     <div class="form-group">
                         <label for="exampleFormControlInput1">Venue</label>
-                        <input type="name" class="form-control" id="exampleFormControlInput1" placeholder="Enter location"
-                            name="venue">
+                        <input type="name" class="form-control" id="exampleFormControlInput1"
+                               placeholder="Enter location"
+                               name="venue">
                     </div>
 
                     <div class="form-group">
@@ -55,4 +60,15 @@
                 </form>
             </div>
         </div>
-    @endsection
+    </div>
+@endsection
+
+@section('scripts')
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#description' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+    </script>
+@endsection

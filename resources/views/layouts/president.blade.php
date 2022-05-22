@@ -109,8 +109,8 @@
                                             <span class="nav-text">Notices</span>
                                         </a>
                                     </li>
-                                    <li class="">
-                                        <a class="sidenav-item-link" href="index.html">
+                                    <li class="{{ request()->routeIs('president.meeting*') ? 'active' : '' }}">
+                                        <a class="sidenav-item-link" href="{{ route('president.meeting.index') }}">
                                             <span class="material-symbols-sharp mr-2">
                                                 meeting_room
                                             </span>

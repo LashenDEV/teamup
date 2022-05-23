@@ -9,7 +9,7 @@ class MeetingController extends Controller
 {
     public function index()
     {
-
+        return view('president.meeting.index');
     }
 
     public function create()

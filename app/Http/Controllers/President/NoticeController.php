@@ -14,7 +14,7 @@ class NoticeController extends Controller
 
     public function create()
     {
-        return view('president.notice.new');
+        return view('president.notice.create');
     }
 
     public function store(Request $request)

@@ -15,6 +15,14 @@ class CreateMeetingsTable extends Migration
     {
         Schema::create('meetings', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('president_id');
+            $table->text('title');
+            $table->text('meeting_link');
+            $table->text('meeting_id');
+            $table->text('meeting_password');
+            $table->date('date');
+            $table->time('time');
+            $table->boolean('status')->default(0);
             $table->timestamps();
         });
     }

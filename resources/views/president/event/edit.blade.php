@@ -22,38 +22,40 @@
                     @method('PUT')
                     <div class="form-group">
                         <label for="exampleFormControlInput1">Event Name</label>
-                        <input type="name" class="form-control" id="exampleFormControlInput1"
+                        <input type="text" class="form-control" id="exampleFormControlInput1"
                                placeholder="Enter Event Name" name="name" value="{{ $event->name }}">
                         <input type="hidden" name="president_id" value="{{ auth()->user()->id }}">
 
                     </div>
 
                     <div class="form-group">
-                        <label for="exampleFormControlTextarea1">Description</label>
-                        <textarea class="form-control" id="description" placeholder="Enter the Description"
-                                  name="description" rows="3">{{ $event->description }}</textarea>
+                        <label for="description">Description</label>
+                        <textarea class="form-control" id="description"
+                                  placeholder="Enter the Description"
+                                  name="description"
+                                  rows="3">{{ $event->description }}</textarea>
                     </div>
 
                     <div class="form-group">
-                        <label for="enter date">Date</label>
+                        <label for="date">Date</label>
                         <p><input type="date" class="form-control" id="date" name="date" value="{{ $event->date }}"></p>
                     </div>
 
                     <div class="form-group">
-                        <label for="appt">Time</label>
+                        <label for="time">Time</label>
                         <p><input type="time" class="form-control" id="time" name="time" value="{{ $event->time }}"></p>
                     </div>
 
                     <div class="form-group">
                         <label for="exampleFormControlInput1">Venue</label>
-                        <input type="name" class="form-control" id="exampleFormControlInput1"
+                        <input type="text" class="form-control" id="exampleFormControlInput1"
                                placeholder="Enter location"
                                name="venue" value="{{ $event->venue }}">
                     </div>
 
                     <div class="form-group">
                         <div class="mb-3">
-                            <img src="{{ asset($event->image) }}" class="w-50">
+                            <img src="{{ asset($event->image) }}" class="w-50" alt="">
                         </div>
                     </div>
                     <div class="form-group">

@@ -68,6 +68,7 @@ Route::group(['as' => 'president.', 'prefix' => 'president', 'middleware' => ['i
     Route::post('meeting/store', [President\MeetingController::class, 'store'])->name('meeting.store');
     Route::get('meeting/{id}/edit/', [President\MeetingController::class, 'edit'])->name('meeting.edit');
     Route::put('meeting/{id}/update', [President\MeetingController::class, 'update'])->name('meeting.update');
+    Route::get('meeting/{id}/publish', [President\MeetingController::class, 'publish'])->name('meeting.publish');
     Route::delete('meeting/{id}', [President\MeetingController::class, 'destroy'])->name('meeting.destroy');
 });
 

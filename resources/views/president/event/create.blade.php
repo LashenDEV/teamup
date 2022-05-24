@@ -20,7 +20,7 @@
                     @csrf
                     <div class="form-group">
                         <label for="exampleFormControlInput1">Event Name</label>
-                        <input type="name" class="form-control" id="exampleFormControlInput1"
+                        <input type="text" class="form-control" id="exampleFormControlInput1"
                                placeholder="Enter Event Name" name="name">
                         <input type="hidden" name="president_id" value="{{ auth()->user()->id }}">
 
@@ -33,18 +33,18 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="enter date">Date</label>
+                        <label for="date">Date</label>
                         <p><input type="date" class="form-control" id="date" name="date"></p>
                     </div>
 
                     <div class="form-group">
-                        <label for="appt">Time</label>
+                        <label for="time">Time</label>
                         <p><input type="time" class="form-control" id="time" name="time"></p>
                     </div>
 
                     <div class="form-group">
                         <label for="exampleFormControlInput1">Venue</label>
-                        <input type="name" class="form-control" id="exampleFormControlInput1"
+                        <input type="text" class="form-control" id="exampleFormControlInput1"
                                placeholder="Enter location"
                                name="venue">
                     </div>

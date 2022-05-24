@@ -5,15 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Event extends Model
+class Meeting extends Model
 {
     use HasFactory;
+
     protected $fillable = [
         'president_id',
-        'name',
-        'description',
+        'title',
+        'meeting_link',
+        'meeting_id',
+        'meeting_password',
         'date',
         'time',
-        'venue',
+        'status'
     ];
 }

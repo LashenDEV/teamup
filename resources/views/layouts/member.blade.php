@@ -32,12 +32,13 @@
 
     <!-- Material Icons CDN -->
     <link rel="stylesheet"
-        href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+          href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
     <!-- Font Awesome CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.1.1/css/all.css">
+
+    <!-- Jquery CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
     <!-- =======================================================
     * Template Name: BizPage - v5.8.0
@@ -159,7 +160,7 @@
                     <div class="row">
 
                         <div class="col-lg-3 col-md-6 footer-info">
-                            <h3>BizPage</h3>
+                            <h3>Teamup</h3>
                             <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna
                                 derita valies darta donna mare fermentum iaculis eu non diam phasellus. Scelerisque
                                 felis imperdiet proin fermentum leo. Amet volutpat consequat mauris nunc congue.</p>
@@ -242,6 +243,8 @@
 
         <!-- Template Main JS File -->
         <script src="../frontend/assets/js/main.js"></script>
+
+
 
     </body>
 

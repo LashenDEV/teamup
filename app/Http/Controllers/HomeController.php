@@ -28,7 +28,7 @@ class HomeController extends Controller
         } elseif (\Auth::user()->role == 2) {
             return view('president.dashboard.index');
         }elseif (\Auth::user()->role == 3) {
-            return view('user.dashboard.index');
+            return view('user.Dashboard.index');
         }
     }
 }

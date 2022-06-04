@@ -79,13 +79,13 @@
 
                     <!-- sidebar menu -->
                     <ul class="nav sidebar-inner" id="sidebar-menu">
-                        <li class="has-sub {{ (request()->routeIs('president.club*') or request()->routeIs('president.event*') or request()->routeIs('president.meeting*'))  ? 'active expand' : '' }}">
+                        <li class="has-sub {{ (request()->routeIs('president.club*') or request()->routeIs('president.event*') or request()->routeIs('president.meeting*')  or request()->routeIs('president.dashboard'))  ? 'active expand' : '' }}">
                             <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
                                 data-target="#clubs" aria-expanded="false" aria-controls="clubs">
                                 <i class="mdi mdi-home-assistant"></i>
                                 <span class="nav-text">Your Club</span> <b class="caret"></b>
                             </a>
-                            <ul class="collapse {{ (request()->routeIs('president.club*') or request()->routeIs('president.event*') or request()->routeIs('president.meeting*')) ? 'show' : '' }}"
+                            <ul class="collapse {{ (request()->routeIs('president.club*') or request()->routeIs('president.event*') or request()->routeIs('president.meeting*')or request()->routeIs('president.dashboard')) ? 'show' : '' }}"
                                 id="clubs" data-parent="#sidebar-menu">
                                 <div class="sub-menu">
                                     <li class="{{ request()->routeIs('president.club*') ? 'active' : '' }}">
@@ -103,17 +103,13 @@
                                     </li>
                                     <li class="">
                                         <a class="sidenav-item-link" href="index.html">
-                                            <span class="material-symbols-sharp mr-2">
-                                                edit_note
-                                            </span>
+                                            <i class="fa-duotone fa-notes mr-3"></i>
                                             <span class="nav-text">Notices</span>
                                         </a>
                                     </li>
                                     <li class="{{ request()->routeIs('president.meeting*') ? 'active' : '' }}">
                                         <a class="sidenav-item-link" href="{{ route('president.meeting.index') }}">
-                                            <span class="material-symbols-sharp mr-2">
-                                                meeting_room
-                                            </span>
+                                            <i class="fa-duotone fa-video mr-3"></i>
                                             <span class="nav-text">Meetings</span>
                                         </a>
                                     </li>
@@ -131,12 +127,14 @@
                                 <div class="sub-menu">
                                     <li class="{{ request()->routeIs('president.members*') ? 'active' : '' }}">
                                         <a class="sidenav-item-link" href="{{ route('president.members.index') }}">
+                                            <i class="fa-duotone fa-people-roof mr-3"></i>
                                             <span class="nav-text">Manage Members</span>
 
                                         </a>
                                     </li>
                                     <li class="">
                                         <a class="sidenav-item-link" href="index.html">
+                                            <i class="fa-duotone fa-money-check-dollar mr-3"></i>
                                             <span class="nav-text">Payments</span>
 
                                         </a>

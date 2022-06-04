@@ -1,12 +1,12 @@
 @extends('layouts.member')
 @section('content')
-    <div class="card">
-        <!-- ======= Breadcrumbs ======= -->
-        <section id="breadcrumbs" class="breadcrumbs">
-            <div class="container-fluid m-3">
-                <h3><b>Profile</b></h3>
-            </div>
 
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+        <div class="container-fluid m-3">
+            <h3><b>Profile</b></h3>
+        </div>
+        <div class="card">
             <div class="container-fluid">
                 {{--Member details update form--}}
                 <div class="card">
@@ -27,7 +27,8 @@
                                             <label for="imageUpload" class="form-label"><b>Change
                                                     Photo:</b></label><br>
                                             <input id="imageUpload" type="file"
-                                                   name="profile_photo" placeholder="Photo">
+                                                   name="profile_photo" placeholder="Photo"
+                                                   value="{{ $user->profile_photo }}">
                                             <br>
                                         </div>
                                         <div class="profile-head">
@@ -69,12 +70,24 @@
                                                 <div class="row mt-2">
                                                     <strong class="my-2">Personal Information</strong>
                                                     <div class="col-xxl-6 d-xxl-flex  my-2">
+                                                        <label for="name"
+                                                               class="col-xxl-2 col-form-label">Username</label>
+                                                        <div class="col-xxl-10">
+                                                            <input type="text" class="form-control" id="name"
+                                                                   name="name"
+                                                                   placeholder="Username" value="{{$user->name}}">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row my-2">
+                                                    <div class="col-xxl-6 d-xxl-flex  my-2">
                                                         <label for="first_name" class="col-xxl-2 col-form-label">First
                                                             Name</label>
                                                         <div class="col-xxl-10">
                                                             <input type="text" class="form-control" id="first_name"
                                                                    name="first_name"
-                                                                   placeholder="First Name" value="{{$user->name}}">
+                                                                   placeholder="First Name"
+                                                                   value="{{$user->first_name}}">
                                                         </div>
                                                     </div>
                                                     <div class="col-xxl-6 d-xxl-flex my-2">
@@ -99,21 +112,31 @@
                                                     </div>
                                                 </div>
                                                 <div class="row my-2">
-                                                    <div class="col-xxl-6 d-xxl-flex my-2">
-                                                        <label for="dob"
-                                                               class="col-xxl-2 col-form-label">DOB</label>
+                                                    <div class="col-xxl-4 d-xxl-flex my-2">
+                                                        <label for="nic"
+                                                               class="col-xxl-2 col-form-label">NIC</label>
                                                         <div class="col-xxl-10">
+                                                            <input type="text" class="form-control" id="nic"
+                                                                   name="nic"
+                                                                   value="{{$user->nic}}">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xxl-4 d-xxl-flex my-2">
+                                                        <label for="dob"
+                                                               class="col-xxl-3 col-form-label">Date Of Birth</label>
+                                                        <div class="col-xxl-9">
                                                             <input type="date" class="form-control" id="dob"
                                                                    name="dob"
                                                                    value="{{$user->dob}}">
                                                         </div>
                                                     </div>
-                                                    <div class="col-xxl-6 d-xxl-flex my-2 d-flex align-items-center">
+                                                    <div class="col-xxl-4 d-xxl-flex my-2 d-flex align-items-center">
                                                         <label for="sex"
                                                                class="col-xxl-2 col-form-label">Sex</label>
                                                         <div class="col-xxl-10">
                                                             <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="radio"
+                                                                <input class="form-check-input" style="cursor: pointer"
+                                                                       type="radio"
                                                                        name="sex" id="inlineRadio1" {{$user->sex == 'Male' ?
                                                                     'checked' : ' '}}
                                                                        value="Male">
@@ -121,14 +144,16 @@
                                                                        for="inlineRadio1">Male</label>
                                                             </div>
                                                             <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="radio"
+                                                                <input class="form-check-input" style="cursor: pointer"
+                                                                       type="radio"
                                                                        name="sex" id="inlineRadio2" {{$user->sex == 'Female' ?
                                                                     'checked' : ' '}}
                                                                        value="Female">
                                                                 <label class="form-check-label" for="inlineRadio2">Female</label>
                                                             </div>
                                                             <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="radio"
+                                                                <input class="form-check-input" style="cursor: pointer"
+                                                                       type="radio"
                                                                        name="sex" id="inlineRadio3" {{$user->sex == 'Other' ?
                                                                     'checked' : ' '}}
                                                                        value="Other">
@@ -269,36 +294,98 @@
                                                 </div>
                                                 <div class="d-flex justify-content-end my-4">
                                                     <button type="submit" class="btn btn-primary">Save</button>
-                                                    <button type="reset" class="btn btn-light ms-3">Cancel</button>
+                                                    <a class="btn btn-outline-dark ms-2"
+                                                       href="{{ route('home') }}">Back</a>
                                                 </div>
                                             </div>
-                                        </div>
-
-                                        <div class="tab-pane fade" id="profile" role="tabpanel"
-                                             aria-labelledby="profile-tab">how
-                                        </div>
+                    </form>
+                    <div class="col-xxl-12">
+                        <div class="row mt-2">
+                            <div class="dropdown-divider"></div>
+                            <strong class="my-2">Change Password</strong>
+                            <form method="POST" action="{{route('password.change')}}" class="form-pill">
+                                @csrf
+                                @method('PUT')
+                                <div class="col-xxl-12 d-xxl-flex  my-2">
+                                    <label for="current_password"
+                                           class="col-xxl-2 col-form-label">Current
+                                        Password</label>
+                                    <div class="col-xxl-10">
+                                        <input type="password" class="form-control"
+                                               id="current_password"
+                                               name="current_password"
+                                               placeholder="Current Password">
                                     </div>
                                 </div>
-                            </div>
+                                <div class="col-xxl-12 d-xxl-flex  my-2">
+                                    @error('current_password')
+                                    <span class="text-danger">{{$message}}</span>
+                                    @enderror
+                                </div>
+
+                                <div class="col-xxl-12 d-xxl-flex  my-2">
+                                    <label for="password"
+                                           class="col-xxl-2 col-form-label">New Password</label>
+                                    <div class="col-xxl-10">
+                                        <input type="password" class="form-control"
+                                               id="password"
+                                               name="password"
+                                               placeholder="New Password">
+                                    </div>
+                                </div>
+                                <div class="col-xxl-12 d-xxl-flex  my-2">
+                                    @error('password')
+                                    <span class="text-danger">{{$message}}</span>
+                                    @enderror
+                                </div>
+
+                                <div class="col-xxl-12 d-xxl-flex  my-2">
+                                    <label for="password_confirmation"
+                                           class="col-xxl-2 col-form-label">Confirm
+                                        Password</label>
+                                    <div class="col-xxl-10">
+                                        <input type="password" class="form-control"
+                                               id="password_confirmation"
+                                               name="password_confirmation"
+                                               placeholder="Confirm Password">
+                                    </div>
+                                </div>
+                                <div class="col-xxl-12 d-xxl-flex  my-2">
+                                    @error('password_confirmation')
+                                    <span class="text-danger">{{$message}}</span>
+                                    @enderror
+                                </div>
+                                <div class="d-flex justify-content-end my-4">
+                                    <button type="submit" class="btn btn-primary">Update
+                                        Password
+                                    </button>
+                                </div>
+
+                            </form>
                         </div>
-                    </form>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="profile" role="tabpanel"
+                     aria-labelledby="profile-tab">how
                 </div>
             </div>
-            <script>
-                $("#profileImage").click(function (e) {
-                    $("#imageUpload").click();
-                });
+        </div>
+        <script>
+            $("#profileImage").click(function (e) {
+                $("#imageUpload").click();
+            });
 
-                function fasterPreview(uploader) {
-                    if (uploader.files && uploader.files[0]) {
-                        $('#profileImage').attr('src',
-                            window.URL.createObjectURL(uploader.files[0]));
-                    }
+            function fasterPreview(uploader) {
+                if (uploader.files && uploader.files[0]) {
+                    $('#profileImage').attr('src',
+                        window.URL.createObjectURL(uploader.files[0]));
                 }
+            }
 
-                $("#imageUpload").change(function () {
-                    fasterPreview(this);
-                });
-            </script>
+            $("#imageUpload").change(function () {
+                fasterPreview(this);
+            });
+        </script>
 @endsection
 

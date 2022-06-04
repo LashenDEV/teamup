@@ -61,7 +61,7 @@
 
         <div class="row justify-content-center align-items-center">
             <div class="col-xl-11 d-flex align-items-center justify-content-between">
-                <h1 class="logo"><a href="index.html">Clubs of University</a></h1>
+                <h1 class="logo"><a href="{{ route('user.dashboard') }}">TeamUP</a></h1>
                 <!-- Uncomment below if you prefer to use an image logo -->
                 <!-- <a href="index.html" class="logo"><img src="{{asset('')}}/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -926,7 +926,7 @@
 <!-- Uncomment below i you want to use a preloader -->
 <!-- <div id="preloader"></div> -->
 
-<<!-- Vendor JS Files -->
+<!-- Vendor JS Files -->
 <script src="frontend/assets/vendor/purecounter/purecounter.js"></script>
 <script src="frontend/assets/vendor/aos/aos.js"></script>
 <script src="frontend/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

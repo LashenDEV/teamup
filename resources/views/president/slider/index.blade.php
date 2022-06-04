@@ -6,7 +6,7 @@
             <div class="container">
                 <div class="row">
                     <div class="d-flex w-100 justify-content-between p-2"><h4>Home Slider</h4>
-                    <a href="#">
+                    <a href="{{ route('admin.add.slider') }}">
                         <button class="btn btn-info">Add Slider</button>
                     </a></div>
                     

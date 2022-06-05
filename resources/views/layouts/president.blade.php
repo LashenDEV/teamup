@@ -79,13 +79,14 @@
 
                     <!-- sidebar menu -->
                     <ul class="nav sidebar-inner" id="sidebar-menu">
-                        <li class="has-sub {{ (request()->routeIs('president.club*') or request()->routeIs('president.event*') or request()->routeIs('president.meeting*')  or request()->routeIs('president.dashboard'))  ? 'active expand' : '' }}">
+                        <li
+                            class="has-sub {{ (request()->routeIs('president.club*') or request()->routeIs('president.event*') or request()->routeIs('president.meeting*') or request()->routeIs('president.dashboard')) ? 'active expand' : '' }}">
                             <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
                                 data-target="#clubs" aria-expanded="false" aria-controls="clubs">
                                 <i class="mdi mdi-home-assistant"></i>
                                 <span class="nav-text">Your Club</span> <b class="caret"></b>
                             </a>
-                            <ul class="collapse {{ (request()->routeIs('president.club*') or request()->routeIs('president.event*') or request()->routeIs('president.meeting*')or request()->routeIs('president.dashboard')) ? 'show' : '' }}"
+                            <ul class="collapse {{ (request()->routeIs('president.club*') or request()->routeIs('president.event*') or request()->routeIs('president.meeting*') or request()->routeIs('president.dashboard')) ? 'show' : '' }}"
                                 id="clubs" data-parent="#sidebar-menu">
                                 <div class="sub-menu">
                                     <li class="{{ request()->routeIs('president.club*') ? 'active' : '' }}">
@@ -103,11 +104,6 @@
                                     </li>
                                     <li class="{{ request()->routeIs('president.notice*') ? 'active' : '' }}">
                                         <a class="sidenav-item-link" href="{{ route('president.notice.index') }}">
-                                            <span class="material-symbols-sharp mr-2">
-                                                edit_note
-                                            </span>
-                                    <li class="">
-                                        <a class="sidenav-item-link" href="index.html">
                                             <i class="fa-duotone fa-notes mr-3"></i>
                                             <span class="nav-text">Notices</span>
                                         </a>
@@ -509,12 +505,12 @@
                 @if (session('error'))
                     <div class="alert alert-success alert-dismissible fade show m-0" role="alert">
                         <strong>{{ session('success') }}</strong>
-                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                        <strong>{{ session('error') }}</strong>
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <strong>{{ session('error') }}</strong>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
                 @endif
                 @if ($errors->any())
                     <div class="alert alert-warning alert-dismissible fade show m-0" role="alert">
@@ -571,8 +567,10 @@
     <script src="{{ asset('backend/assets/js/date-range.js') }}"></script>
     <script src="{{ asset('backend/assets/js/map.js') }}"></script>
     <script src="{{ asset('backend/assets/js/custom.js') }}"></script>
-    {{--    CKEditor--}}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor5/34.0.0/ckeditor.min.js" integrity="sha512-d1WD+hDYM2nEFaZBZdRBVXaTLrVb4Bno5hCBcrIZZ45hNKQWD7s9CllB6NqkgebX/qwMkbuWM804gfFr2cisqA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    {{-- CKEditor --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor5/34.0.0/ckeditor.min.js"
+        integrity="sha512-d1WD+hDYM2nEFaZBZdRBVXaTLrVb4Bno5hCBcrIZZ45hNKQWD7s9CllB6NqkgebX/qwMkbuWM804gfFr2cisqA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     @yield('scripts')
 </body>
 

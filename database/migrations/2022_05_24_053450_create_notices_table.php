@@ -16,9 +16,7 @@ class CreateNoticesTable extends Migration
         Schema::create('notices', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('president_id');
-            $table->string('notice');
-            $table->date('date');
-            $table->time('time');
+            $table->text('notice');
             $table->boolean('status')->default(0);
             $table->timestamps();
         });

@@ -80,24 +80,24 @@
                     <!-- sidebar menu -->
                     <ul class="nav sidebar-inner" id="sidebar-menu">
                         <li
-                            class="has-sub {{ (request()->routeIs('president.club*') or request()->routeIs('president.event*') or request()->routeIs('president.meeting*') or request()->routeIs('president.dashboard')) ? 'active expand' : '' }}">
+                            class="has-sub {{ (request()->routeIs('president.club*') or request()->routeIs('president.event*') or request()->routeIs('president.meeting*') or request()->routeIs('president.notice*')  or request()->routeIs('president.dashboard')) ? 'active expand' : '' }}">
                             <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
                                 data-target="#clubs" aria-expanded="false" aria-controls="clubs">
                                 <i class="mdi mdi-home-assistant"></i>
                                 <span class="nav-text">Your Club</span> <b class="caret"></b>
                             </a>
-                            <ul class="collapse {{ (request()->routeIs('president.club*') or request()->routeIs('president.event*') or request()->routeIs('president.meeting*') or request()->routeIs('president.dashboard')) ? 'show' : '' }}"
+                            <ul class="collapse {{ (request()->routeIs('president.club*') or request()->routeIs('president.event*') or request()->routeIs('president.meeting*') or request()->routeIs('president.notice*')  or request()->routeIs('president.dashboard')) ? 'show' : '' }}"
                                 id="clubs" data-parent="#sidebar-menu">
                                 <div class="sub-menu">
                                     <li class="{{ request()->routeIs('president.club*') ? 'active' : '' }}">
                                         <a class="sidenav-item-link" href="{{ route('president.club.index') }}">
-                                            <i class="fa-solid fa-list-check mr-3"></i>
+                                            <i class="fa-duotone fa-list-check mr-3"></i>
                                             <span class="nav-text">Manage Your Club</span>
                                         </a>
                                     </li>
                                     <li class="{{ request()->routeIs('president.event*') ? 'active' : '' }}">
                                         <a class="sidenav-item-link" href="{{ route('president.event.index') }}">
-                                            <i class="fa-solid fa-calendar-days mr-3">
+                                            <i class="fa-duotone fa-calendar-days mr-3">
                                             </i>
                                             <span class="nav-text">Events</span>
                                         </a>

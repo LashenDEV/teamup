@@ -24,7 +24,7 @@ class StoreNoticeRequest extends FormRequest
     public function rules()
     {
         return [
-            'notices' => 'required',
+            'notice' => 'required',
         ];
     }
 }

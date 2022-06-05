@@ -59,6 +59,16 @@ Route::group(['as' => 'president.', 'prefix' => 'president', 'middleware' => ['i
     Route::put('event/{id}/update', [President\EventController::class, 'update'])->name('event.update');
     Route::delete('event/{id}', [President\EventController::class, 'destroy'])->name('event.destroy');
 
+    //Notices
+    Route::get('notice', [President\NoticeController::class, 'index'])->name('notice.index');
+    Route::get('notice/create', [President\NoticeController::class, 'create'])->name('notice.create');
+    Route::post('notice/store', [President\NoticeController::class, 'store'])->name('notice.store');
+    Route::get('notice/{id}/edit/', [President\NoticeController::class, 'edit'])->name('notice.edit');
+    Route::put('notice/{id}/update', [President\NoticeController::class, 'update'])->name('notice.update');
+    Route::get('notice/{id}/publish', [President\NoticeController::class, 'publish'])->name('notice.publish');
+    Route::delete('notice/{id}', [President\NoticeController::class, 'destroy'])->name('notice.destroy');
+
+
     //Members
     Route::get('members', [President\MemberController::class, 'index'])->name('members.index');
     Route::get('members/{id}/edit/', [President\MemberController::class, 'edit'])->name('members.edit');

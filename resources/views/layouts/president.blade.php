@@ -79,30 +79,31 @@
 
                     <!-- sidebar menu -->
                     <ul class="nav sidebar-inner" id="sidebar-menu">
-                        <li class="has-sub {{ (request()->routeIs('president.club*') or request()->routeIs('president.event*') or request()->routeIs('president.meeting*')  or request()->routeIs('president.dashboard'))  ? 'active expand' : '' }}">
+                        <li
+                            class="has-sub {{ (request()->routeIs('president.club*') or request()->routeIs('president.event*') or request()->routeIs('president.meeting*') or request()->routeIs('president.notice*')  or request()->routeIs('president.dashboard')) ? 'active expand' : '' }}">
                             <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
                                 data-target="#clubs" aria-expanded="false" aria-controls="clubs">
                                 <i class="mdi mdi-home-assistant"></i>
                                 <span class="nav-text">Your Club</span> <b class="caret"></b>
                             </a>
-                            <ul class="collapse {{ (request()->routeIs('president.club*') or request()->routeIs('president.event*') or request()->routeIs('president.meeting*')or request()->routeIs('president.dashboard')) ? 'show' : '' }}"
+                            <ul class="collapse {{ (request()->routeIs('president.club*') or request()->routeIs('president.event*') or request()->routeIs('president.meeting*') or request()->routeIs('president.notice*')  or request()->routeIs('president.dashboard')) ? 'show' : '' }}"
                                 id="clubs" data-parent="#sidebar-menu">
                                 <div class="sub-menu">
                                     <li class="{{ request()->routeIs('president.club*') ? 'active' : '' }}">
                                         <a class="sidenav-item-link" href="{{ route('president.club.index') }}">
-                                            <i class="fa-solid fa-list-check mr-3"></i>
+                                            <i class="fa-duotone fa-list-check mr-3"></i>
                                             <span class="nav-text">Manage Your Club</span>
                                         </a>
                                     </li>
                                     <li class="{{ request()->routeIs('president.event*') ? 'active' : '' }}">
                                         <a class="sidenav-item-link" href="{{ route('president.event.index') }}">
-                                            <i class="fa-solid fa-calendar-days mr-3">
+                                            <i class="fa-duotone fa-calendar-days mr-3">
                                             </i>
                                             <span class="nav-text">Events</span>
                                         </a>
                                     </li>
-                                    <li class="">
-                                        <a class="sidenav-item-link" href="index.html">
+                                    <li class="{{ request()->routeIs('president.notice*') ? 'active' : '' }}">
+                                        <a class="sidenav-item-link" href="{{ route('president.notice.index') }}">
                                             <i class="fa-duotone fa-notes mr-3"></i>
                                             <span class="nav-text">Notices</span>
                                         </a>
@@ -122,8 +123,8 @@
                                 <i class="mdi mdi-account-group"></i>
                                 <span class="nav-text">Members</span> <b class="caret"></b>
                             </a>
-                            <ul class="collapse {{ request()->routeIs('president.members*') ? 'show' : '' }}" id="members"
-                                data-parent="#sidebar-menu">
+                            <ul class="collapse {{ request()->routeIs('president.members*') ? 'show' : '' }}"
+                                id="members" data-parent="#sidebar-menu">
                                 <div class="sub-menu">
                                     <li class="{{ request()->routeIs('president.members*') ? 'active' : '' }}">
                                         <a class="sidenav-item-link" href="{{ route('president.members.index') }}">
@@ -503,11 +504,13 @@
                 @endif
                 @if (session('error'))
                     <div class="alert alert-success alert-dismissible fade show m-0" role="alert">
-                        <strong>{{ session('$error') }}</strong>
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
+                        <strong>{{ session('success') }}</strong>
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <strong>{{ session('error') }}</strong>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
                 @endif
                 @if ($errors->any())
                     <div class="alert alert-warning alert-dismissible fade show m-0" role="alert">
@@ -564,8 +567,10 @@
     <script src="{{ asset('backend/assets/js/date-range.js') }}"></script>
     <script src="{{ asset('backend/assets/js/map.js') }}"></script>
     <script src="{{ asset('backend/assets/js/custom.js') }}"></script>
-    {{--    CKEditor--}}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor5/34.0.0/ckeditor.min.js" integrity="sha512-d1WD+hDYM2nEFaZBZdRBVXaTLrVb4Bno5hCBcrIZZ45hNKQWD7s9CllB6NqkgebX/qwMkbuWM804gfFr2cisqA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    {{-- CKEditor --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor5/34.0.0/ckeditor.min.js"
+        integrity="sha512-d1WD+hDYM2nEFaZBZdRBVXaTLrVb4Bno5hCBcrIZZ45hNKQWD7s9CllB6NqkgebX/qwMkbuWM804gfFr2cisqA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     @yield('scripts')
 </body>
 

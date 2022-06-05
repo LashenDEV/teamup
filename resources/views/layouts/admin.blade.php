@@ -30,7 +30,7 @@
 
     <!-- Material Icons CDN -->
     <link rel="stylesheet"
-          href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+          href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
 
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.1.1/css/all.css">
@@ -91,21 +91,18 @@
 
                 <!-- sidebar menu -->
                 <ul class="nav sidebar-inner" id="sidebar-menu">
-
-
-                    <li class="has-sub active expand">
+                    <li class="has-sub {{ (request()->routeIs('admin.dashboard')) ? 'active expand' : '' }}">
                         <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
                            data-target="#dashboard"
                            aria-expanded="false" aria-controls="dashboard">
                             <i class="fa-duotone fa-table-layout mr-3"></i>
                             <span class="nav-text">Site Layout</span> <b class="caret"></b>
                         </a>
-                        <ul class="collapse show" id="dashboard"
+                        <ul class="collapse {{ (request()->routeIs('president.dashboard')) ? 'show' : '' }}"
+                            id="dashboard"
                             data-parent="#sidebar-menu">
                             <div class="sub-menu">
-
-
-                                <li class="active">
+                                <li class="{{ request()->routeIs('admin.slider*') ? 'active' : '' }}">
                                     <a class="sidenav-item-link" href="{{route('admin.slider')}}">
                                         <span class="nav-text">Image Slider</span>
                                     </a>
@@ -124,20 +121,20 @@
                             </div>
                         </ul>
                     </li>
-
-                    <li class="has-sub  expand">
+                    <li class="has-sub  {{ (request()->routeIs('admin.president.index')) ? 'active expand' : '' }}">
                         <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
-                           data-target="#dashboard"
-                           aria-expanded="false" aria-controls="dashboard">
+                           data-target="#president"
+                           aria-expanded="false" aria-controls="president">
                             <i class="fa-duotone fa-person-chalkboard mr-3"></i>
                             <span class="nav-text">President</span> <b class="caret"></b>
                         </a>
-                        <ul class="collapse" id="dashboard"
+                        <ul class="collapse {{ (request()->routeIs('admin.president*')) ? 'show' : '' }}"
+                            id="president"
                             data-parent="#sidebar-menu">
                             <div class="sub-menu">
-                                <li class="">
-                                    <a class="sidenav-item-link" href="{{route('admin.slider')}}">
-                                        <span class="nav-text">Image Slider</span>
+                                <li class="{{ request()->routeIs('admin.index*') ? 'active' : '' }}">
+                                    <a class="sidenav-item-link" href="{{route('admin.president.index')}}">
+                                        <span class="nav-text">Members</span>
                                     </a>
                                 </li>
                                 <li class="">
@@ -206,7 +203,7 @@
                             <i class="mdi mdi-magnify"></i>
                         </button>
                         <input type="text" name="query" id="search-input" class="form-control"
-                               placeholder="Members" autofocus autocomplete="off" />
+                               placeholder="Members" autofocus autocomplete="off"/>
                     </div>
                     <div id="search-results-container">
                         <ul id="search-results"></ul>
@@ -274,14 +271,14 @@
                         <li class="dropdown user-menu">
                             <button href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                                 <img src="{{ asset('backend/assets/img/user/user.png') }}" class="user-image"
-                                     alt="User Image" />
+                                     alt="User Image"/>
                                 <span class="d-none d-lg-inline-block">Abdus Salam</span>
                             </button>
                             <ul class="dropdown-menu dropdown-menu-right">
                                 <!-- user image -->
                                 <li class="dropdown-header">
                                     <img src="{{ asset('backend/assets/img/user/user.png') }}"
-                                         class="img-circle" alt="User Image" />
+                                         class="img-circle" alt="User Image"/>
                                     <div class="d-inline-block">
                                         Abdus Salam <small class="pt-1">abdus@gmail.com</small>
                                     </div>

@@ -35,6 +35,11 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['isAdmin',
     Route::get('slider', [Admin\SliderController::class, 'slider'])->name('slider');
     Route::get('slider/add', [Admin\SliderController::class, 'add'])->name('add.slider');
     Route::post('slider/store', [Admin\SliderController::class, 'store'])->name('store.slider');
+
+    //Presidents
+    Route::get('president', [Admin\PresidentController::class, 'index'])->name('president.index');
+    Route::get('president/{id}/edit/', [Admin\PresidentController::class, 'edit'])->name('president.edit');
+    Route::delete('president/{id}', [Admin\PresidentController::class, 'destroy'])->name('president.destroy');
 });
 
 

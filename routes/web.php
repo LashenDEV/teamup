@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin;
 use App\Http\Controllers\President;
@@ -20,25 +21,25 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //Routes for Admin
-Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['isAdmin', 'auth']], function () {
+Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['isAdmin', 'auth', 'verified']], function () {
     Route::get('dashboard', [Admin\AdminController::class, 'index'])->name('dashboard');
     Route::get('profile', [Admin\AdminController::class, 'profile'])->name('profile');
     Route::get('settings', [Admin\AdminController::class, 'settings'])->name('settings');
 
     //Sliders
     Route::get('slider', [Admin\SliderController::class, 'slider'])->name('slider');
-    Route::get('slider/add', [Admin\SliderController::class, 'add'])->name('add.slider');
+    Route::get('slider/add', [Admin\SliderController::class, 'add'])->nameadmin('add.slider');
     Route::post('slider/store', [Admin\SliderController::class, 'store'])->name('store.slider');
 });
 
 
 //Routes for Presidents
-Route::group(['as' => 'president.', 'prefix' => 'president', 'middleware' => ['isPresident', 'auth']], function () {
+Route::group(['as' => 'president.', 'prefix' => 'president', 'middleware' => ['isPresident', 'auth', 'verified']], function () {
     Route::get('dashboard', [President\PresidentController::class, 'index'])->name('dashboard');
     Route::get('profile', [President\PresidentController::class, 'profile'])->name('profile');
     Route::get('settings', [President\PresidentController::class, 'settings'])->name('settings');
@@ -86,7 +87,7 @@ Route::group(['as' => 'president.', 'prefix' => 'president', 'middleware' => ['i
 
 
 //Routes for Users
-Route::group(['prefix' => 'user', 'middleware' => ['isUser', 'auth']], function () {
+Route::group(['prefix' => 'user', 'middleware' => ['isUser', 'auth', 'verified']], function () {
     Route::get('dashboard', [User\UserController::class, 'index'])->name('user.dashboard');
     Route::get('profile', [User\UserController::class, 'profile'])->name('user.profile');
     Route::put('update', [User\UserController::class, 'update'])->name('profile.update');

@@ -61,6 +61,8 @@ Route::group(['as' => 'president.', 'prefix' => 'president', 'middleware' => ['i
 
     //Members
     Route::get('members', [President\MemberController::class, 'index'])->name('members.index');
+    Route::get('members/{id}/edit/', [President\MemberController::class, 'edit'])->name('members.edit');
+    Route::delete('members/{id}', [President\MemberController::class, 'destroy'])->name('members.destroy');
 
     //Meetings
     Route::get('meeting', [President\MeetingController::class, 'index'])->name('meeting.index');

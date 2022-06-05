@@ -10,13 +10,14 @@ class MemberController extends Controller
 {
     public function index()
     {
-        $members = User::where('role', 2)->get();
+        $members = User::where('role', 3)->paginate(2);
         return view('president.members.index', compact('members'));
     }
 
     public function edit($id)
     {
-        return view('president.members.edit');
+        $member = User::findOrFail($id);
+        return view('president.members.edit',compact('member'));
     }
 
     public function destroy($id)

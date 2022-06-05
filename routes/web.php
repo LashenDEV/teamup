@@ -33,7 +33,7 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['isAdmin',
 
     //Sliders
     Route::get('slider', [Admin\SliderController::class, 'slider'])->name('slider');
-    Route::get('slider/add', [Admin\SliderController::class, 'add'])->nameadmin('add.slider');
+    Route::get('slider/add', [Admin\SliderController::class, 'add'])->name('add.slider');
     Route::post('slider/store', [Admin\SliderController::class, 'store'])->name('store.slider');
 });
 

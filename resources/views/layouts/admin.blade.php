@@ -132,9 +132,9 @@
                             id="president"
                             data-parent="#sidebar-menu">
                             <div class="sub-menu">
-                                <li class="{{ request()->routeIs('admin.index*') ? 'active' : '' }}">
+                                <li class="{{ request()->routeIs('admin.president*') ? 'active' : '' }}">
                                     <a class="sidenav-item-link" href="{{route('admin.president.index')}}">
-                                        <span class="nav-text">Members</span>
+                                        <span class="nav-text">President</span>
                                     </a>
                                 </li>
                                 <li class="">

@@ -38,6 +38,7 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['isAdmin',
 
     //Presidents
     Route::get('president', [Admin\PresidentController::class, 'index'])->name('president.index');
+    Route::get('president/create', [Admin\PresidentController::class, 'create'])->name('president.create');
     Route::get('president/{id}/edit/', [Admin\PresidentController::class, 'edit'])->name('president.edit');
     Route::delete('president/{id}', [Admin\PresidentController::class, 'destroy'])->name('president.destroy');
 });

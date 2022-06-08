@@ -16,7 +16,7 @@ class ClubController extends Controller
 
     public function create()
     {
-        return view('admin.president.create');
+        return view('admin.club.create');
     }
 
     public function store(Request $request)

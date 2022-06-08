@@ -17,9 +17,7 @@ use App\Http\Controllers\User;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [Admin\ClubController::class, 'show']);
 
 Auth::routes(['verify' => true]);
 
@@ -44,7 +42,7 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['isAdmin',
     Route::put('president/{id}/update', [Admin\PresidentController::class, 'update'])->name('president.update');
     Route::delete('president/{id}', [Admin\PresidentController::class, 'destroy'])->name('president.destroy');
 
-    //Presidents
+    //Clubs
     Route::get('club', [Admin\ClubController::class, 'index'])->name('club.index');
     Route::get('club/{id}/approval/', [Admin\ClubController::class, 'approval'])->name('club.approval');
     Route::get('club/{id}/rejection/', [Admin\ClubController::class, 'rejection'])->name('club.rejection');
@@ -105,6 +103,6 @@ Route::group(['prefix' => 'user', 'middleware' => ['isUser', 'auth', 'verified']
     Route::get('dashboard', [User\UserController::class, 'index'])->name('user.dashboard');
     Route::get('profile', [User\UserController::class, 'profile'])->name('user.profile');
     Route::put('update', [User\UserController::class, 'update'])->name('profile.update');
-    Route::put('change-password',[User\UserController::class, 'ChangePassword'])->name('password.change');
+    Route::put('change-password', [User\UserController::class, 'ChangePassword'])->name('password.change');
     Route::get('settings', [User\UserController::class, 'settings'])->name('user.settings');
 });

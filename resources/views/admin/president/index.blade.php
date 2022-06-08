@@ -2,7 +2,7 @@
 @section('title', 'Presidents')
 @section('content')
     <!-- Recent Order Table -->
-    <div class="card card-table-border-none" id="recent-orders">
+    <div class="card card-table-border-none border-0">
         <div class="card-header d-flex flex-column flex-md-row justify-content-between p-4"
              style="background-color: #4c84ff !important">
             <div class="text-leftt text-white">
@@ -24,27 +24,77 @@
                 <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Club Name</th>
                     <th>Name</th>
-                    <th class="d-none d-md-table-cell">Mobile</th>
+                    <th class="d-none d-md-table-cell">Email</th>
+                    <th>Mobile</th>
                     <th class="d-none d-md-table-cell">Degree program</th>
                     <th class="d-none d-md-table-cell">Academic Year</th>
                     <th class="d-none d-md-table-cell">Address</th>
                     <th>Status</th>
-                    <th>Action</th>
+                    <th class="d-none d-md-table-cell">Action</th>
                     <th></th>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach($presidents as $president)
-                    <td>{{$president->id}}</td>
-                    <td>{{$president->getClub->name}}</td>
-                    <td>{{$president->name}}</td>
-                    <td>{{$president->mobile}}</td>
-                    <td>{{$president->degree_program}}</td>
-                    <td>{{$president->year}}</td>
-                    <td>{{$president->address_line1}}, {{$president->address_line2}}, {{$president->city}}
-                        , {{$president->province}}</td>
+                    <tr>
+                        <td>{{$president->id}}</td>
+                        <td>{{$president->name}}</td>
+                        <td class="d-none d-md-table-cell">{{$president->email}}</td>
+                        <td>{{$president->mobile}}</td>
+                        <td class="d-none d-md-table-cell">{{$president->degree_program}}</td>
+                        <td class="d-none d-md-table-cell">{{$president->year}}</td>
+                        <td class="d-none d-md-table-cell">{{$president->address_line1,}} {{$president->address_line2,}} {{$president->city,}}
+                            {{$president->province}}</td>
+                        <td><span class="badge badge-success">Success</span></td>
+                        <td class="d-none d-md-table-cell"><a href="{{ route('admin.president.edit', $president->id) }}" class="pl-1">
+                                <button type="button" class="btn btn-dark"><i
+                                        class="fa-duotone fa-pen-circle mr-1"></i>Edit
+                                </button>
+                            </a>
+                            <a href="#deleteModal" data-toggle="modal" class="pl-1">
+                                <button type="submit" class="btn btn-danger"><i
+                                        class="fa-duotone fa-circle-trash mr-1"></i>Delete
+                                </button>
+                            </a>
+                        </td>
+                        <!-- Confirm Deletion Modal -->
+                        <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog"
+                             aria-labelledby="deleteModalCenterTitle"
+                             aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content text-center">
+                                    <div class="modal-body">
+                                        <i class="fa-thin fa-circle-xmark fa-10x text-danger"></i>
+                                        <button type="button" class="close" data-dismiss="modal"
+                                                aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        <div class="m-2">
+                                            <h2>Are you sure?</h2>
+                                            <p>Do you really want to delete these records? This process
+                                                cannot be undone.</p>
+                                        </div>
+                                        <div class="modal-footer border-0 justify-content-center">
+                                            <button type="button" class="btn btn-secondary"
+                                                    data-dismiss="modal">Cancel
+                                            </button>
+                                            <form method="POST"
+                                                  action="{{ route('admin.president.destroy', $president->id) }}">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger"><i
+                                                        class="fa-solid fa-trash-can"></i>
+                                                    Delete
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Confirm Deletion Model -->
+                    </tr>
                 @endforeach
                 </tbody>
             </table>

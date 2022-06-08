@@ -319,56 +319,86 @@
             </nav>
         </header>
 
-
-        <div class="content-wrapper">
-            <div class="content">
-                @yield('content')
+        @if (session('success'))
+            <div class="alert alert-success alert-dismissible fade show m-0" role="alert">
+                <strong>{{ session('success') }}</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
-        </div>
+        @endif
+        @if (session('error'))
+            <div class="alert alert-success alert-dismissible fade show m-0" role="alert">
+                <strong>{{ session('success') }}</strong>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>{{ session('error') }}</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                @endif
+                @if ($errors->any())
+                    <div class="alert alert-warning alert-dismissible fade show m-0" role="alert">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li><strong>{{ $error }}</strong></li>
+                            @endforeach
+                        </ul>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                @endif
 
-        <footer class="footer mt-auto">
-            <div class="copyright bg-white">
-                <p>
-                    &copy; <span id="copy-year">2022/span> Copyright Sleek Dashboard Bootstrap Template by
+                <div class="content-wrapper">
+                    <div class="content p-0">
+                        @yield('content')
+                    </div>
+                </div>
+
+                <footer class="footer mt-auto">
+                    <div class="copyright bg-white">
+                        <p>
+                            &copy; <span id="copy-year">2022/span> Copyright Sleek Dashboard Bootstrap Template by
                     <a
                         class="text-primary"
                         href="http://www.iamabdus.com/"
                         target="_blank"
                     >Abdus</a
                     >.
-                </p>
+                        </p>
+                    </div>
+                    <script>
+                        var d = new Date();
+                        var year = d.getFullYear();
+                        document.getElementById("copy-year").innerHTML = year;
+                    </script>
+                </footer>
+
             </div>
-            <script>
-                var d = new Date();
-                var year = d.getFullYear();
-                document.getElementById("copy-year").innerHTML = year;
-            </script>
-        </footer>
-
     </div>
-</div>
 
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCn8TFXGg17HAUcNpkwtxxyT9Io9B_NcM" defer></script>
-<script src="{{asset('backend/assets/plugins/jquery/jquery.min.js')}}"></script>
-<script src="{{asset('backend/assets/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-<script src="{{asset('backend/assets/plugins/toaster/toastr.min.js')}}"></script>
-<script src="{{asset('backend/assets/plugins/slimscrollbar/jquery.slimscroll.min.js')}}"></script>
-<script src="{{asset('backend/assets/plugins/charts/Chart.min.js')}}"></script>
-<script src="{{asset('backend/assets/plugins/ladda/spin.min.js')}}"></script>
-<script src="{{asset('backend/assets/plugins/ladda/ladda.min.js')}}"></script>
-<script src="{{asset('backend/assets/plugins/jquery-mask-input/jquery.mask.min.js')}}"></script>
-<script src="{{asset('backend/assets/plugins/select2/js/select2.min.js')}}"></script>
-<script src="{{asset('backend/assets/plugins/jvectormap/jquery-jvectormap-2.0.3.min.js')}}"></script>
-<script src="{{asset('backend/assets/plugins/jvectormap/jquery-jvectormap-world-mill.js')}}"></script>
-<script src="{{asset('backend/assets/plugins/daterangepicker/moment.min.js')}}"></script>
-<script src="{{asset('backend/assets/plugins/daterangepicker/daterangepicker.js')}}"></script>
-<script src="{{asset('backend/assets/plugins/jekyll-search.min.js')}}"></script>
-<script src="{{asset('backend/assets/js/sleek.js')}}"></script>
-<script src="{{asset('backend/assets/js/chart.js')}}"></script>
-<script src="{{asset('backend/assets/js/date-range.js')}}"></script>
-<script src="{{asset('backend/assets/js/map.js')}}"></script>
-<script src="{{asset('backend/assets/js/custom.js')}}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCn8TFXGg17HAUcNpkwtxxyT9Io9B_NcM" defer></script>
+    <script src="{{asset('backend/assets/plugins/jquery/jquery.min.js')}}"></script>
+    <script src="{{asset('backend/assets/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{asset('backend/assets/plugins/toaster/toastr.min.js')}}"></script>
+    <script src="{{asset('backend/assets/plugins/slimscrollbar/jquery.slimscroll.min.js')}}"></script>
+    <script src="{{asset('backend/assets/plugins/charts/Chart.min.js')}}"></script>
+    <script src="{{asset('backend/assets/plugins/ladda/spin.min.js')}}"></script>
+    <script src="{{asset('backend/assets/plugins/ladda/ladda.min.js')}}"></script>
+    <script src="{{asset('backend/assets/plugins/jquery-mask-input/jquery.mask.min.js')}}"></script>
+    <script src="{{asset('backend/assets/plugins/select2/js/select2.min.js')}}"></script>
+    <script src="{{asset('backend/assets/plugins/jvectormap/jquery-jvectormap-2.0.3.min.js')}}"></script>
+    <script src="{{asset('backend/assets/plugins/jvectormap/jquery-jvectormap-world-mill.js')}}"></script>
+    <script src="{{asset('backend/assets/plugins/daterangepicker/moment.min.js')}}"></script>
+    <script src="{{asset('backend/assets/plugins/daterangepicker/daterangepicker.js')}}"></script>
+    <script src="{{asset('backend/assets/plugins/jekyll-search.min.js')}}"></script>
+    <script src="{{asset('backend/assets/js/sleek.js')}}"></script>
+    <script src="{{asset('backend/assets/js/chart.js')}}"></script>
+    <script src="{{asset('backend/assets/js/date-range.js')}}"></script>
+    <script src="{{asset('backend/assets/js/map.js')}}"></script>
+    <script src="{{asset('backend/assets/js/custom.js')}}"></script>
 
 
 </body>

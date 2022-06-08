@@ -39,7 +39,9 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['isAdmin',
     //Presidents
     Route::get('president', [Admin\PresidentController::class, 'index'])->name('president.index');
     Route::get('president/create', [Admin\PresidentController::class, 'create'])->name('president.create');
+    Route::post('president/store', [Admin\PresidentController::class, 'store'])->name('president.store');
     Route::get('president/{id}/edit/', [Admin\PresidentController::class, 'edit'])->name('president.edit');
+    Route::put('president/{id}/update', [Admin\PresidentController::class, 'update'])->name('president.update');
     Route::delete('president/{id}', [Admin\PresidentController::class, 'destroy'])->name('president.destroy');
 });
 

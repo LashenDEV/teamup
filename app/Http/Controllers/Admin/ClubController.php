@@ -10,33 +10,31 @@ class ClubController extends Controller
 {
     public function index()
     {
-//        $clubs = Clubs::paginate(10);
-        return view('admin.club.index');
+        $clubs = Clubs::with('clubOwner')->paginate(10);
+        return view('admin.club.index', compact('clubs'));
     }
 
-    public function create()
+
+    public function approval($id)
     {
-        return view('admin.club.create');
+        $club = Clubs::whereId($id)->first();
+        $club->approval = 1;
+        $club->save();
+        return redirect()->route('admin.club.index')->with('success', 'Club Approved Successfully');
     }
 
-    public function store(Request $request)
+    public function rejection($id)
     {
-    }
-
-    public function edit($id)
-    {
-
-    }
-
-    public function update($id, Request $request)
-    {
-
+        $club = Clubs::whereId($id)->first();
+        $club->approval = Null;
+        $club->save();
+        return redirect()->route('admin.club.index')->with('success', 'Club rejected Successfully');
     }
 
     public function destroy($id)
     {
-//        User::whereId($id)->delete();
-        return redirect()->route('admin.president.index')->with('success', 'President Deleted Successfully');
+        Clubs::whereId($id)->delete();
+        return redirect()->route('admin.club.index')->with('success', 'Club Deleted Successfully');
     }
 
 }

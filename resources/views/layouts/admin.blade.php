@@ -350,7 +350,7 @@
                     </div>
                 @endif
 
-                <div class="content-wrapper">
+                <div class="content-wrapper text-dark">
                     <div class="content p-0">
                         @yield('content')
                     </div>

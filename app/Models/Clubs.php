@@ -18,4 +18,9 @@ class Clubs extends Model
         'image',
         'approval',
     ];
+
+    public function clubOwner()
+    {
+        return $this->belongsTo(User::class, 'president_id', 'id');
+    }
 }

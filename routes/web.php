@@ -43,6 +43,12 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['isAdmin',
     Route::get('president/{id}/edit/', [Admin\PresidentController::class, 'edit'])->name('president.edit');
     Route::put('president/{id}/update', [Admin\PresidentController::class, 'update'])->name('president.update');
     Route::delete('president/{id}', [Admin\PresidentController::class, 'destroy'])->name('president.destroy');
+
+    //Presidents
+    Route::get('club', [Admin\ClubController::class, 'index'])->name('club.index');
+    Route::get('club/{id}/approval/', [Admin\ClubController::class, 'approval'])->name('club.approval');
+    Route::get('club/{id}/rejection/', [Admin\ClubController::class, 'rejection'])->name('club.rejection');
+    Route::delete('club/{id}', [Admin\ClubController::class, 'destroy'])->name('club.destroy');
 });
 
 

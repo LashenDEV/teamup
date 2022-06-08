@@ -121,25 +121,25 @@
                             </div>
                         </ul>
                     </li>
-                    <li class="has-sub  {{ (request()->routeIs('admin.president.index')) ? 'active expand' : '' }}">
+                    <li class="has-sub  {{ (request()->routeIs('admin.president*') or request()->routeIs('admin.club*')) ? 'active expand' : '' }}">
                         <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
                            data-target="#president"
                            aria-expanded="false" aria-controls="president">
                             <i class="fa-duotone fa-person-chalkboard mr-3"></i>
                             <span class="nav-text">President</span> <b class="caret"></b>
                         </a>
-                        <ul class="collapse {{ (request()->routeIs('admin.president*')) ? 'show' : '' }}"
+                        <ul class="collapse {{ (request()->routeIs('admin.president*') or request()->routeIs('admin.club*')) ? 'show' : '' }}"
                             id="president"
                             data-parent="#sidebar-menu">
                             <div class="sub-menu">
                                 <li class="{{ request()->routeIs('admin.president*') ? 'active' : '' }}">
                                     <a class="sidenav-item-link" href="{{route('admin.president.index')}}">
-                                        <span class="nav-text">President</span>
+                                        <span class="nav-text">Presidents</span>
                                     </a>
                                 </li>
-                                <li class="">
-                                    <a class="sidenav-item-link" href="index.html">
-                                        <span class="nav-text">About</span>
+                                <li class="{{ request()->routeIs('admin.club*') ? 'active' : '' }}">
+                                    <a class="sidenav-item-link" href="{{route('admin.club.index')}}">
+                                        <span class="nav-text">Clubs</span>
                                     </a>
                                 </li>
                                 <li class="">
@@ -350,7 +350,7 @@
                     </div>
                 @endif
 
-                <div class="content-wrapper">
+                <div class="content-wrapper text-dark">
                     <div class="content p-0">
                         @yield('content')
                     </div>

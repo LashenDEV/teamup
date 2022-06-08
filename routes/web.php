@@ -22,6 +22,7 @@ Route::get('/', [Admin\ClubController::class, 'show']);
 Auth::routes(['verify' => true]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('club/view/{id}', [User\ClubController::class, 'view'])->name('club.view');
 
 //Routes for Admin
 Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['isAdmin', 'auth', 'verified']], function () {
@@ -105,4 +106,7 @@ Route::group(['prefix' => 'user', 'middleware' => ['isUser', 'auth', 'verified']
     Route::put('update', [User\UserController::class, 'update'])->name('profile.update');
     Route::put('change-password', [User\UserController::class, 'ChangePassword'])->name('password.change');
     Route::get('settings', [User\UserController::class, 'settings'])->name('user.settings');
+
+    //club
+    Route::get('club/register/{id}', [User\ClubController::class, 'register'])->name('user.club.register');
 });

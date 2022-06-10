@@ -30,7 +30,8 @@ class HomeController extends Controller
             return view('president.dashboard.index');
         }elseif (\Auth::user()->role == 3) {
             $clubs = Clubs::paginate(6);
-            return view('user.Dashboard.index', compact('clubs'));
+            $home_sliders = Clubs::where('home_slider_approval', '1')->get();
+            return view('user.Dashboard.index', compact('clubs', 'home_sliders'));
         }
     }
 }

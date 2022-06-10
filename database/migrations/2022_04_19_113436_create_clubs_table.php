@@ -22,6 +22,7 @@ class CreateClubsTable extends Migration
             $table->text('mission');
             $table->string('image');
             $table->boolean('approval')->nullable();
+            $table->boolean('home_slider_approval')->nullable();
             $table->timestamps();
         });
     }

@@ -43,6 +43,14 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['isAdmin',
     Route::put('president/{id}/update', [Admin\PresidentController::class, 'update'])->name('president.update');
     Route::delete('president/{id}', [Admin\PresidentController::class, 'destroy'])->name('president.destroy');
 
+    //Members
+    Route::get('member', [Admin\MemberController::class, 'index'])->name('member.index');
+    Route::get('member/create', [Admin\MemberController::class, 'create'])->name('member.create');
+    Route::post('member/store', [Admin\MemberController::class, 'store'])->name('member.store');
+    Route::get('member/{id}/edit/', [Admin\MemberController::class, 'edit'])->name('member.edit');
+    Route::put('member/{id}/update', [Admin\MemberController::class, 'update'])->name('member.update');
+    Route::delete('member/{id}', [Admin\MemberController::class, 'destroy'])->name('member.destroy');
+
     //Clubs
     Route::get('club', [Admin\ClubController::class, 'index'])->name('club.index');
     Route::get('club/{id}/approval/', [Admin\ClubController::class, 'approval'])->name('club.approval');

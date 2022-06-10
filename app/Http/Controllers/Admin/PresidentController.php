@@ -33,7 +33,7 @@ class PresidentController extends Controller
             'email verified at' => Null,
             'password' => $hashed_password,
         ]);
-        return redirect()->route('admin.president.index')->with('success', 'resident Added Successfully');
+        return redirect()->route('admin.president.index')->with('success', 'President Added Successfully');
     }
 
     public function edit($id)

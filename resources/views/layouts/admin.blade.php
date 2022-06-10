@@ -141,17 +141,17 @@
                             </ul>
                         </li>
 
-                        <li class="has-sub  expand">
+                        <li class="has-sub {{ (request()->routeIs('admin.member*')) ? 'active expand' : '' }}"">
                             <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
-                                data-target="#dashboard" aria-expanded="false" aria-controls="dashboard">
+                                data-target="#members" aria-expanded="false" aria-controls="dashboard">
                                 <i class="fa-duotone fa-people-group mr-3"></i>
                                 <span class="nav-text">Members</span> <b class="caret"></b>
                             </a>
-                            <ul class="collapse" id="dashboard" data-parent="#sidebar-menu">
+                            <ul class="collapse  {{ (request()->routeIs('admin.member*')) ? 'show' : '' }}" id="members" data-parent="#sidebar-menu">
                                 <div class="sub-menu">
-                                    <li class="">
-                                        <a class="sidenav-item-link" href="{{ route('admin.slider') }}">
-                                            <span class="nav-text">Image Slider</span>
+                                    <li class="{{ request()->routeIs('admin.member*') ? 'active' : '' }}">
+                                        <a class="sidenav-item-link" href="{{ route('admin.member.index') }}">
+                                            <span class="nav-text">Members</span>
                                         </a>
                                     </li>
                                     <li class="">

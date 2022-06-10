@@ -151,19 +151,19 @@
 </header><!-- End Header -->
 <main id="main">
     @if (session('success'))
-        <div class="alert alert-success alert-dismissible fade show m-0" style="top: 80px" role="alert">
+        <div class="alert alert-success alert-dismissible fade show m-0" style="top: 80px; z-index: 3" role="alert">
             <strong>{{ session('success') }}</strong>
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     @endif
     @if (session('error'))
-        <div class="alert alert-danger alert-dismissible fade show m-0" style="top: 80px" role="alert">
-            <strong>{{ session('success') }}</strong>
+        <div class="alert alert-danger alert-dismissible fade show m-0" style="top: 80px; z-index: 3" role="alert">
+            <strong>{{ session('error') }}</strong>
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     @endif
     @if ($errors->any())
-        <div class="alert alert-warning alert-dismissible fade show m-0" style="top: 80px" role="alert">
+        <div class="alert alert-warning alert-dismissible fade show m-0" style="top: 80px; z-index: 3" role="alert">
             <ul>
                 @foreach ($errors->all() as $error)
                     <li><strong>{{ $error }}</strong></li>
@@ -253,17 +253,17 @@
 <!-- Uncomment below i you want to use a preloader -->
 <!-- <div id="preloader"></div> -->
 <!-- Vendor JS Files -->
-<script src="../frontend/assets/vendor/purecounter/purecounter.js"></script>
-<script src="../frontend/assets/vendor/aos/aos.js"></script>
-<script src="../frontend/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="../frontend/assets/vendor/glightbox/js/glightbox.min.js"></script>
-<script src="../frontend/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-<script src="../frontend/assets/vendor/swiper/swiper-bundle.min.js"></script>
-<script src="../frontend/assets/vendor/waypoints/noframework.waypoints.js"></script>
-<script src="../frontend/assets/vendor/php-email-form/validate.js"></script>
+<script src="{{asset('frontend/assets/vendor/purecounter/purecounter.js')}}"></script>
+<script src="{{asset('frontend/assets/vendor/aos/aos.js')}}"></script>
+<script src="{{asset('frontend/assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{asset('frontend/assets/vendor/glightbox/js/glightbox.min.js')}}"></script>
+<script src="{{asset('frontend/assets/vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
+<script src="{{asset('frontend/assets/vendor/swiper/swiper-bundle.min.js')}}"></script>
+<script src="{{asset('frontend/assets/vendor/waypoints/noframework.waypoints.js')}}"></script>
+<script src="{{asset('frontend/assets/vendor/php-email-form/validate.js')}}"></script>
 
 <!-- Template Main JS File -->
-<script src="../frontend/assets/js/main.js"></script>
+<script src="{{asset('../frontend/assets/js/main.js')}}"></script>
 
 
 </body>

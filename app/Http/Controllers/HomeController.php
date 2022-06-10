@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Clubs;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -28,7 +29,8 @@ class HomeController extends Controller
         } elseif (\Auth::user()->role == 2) {
             return view('president.dashboard.index');
         }elseif (\Auth::user()->role == 3) {
-            return view('user.Dashboard.index');
+            $clubs = Clubs::paginate(6);
+            return view('user.Dashboard.index', compact('clubs'));
         }
     }
 }

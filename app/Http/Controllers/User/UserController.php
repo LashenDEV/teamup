@@ -16,7 +16,8 @@ class UserController extends Controller
     public function index()
     {
         $clubs = Clubs::paginate(6);
-        return view('user.Dashboard.index', compact('clubs'));
+        $home_sliders = Clubs::where('home_slider_approval', '1')->get();
+        return view('user.Dashboard.index', compact('clubs', 'home_sliders'));
     }
 
     public function profile()
@@ -35,9 +36,11 @@ class UserController extends Controller
             $name_gen = hexdec(uniqid()) . '.' . $request->profile_photo->getClientOriginalExtension();
             Image::make($request->profile_photo)->resize(150, 150)->save('image/profile_photos/' . $name_gen);
             $last_img = 'image/profile_photos/' . $name_gen;
-            User::findOrFail($user->id)->update(array_merge(
+            User::findOrFail($user->id)->update(
+                array_merge(
                     $request->except('profile_photo'),
-                    ['profile_photo' => $last_img])
+                    ['profile_photo' => $last_img]
+                )
             );
         } else {
             User::findOrFail($user->id)->update($request->all());

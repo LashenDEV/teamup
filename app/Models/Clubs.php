@@ -17,6 +17,7 @@ class Clubs extends Model
         'mission',
         'image',
         'approval',
+        'home_slider_approval',
     ];
 
     public function clubOwner()

@@ -17,7 +17,7 @@ use App\Http\Controllers\User;
 |
 */
 
-Route::get('/', [Admin\ClubController::class, 'show'])->name('home');
+Route::get('/', [Admin\ClubController::class, 'show'])->name('/');
 
 Auth::routes(['verify' => true]);
 
@@ -32,8 +32,8 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['isAdmin',
 
     //Sliders
     Route::get('slider', [Admin\SliderController::class, 'slider'])->name('slider');
-    Route::get('slider/add', [Admin\SliderController::class, 'add'])->name('add.slider');
-    Route::post('slider/store', [Admin\SliderController::class, 'store'])->name('store.slider');
+    Route::get('slider/add/{id}', [Admin\SliderController::class, 'add'])->name('slider.add');
+    Route::get('slider/remove/{id}', [Admin\SliderController::class, 'remove'])->name('slider.remove');
 
     //Presidents
     Route::get('president', [Admin\PresidentController::class, 'index'])->name('president.index');

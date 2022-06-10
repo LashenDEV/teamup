@@ -5,11 +5,11 @@
         <div class="container">
 
             <div class="d-flex justify-content-between align-items-center">
-                <h2>Art Club</h2>
+                <h2>{{ $club->name }}</h2>
                 <ol>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="portfolio.html">Portfolio</a></li>
-                    <li>Portfolio Details</li>
+                    <li><a href="{{ route('home') }}">Home</a></li>
+                <li><a href="{{ route('club.view', $club->id) }}">{{ $club->name }}</a></li>
+                    <li>{{ $club->name }} Details</li>
                 </ol>
             </div>
 
@@ -77,16 +77,7 @@
                                 </div>
                                 <div class="col-md-8">
                                     <p data-aos="zoom-in">
-                                        The Art Circle of Uva Wellasa University has been one of the most active
-                                        societies of Uva Wellasa University since 2006. It is also one of the largest clubs
-                                        in the university, with a member base of over 1000 students. This society
-                                        has always played a main role in polishing the aesthetic talents of not
-                                        only UWU students but also of Young university students from all over the island.
-                                        The
-                                        main duty of those at the Art Circle is to develop the student&apos;s talents
-                                        to an extent of being recognized by other people in society. Also,
-                                        the Art Circle works to pave a path for those talented students who
-                                        wish to carry out their skills in the future.
+                                        {{ $club->description }}
                                     </p>
                                 </div>
                             </div>
@@ -99,10 +90,10 @@
                         <div class="portfolio-info"data-aos="fade-up">
                             <h3>Club Information</h3>
                             <ul>
-                                <li><strong>Club Name</strong>: Art Club</li>
-                                <li><strong>President</strong>: L.S. Kariywasam</li>
-                                <li><strong>Secretary</strong>: L.S. Kariywasam</li>
-                                <li><strong>Treasurer</strong>: L.S. Kariywasam</li>
+                                <li><strong>Club Name</strong>: {{ $club->name }}</li>
+                                <li><strong>President</strong>: {{ $club->clubOwner->name }}</li>
+                                <li><strong>Secretary</strong>: {{ $club->clubOwner->name }}</li>
+                                <li><strong>Treasurer</strong>: {{ $club->clubOwner->name }}</li>
 
                             </ul>
                             <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="2" role="group"
@@ -117,11 +108,7 @@
                         <div class="portfolio-info"data-aos="fade-up">
                             <h3>Vision</h3>
                             <p>
-                                Our vision is for the Vero Beach Art Club to be the voice and the representative of the
-                                visual arts and artists of our community, and to be a beacon of Artistic endeavor for the
-                                Treasure Coast. We will strive to do this by both continuing our existing programs and by
-                                strengthening our ties to our growing artistic community. We will continue our established
-                                programs as we seek to expand on them.
+                                {{ $club->vision }}
                             </p>
                         </div>
 
@@ -130,14 +117,8 @@
                         <div class="portfolio-info"data-aos="fade-up" margin-bottom= "10px;">
                             <h3>Mission</h3>
                             <p>
-                                To foster appreciation of art and artistic growth through exhibitions and educational
-                                opportunities for its members. To extend cultural enrichment to the community at large by
-                                exhibiting our artists' works at public locations in various venues around Indian River
-                                County to stress the value and importance of art in the world. To offer scholarship
-                                opportunities to students who wish to study art or go on to colleges for art related courses
-                                and help financially support art programs through our schools and recreation department art
-                                programs. To encourage and support both appreciation and creation of fine art.
-                            </p>
+                                {{ $club->mission }}
+                             </p>
                         </div>
 
                     </div>

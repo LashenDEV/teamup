@@ -17,7 +17,7 @@ use App\Http\Controllers\User;
 |
 */
 
-Route::get('/', [Admin\ClubController::class, 'show']);
+Route::get('/', [Admin\ClubController::class, 'show'])->name('home');
 
 Auth::routes(['verify' => true]);
 

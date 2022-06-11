@@ -35,6 +35,10 @@
 
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.1.1/css/all.css">
+
+    {{-- Animate.style CDN --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
     <!--
       HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries
     -->
@@ -84,7 +88,7 @@
 
                     <!-- sidebar menu -->
                     <ul class="nav sidebar-inner" id="sidebar-menu">
-                        <li class="has-sub {{ (request()->routeIs('admin.slider*')) ? 'active expand' : '' }}}">
+                        <li class="has-sub {{ request()->routeIs('admin.slider*') ? 'active expand' : '' }}}">
                             <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
                                 data-target="#dashboard" aria-expanded="false" aria-controls="dashboard">
                                 <i class="fa-duotone fa-table-layout mr-3"></i>
@@ -141,13 +145,14 @@
                             </ul>
                         </li>
 
-                        <li class="has-sub {{ (request()->routeIs('admin.member*')) ? 'active expand' : '' }}"">
-                            <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
-                                data-target="#members" aria-expanded="false" aria-controls="dashboard">
-                                <i class="fa-duotone fa-people-group mr-3"></i>
-                                <span class="nav-text">Members</span> <b class="caret"></b>
+                        <li class="has-sub {{ request()->routeIs('admin.member*') ? 'active expand' : '' }}"">
+                            <a class=" sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
+                            data-target="#members" aria-expanded="false" aria-controls="dashboard">
+                            <i class="fa-duotone fa-people-group mr-3"></i>
+                            <span class="nav-text">Members</span> <b class="caret"></b>
                             </a>
-                            <ul class="collapse  {{ (request()->routeIs('admin.member*')) ? 'show' : '' }}" id="members" data-parent="#sidebar-menu">
+                            <ul class="collapse  {{ request()->routeIs('admin.member*') ? 'show' : '' }}"
+                                id="members" data-parent="#sidebar-menu">
                                 <div class="sub-menu">
                                     <li class="{{ request()->routeIs('admin.member*') ? 'active' : '' }}">
                                         <a class="sidenav-item-link" href="{{ route('admin.member.index') }}">
@@ -316,12 +321,12 @@
                 </div>
             @endif
             @if (session('error'))
-            <div class="alert alert-danger alert-dismissible fade show m-0" role="alert">
-                <strong>{{ session('error') }}</strong>
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
+                <div class="alert alert-danger alert-dismissible fade show m-0" role="alert">
+                    <strong>{{ session('error') }}</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
             @endif
             @if ($errors->any())
                 <div class="alert alert-warning alert-dismissible fade show m-0" role="alert">
@@ -337,7 +342,7 @@
             @endif
 
             <div class="content-wrapper text-dark">
-                <div class="content p-0">
+                <div class="content p-0 animate__animated animate__fadeIn">
                     @yield('content')
                 </div>
             </div>

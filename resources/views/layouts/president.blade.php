@@ -35,6 +35,10 @@
 
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.1.1/css/all.css">
+
+    {{-- Animate.style CDN --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
     <!--
       HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries
     -->
@@ -80,13 +84,13 @@
                     <!-- sidebar menu -->
                     <ul class="nav sidebar-inner" id="sidebar-menu">
                         <li
-                            class="has-sub {{ (request()->routeIs('president.club*') or request()->routeIs('president.event*') or request()->routeIs('president.meeting*') or request()->routeIs('president.notice*')  or request()->routeIs('president.dashboard')) ? 'active expand' : '' }}">
+                            class="has-sub {{ (request()->routeIs('president.club*') or request()->routeIs('president.event*') or request()->routeIs('president.meeting*') or request()->routeIs('president.notice*') or request()->routeIs('president.dashboard')) ? 'active expand' : '' }}">
                             <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
                                 data-target="#clubs" aria-expanded="false" aria-controls="clubs">
                                 <i class="mdi mdi-home-assistant"></i>
                                 <span class="nav-text">Your Club</span> <b class="caret"></b>
                             </a>
-                            <ul class="collapse {{ (request()->routeIs('president.club*') or request()->routeIs('president.event*') or request()->routeIs('president.meeting*') or request()->routeIs('president.notice*')  or request()->routeIs('president.dashboard')) ? 'show' : '' }}"
+                            <ul class="collapse {{ (request()->routeIs('president.club*') or request()->routeIs('president.event*') or request()->routeIs('president.meeting*') or request()->routeIs('president.notice*') or request()->routeIs('president.dashboard')) ? 'show' : '' }}"
                                 id="clubs" data-parent="#sidebar-menu">
                                 <div class="sub-menu">
                                     <li class="{{ request()->routeIs('president.club*') ? 'active' : '' }}">
@@ -522,7 +526,7 @@
                         </button>
                     </div>
                 @endif
-                <div class="content p-4">
+                <div class="content p-4 animate__animated animate__fadeIn">
                     @yield('content')
                 </div>
             </div>
@@ -565,6 +569,7 @@
     <script src="{{ asset('backend/assets/js/date-range.js') }}"></script>
     <script src="{{ asset('backend/assets/js/map.js') }}"></script>
     <script src="{{ asset('backend/assets/js/custom.js') }}"></script>
+
     {{-- CKEditor --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor5/34.0.0/ckeditor.min.js"
         integrity="sha512-d1WD+hDYM2nEFaZBZdRBVXaTLrVb4Bno5hCBcrIZZ45hNKQWD7s9CllB6NqkgebX/qwMkbuWM804gfFr2cisqA=="

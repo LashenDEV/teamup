@@ -112,7 +112,8 @@ Route::group(['prefix' => 'user', 'middleware' => ['isUser', 'auth', 'verified']
     Route::get('dashboard', [User\UserController::class, 'index'])->name('user.dashboard');
     Route::get('profile', [User\UserController::class, 'profile'])->name('user.profile');
     Route::put('update', [User\UserController::class, 'update'])->name('profile.update');
-    Route::put('change-password', [User\UserController::class, 'ChangePassword'])->name('password.change');
+    Route::put('change/password', [User\UserController::class, 'ChangePassword'])->name('password.change');
+    Route::put('change/email', [User\UserController::class, 'ChangeEmail'])->name('email.change');
     Route::get('settings', [User\UserController::class, 'settings'])->name('user.settings');
 
     //club

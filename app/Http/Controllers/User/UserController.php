@@ -67,6 +67,19 @@ class UserController extends Controller
         }
     }
 
+    public function ChangeEmail(Request $request)
+    {
+        $request->validate([
+            'new_email' => 'required|unique:users,email',
+        ]);
+
+        $user = User::findOrFail(Auth::id());
+        $user->email_verified_at = null;
+        $user->email = $request->new_email;
+        $user->save();
+        return redirect('email/verify')->with('success', 'Email Has been changed successfully');
+    }
+
     public function settings()
     {
         return view('user.Dashboard.settings');

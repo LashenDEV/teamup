@@ -34,7 +34,6 @@ class UpdateProfileDataRequest extends FormRequest
             'degree_program' => 'required',
             'year' => 'required',
             'mobile' => 'required',
-            'email' => 'required',
             'address_line_1' => 'required',
             'address_line_2' => 'required',
             'city' => 'required',

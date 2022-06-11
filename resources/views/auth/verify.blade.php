@@ -99,119 +99,131 @@
         </head>
 
         <body style="background-color: #f4f4f4; margin: 0 !important; padding: 0 !important;">
-        <!-- HIDDEN PREHEADER TEXT -->
-        <div
-            style="display: none; font-size: 1px; color: #fefefe; line-height: 1px; font-family: 'Lato', Helvetica, Arial, sans-serif; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden;">
-            We're thrilled to have you here! Get ready to dive into your new account.
-        </div>
-        <table border="0" cellpadding="0" cellspacing="0" width="100%">
-            <!-- LOGO -->
-            <tr>
-                <td bgcolor="#4c84ff" align="center">
-                    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
-                        <tr>
-                            <td align="center" valign="top" style="padding: 40px 10px 40px 10px;"></td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-            <tr>
-                <td bgcolor="#4c84ff" align="center" style="padding: 0px 10px 0px 10px;">
-                    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
-                        <tr>
-                            <td bgcolor="#ffffff" align="center" valign="top"
-                                style="padding: 40px 20px 20px 20px; border-radius: 4px 4px 0px 0px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 48px; font-weight: 400; letter-spacing: 4px; line-height: 48px;">
-                                <h1 style="font-size: 48px; font-weight: 400; margin: 2;">Welcome To TeamUp !</h1> <img
-                                    src=" https://img.icons8.com/clouds/100/000000/handshake.png" width="125"
-                                    height="120" style="display: block; border: 0px;"/>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-            <tr>
-                <td bgcolor="#f4f4f4" align="center" style="padding: 0px 10px 0px 10px;">
-                    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
-                        <tr>
-                            <td bgcolor="#ffffff" align="left"
-                                style="padding: 20px 30px 40px 30px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
-                                <p style="margin: 0;">We're excited to have you get started. First, you need to verify
-                                    your email address. You will be received a verification email to continue with the
-                                    team up</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td bgcolor="#ffffff" align="left">
-                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                    <tr>
-                                        <td bgcolor="#ffffff" align="center" style="padding: 20px 30px 60px 30px;">
-                                            <table border="0" cellspacing="0" cellpadding="0">
-                                                <tr>
-                                                    <td align="center" style="border-radius: 3px;" bgcolor="#4c84ff"><a
-                                                            href="#" target="_blank"
-                                                            style="font-size: 20px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; padding: 15px 25px; border-radius: 2px; border: 1px solid #052b84; display: inline-block;">
-                                                            <form class="d-inline" method="POST"
-                                                                  action="{{ route('verification.resend') }}">
-                                                                @csrf
-                                                                <button type="submit"
+            <!-- HIDDEN PREHEADER TEXT -->
+            <div
+                style="display: none; font-size: 1px; color: #fefefe; line-height: 1px; font-family: 'Lato', Helvetica, Arial, sans-serif; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden;">
+                We're thrilled to have you here! Get ready to dive into your new account.
+            </div>
+            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                <!-- LOGO -->
+                <tr>
+                    <td bgcolor="#4c84ff" align="center">
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
+                            <tr>
+                                <td align="center" valign="top" style="padding: 40px 10px 40px 10px;"></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td bgcolor="#4c84ff" align="center" style="padding: 0px 10px 0px 10px;">
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
+                            <tr>
+                                <td bgcolor="#ffffff" align="center" valign="top"
+                                    style="padding: 40px 20px 20px 20px; border-radius: 4px 4px 0px 0px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 48px; font-weight: 400; letter-spacing: 4px; line-height: 48px;">
+                                    <h1 style="font-size: 48px; font-weight: 400; margin: 2;">Welcome To TeamUp !</h1> <img
+                                        src=" {{ https://img.icons8.com/clouds/100/000000/handshake.png }}" width="125"
+                                        height="120" style="display: block; border: 0px;" />
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td bgcolor="#f4f4f4" align="center" style="padding: 0px 10px 0px 10px;">
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
+                            <tr>
+                                <td bgcolor="#ffffff" align="left"
+                                    style="padding: 20px 30px 40px 30px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
+                                    <p style="margin: 0;">We're excited to have you get started. First, you need to verify
+                                        your email address. You will be received a verification email to continue with the
+                                        team up</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td bgcolor="#ffffff" align="left">
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                        <tr>
+                                            <td bgcolor="#ffffff" align="center" style="padding: 20px 30px 60px 30px;">
+                                                <table border="0" cellspacing="0" cellpadding="0">
+                                                    <tr>
+                                                        <td align="center" style="border-radius: 3px;" bgcolor="#4c84ff"><a
+                                                                href="#" target="_blank"
+                                                                style="font-size: 20px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; padding: 15px 25px; border-radius: 2px; border: 1px solid #052b84; display: inline-block;">
+                                                                <form class="d-inline" method="POST"
+                                                                    action="{{ route('verification.resend') }}">
+                                                                    @csrf
+                                                                    <button type="submit"
                                                                         class="btn p-0 m-0 align-baseline text-white">{{ __('Confirm Account') }}</button>
-                                                            </form>
-                                                        </a></td>
-                                                    @if (session('resent'))
-                                                        <div class="alert alert-success" role="alert">
-                                                            {{ __('Verification email has been sent!, check your mailbox') }}
-                                                        </div>
-                                                    @endif
-                                                </tr>
-                                            </table>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr> <!-- COPY -->
-                        <tr>
-                            <td bgcolor="#ffffff" align="left"
-                                style="padding: 0px 30px 20px 30px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
-                                <p style="margin: 0;">If you have any questions, just reply to this email&mdash;we're
-                                    always happy to help out.</p>
-                                <a href="mailto: lashenkari@gmail.com?subject = Inquires@teamup">developers@#team12@info.com</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td bgcolor="#ffffff" align="left"
-                                style="padding: 0px 30px 40px 30px; border-radius: 0px 0px 4px 4px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
-                                <p style="margin: 0;">Cheers,<br>#team12</p>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-            <tr>
-                <td bgcolor="#f4f4f4" align="center" style="padding: 30px 10px 0px 10px;">
-                    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
-                        <tr>
-                            <td bgcolor="#73A0FF" align="center"
-                                style="padding: 30px 30px 30px 30px; border-radius: 4px 4px 4px 4px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
-                                <h2 style="font-size: 20px; font-weight: 400; color: #111111; margin: 0;">Need more
-                                    help?</h2>
-                                <p style="margin: 0;"><a href="mailto: lashenkari@gmail.com?subject = MoreHelp@teamup" target="_blank" style="color: #615554;">We&rsquo;re
-                                        here to help you out</a></p>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-            <tr>
-                <td bgcolor="#f4f4f4" align="center" style="padding: 0px 10px 0px 10px;">
-                    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
-                        <tr>
-                            <td bgcolor="#f4f4f4" align="left"
-                                style="padding: 0px 30px 30px 30px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 400; line-height: 18px;">
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-        </table>
+                                                                </form>
+                                                            </a></td>
+                                                        @if (session('resent'))
+                                                            <div class="alert alert-success" role="alert">
+                                                                {{ __('Verification email has been sent!, check your mailbox') }}
+                                                            </div>
+                                                        @endif
+                                                        @if (session('success'))
+                                                            <div class="alert alert-success alert-dismissible fade show"
+                                                                role="alert">
+                                                                {{ session('success') }}
+                                                                <button type="button" class="close"
+                                                                    data-dismiss="alert" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+                                                        @endif
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr> <!-- COPY -->
+                            <tr>
+                                <td bgcolor="#ffffff" align="left"
+                                    style="padding: 0px 30px 20px 30px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
+                                    <p style="margin: 0;">If you have any questions, just reply to this email&mdash;we're
+                                        always happy to help out.</p>
+                                    <a
+                                        href="mailto: lashenkari@gmail.com?subject = Inquires@teamup">developers@#team12@info.com</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td bgcolor="#ffffff" align="left"
+                                    style="padding: 0px 30px 40px 30px; border-radius: 0px 0px 4px 4px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
+                                    <p style="margin: 0;">Cheers,<br>#team12</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td bgcolor="#f4f4f4" align="center" style="padding: 30px 10px 0px 10px;">
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
+                            <tr>
+                                <td bgcolor="#73A0FF" align="center"
+                                    style="padding: 30px 30px 30px 30px; border-radius: 4px 4px 4px 4px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
+                                    <h2 style="font-size: 20px; font-weight: 400; color: #111111; margin: 0;">Need more
+                                        help?</h2>
+                                    <p style="margin: 0;"><a href="mailto: lashenkari@gmail.com?subject = MoreHelp@teamup"
+                                            target="_blank" style="color: #615554;">We&rsquo;re
+                                            here to help you out</a></p>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td bgcolor="#f4f4f4" align="center" style="padding: 0px 10px 0px 10px;">
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
+                            <tr>
+                                <td bgcolor="#f4f4f4" align="left"
+                                    style="padding: 0px 30px 30px 30px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 400; line-height: 18px;">
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
     </div>
 @endsection

@@ -119,7 +119,7 @@
                                 <i class="fa-duotone fa-person-chalkboard mr-3"></i>
                                 <span class="nav-text">President</span> <b class="caret"></b>
                             </a>
-                            <ul class="collapse {{ (request()->routeIs('admin.president*') or request()->routeIs('admin.club*')) ? 'show' : '' }}"
+                            <ul class="collapse {{ (request()->routeIs('admin.president*') or request()->routeIs('admin.club*') or request()->routeIs('admin.club-category*')) ? 'show' : '' }}"
                                 id="president" data-parent="#sidebar-menu">
                                 <div class="sub-menu">
                                     <li class="{{ request()->routeIs('admin.president*') ? 'active' : '' }}">
@@ -130,6 +130,11 @@
                                     <li class="{{ request()->routeIs('admin.club*') ? 'active' : '' }}">
                                         <a class="sidenav-item-link" href="{{ route('admin.club.index') }}">
                                             <span class="nav-text">Clubs</span>
+                                        </a>
+                                    </li>
+                                    <li class="{{ request()->routeIs('admin.club-category*') ? 'active' : '' }}">
+                                        <a class="sidenav-item-link" href="{{ route('admin.club-category.index') }}">
+                                            <span class="nav-text">Clubs Categories</span>
                                         </a>
                                     </li>
                                     <li class="">

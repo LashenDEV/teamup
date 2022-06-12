@@ -51,7 +51,7 @@
 </head>
 
 
-<body class="sidebar-fixed sidebar-dark header-light header-fixed" id="body">
+<body class="sidebar-fixed sidebar-dark header-light header-fixed animate__animated animate__fadeIn" id="body">
     <script>
         NProgress.configure({
             showSpinner: false
@@ -88,13 +88,13 @@
 
                     <!-- sidebar menu -->
                     <ul class="nav sidebar-inner" id="sidebar-menu">
-                        <li class="has-sub {{ request()->routeIs('admin.slider*') ? 'active expand' : '' }}}">
+                        <li class="has-sub {{ (request()->routeIs('admin.slider*') or request()->routeIs('admin.statement*')) ? 'active expand' : '' }}">
                             <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
                                 data-target="#dashboard" aria-expanded="false" aria-controls="dashboard">
                                 <i class="fa-duotone fa-table-layout mr-3"></i>
                                 <span class="nav-text">Site Layout</span> <b class="caret"></b>
                             </a>
-                            <ul class="collapse {{ request()->routeIs('admin.slider*') ? 'show' : '' }}"
+                            <ul class="collapse {{ (request()->routeIs('admin.slider*') or request()->routeIs('admin.statement*')) ? 'show' : '' }}"
                                 id="dashboard" data-parent="#sidebar-menu">
                                 <div class="sub-menu">
                                     <li class="{{ request()->routeIs('admin.slider*') ? 'active' : '' }}">
@@ -102,9 +102,9 @@
                                             <span class="nav-text">Home Slider</span>
                                         </a>
                                     </li>
-                                    <li class="active">
-                                        <a class="sidenav-item-link" href="index.html">
-                                            <span class="nav-text">About</span>
+                                    <li class="{{ request()->routeIs('admin.statement*') ? 'active' : '' }}">
+                                        <a class="sidenav-item-link" href="{{ route('admin.statement.index') }}">
+                                            <span class="nav-text">Statements</span>
                                         </a>
                                     </li>
                                     <li class="active">
@@ -342,7 +342,7 @@
             @endif
 
             <div class="content-wrapper text-dark">
-                <div class="content p-0 animate__animated animate__fadeIn">
+                <div class="content p-0">
                     @yield('content')
                 </div>
             </div>

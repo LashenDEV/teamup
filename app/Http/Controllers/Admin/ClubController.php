@@ -36,12 +36,4 @@ class ClubController extends Controller
         Clubs::whereId($id)->delete();
         return redirect()->route('admin.club.index')->with('success', 'Club Deleted Successfully');
     }
-
-    public function show()
-    {
-        $clubs = Clubs::where('approval', 1)->paginate(6);
-        $home_sliders = Clubs::where('home_slider_approval', '1')->get();
-        return view('welcome', compact('clubs', 'home_sliders'));
-    }
-
 }

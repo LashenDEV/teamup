@@ -10,9 +10,8 @@
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="{{ asset('frontend/assets/img/favicon.png') }}" rel="icon">
-    <link href="{{ asset('frontend/assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
-
+    <link href="{{ asset('logos/teamup fav-icon.png') }}" rel="icon">
+    
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700"
           rel="stylesheet">

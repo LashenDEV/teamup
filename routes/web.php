@@ -17,7 +17,7 @@ use App\Http\Controllers\User;
 |
 */
 
-Route::get('/', [Admin\ClubController::class, 'show'])->name('/');
+Route::get('/', [Admin\HomePageController::class, 'show'])->name('/');
 
 Auth::routes(['verify' => true]);
 
@@ -29,6 +29,11 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['isAdmin',
     Route::get('dashboard', [Admin\AdminController::class, 'index'])->name('dashboard');
     Route::get('profile', [Admin\AdminController::class, 'profile'])->name('profile');
     Route::get('settings', [Admin\AdminController::class, 'settings'])->name('settings');
+
+    //Statements
+    Route::get('statement', [Admin\StatementController::class, 'index'])->name('statement.index');
+    Route::post('statement/store', [Admin\StatementController::class, 'store'])->name('statement.store');
+    Route::put('statement/{id}/update', [Admin\StatementController::class, 'update'])->name('statement.update');
 
     //Sliders
     Route::get('slider', [Admin\SliderController::class, 'slider'])->name('slider');

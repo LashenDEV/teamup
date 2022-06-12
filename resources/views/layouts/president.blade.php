@@ -51,7 +51,7 @@
 </head>
 
 
-<body class="sidebar-fixed sidebar-dark header-light header-fixed" id="body">
+<body class="sidebar-fixed sidebar-dark header-light header-fixed animate__animated animate__fadeIn" id="body">
     <script>
         NProgress.configure({
             showSpinner: false
@@ -526,7 +526,7 @@
                         </button>
                     </div>
                 @endif
-                <div class="content p-4 animate__animated animate__fadeIn">
+                <div class="content p-4">
                     @yield('content')
                 </div>
             </div>

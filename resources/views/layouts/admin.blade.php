@@ -88,7 +88,8 @@
 
                     <!-- sidebar menu -->
                     <ul class="nav sidebar-inner" id="sidebar-menu">
-                        <li class="has-sub {{ (request()->routeIs('admin.slider*') or request()->routeIs('admin.statement*')) ? 'active expand' : '' }}">
+                        <li
+                            class="has-sub {{ (request()->routeIs('admin.slider*') or request()->routeIs('admin.statement*')) ? 'active expand' : '' }}">
                             <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
                                 data-target="#dashboard" aria-expanded="false" aria-controls="dashboard">
                                 <i class="fa-duotone fa-table-layout mr-3"></i>
@@ -146,7 +147,7 @@
                         </li>
 
                         <li class="has-sub {{ request()->routeIs('admin.member*') ? 'active expand' : '' }}"">
-                            <a class=" sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
+                            <a class="  sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
                             data-target="#members" aria-expanded="false" aria-controls="dashboard">
                             <i class="fa-duotone fa-people-group mr-3"></i>
                             <span class="nav-text">Members</span> <b class="caret"></b>
@@ -205,15 +206,11 @@
 
                     <div class="navbar-right ">
                         <ul class="nav navbar-nav">
-                            {{-- <!-- Github Link Button -->
-                        <li class="github-link mr-3">
-                            <a class="btn btn-outline-secondary btn-sm"
-                                href="https://github.com/tafcoder/sleek-dashboard" target="_blank">
-                                <span class="d-none d-md-inline-block mr-2">Source Code</span>
-                                <i class="mdi mdi-github-circle"></i>
-                            </a>
-
-                        </li> --}}
+                            <li class="dropdown notifications-menu">
+                                <a class="p-0 m-0" href="{{ url('chatify') }}"><button
+                                        class="btn btn-outline-primary btn-rounded"><i
+                                            class="fa-duotone fa-comment-dots fa-2x"></i></button></a>
+                            </li>
                             <li class="dropdown notifications-menu">
                                 <button class="dropdown-toggle" data-toggle="dropdown">
                                     <i class="mdi mdi-bell-outline"></i>
@@ -263,8 +260,8 @@
                             <!-- user Account -->
                             <li class="dropdown user-menu">
                                 <button href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                                    <img src="{{ asset('backend/assets/img/user/user.png') }}" class="user-image"
-                                        alt="User Image" />
+                                    <img src="{{ asset('backend/assets/img/user/user.png') }}"
+                                        class="user-image" alt="User Image" />
                                     <span class="d-none d-lg-inline-block">Abdus Salam</span>
                                 </button>
                                 <ul class="dropdown-menu dropdown-menu-right">

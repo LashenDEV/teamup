@@ -19,6 +19,7 @@ class UsersSeeder extends Seeder
                 'name' => 'Admin',
                 'email' => 'admin@demo.com',
                 'role' => '1',
+                'email_verified_at' => '2022-06-13 14:43:47',
                 'password' => bcrypt('12345678'),
             ]
         );
@@ -27,6 +28,7 @@ class UsersSeeder extends Seeder
                 'name' => 'President',
                 'email' => 'president@demo.com',
                 'role' => '2',
+                'email_verified_at' => '2022-06-13 14:43:47',
                 'password' => bcrypt('12345678'),
             ]
         );
@@ -35,6 +37,7 @@ class UsersSeeder extends Seeder
                 'name' => 'Member',
                 'email' => 'member@demo.com',
                 'role' => '3',
+                'email_verified_at' => '2022-06-13 14:43:47',
                 'password' => bcrypt('12345678'),
             ]
         );

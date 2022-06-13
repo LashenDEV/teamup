@@ -387,15 +387,11 @@
 
                     <div class="navbar-right ">
                         <ul class="nav navbar-nav">
-                            {{-- <!-- Github Link Button -->
-                            <li class="github-link mr-3">
-                                <a class="btn btn-outline-secondary btn-sm"
-                                    href="https://github.com/tafcoder/sleek-dashboard" target="_blank">
-                                    <span class="d-none d-md-inline-block mr-2">Source Code</span>
-                                    <i class="mdi mdi-github-circle"></i>
-                                </a>
-
-                            </li> --}}
+                            <li class="dropdown notifications-menu">
+                                <a class="p-0 m-0" href="{{ url('chatify') }}"><button
+                                        class="btn btn-outline-primary btn-rounded"><i
+                                            class="fa-duotone fa-comment-dots fa-2x"></i></button></a>
+                            </li>
                             <li class="dropdown notifications-menu">
                                 <button class="dropdown-toggle" data-toggle="dropdown">
                                     <i class="mdi mdi-bell-outline"></i>

@@ -457,7 +457,7 @@
                                     </li>
 
                                     <li>
-                                        <a href="profile.html">
+                                        <a href={{ route('president.profile') }}>
                                             <i class="mdi mdi-account"></i> My Profile
                                         </a>
                                     </li>
@@ -523,7 +523,7 @@
                         </button>
                     </div>
                 @endif
-                <div class="content p-4">
+                <div class="content p-0">
                     @yield('content')
                 </div>
             </div>

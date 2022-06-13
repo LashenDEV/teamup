@@ -8,7 +8,7 @@
                     <div class="card-header">{{ __('dashboard') }}</div>
                     <h4>Hi President: {{ Auth::user()->name }}</h4>
                     <hr>
-                    DASHBOARD
+                    DASHBOARD 
                     <div class="card-body">
                         @if (session('status'))
                             <div class="alert alert-success" role="alert">

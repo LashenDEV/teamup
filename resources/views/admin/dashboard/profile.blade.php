@@ -6,7 +6,7 @@
             <div class="card-header d-flex justify-content-md-between justify-content-center p-4"
                 style="background-color: #4c84ff !important;">
                 <div class="text-leftt text-white pb-1 pb-md-0">
-                    <h1>Edit President</h1>
+                    <h1>Edit Admin</h1>
                 </div>
                 <div class="text-right">
                     <a href="{{ route('president.members.index') }}">
@@ -19,7 +19,7 @@
                     <div class="row m-4">
                         <div class="col-md-3">
                             <div>
-                                <img src="https://club-management-system.test/frontend/assets/img/icons/profile/profile-pic.png"
+                                <img src="https://club-management-system.test/assets/images/Icons/User/profile_pic.png"
                                     alt="User profile" class="rounded-circle img-fluid" style="width: 100px; height: 100px;"
                                     id="profileImage" />
                                 <div class="mt-4">
@@ -30,7 +30,7 @@
                                 </div>
                                 <div class="profile-head">
                                     <h4>
-                                        <b><br>President</b>
+                                        <b><br>Admin</b>
                                     </h4>
                                     <div class="card-body-left">
                                         You are logged in!
@@ -40,7 +40,11 @@
                         </div>
                         <div class="col-md-9">
                             <div class="form-group row">
+                                <div class="p-2">
+                                    <h4>Personal Information</h4>
+                                </div>
                                 <div class="col-sm-12">
+                                    
                                     <div class="form-group">
                                         <label class="text-dark font-weight-medium" for="exampleFormControlPassword">User
                                             Name</label>
@@ -213,6 +217,9 @@
                                 </div>
                                 <div class="col-md-12  px-0">
                                     <div class="dropdown-divider"></div>
+                                    <div class="p-2">
+                                        <h4>Change Password</h4>
+                                    </div>
                                     <div class="col-sm-6 pt-3">
                                         <div class="form-group">
                                             <label class="text-dark font-weight-medium"
@@ -252,6 +259,9 @@
 
                                 <div class="col-md-12  px-0">
                                     <div class="dropdown-divider"></div>
+                                    <div class="p-2">
+                                        <h4>Change Email-Address</h4>
+                                    </div>
                                     <div class="col-sm-12 pt-3">
                                         <div class="form-group">
                                             <label class="text-dark font-weight-medium"

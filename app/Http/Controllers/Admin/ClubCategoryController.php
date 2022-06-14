@@ -12,12 +12,6 @@ class ClubCategoryController extends Controller
         return view('admin.club-category.index');
     }
 
-    public function store(Request $request)
-    {
-        
-        return redirect()->route('admin.club-category.index')->with('success', 'President Added Successfully');
-    }
-
     public function edit($id)
     {
         $president = User::whereId($id)->firstOrFail();
@@ -25,11 +19,6 @@ class ClubCategoryController extends Controller
 
     }
 
-    public function update($id, Request $request)
-    {
-        
-        return redirect()->route('admin.club-category.index')->with('success', 'President Updated Successfully');
-    }
 
     public function destroy($id)
     {

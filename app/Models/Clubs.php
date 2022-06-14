@@ -13,6 +13,7 @@ class Clubs extends Model
         'president_id',
         'name',
         'description',
+        'category_name',
         'vision',
         'mission',
         'image',

@@ -26,6 +26,7 @@ class StoreClubRequest extends FormRequest
         return [
             'name' => 'required|unique:clubs',
             'description' => 'required',
+            'category_name' => 'required',
             'vision' => 'required',
             'mission' => 'required',
             'image' => 'required',

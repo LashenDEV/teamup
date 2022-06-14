@@ -27,7 +27,7 @@
 
 
     <!-- FAVICON -->
-    <link href="{{ asset('backend/assets/img/favicon.png') }}" rel="shortcut icon" />
+    <link href="{{ asset('logos/teamup fav-icon.png') }}" rel="shortcut icon" />
 
     <!-- Material Icons CDN -->
     <link rel="stylesheet"
@@ -72,15 +72,10 @@
             <div id="sidebar" class="sidebar sidebar-with-footer">
                 <!-- Aplication Brand -->
                 <div class="app-brand">
-                    <a href="/index.html">
-                        <svg class="brand-icon" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid"
-                            width="30" height="33" viewBox="0 0 30 33">
-                            <g fill="none" fill-rule="evenodd">
-                                <path class="logo-fill-blue" fill="#7DBCFF" d="M0 4v25l8 4V0zM22 4v25l8 4V0z" />
-                                <path class="logo-fill-white" fill="#FFF" d="M11 4v25l8 4V0z" />
-                            </g>
-                        </svg>
-                        <span class="brand-name">Sleek Dashboard</span>
+                    <a href="/index.html" class="p-0">
+                        <img class="brand-icon p-2" src="{{ asset('assets/images/logos/teamup logo.png') }}" alt=""
+                            width="75px" height="75px">
+                        <span class="brand-name ml-0">Admin Dashboard</span>
                     </a>
                 </div>
                 <!-- begin sidebar scrollbar -->
@@ -89,28 +84,31 @@
                     <!-- sidebar menu -->
                     <ul class="nav sidebar-inner" id="sidebar-menu">
                         <li
-                            class="has-sub {{ (request()->routeIs('admin.slider*') or request()->routeIs('admin.statement*')) ? 'active expand' : '' }}">
+                            class="has-sub {{ (request()->routeIs('admin.slider*') or request()->routeIs('admin.statement*') or request()->routeIs('admin.dashboard')) ? 'active expand' : '' }}">
                             <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
                                 data-target="#dashboard" aria-expanded="false" aria-controls="dashboard">
                                 <i class="fa-duotone fa-table-layout mr-3"></i>
                                 <span class="nav-text">Site Layout</span> <b class="caret"></b>
                             </a>
-                            <ul class="collapse {{ (request()->routeIs('admin.slider*') or request()->routeIs('admin.statement*')) ? 'show' : '' }}"
+                            <ul class="collapse {{ (request()->routeIs('admin.slider*') or request()->routeIs('admin.statement*') or request()->routeIs('admin.dashboard')) ? 'show' : '' }}"
                                 id="dashboard" data-parent="#sidebar-menu">
                                 <div class="sub-menu">
                                     <li class="{{ request()->routeIs('admin.slider*') ? 'active' : '' }}">
                                         <a class="sidenav-item-link" href="{{ route('admin.slider') }}">
-                                            <span class="nav-text">Home Slider</span>
+                                            <i class="fa-solid fa-house-user mr-2"></i><span class="nav-text">Home
+                                                Slider</span>
                                         </a>
                                     </li>
                                     <li class="{{ request()->routeIs('admin.statement*') ? 'active' : '' }}">
                                         <a class="sidenav-item-link" href="{{ route('admin.statement.index') }}">
-                                            <span class="nav-text">Statements</span>
+                                            <i class="fa-solid fa-file-lines mr-2"></i>
+                                            <span class="nav-text"> Statements</span>
                                         </a>
                                     </li>
                                     <li class="active">
                                         <a class="sidenav-item-link" href="#">
-                                            <span class="nav-text">Footer</span>
+                                            <i class="fa-solid fa-file-signature mr-2"></i><span
+                                                class="nav-text">Footer</span>
                                         </a>
                                     </li>
 
@@ -118,18 +116,19 @@
                             </ul>
                         </li>
                         <li
-                            class="has-sub  {{ (request()->routeIs('admin.president*') or request()->routeIs('admin.club*')) ? 'active expand' : '' }}">
+                            class="has-sub  {{ (request()->routeIs('admin.president*') or request()->routeIs('admin.club*') or request()->routeIs('admin.category*')) ? 'active expand' : '' }}">
                             <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
                                 data-target="#president" aria-expanded="false" aria-controls="president">
                                 <i class="fa-duotone fa-person-chalkboard mr-3"></i>
                                 <span class="nav-text">President</span> <b class="caret"></b>
                             </a>
-                            <ul class="collapse {{ (request()->routeIs('admin.president*') or request()->routeIs('admin.club*') or request()->routeIs('admin.club-category*')) ? 'show' : '' }}"
+                            <ul class="collapse {{ (request()->routeIs('admin.president*') or request()->routeIs('admin.club*') or request()->routeIs('admin.category*')) ? 'show' : '' }}"
                                 id="president" data-parent="#sidebar-menu">
                                 <div class="sub-menu">
                                     <li class="{{ request()->routeIs('admin.president*') ? 'active' : '' }}">
                                         <a class="sidenav-item-link" href="{{ route('admin.president.index') }}">
-                                            <span class="nav-text">Presidents</span>
+                                            <i class="fa-solid fa-person-dress-simple mr-2"></i><span
+                                                class="nav-text">Presidents</span>
                                         </a>
                                     </li>
                                     <li class="{{ request()->routeIs('admin.club*') ? 'active' : '' }}">
@@ -137,8 +136,8 @@
                                             <span class="nav-text">Clubs</span>
                                         </a>
                                     </li>
-                                    <li class="{{ request()->routeIs('admin.club-category*') ? 'active' : '' }}">
-                                        <a class="sidenav-item-link" href="{{ route('admin.club-category.index') }}">
+                                    <li class="{{ request()->routeIs('admin.category*') ? 'active' : '' }}">
+                                        <a class="sidenav-item-link" href="{{ route('admin.category.index') }}">
                                             <span class="nav-text">Clubs Categories</span>
                                         </a>
                                     </li>
@@ -152,7 +151,7 @@
                         </li>
 
                         <li class="has-sub {{ request()->routeIs('admin.member*') ? 'active expand' : '' }}"">
-                            <a class="  sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
+                            <a class="              sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
                             data-target="#members" aria-expanded="false" aria-controls="dashboard">
                             <i class="fa-duotone fa-people-group mr-3"></i>
                             <span class="nav-text">Members</span> <b class="caret"></b>
@@ -265,17 +264,18 @@
                             <!-- user Account -->
                             <li class="dropdown user-menu">
                                 <button href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                                    <img src="{{ asset('backend/assets/img/user/user.png') }}"
+                                    <img src="{{ Auth::user()->profile_photo != null ? asset($user->profile_photo) : asset('assets/images/Icons/User/profile_pic.png') }}"
                                         class="user-image" alt="User Image" />
-                                    <span class="d-none d-lg-inline-block">Abdus Salam</span>
+                                    <span class="d-none d-lg-inline-block">{{ Auth::user()->name }}</span>
                                 </button>
                                 <ul class="dropdown-menu dropdown-menu-right">
                                     <!-- user image -->
                                     <li class="dropdown-header">
-                                        <img src="{{ asset('backend/assets/img/user/user.png') }}"
+                                        <img src="{{ Auth::user()->profile_photo != null ? asset($user->profile_photo) : asset('assets/images/Icons/User/profile_pic.png') }}"
                                             class="img-circle" alt="User Image" />
                                         <div class="d-inline-block">
-                                            Abdus Salam <small class="pt-1">abdus@gmail.com</small>
+                                            {{ Auth::user()->name }} <small
+                                                class="pt-1">{{ Auth::user()->email }}</small>
                                         </div>
                                     </li>
 
@@ -350,10 +350,10 @@
             </div>
 
             <footer class="footer mt-auto">
-                <div class="copyright bg-white">
+                <div class="py-3 bg-white d-flex justify-content-center">
                     <p>
-                        &copy; <span id="copy-year">2022/span> Copyright Sleek Dashboard Bootstrap Template by
-                            <a class="text-primary" href="http://www.iamabdus.com/" target="_blank">Abdus</a>.
+                        Copyright &copy; <span id="copy-year">2022</span>
+                        <a class="text-primary" href="http://www.teamtwelve.com/" target="_blank">#team12</a>
                     </p>
                 </div>
                 <script>

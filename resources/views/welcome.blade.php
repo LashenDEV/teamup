@@ -457,16 +457,19 @@
                     <div class=" col-lg-12">
                         <ul id="portfolio-flters">
                             <li data-filter="*" class="filter-active">All</li>
-                            <li data-filter=".filter-app">Art Club</li>
-                            <li data-filter=".filter-card">IEEE</li>
-                            <li data-filter=".filter-web">Web</li>
+                            @foreach ($club_categories as $club_category)
+                                @php($filter = str_replace(' ', '_', $club_category->category_name))
+                                <li data-filter=".{{ strtolower($filter) }}">
+                                    {{ $club_category->category_name }}
+                            @endforeach
                         </ul>
                     </div>
                 </div>
 
                 <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
                     @foreach ($clubs as $club)
-                        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                        @php($filter = str_replace(' ', '_', $club->category_name))
+                        <div class="col-lg-4 col-md-6 portfolio-item cultural">
                             <div class="portfolio-wrap">
                                 <figure>
                                     <img src="{{ asset($club->image) }}" class="img-fluid" alt="">

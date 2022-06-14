@@ -443,15 +443,16 @@
                                 <button href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                                     <img src="{{ asset('backend/assets/img/user/user.png') }}" class="user-image"
                                         alt="User Image" />
-                                    <span class="d-none d-lg-inline-block">Abdus Salam</span>
+                                    <span class="d-none d-lg-inline-block">{{ Auth::user()->name }} </span>
                                 </button>
                                 <ul class="dropdown-menu dropdown-menu-right">
                                     <!-- user image -->
                                     <li class="dropdown-header">
-                                        <img src="{{ asset('backend/assets/img/user/user.png') }}"
+                                        <img src="{{ Auth::user()->profile_photo != null ? asset($user->profile_photo) : asset('assets/images/Icons/User/profile_pic.png') }}"
                                             class="img-circle" alt="User Image" />
                                         <div class="d-inline-block">
-                                            Abdus Salam <small class="pt-1">abdus@gmail.com</small>
+                                            {{ Auth::user()->name }} <small
+                                                class="pt-1">{{ Auth::user()->email }} </small>
                                         </div>
                                     </li>
 
@@ -528,10 +529,10 @@
             </div>
 
             <footer class="footer mt-auto">
-                <div class="copyright bg-white">
+                <div class="py-3 bg-white d-flex justify-content-center">
                     <p>
-                        &copy; <span id="copy-year">2022/span> Copyright Sleek Dashboard Bootstrap Template by
-                            <a class="text-primary" href="http://www.iamabdus.com/" target="_blank">Abdus</a>.
+                        Copyright &copy; <span id="copy-year">2022</span>
+                        <a class="text-primary" href="http://www.teamtwelve.com/" target="_blank">#team12</a>
                     </p>
                 </div>
                 <script>

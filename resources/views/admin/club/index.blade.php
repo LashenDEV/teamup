@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title', 'clubs')
+@section('title', 'All Clubs')
 @section('content')
     <div class="card card-table-border-none border-0">
         <div class="card-header d-flex flex-column flex-md-row justify-content-between p-4"
@@ -8,7 +8,7 @@
                 <h1>All Clubs</h1>
             </div>
             <div class="text-right">
-                <a href="{{ route('admin.club.index') }}">
+                <a href="{{ route('admin.dashboard') }}">
                     <button type="button" class="btn btn-secondary">Back</button>
                 </a>
             </div>
@@ -46,8 +46,10 @@
                                 @if ($club->approval == 1)
                                     <span class="badge badge-success p-2">Approved</span>
                             </td>
-                        @else
+                        @elseif($club->approval != null)
                             <span class="badge badge-danger p-2">Rejected</span>
+                        @else
+                            <span class="badge badge-warning p-2">Pending</span>
                     @endif
                     <td class="d-none d-md-table-cell">
                         <a href="#deleteModal" data-toggle="modal">

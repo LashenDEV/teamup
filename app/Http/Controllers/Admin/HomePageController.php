@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\ClubCategory;
 use App\Models\Clubs;
 use App\Models\Statement;
 use Illuminate\Http\Request;
@@ -18,6 +19,7 @@ class HomePageController extends Controller
         $vision = Statement::where('title', 'vision')->first();
         $clubs = Clubs::where('approval', 1)->paginate(6);
         $home_sliders = Clubs::where('home_slider_approval', '1')->get();
-        return view('welcome', compact('clubs', 'home_sliders', 'welcome', 'about', 'mission', 'plan', 'vision'));
+        $club_categories = ClubCategory::all();
+        return view('welcome', compact('clubs', 'club_categories', 'home_sliders', 'welcome', 'about', 'mission', 'plan', 'vision'));
     }
 }

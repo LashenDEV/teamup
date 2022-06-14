@@ -18,6 +18,7 @@ class CreateClubsTable extends Migration
             $table->unsignedBigInteger('president_id');
             $table->string('name');
             $table->text('description');
+            $table->string('category_name');
             $table->text('vision');
             $table->text('mission');
             $table->string('image');

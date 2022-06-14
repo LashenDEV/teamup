@@ -61,6 +61,13 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['isAdmin',
     Route::get('club/{id}/approval/', [Admin\ClubController::class, 'approval'])->name('club.approval');
     Route::get('club/{id}/rejection/', [Admin\ClubController::class, 'rejection'])->name('club.rejection');
     Route::delete('club/{id}', [Admin\ClubController::class, 'destroy'])->name('club.destroy');
+
+    //club-categories
+    Route::get('category', [Admin\ClubCategoryController::class, 'index'])->name('category.index');
+    Route::post('category/store', [Admin\ClubCategoryController::class, 'store'])->name('category.store');
+    Route::get('category/{id}/edit/', [Admin\ClubCategoryController::class, 'edit'])->name('category.edit');
+    Route::put('category/{id}/update', [Admin\ClubCategoryController::class, 'update'])->name('category.update');
+    Route::delete('category/{id}', [Admin\ClubCategoryController::class, 'destroy'])->name('category.destroy');
 });
 
 

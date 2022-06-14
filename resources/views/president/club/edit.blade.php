@@ -25,15 +25,30 @@
                         <label for="exampleFormControlTextarea1">Club Description</label>
                         <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Club Description" rows="3"
                             name="description">{{ $your_club->description }}</textarea><br>
-
+                    </div>
+                    <div class="form-group">
+                        <label for="Club Category">Example select</label>
+                        <select class="form-control" id="Club Category" name="category_name">
+                            <option selected value="{{ $your_club->category_name }}">
+                                {{ $your_club->category_name }}
+                            </option>
+                            @foreach ($club_categories as $club_category)
+                                @if ($club_category->category_name != $your_club->category_name)
+                                    <option value="{{ $club_category->category_name }}">
+                                        {{ $club_category->category_name }}
+                                    </option>
+                                @endif
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
                         <label for="exampleFormControlTextarea1">Goal of the Club</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Goals of Club" rows="3"
-                            name="vision">{{ $your_club->vision }}</textarea><br>
-
+                        <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Goals of Club" rows="3" name="vision">{{ $your_club->vision }}</textarea><br>
+                    </div>
+                    <div class="form-group">
                         <label for="exampleFormControlTextarea1">Mission of the Club</label>
                         <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Mission of the Club" rows="3"
                             name="mission">{{ $your_club->mission }}</textarea>
-
                     </div>
                     <div class="form-group">
                         <div class="mb-3">

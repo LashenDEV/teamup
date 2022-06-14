@@ -5,6 +5,7 @@ namespace App\Http\Controllers\President;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreClubRequest;
 use App\Http\Requests\UpdateClubRequest;
+use App\Models\ClubCategory;
 use App\Models\Clubs;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
@@ -22,6 +23,7 @@ class ClubController extends Controller
         $club->president_id = $request->president_id;
         $club->name = $request->name;
         $club->description = $request->description;
+        $club->category_name = $request->category_name;
         $club->vision = $request->vision;
         $club->mission = $request->mission;
         $club->image = $last_img;
@@ -37,7 +39,8 @@ class ClubController extends Controller
 
     public function create()
     {
-        return view('president.club.new');
+        $club_categories = ClubCategory::all();
+        return view('president.club.new', compact('club_categories'));
     }
 
     public function store(StoreClubRequest $request)
@@ -54,7 +57,8 @@ class ClubController extends Controller
     public function edit($id)
     {
         $your_club = Clubs::findOrFail($id);
-        return view('president.club.edit', compact('your_club'));
+        $club_categories = ClubCategory::all();
+        return view('president.club.edit', compact('your_club', 'club_categories'));
     }
 
     public function update(UpdateClubRequest $request, $id)
@@ -71,6 +75,7 @@ class ClubController extends Controller
             $club->president_id = $request->president_id;
             $club->name = $request->name;
             $club->description = $request->description;
+            $club->category_name = $request->category_name;
             $club->vision = $request->vision;
             $club->mission = $request->mission;
             $club->created_at = Carbon::now();

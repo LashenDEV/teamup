@@ -98,7 +98,7 @@
                 @endforeach
                 </tbody>
             </table>
-            {{ $presidents->links('components.pagination') }}
+            {{-- {{ $presidents->links('components.pagination') }} --}}
 
         </div>
     </div>

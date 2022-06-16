@@ -177,7 +177,6 @@
                                                                 {{ $user->degree_program == 'AQT' ? 'selected' : ' ' }}
                                                                 value="AQT">AQT
                                                             </option>
-                                                            <option value="BBST">BBST</option>
                                                         </select>
                                                     </div>
                                                 </div>

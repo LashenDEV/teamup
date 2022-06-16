@@ -28,6 +28,9 @@ Route::get('club/view/{id}', [User\ClubController::class, 'view'])->name('club.v
 Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['isAdmin', 'auth', 'verified']], function () {
     Route::get('dashboard', [Admin\AdminController::class, 'index'])->name('dashboard');
     Route::get('profile', [Admin\AdminController::class, 'profile'])->name('profile');
+    Route::put('update', [Admin\AdminController::class, 'update'])->name('profile.update');
+    Route::put('change/password', [Admin\AdminController::class, 'ChangePassword'])->name('password.change');
+    Route::put('change/email', [Admin\AdminController::class, 'ChangeEmail'])->name('email.change');
     Route::get('settings', [Admin\AdminController::class, 'settings'])->name('settings');
 
     //Statements
@@ -75,6 +78,9 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['isAdmin',
 Route::group(['as' => 'president.', 'prefix' => 'president', 'middleware' => ['isPresident', 'auth', 'verified']], function () {
     Route::get('dashboard', [President\PresidentController::class, 'index'])->name('dashboard');
     Route::get('profile', [President\PresidentController::class, 'profile'])->name('profile');
+    Route::put('update', [President\PresidentController::class, 'update'])->name('profile.update');
+    Route::put('change/password', [President\PresidentController::class, 'ChangePassword'])->name('password.change');
+    Route::put('change/email', [President\PresidentController::class, 'ChangeEmail'])->name('email.change');
     Route::get('settings', [President\PresidentController::class, 'settings'])->name('settings');
 
     //Clubs

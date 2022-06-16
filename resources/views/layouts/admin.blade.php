@@ -39,6 +39,9 @@
     {{-- Animate.style CDN --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
+    <!-- Jquery CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
     <!--
       HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries
     -->
@@ -73,8 +76,8 @@
                 <!-- Aplication Brand -->
                 <div class="app-brand">
                     <a href="/index.html" class="p-0">
-                        <img class="brand-icon p-2" src="{{ asset('assets/images/logos/teamup logo.png') }}" alt=""
-                            width="75px" height="75px">
+                        <img class="brand-icon p-2" src="{{ asset('assets/images/logos/teamup logo.png') }}"
+                            alt="" width="75px" height="75px">
                         <span class="brand-name ml-0">Admin Dashboard</span>
                     </a>
                 </div>
@@ -151,10 +154,11 @@
                         </li>
 
                         <li class="has-sub {{ request()->routeIs('admin.member*') ? 'active expand' : '' }}"">
-                            <a class="              sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
-                            data-target="#members" aria-expanded="false" aria-controls="dashboard">
-                            <i class="fa-duotone fa-people-group mr-3"></i>
-                            <span class="nav-text">Members</span> <b class="caret"></b>
+                            <a class="              sidenav-item-link" href="javascript:void(0)"
+                                data-toggle="collapse" data-target="#members" aria-expanded="false"
+                                aria-controls="dashboard">
+                                <i class="fa-duotone fa-people-group mr-3"></i>
+                                <span class="nav-text">Members</span> <b class="caret"></b>
                             </a>
                             <ul class="collapse  {{ request()->routeIs('admin.member*') ? 'show' : '' }}"
                                 id="members" data-parent="#sidebar-menu">
@@ -264,14 +268,14 @@
                             <!-- user Account -->
                             <li class="dropdown user-menu">
                                 <button href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                                    <img src="{{ Auth::user()->profile_photo != null ? asset($user->profile_photo) : asset('assets/images/Icons/User/profile_pic.png') }}"
+                                    <img src="{{ Auth::user()->profile_photo != null ? asset(Auth::user()->profile_photo) : asset('assets/images/Icons/User/profile_pic.png') }}"
                                         class="user-image" alt="User Image" />
                                     <span class="d-none d-lg-inline-block">{{ Auth::user()->name }}</span>
                                 </button>
                                 <ul class="dropdown-menu dropdown-menu-right">
                                     <!-- user image -->
                                     <li class="dropdown-header">
-                                        <img src="{{ Auth::user()->profile_photo != null ? asset($user->profile_photo) : asset('assets/images/Icons/User/profile_pic.png') }}"
+                                        <img src="{{ Auth::user()->profile_photo != null ? asset(Auth::user()->profile_photo) : asset('assets/images/Icons/User/profile_pic.png') }}"
                                             class="img-circle" alt="User Image" />
                                         <div class="d-inline-block">
                                             {{ Auth::user()->name }} <small
@@ -280,7 +284,7 @@
                                     </li>
 
                                     <li>
-                                        <a href="profile.html">
+                                        <a href="{{ route('admin.profile') }}">
                                             <i class="mdi mdi-account"></i> My Profile
                                         </a>
                                     </li>
@@ -297,7 +301,8 @@
                                     </li>
 
                                     <li class="dropdown-footer">
-                                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                             {{ __('Logout') }}
                                         </a>

@@ -39,6 +39,9 @@
     {{-- Animate.style CDN --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
+    <!-- Jquery CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
     <!--
       HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries
     -->
@@ -73,8 +76,8 @@
                 <!-- Aplication Brand -->
                 <div class="app-brand">
                     <a href="/index.html" class="p-0">
-                        <img class="brand-icon p-2" src="{{ asset('assets/images/logos/teamup logo.png') }}" alt=""
-                            width="75px" height="75px">
+                        <img class="brand-icon p-2" src="{{ asset('assets/images/logos/teamup logo.png') }}"
+                            alt="" width="75px" height="75px">
                         <span class="brand-name ml-0">President Dashboard</span>
                     </a>
                 </div>
@@ -448,7 +451,7 @@
                                 <ul class="dropdown-menu dropdown-menu-right">
                                     <!-- user image -->
                                     <li class="dropdown-header">
-                                        <img src="{{ Auth::user()->profile_photo != null ? asset($user->profile_photo) : asset('assets/images/Icons/User/profile_pic.png') }}"
+                                        <img src="{{ Auth::user()->profile_photo != null ? asset(Auth::user()->profile_photo) : asset('assets/images/Icons/User/profile_pic.png') }}"
                                             class="img-circle" alt="User Image" />
                                         <div class="d-inline-block">
                                             {{ Auth::user()->name }} <small
@@ -457,7 +460,7 @@
                                     </li>
 
                                     <li>
-                                        <a href="profile.html">
+                                        <a href={{ route('president.profile') }}>
                                             <i class="mdi mdi-account"></i> My Profile
                                         </a>
                                     </li>
@@ -474,7 +477,8 @@
                                     </li>
 
                                     <li class="dropdown-footer">
-                                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                             {{ __('Logout') }}
                                         </a>
@@ -523,7 +527,7 @@
                         </button>
                     </div>
                 @endif
-                <div class="content p-4">
+                <div class="content p-0">
                     @yield('content')
                 </div>
             </div>

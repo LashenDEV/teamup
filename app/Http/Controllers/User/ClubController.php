@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\Clubs;
+use App\Models\ClubSliderImage;
 use App\Models\RegisteredUser;
 use Illuminate\Support\Facades\Auth;
 
@@ -36,6 +37,7 @@ class ClubController extends Controller
     public function view($id)
     {
         $club = Clubs::findOrFail($id);
-        return view('clubShow', compact('club'));
+        $club_image_sliders = ClubSliderImage::where('club_id', $club->id)->get();
+        return view('clubShow', compact('club', 'club_image_sliders'));
     }
 }

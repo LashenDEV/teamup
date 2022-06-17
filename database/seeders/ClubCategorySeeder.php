@@ -50,5 +50,11 @@ class ClubCategorySeeder extends Seeder
                 'category_name' => 'General Interest and Spiritual',
             ]
         );
+        ClubCategory::create(
+            [
+                'admin_id' => 1,
+                'category_name' => 'Arts & Culture',
+            ]
+        );
     }
 }

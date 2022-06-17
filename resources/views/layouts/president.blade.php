@@ -2,42 +2,42 @@
 <html lang="en" dir="ltr">
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
     <title>Teamup | @yield('title')</title>
 
     <!-- GOOGLE FONTS -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500|Poppins:400,500,600,700|Roboto:400,500"
-        rel="stylesheet" />
-    <link href="https://cdn.materialdesignicons.com/3.0.39/css/materialdesignicons.min.css" rel="stylesheet" />
+          rel="stylesheet"/>
+    <link href="https://cdn.materialdesignicons.com/3.0.39/css/materialdesignicons.min.css" rel="stylesheet"/>
 
     <!-- PLUGINS CSS STYLE -->
-    <link href="{{ asset('backend/assets/plugins/toaster/toastr.min.css') }}" rel="stylesheet" />
-    <link href="{{ asset('backend/assets/plugins/nprogress/nprogress.css') }}" rel="stylesheet" />
-    <link href="{{ asset('backend/assets/plugins/flag-icons/css/flag-icon.min.css') }}" rel="stylesheet" />
-    <link href="{{ asset('backend/assets/plugins/jvectormap/jquery-jvectormap-2.0.3.css') }}" rel="stylesheet" />
-    <link href="{{ asset('backend/assets/plugins/ladda/ladda.min.css') }}" rel="stylesheet" />
-    <link href="{{ asset('backend/assets/plugins/select2/css/select2.min.css') }}" rel="stylesheet" />
-    <link href="{{ asset('backend/assets/plugins/daterangepicker/daterangepicker.css') }}" rel="stylesheet" />
+    <link href="{{ asset('backend/assets/plugins/toaster/toastr.min.css') }}" rel="stylesheet"/>
+    <link href="{{ asset('backend/assets/plugins/nprogress/nprogress.css') }}" rel="stylesheet"/>
+    <link href="{{ asset('backend/assets/plugins/flag-icons/css/flag-icon.min.css') }}" rel="stylesheet"/>
+    <link href="{{ asset('backend/assets/plugins/jvectormap/jquery-jvectormap-2.0.3.css') }}" rel="stylesheet"/>
+    <link href="{{ asset('backend/assets/plugins/ladda/ladda.min.css') }}" rel="stylesheet"/>
+    <link href="{{ asset('backend/assets/plugins/select2/css/select2.min.css') }}" rel="stylesheet"/>
+    <link href="{{ asset('backend/assets/plugins/daterangepicker/daterangepicker.css') }}" rel="stylesheet"/>
 
     <!-- SLEEK CSS -->
-    <link id="sleek-css" rel="stylesheet" href="{{ asset('backend/assets/css/sleek.css') }}" />
+    <link id="sleek-css" rel="stylesheet" href="{{ asset('backend/assets/css/sleek.css') }}"/>
 
 
     <!-- FAVICON -->
-    <link href="{{ asset('logos/teamup fav-icon.png') }}" rel="shortcut icon" />
+    <link href="{{ asset('logos/teamup fav-icon.png') }}" rel="shortcut icon"/>
 
     <!-- Material Icons CDN -->
     <link rel="stylesheet"
-        href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+          href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
 
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.1.1/css/all.css">
 
     {{-- Animate.style CDN --}}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
     <!-- Jquery CDN -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -55,496 +55,506 @@
 
 
 <body class="sidebar-fixed sidebar-dark header-light header-fixed animate__animated animate__fadeIn" id="body">
-    <script>
-        NProgress.configure({
-            showSpinner: false
-        });
-        NProgress.start();
-    </script>
+<script>
+    NProgress.configure({
+        showSpinner: false
+    });
+    NProgress.start();
+</script>
 
-    <div class="mobile-sticky-body-overlay"></div>
+<div class="mobile-sticky-body-overlay"></div>
 
-    <div class="wrapper">
+<div class="wrapper">
 
-        <!--
+    <!--
 ====================================
 ——— LEFT SIDEBAR WITH FOOTER
 =====================================
 -->
-        <aside class="left-sidebar bg-sidebar">
-            <div id="sidebar" class="sidebar sidebar-with-footer">
-                <!-- Aplication Brand -->
-                <div class="app-brand">
-                    <a href="/index.html" class="p-0">
-                        <img class="brand-icon p-2" src="{{ asset('assets/images/logos/teamup logo.png') }}"
-                            alt="" width="75px" height="75px">
-                        <span class="brand-name ml-0">President Dashboard</span>
-                    </a>
-                </div>
-                <!-- begin sidebar scrollbar -->
-                <div class="sidebar-scrollbar">
+    <aside class="left-sidebar bg-sidebar">
+        <div id="sidebar" class="sidebar sidebar-with-footer">
+            <!-- Aplication Brand -->
+            <div class="app-brand">
+                <a href="/index.html" class="p-0">
+                    <img class="brand-icon p-2" src="{{ asset('assets/images/logos/teamup logo.png') }}"
+                         alt="" width="75px" height="75px">
+                    <span class="brand-name ml-0">President Dashboard</span>
+                </a>
+            </div>
+            <!-- begin sidebar scrollbar -->
+            <div class="sidebar-scrollbar">
 
-                    <!-- sidebar menu -->
-                    <ul class="nav sidebar-inner" id="sidebar-menu">
-                        <li
-                            class="has-sub {{ (request()->routeIs('president.club*') or request()->routeIs('president.event*') or request()->routeIs('president.meeting*') or request()->routeIs('president.notice*') or request()->routeIs('president.dashboard')) ? 'active expand' : '' }}">
-                            <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
-                                data-target="#clubs" aria-expanded="false" aria-controls="clubs">
-                                <i class="mdi mdi-home-assistant"></i>
-                                <span class="nav-text">Your Club</span> <b class="caret"></b>
-                            </a>
-                            <ul class="collapse {{ (request()->routeIs('president.club*') or request()->routeIs('president.event*') or request()->routeIs('president.meeting*') or request()->routeIs('president.notice*') or request()->routeIs('president.dashboard')) ? 'show' : '' }}"
-                                id="clubs" data-parent="#sidebar-menu">
-                                <div class="sub-menu">
-                                    <li class="{{ request()->routeIs('president.club*') ? 'active' : '' }}">
-                                        <a class="sidenav-item-link" href="{{ route('president.club.index') }}">
-                                            <i class="fa-duotone fa-list-check mr-3"></i>
-                                            <span class="nav-text">Manage Your Club</span>
-                                        </a>
-                                    </li>
-                                    <li class="{{ request()->routeIs('president.event*') ? 'active' : '' }}">
-                                        <a class="sidenav-item-link" href="{{ route('president.event.index') }}">
-                                            <i class="fa-duotone fa-calendar-days mr-3">
-                                            </i>
-                                            <span class="nav-text">Events</span>
-                                        </a>
-                                    </li>
-                                    <li class="{{ request()->routeIs('president.notice*') ? 'active' : '' }}">
-                                        <a class="sidenav-item-link" href="{{ route('president.notice.index') }}">
-                                            <i class="fa-duotone fa-notes mr-3"></i>
-                                            <span class="nav-text">Notices</span>
-                                        </a>
-                                    </li>
-                                    <li class="{{ request()->routeIs('president.meeting*') ? 'active' : '' }}">
-                                        <a class="sidenav-item-link" href="{{ route('president.meeting.index') }}">
-                                            <i class="fa-duotone fa-video mr-3"></i>
-                                            <span class="nav-text">Meetings</span>
-                                        </a>
-                                    </li>
-                                </div>
-                            </ul>
-                        </li>
-                        <li class="has-sub {{ request()->routeIs('president.members*') ? 'active expand' : '' }}">
-                            <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
-                                data-target="#members" aria-expanded="false" aria-controls="members">
-                                <i class="mdi mdi-account-group"></i>
-                                <span class="nav-text">Members</span> <b class="caret"></b>
-                            </a>
-                            <ul class="collapse {{ request()->routeIs('president.members*') ? 'show' : '' }}"
-                                id="members" data-parent="#sidebar-menu">
-                                <div class="sub-menu">
-                                    <li class="{{ request()->routeIs('president.members*') ? 'active' : '' }}">
-                                        <a class="sidenav-item-link" href="{{ route('president.members.index') }}">
-                                            <i class="fa-duotone fa-people-roof mr-3"></i>
-                                            <span class="nav-text">Manage Members</span>
+                <!-- sidebar menu -->
+                <ul class="nav sidebar-inner" id="sidebar-menu">
+                    <li
+                        class="has-sub {{ (request()->routeIs('president.club*') or request()->routeIs('president.event*') or request()->routeIs('president.meeting*') or request()->routeIs('president.notice*') or request()->routeIs('president.slider.image*') or request()->routeIs('president.dashboard')) ? 'active expand' : '' }}">
+                        <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
+                           data-target="#clubs" aria-expanded="false" aria-controls="clubs">
+                            <i class="mdi mdi-home-assistant"></i>
+                            <span class="nav-text">Your Club</span> <b class="caret"></b>
+                        </a>
+                        <ul class="collapse {{ (request()->routeIs('president.club*') or request()->routeIs('president.event*') or request()->routeIs('president.meeting*') or request()->routeIs('president.notice*') or request()->routeIs('president.slider.image*') or request()->routeIs('president.dashboard')) ? 'show' : '' }}"
+                            id="clubs" data-parent="#sidebar-menu">
+                            <div class="sub-menu">
+                                <li class="{{ request()->routeIs('president.club*') ? 'active' : '' }}">
+                                    <a class="sidenav-item-link" href="{{ route('president.club.index') }}">
+                                        <i class="fa-duotone fa-list-check mr-3"></i>
+                                        <span class="nav-text">Manage Your Club</span>
+                                    </a>
+                                </li>
+                                <li class="{{ request()->routeIs('president.slider.image*') ? 'active' : '' }}">
+                                    <a class="sidenav-item-link"
+                                       href="{{ route('president.slider.image.index') }}">
+                                        <i class="fa-duotone fa-sliders-simple  mr-3"></i>
+                                        <span class="nav-text">Slider Images</span>
+                                    </a>
+                                </li>
+                                <li class="{{ request()->routeIs('president.event*') ? 'active' : '' }}">
+                                    <a class="sidenav-item-link" href="{{ route('president.event.index') }}">
+                                        <i class="fa-duotone fa-calendar-days mr-3">
+                                        </i>
+                                        <span class="nav-text">Events</span>
+                                    </a>
+                                </li>
+                                <li class="{{ request()->routeIs('president.notice*') ? 'active' : '' }}">
+                                    <a class="sidenav-item-link" href="{{ route('president.notice.index') }}">
+                                        <i class="fa-duotone fa-notes mr-3"></i>
+                                        <span class="nav-text">Notices</span>
+                                    </a>
+                                </li>
+                                <li class="{{ request()->routeIs('president.meeting*') ? 'active' : '' }}">
+                                    <a class="sidenav-item-link" href="{{ route('president.meeting.index') }}">
+                                        <i class="fa-duotone fa-video mr-3"></i>
+                                        <span class="nav-text">Meetings</span>
+                                    </a>
+                                </li>
+                            </div>
+                        </ul>
+                    </li>
+                    <li class="has-sub {{ request()->routeIs('president.members*') ? 'active expand' : '' }}">
+                        <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
+                           data-target="#members" aria-expanded="false" aria-controls="members">
+                            <i class="mdi mdi-account-group"></i>
+                            <span class="nav-text">Members</span> <b class="caret"></b>
+                        </a>
+                        <ul class="collapse {{ request()->routeIs('president.members*') ? 'show' : '' }}"
+                            id="members" data-parent="#sidebar-menu">
+                            <div class="sub-menu">
+                                <li class="{{ request()->routeIs('president.members*') ? 'active' : '' }}">
+                                    <a class="sidenav-item-link" href="{{ route('president.members.index') }}">
+                                        <i class="fa-duotone fa-people-roof mr-3"></i>
+                                        <span class="nav-text">Manage Members</span>
 
-                                        </a>
-                                    </li>
-                                    <li class="">
-                                        <a class="sidenav-item-link" href="index.html">
-                                            <i class="fa-duotone fa-money-check-dollar mr-3"></i>
-                                            <span class="nav-text">Payments</span>
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a class="sidenav-item-link" href="index.html">
+                                        <i class="fa-duotone fa-money-check-dollar mr-3"></i>
+                                        <span class="nav-text">Payments</span>
 
-                                        </a>
-                                    </li>
-                                    {{-- <li class="active">
-                                        <a class="sidenav-item-link" href="index.html">
-                                            <span class="nav-text">Meetings</span>
+                                    </a>
+                                </li>
+                                {{-- <li class="active">
+                                    <a class="sidenav-item-link" href="index.html">
+                                        <span class="nav-text">Meetings</span>
 
-                                        </a>
-                                    </li>
-                                    <li class="active">
-                                        <a class="sidenav-item-link" href="#">
-                                            <span class="nav-text">Members</span>
+                                    </a>
+                                </li>
+                                <li class="active">
+                                    <a class="sidenav-item-link" href="#">
+                                        <span class="nav-text">Members</span>
 
-                                        </a>
-                                    </li> --}}
-                                </div>
-                            </ul>
-                        </li>
-
-
-                        {{-- <li class="has-sub">
-                            <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
-                                data-target="#pages" aria-expanded="false" aria-controls="pages">
-                                <i class="mdi mdi-image-filter-none"></i>
-                                <span class="nav-text">Pages</span> <b class="caret"></b>
-                            </a>
-                            <ul class="collapse" id="pages" data-parent="#sidebar-menu">
-                                <div class="sub-menu">
+                                    </a>
+                                </li> --}}
+                            </div>
+                        </ul>
+                    </li>
 
 
-                                    <li>
-                                        <a class="sidenav-item-link" href="user-profile.html">
-                                            <span class="nav-text">User Profile</span>
-
-                                        </a>
-                                    </li>
-
-
-                                    <li class="has-sub">
-                                        <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
-                                            data-target="#authentication" aria-expanded="false"
-                                            aria-controls="authentication">
-                                            <span class="nav-text">Authentication</span> <b
-                                                class="caret"></b>
-                                        </a>
-                                        <ul class="collapse" id="authentication">
-                                            <div class="sub-menu">
-
-                                                <li>
-                                                    <a href="sign-in.html">Sign In</a>
-                                                </li>
-
-                                                <li>
-                                                    <a href="sign-up.html">Sign Up</a>
-                                                </li>
-
-                                            </div>
-                                        </ul>
-                                    </li>
+                    {{-- <li class="has-sub">
+                        <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
+                            data-target="#pages" aria-expanded="false" aria-controls="pages">
+                            <i class="mdi mdi-image-filter-none"></i>
+                            <span class="nav-text">Pages</span> <b class="caret"></b>
+                        </a>
+                        <ul class="collapse" id="pages" data-parent="#sidebar-menu">
+                            <div class="sub-menu">
 
 
-                                    <li class="has-sub">
-                                        <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
-                                            data-target="#others" aria-expanded="false" aria-controls="others">
-                                            <span class="nav-text">Others</span> <b class="caret"></b>
-                                        </a>
-                                        <ul class="collapse" id="others">
-                                            <div class="sub-menu">
+                                <li>
+                                    <a class="sidenav-item-link" href="user-profile.html">
+                                        <span class="nav-text">User Profile</span>
 
-                                                <li>
-                                                    <a href="invoice.html">invoice</a>
-                                                </li>
-
-                                                <li>
-                                                    <a href="error.html">Error</a>
-                                                </li>
-
-                                            </div>
-                                        </ul>
-                                    </li>
+                                    </a>
+                                </li>
 
 
-                                </div>
-                            </ul>
-                        </li>
+                                <li class="has-sub">
+                                    <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
+                                        data-target="#authentication" aria-expanded="false"
+                                        aria-controls="authentication">
+                                        <span class="nav-text">Authentication</span> <b
+                                            class="caret"></b>
+                                    </a>
+                                    <ul class="collapse" id="authentication">
+                                        <div class="sub-menu">
+
+                                            <li>
+                                                <a href="sign-in.html">Sign In</a>
+                                            </li>
+
+                                            <li>
+                                                <a href="sign-up.html">Sign Up</a>
+                                            </li>
+
+                                        </div>
+                                    </ul>
+                                </li>
 
 
-                        <li class="has-sub">
-                            <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
-                                data-target="#documentation" aria-expanded="false" aria-controls="documentation">
-                                <i class="mdi mdi-book-open-page-variant"></i>
-                                <span class="nav-text">Documentation</span> <b class="caret"></b>
-                            </a>
-                            <ul class="collapse" id="documentation" data-parent="#sidebar-menu">
-                                <div class="sub-menu">
+                                <li class="has-sub">
+                                    <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
+                                        data-target="#others" aria-expanded="false" aria-controls="others">
+                                        <span class="nav-text">Others</span> <b class="caret"></b>
+                                    </a>
+                                    <ul class="collapse" id="others">
+                                        <div class="sub-menu">
+
+                                            <li>
+                                                <a href="invoice.html">invoice</a>
+                                            </li>
+
+                                            <li>
+                                                <a href="error.html">Error</a>
+                                            </li>
+
+                                        </div>
+                                    </ul>
+                                </li>
 
 
-                                    <li class="section-title">
-                                        Getting Started
-                                    </li>
+                            </div>
+                        </ul>
+                    </li>
 
 
-                                    <li>
-                                        <a class="sidenav-item-link" href="introduction.html">
-                                            <span class="nav-text">Introduction</span>
-
-                                        </a>
-                                    </li>
-
-
-                                    <li>
-                                        <a class="sidenav-item-link" href="setup.html">
-                                            <span class="nav-text">Setup</span>
-
-                                        </a>
-                                    </li>
+                    <li class="has-sub">
+                        <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
+                            data-target="#documentation" aria-expanded="false" aria-controls="documentation">
+                            <i class="mdi mdi-book-open-page-variant"></i>
+                            <span class="nav-text">Documentation</span> <b class="caret"></b>
+                        </a>
+                        <ul class="collapse" id="documentation" data-parent="#sidebar-menu">
+                            <div class="sub-menu">
 
 
-                                    <li>
-                                        <a class="sidenav-item-link" href="customization.html">
-                                            <span class="nav-text">Customization</span>
-
-                                        </a>
-                                    </li>
+                                <li class="section-title">
+                                    Getting Started
+                                </li>
 
 
-                                    <li class="section-title">
-                                        Layouts
-                                    </li>
+                                <li>
+                                    <a class="sidenav-item-link" href="introduction.html">
+                                        <span class="nav-text">Introduction</span>
+
+                                    </a>
+                                </li>
 
 
-                                    <li class="has-sub">
-                                        <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
-                                            data-target="#headers" aria-expanded="false" aria-controls="headers">
-                                            <span class="nav-text">Layout Headers</span> <b
-                                                class="caret"></b>
-                                        </a>
-                                        <ul class="collapse" id="headers">
-                                            <div class="sub-menu">
+                                <li>
+                                    <a class="sidenav-item-link" href="setup.html">
+                                        <span class="nav-text">Setup</span>
 
-                                                <li>
-                                                    <a href="header-fixed.html">Header Fixed</a>
-                                                </li>
-
-                                                <li>
-                                                    <a href="header-static.html">Header Static</a>
-                                                </li>
-
-                                                <li>
-                                                    <a href="header-light.html">Header Light</a>
-                                                </li>
-
-                                                <li>
-                                                    <a href="header-dark.html">Header Dark</a>
-                                                </li>
-
-                                            </div>
-                                        </ul>
-                                    </li>
+                                    </a>
+                                </li>
 
 
-                                    <li class="has-sub">
-                                        <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
-                                            data-target="#sidebar-navs" aria-expanded="false"
-                                            aria-controls="sidebar-navs">
-                                            <span class="nav-text">layout Sidebars</span> <b
-                                                class="caret"></b>
-                                        </a>
-                                        <ul class="collapse" id="sidebar-navs">
-                                            <div class="sub-menu">
+                                <li>
+                                    <a class="sidenav-item-link" href="customization.html">
+                                        <span class="nav-text">Customization</span>
 
-                                                <li>
-                                                    <a href="sidebar-open.html">Sidebar Open</a>
-                                                </li>
-
-                                                <li>
-                                                    <a href="sidebar-minimized.html">Sidebar Minimized</a>
-                                                </li>
-
-                                                <li>
-                                                    <a href="sidebar-offcanvas.html">Sidebar Offcanvas</a>
-                                                </li>
-
-                                                <li>
-                                                    <a href="sidebar-with-footer.html">Sidebar With Footer</a>
-                                                </li>
-
-                                                <li>
-                                                    <a href="sidebar-without-footer.html">Sidebar Without Footer</a>
-                                                </li>
-
-                                                <li>
-                                                    <a href="right-sidebar.html">Right Sidebar</a>
-                                                </li>
-
-                                            </div>
-                                        </ul>
-                                    </li>
+                                    </a>
+                                </li>
 
 
-                                    <li>
-                                        <a class="sidenav-item-link" href="rtl.html">
-                                            <span class="nav-text">RTL Direction</span>
-
-                                        </a>
-                                    </li>
+                                <li class="section-title">
+                                    Layouts
+                                </li>
 
 
-                                </div>
-                            </ul>
-                        </li> --}}
+                                <li class="has-sub">
+                                    <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
+                                        data-target="#headers" aria-expanded="false" aria-controls="headers">
+                                        <span class="nav-text">Layout Headers</span> <b
+                                            class="caret"></b>
+                                    </a>
+                                    <ul class="collapse" id="headers">
+                                        <div class="sub-menu">
+
+                                            <li>
+                                                <a href="header-fixed.html">Header Fixed</a>
+                                            </li>
+
+                                            <li>
+                                                <a href="header-static.html">Header Static</a>
+                                            </li>
+
+                                            <li>
+                                                <a href="header-light.html">Header Light</a>
+                                            </li>
+
+                                            <li>
+                                                <a href="header-dark.html">Header Dark</a>
+                                            </li>
+
+                                        </div>
+                                    </ul>
+                                </li>
 
 
-                    </ul>
+                                <li class="has-sub">
+                                    <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
+                                        data-target="#sidebar-navs" aria-expanded="false"
+                                        aria-controls="sidebar-navs">
+                                        <span class="nav-text">layout Sidebars</span> <b
+                                            class="caret"></b>
+                                    </a>
+                                    <ul class="collapse" id="sidebar-navs">
+                                        <div class="sub-menu">
 
-                </div>
+                                            <li>
+                                                <a href="sidebar-open.html">Sidebar Open</a>
+                                            </li>
 
-                <hr class="separator" />
+                                            <li>
+                                                <a href="sidebar-minimized.html">Sidebar Minimized</a>
+                                            </li>
+
+                                            <li>
+                                                <a href="sidebar-offcanvas.html">Sidebar Offcanvas</a>
+                                            </li>
+
+                                            <li>
+                                                <a href="sidebar-with-footer.html">Sidebar With Footer</a>
+                                            </li>
+
+                                            <li>
+                                                <a href="sidebar-without-footer.html">Sidebar Without Footer</a>
+                                            </li>
+
+                                            <li>
+                                                <a href="right-sidebar.html">Right Sidebar</a>
+                                            </li>
+
+                                        </div>
+                                    </ul>
+                                </li>
+
+
+                                <li>
+                                    <a class="sidenav-item-link" href="rtl.html">
+                                        <span class="nav-text">RTL Direction</span>
+
+                                    </a>
+                                </li>
+
+
+                            </div>
+                        </ul>
+                    </li> --}}
+
+
+                </ul>
 
             </div>
-        </aside>
 
-        <div class="page-wrapper">
-            <!-- Header -->
-            <header class="main-header " id="header">
-                <nav class="navbar navbar-static-top navbar-expand-lg">
-                    <!-- Sidebar toggle button -->
-                    <button id="sidebar-toggler" class="sidebar-toggle">
-                        <span class="sr-only">Toggle navigation</span>
-                    </button>
-                    <!-- search form -->
-                    <div class="search-form d-none d-lg-inline-block">
-                        <div class="input-group">
-                            <button type="button" name="search" id="search-btn" class="btn btn-flat">
-                                <i class="mdi mdi-magnify"></i>
+            <hr class="separator"/>
+
+        </div>
+    </aside>
+
+    <div class="page-wrapper">
+        <!-- Header -->
+        <header class="main-header " id="header">
+            <nav class="navbar navbar-static-top navbar-expand-lg">
+                <!-- Sidebar toggle button -->
+                <button id="sidebar-toggler" class="sidebar-toggle">
+                    <span class="sr-only">Toggle navigation</span>
+                </button>
+                <!-- search form -->
+                <div class="search-form d-none d-lg-inline-block">
+                    <div class="input-group">
+                        <button type="button" name="search" id="search-btn" class="btn btn-flat">
+                            <i class="mdi mdi-magnify"></i>
+                        </button>
+                        <input type="text" name="query" id="search-input" class="form-control"
+                               placeholder="Members" autofocus autocomplete="off"/>
+                    </div>
+                    <div id="search-results-container">
+                        <ul id="search-results"></ul>
+                    </div>
+                </div>
+
+                <div class="navbar-right ">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown notifications-menu">
+                            <a class="p-0 m-0" href="{{ url('chatify') }}">
+                                <button
+                                    class="btn btn-outline-primary btn-rounded"><i
+                                        class="fa-duotone fa-comment-dots fa-2x"></i></button>
+                            </a>
+                        </li>
+                        <li class="dropdown notifications-menu">
+                            <button class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="mdi mdi-bell-outline"></i>
                             </button>
-                            <input type="text" name="query" id="search-input" class="form-control"
-                                placeholder="Members" autofocus autocomplete="off" />
-                        </div>
-                        <div id="search-results-container">
-                            <ul id="search-results"></ul>
-                        </div>
-                    </div>
+                            <ul class="dropdown-menu dropdown-menu-right">
+                                <li class="dropdown-header">You have 5 notifications</li>
+                                <li>
+                                    <a href="#">
+                                        <i class="mdi mdi-account-plus"></i> New user registered
+                                        <span class=" font-size-12 d-inline-block float-right"><i
+                                                class="mdi mdi-clock-outline"></i> 10 AM</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="mdi mdi-account-remove"></i> User deleted
+                                        <span class=" font-size-12 d-inline-block float-right"><i
+                                                class="mdi mdi-clock-outline"></i> 07 AM</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="mdi mdi-chart-areaspline"></i> Sales report is ready
+                                        <span class=" font-size-12 d-inline-block float-right"><i
+                                                class="mdi mdi-clock-outline"></i> 12 PM</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="mdi mdi-account-supervisor"></i> New client
+                                        <span class=" font-size-12 d-inline-block float-right"><i
+                                                class="mdi mdi-clock-outline"></i> 10 AM</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="mdi mdi-server-network-off"></i> Server overloaded
+                                        <span class=" font-size-12 d-inline-block float-right"><i
+                                                class="mdi mdi-clock-outline"></i> 05 AM</span>
+                                    </a>
+                                </li>
+                                <li class="dropdown-footer">
+                                    <a class="text-center" href="#"> View All </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- user Account -->
+                        <li class="dropdown user-menu">
+                            <button href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                                <img src="{{ asset('backend/assets/img/user/user.png') }}" class="user-image"
+                                     alt="User Image"/>
+                                <span class="d-none d-lg-inline-block">{{ Auth::user()->name }} </span>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-right">
+                                <!-- user image -->
+                                <li class="dropdown-header">
+                                    <img
+                                        src="{{ Auth::user()->profile_photo != null ? asset(Auth::user()->profile_photo) : asset('assets/images/Icons/User/profile_pic.png') }}"
+                                        class="img-circle" alt="User Image"/>
+                                    <div class="d-inline-block">
+                                        {{ Auth::user()->name }} <small
+                                            class="pt-1">{{ Auth::user()->email }} </small>
+                                    </div>
+                                </li>
 
-                    <div class="navbar-right ">
-                        <ul class="nav navbar-nav">
-                            <li class="dropdown notifications-menu">
-                                <a class="p-0 m-0" href="{{ url('chatify') }}"><button
-                                        class="btn btn-outline-primary btn-rounded"><i
-                                            class="fa-duotone fa-comment-dots fa-2x"></i></button></a>
-                            </li>
-                            <li class="dropdown notifications-menu">
-                                <button class="dropdown-toggle" data-toggle="dropdown">
-                                    <i class="mdi mdi-bell-outline"></i>
-                                </button>
-                                <ul class="dropdown-menu dropdown-menu-right">
-                                    <li class="dropdown-header">You have 5 notifications</li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="mdi mdi-account-plus"></i> New user registered
-                                            <span class=" font-size-12 d-inline-block float-right"><i
-                                                    class="mdi mdi-clock-outline"></i> 10 AM</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="mdi mdi-account-remove"></i> User deleted
-                                            <span class=" font-size-12 d-inline-block float-right"><i
-                                                    class="mdi mdi-clock-outline"></i> 07 AM</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="mdi mdi-chart-areaspline"></i> Sales report is ready
-                                            <span class=" font-size-12 d-inline-block float-right"><i
-                                                    class="mdi mdi-clock-outline"></i> 12 PM</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="mdi mdi-account-supervisor"></i> New client
-                                            <span class=" font-size-12 d-inline-block float-right"><i
-                                                    class="mdi mdi-clock-outline"></i> 10 AM</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="mdi mdi-server-network-off"></i> Server overloaded
-                                            <span class=" font-size-12 d-inline-block float-right"><i
-                                                    class="mdi mdi-clock-outline"></i> 05 AM</span>
-                                        </a>
-                                    </li>
-                                    <li class="dropdown-footer">
-                                        <a class="text-center" href="#"> View All </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!-- user Account -->
-                            <li class="dropdown user-menu">
-                                <button href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                                    <img src="{{ asset('backend/assets/img/user/user.png') }}" class="user-image"
-                                        alt="User Image" />
-                                    <span class="d-none d-lg-inline-block">{{ Auth::user()->name }} </span>
-                                </button>
-                                <ul class="dropdown-menu dropdown-menu-right">
-                                    <!-- user image -->
-                                    <li class="dropdown-header">
-                                        <img src="{{ Auth::user()->profile_photo != null ? asset(Auth::user()->profile_photo) : asset('assets/images/Icons/User/profile_pic.png') }}"
-                                            class="img-circle" alt="User Image" />
-                                        <div class="d-inline-block">
-                                            {{ Auth::user()->name }} <small
-                                                class="pt-1">{{ Auth::user()->email }} </small>
-                                        </div>
-                                    </li>
+                                <li>
+                                    <a href={{ route('president.profile') }}>
+                                        <i class="mdi mdi-account"></i> My Profile
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="email-inbox.html">
+                                        <i class="mdi mdi-email"></i> Message
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#"> <i class="mdi mdi-diamond-stone"></i> Projects </a>
+                                </li>
+                                <li>
+                                    <a href="#"> <i class="mdi mdi-settings"></i> Account Setting </a>
+                                </li>
 
-                                    <li>
-                                        <a href={{ route('president.profile') }}>
-                                            <i class="mdi mdi-account"></i> My Profile
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="email-inbox.html">
-                                            <i class="mdi mdi-email"></i> Message
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#"> <i class="mdi mdi-diamond-stone"></i> Projects </a>
-                                    </li>
-                                    <li>
-                                        <a href="#"> <i class="mdi mdi-settings"></i> Account Setting </a>
-                                    </li>
-
-                                    <li class="dropdown-footer">
-                                        <a class="dropdown-item" href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
+                                <li class="dropdown-footer">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                            {{ __('Logout') }}
-                                        </a>
+                                        {{ __('Logout') }}
+                                    </a>
 
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                            class="d-none">
-                                            @csrf
-                                        </form>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-            </header>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                          class="d-none">
+                                        @csrf
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
 
 
-            <div class="content-wrapper text-dark">
-                @if (session('success'))
-                    <div class="alert alert-success alert-dismissible fade show m-0" role="alert">
-                        <strong>{{ session('success') }}</strong>
+        <div class="content-wrapper text-dark">
+            @if (session('success'))
+                <div class="alert alert-success alert-dismissible fade show m-0" role="alert">
+                    <strong>{{ session('success') }}</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endif
+            @if (session('error'))
+                <div class="alert alert-success alert-dismissible fade show m-0" role="alert">
+                    <strong>{{ session('success') }}</strong>
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>{{ session('error') }}</strong>
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                @endif
-                @if (session('error'))
-                    <div class="alert alert-success alert-dismissible fade show m-0" role="alert">
-                        <strong>{{ session('success') }}</strong>
-                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                            <strong>{{ session('error') }}</strong>
+                    @endif
+                    @if ($errors->any())
+                        <div class="alert alert-warning alert-dismissible fade show m-0" role="alert">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li><strong>{{ $error }}</strong></li>
+                                @endforeach
+                            </ul>
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                @endif
-                @if ($errors->any())
-                    <div class="alert alert-warning alert-dismissible fade show m-0" role="alert">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li><strong>{{ $error }}</strong></li>
-                            @endforeach
-                        </ul>
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+                    @endif
+                    <div class="content p-0">
+                        @yield('content')
                     </div>
-                @endif
-                <div class="content p-0">
-                    @yield('content')
                 </div>
-            </div>
 
-            <footer class="footer mt-auto">
-                <div class="py-3 bg-white d-flex justify-content-center">
-                    <p>
-                        Copyright &copy; <span id="copy-year">2022</span>
-                        <a class="text-primary" href="http://www.teamtwelve.com/" target="_blank">#team12</a>
-                    </p>
-                </div>
-                <script>
-                    var d = new Date();
-                    var year = d.getFullYear();
-                    document.getElementById("copy-year").innerHTML = year;
-                </script>
-            </footer>
+                <footer class="footer mt-auto">
+                    <div class="py-3 bg-white d-flex justify-content-center">
+                        <p>
+                            Copyright &copy; <span id="copy-year">2022</span>
+                            <a class="text-primary" href="http://www.teamtwelve.com/" target="_blank">#team12</a>
+                        </p>
+                    </div>
+                    <script>
+                        var d = new Date();
+                        var year = d.getFullYear();
+                        document.getElementById("copy-year").innerHTML = year;
+                    </script>
+                </footer>
 
         </div>
     </div>
@@ -573,9 +583,9 @@
 
     {{-- CKEditor --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor5/34.0.0/ckeditor.min.js"
-        integrity="sha512-d1WD+hDYM2nEFaZBZdRBVXaTLrVb4Bno5hCBcrIZZ45hNKQWD7s9CllB6NqkgebX/qwMkbuWM804gfFr2cisqA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    @yield('scripts')
+            integrity="sha512-d1WD+hDYM2nEFaZBZdRBVXaTLrVb4Bno5hCBcrIZZ45hNKQWD7s9CllB6NqkgebX/qwMkbuWM804gfFr2cisqA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+@yield('scripts')
 </body>
 
 </html>

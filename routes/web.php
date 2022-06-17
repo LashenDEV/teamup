@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\President\ClubSliderImageController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin;
@@ -90,6 +91,11 @@ Route::group(['as' => 'president.', 'prefix' => 'president', 'middleware' => ['i
     Route::get('club/{id}/edit/', [President\ClubController::class, 'edit'])->name('club.edit');
     Route::put('club/{id}/update', [President\ClubController::class, 'update'])->name('club.update');
     Route::delete('club/{id}', [President\ClubController::class, 'destroy'])->name('club.destroy');
+
+    //Club Image Sliders
+    Route::get('club/slider/image', [President\ClubSliderImageController::class, 'index'])->name('slider.image.index');
+    Route::post('club/slider/image/store', [President\ClubSliderImageController::class, 'store'])->name('slider.image.store');
+    Route::put('club/slider/image/{id}/update', [President\ClubSliderImageController::class, 'update'])->name('slider.image.update');
 
     //Events
     Route::get('event', [President\EventController::class, 'index'])->name('event.index');

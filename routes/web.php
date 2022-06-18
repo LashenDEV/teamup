@@ -150,4 +150,7 @@ Route::group(['prefix' => 'user', 'middleware' => ['isUser', 'auth', 'verified']
 
     //club
     Route::get('club/register/{id}', [User\ClubController::class, 'register'])->name('user.club.register');
+
+    //payment
+    Route::get('club/payment_page/{id}', [User\ClubController::class, 'payment_page'])->name('user.club.payment_page');
 });

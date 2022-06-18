@@ -40,4 +40,10 @@ class ClubController extends Controller
         $club_image_sliders = ClubSliderImage::where('club_id', $club->id)->get();
         return view('clubShow', compact('club', 'club_image_sliders'));
     }
+
+    public function payment_page($id)
+    {
+        $club = Clubs::findOrFail($id);
+        return view('user.payment_page', compact('club'));
+    }
 }

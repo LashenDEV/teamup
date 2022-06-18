@@ -13,7 +13,9 @@
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.4",
-        "munafio/chatify": "^1.5"
+        "league/omnipay": "^3.2",
+        "munafio/chatify": "^1.5",
+        "omnipay/paypal": "^3.0"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

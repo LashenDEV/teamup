@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\President\ClubSliderImageController;
+use App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin;
@@ -24,6 +24,14 @@ Auth::routes(['verify' => true]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('club/view/{id}', [User\ClubController::class, 'view'])->name('club.view');
+
+//Routes for Auth Users
+Route::group(['middleware' => ['auth', 'verified']], function () {
+    //PayPal Payment
+    Route::post('pay', [Controllers\PaymentController::class, 'pay'])->name('payment');
+    Route::get('success', [Controllers\PaymentController::class, 'success']);
+    Route::get('error', [Controllers\PaymentController::class, 'error']);
+});
 
 //Routes for Admin
 Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['isAdmin', 'auth', 'verified']], function () {

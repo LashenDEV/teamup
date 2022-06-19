@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UpdateProfileDataRequest;
+use App\Models\Clubs;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -14,7 +15,11 @@ class AdminController extends Controller
 {
     public function index()
     {
-        return view('admin.dashboard.index');
+        $president_count = User::where('role', 2)->count();
+        $member_count = User::where('role', 2)->count();
+        $club_count = Clubs::all()->count();
+        $recent_clubs = Clubs::orderBy('id', 'desc')->take(5)->get();
+        return view('admin.dashboard.index', compact('president_count', 'member_count','club_count', 'recent_clubs'));
     }
 
     public function profile()

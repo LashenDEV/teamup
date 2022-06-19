@@ -25,13 +25,11 @@ class HomeController extends Controller
     public function index()
     {
         if (\Auth::user()->role == 1) {
-            return view('admin.dashboard.index');
+            return redirect()->route('admin.dashboard');
         } elseif (\Auth::user()->role == 2) {
-            return view('president.dashboard.index');
-        }elseif (\Auth::user()->role == 3) {
-            $clubs = Clubs::paginate(6);
-            $home_sliders = Clubs::where('home_slider_approval', '1')->get();
-            return view('user.Dashboard.index', compact('clubs', 'home_sliders'));
+            return redirect()->route('president.dashboard');
+        } elseif (\Auth::user()->role == 3) {
+            return redirect()->route('user.dashboard');
         }
     }
 }

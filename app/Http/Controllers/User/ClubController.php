@@ -28,9 +28,9 @@ class ClubController extends Controller
                 'user_id' => Auth::user()->id,
                 'club_id' => $id
             ]);
-            return redirect()->route('user.dashboard')->with('success', 'Your Have Registered To The ' . $club->name . ' Successfully');
+            return redirect()->route('club.view', $id)->with('success', 'Your Have Registered To The ' . $club->name . ' Successfully');
         } else {
-            return redirect()->route('user.dashboard')->with('error', 'Your Have Already Registered To The ' . $club->name . ' Successfully');
+            return redirect()->route('club.view', $id)->with('error', 'Your Have Already Registered To The ' . $club->name . ' Successfully');
         }
     }
 
@@ -39,5 +39,11 @@ class ClubController extends Controller
         $club = Clubs::findOrFail($id);
         $club_image_sliders = ClubSliderImage::where('club_id', $club->id)->get();
         return view('clubShow', compact('club', 'club_image_sliders'));
+    }
+
+    public function payment_page($id)
+    {
+        $club = Clubs::findOrFail($id);
+        return view('user.payment_page', compact('club'));
     }
 }

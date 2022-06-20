@@ -48,13 +48,7 @@
                 </div>
 
                 <div class="d-flex justify-content-center my-5">
-                    <form action="{{ route('payment', $club->id) }}" method="POST">
-                        @csrf
-                        <input type="hidden" name="amount" value="200">
-                        <input type="hidden" name="reason" value="Annual fee">
-                        <input type="hidden" name="club_id" value="{{$club->id}}">
-                        <button type="submit" class="btn btn-dark">Pay with <i>PayPal</i></button>
-                    </form>
+                    <a href="{{route('user.club.register', $club->id)}}"><button class="btn btn-danger">Join Club</button></a>
                 </div>
             </div>
             <div class="row gy-4">

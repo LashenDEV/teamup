@@ -28,9 +28,12 @@ Route::get('club/view/{id}', [User\ClubController::class, 'view'])->name('club.v
 //Routes for Auth Users
 Route::group(['middleware' => ['auth', 'verified']], function () {
     //PayPal Payment
-    Route::post('pay', [Controllers\PaymentController::class, 'pay'])->name('payment');
+    Route::get('pay/{club_id}/{description}/{amount}', [Controllers\PaymentController::class, 'pay'])->name('payment');
     Route::get('success', [Controllers\PaymentController::class, 'success']);
     Route::get('error', [Controllers\PaymentController::class, 'error']);
+
+    //Payment Method Handler
+    Route::post('payment_method/{id}', [Controllers\PaymentMethodHandlerController::class, 'paymentMethod'])->name('payment_method');
 });
 
 //Routes for Admin
@@ -149,7 +152,7 @@ Route::group(['prefix' => 'user', 'middleware' => ['isUser', 'auth', 'verified']
     Route::get('settings', [User\UserController::class, 'settings'])->name('user.settings');
 
     //club
-    Route::get('club/register/{id}', [User\ClubController::class, 'register'])->name('user.club.register');
+    Route::get('club/register/{id}', [User\ClubController::class, 'register'])->name('user.club.register')->middleware('isPaidMembershipFee');
 
     //payment
     Route::get('club/payment_page/{id}', [User\ClubController::class, 'payment_page'])->name('user.club.payment_page');

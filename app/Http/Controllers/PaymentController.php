@@ -20,16 +20,16 @@ class PaymentController extends Controller
         $this->gateway->setTestMode(true);
     }
 
-    public function pay(Request $request)
+    public function pay($club_id, $description, $amount)
     {
         try {
             $response = $this->gateway->purchase(array(
-                'amount' => $request->amount,
+                'amount' => $amount,
                 'items' => array(
                     array(
-                        'name' => $request->club_id,
-                        'price' => $request->amount,
-                        'description' => $request->reason,
+                        'name' => $club_id,
+                        'price' => $amount,
+                        'description' => $description,
                         'quantity' => 1
                     )
                 ),
@@ -76,10 +76,8 @@ class PaymentController extends Controller
                     $payment->currency = env('PAYPAL_CURRENCY');
                     $payment->payment_status = $arr['state'];
                     $payment->save();
+                    return redirect()->route('club.view', $item['name'])->with('success', 'Thank you for your payment!');
                 }
-
-
-                return redirect()->route('user.dashboard')->with('success', 'Thank you for your payment!');
             } else {
                 return $response->getMessage();
             }
@@ -90,6 +88,6 @@ class PaymentController extends Controller
 
     public function error()
     {
-        return redirect()->back()->with('success', 'Oops something went wrong!');
+        return redirect()->back()->with('error', 'Oops something went wrong!');
     }
 }

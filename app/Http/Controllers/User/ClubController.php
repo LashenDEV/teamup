@@ -28,9 +28,9 @@ class ClubController extends Controller
                 'user_id' => Auth::user()->id,
                 'club_id' => $id
             ]);
-            return redirect()->route('user.dashboard')->with('success', 'Your Have Registered To The ' . $club->name . ' Successfully');
+            return redirect()->route('club.view', $id)->with('success', 'Your Have Registered To The ' . $club->name . ' Successfully');
         } else {
-            return redirect()->route('user.dashboard')->with('error', 'Your Have Already Registered To The ' . $club->name . ' Successfully');
+            return redirect()->route('club.view', $id)->with('error', 'Your Have Already Registered To The ' . $club->name . ' Successfully');
         }
     }
 

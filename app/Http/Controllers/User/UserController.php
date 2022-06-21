@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UpdateProfileDataRequest;
 use App\Models\Clubs;
+use App\Models\RegisteredUser;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -23,7 +24,8 @@ class UserController extends Controller
     public function profile()
     {
         $user = Auth::user();
-        return view('user.Dashboard.profile', compact('user'));
+        $registered_clubs = RegisteredUser::where('user_id', $user->id)->with('registeredClub')->get();
+        return view('user.Dashboard.profile', compact('user', 'registered_clubs'));
     }
 
     public function update(UpdateProfileDataRequest $request)

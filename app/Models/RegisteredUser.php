@@ -12,4 +12,9 @@ class RegisteredUser extends Model
         'user_id',
         'club_id',
     ];
+
+    public function registeredClub()
+    {
+        return $this->belongsTo(Clubs::class, 'club_id', 'id');
+    }
 }

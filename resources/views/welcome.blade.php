@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Clubs of University</title>
+    <title>{{ env('APP_NAME') }}</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -179,8 +179,56 @@
 
     <main id="main">
 
+                <!-- ======= Portfolio Section ======= -->
+                <section id="portfolio" class="section-bg">
+                    <div class="container" data-aos="fade-up">
+        
+                        <header class="section-header">
+                            <h3 class="section-title">Clubs</h3>
+                        </header>
+        
+                        <div class="row" data-aos="fade-up" data-aos-delay="100">
+                            <div class=" col-lg-12">
+                                <ul id="portfolio-flters">
+                                    <li data-filter="*" class="filter-active">All</li>
+                                    @foreach ($club_categories as $club_category)
+                                        @php($filter = str_replace(' ', '_', $club_category->category_name))
+                                        <li data-filter=".{{ strtolower($filter) }}">
+                                            {{ $club_category->category_name }}
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
+        
+                        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+                            @foreach ($clubs as $club)
+                                @php($filter = str_replace(' ', '_', $club->category_name))
+                                <div class="col-lg-4 col-md-6 portfolio-item cultural">
+                                    <div class="portfolio-wrap">
+                                        <figure>
+                                            <img src="{{ asset($club->image) }}" class="img-fluid" alt="">
+                                            <a href="{{ route('user.club.register', $club->id) }}" data-lightbox="portfolio"
+                                                data-title="App 1" class="link-preview"><i class="bi bi-plus"></i></a>
+                                            <a href="{{ route('club.view', $club->id) }}" class="link-details"
+                                                title="More Details"><i class="bi bi-link"></i>
+                                            </a>
+                                        </figure>
+        
+                                        <div class="portfolio-info">
+                                            <h4><a href="portfolio-details.html">{{ $club->name }}</a></h4>
+                                            <p>{{ $club->description }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                            @endforeach
+                        </div>
+                        {{ $clubs->links('components.pagination') }}
+                    </div>
+                </section><!-- End Portfolio Section -->
+
         <!-- ======= Featured Services Section Section ======= -->
-        <section id="featured-services">
+        {{-- <section id="featured-services">
             <div class="container">
                 <div class="row">
 
@@ -221,7 +269,7 @@
                     </div>
                 </div>
             </div>
-        </section><!-- End Featured Services Section -->
+        </section><!-- End Featured Services Section --> --}}
 
         <!-- ======= About Us Section ======= -->
         <section id="about">
@@ -280,7 +328,7 @@
         </section><!-- End About Us Section -->
 
         <!-- ======= Services Section ======= -->
-        <section id="services">
+         <section id="services">
             <div class="container" data-aos="fade-up">
 
                 <header class="section-header wow fadeInUp">
@@ -341,7 +389,7 @@
         </section><!-- End Services Section -->
 
         <!-- ======= Call To Action Section ======= -->
-        <section id="call-to-action">
+        {{-- <section id="call-to-action">
             <div class="container text-center" data-aos="zoom-in">
                 <h3>Call To Action</h3>
                 <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
@@ -351,10 +399,10 @@
                     laborum.</p>
                 <a class="cta-btn" href="#">Call To Action</a>
             </div>
-        </section><!-- End Call To Action Section -->
+        </section><!-- End Call To Action Section --> --}}
 
         <!-- ======= Skills Section ======= -->
-        <section id="skills">
+        {{-- <section id="skills">
             <div class="container" data-aos="fade-up">
 
                 <header class="section-header">
@@ -399,7 +447,7 @@
                 </div>
 
             </div>
-        </section><!-- End Skills Section -->
+        </section><!-- End Skills Section --> --}}
 
         <!-- ======= Facts Section ======= -->
         <section id="facts">
@@ -438,15 +486,15 @@
 
                 </div>
 
-                <div class="facts-img">
+                {{-- <div class="facts-img">
                     <img src="{{ asset('frontend/assets/img/facts-img.png') }}" alt="" class="img-fluid">
-                </div>
+                </div> --}}
 
             </div>
         </section><!-- End Facts Section -->
 
         <!-- ======= Portfolio Section ======= -->
-        <section id="portfolio" class="section-bg">
+        {{-- <section id="portfolio" class="section-bg">
             <div class="container" data-aos="fade-up">
 
                 <header class="section-header">
@@ -491,10 +539,10 @@
                 </div>
                 {{ $clubs->links('components.pagination') }}
             </div>
-        </section><!-- End Portfolio Section -->
+        </section><!-- End Portfolio Section --> --}}
 
         <!-- ======= Our Clients Section ======= -->
-        <section id="clients">
+        {{-- <section id="clients">
             <div class="container" data-aos="zoom-in">
 
                 <header class="section-header">
@@ -561,9 +609,9 @@
                                         class="quote-sign-right" alt="">
                                 </p>
                             </div>
-                        </div><!-- End testimonial item -->
+                        </div><!-- End testimonial item --> --}}
 
-                        <div class="swiper-slide">
+                        {{-- <div class="swiper-slide">
                             <div class="testimonial-item">
                                 <img src="{{ asset('frontend/assets/img/testimonial-2.jpg') }}"
                                     class="testimonial-img" alt="">
@@ -579,8 +627,8 @@
                                         class="quote-sign-right" alt="">
                                 </p>
                             </div>
-                        </div><!-- End testimonial item -->
-
+                        </div><!-- End testimonial item --> --}}
+{{-- 
                         <div class="swiper-slide">
                             <div class="testimonial-item">
                                 <img src="{{ asset('frontend/assets/img/testimonial-3.jpg') }}"
@@ -597,9 +645,9 @@
                                         class="quote-sign-right" alt="">
                                 </p>
                             </div>
-                        </div><!-- End testimonial item -->
+                        </div><!-- End testimonial item --> --}}
 
-                        <div class="swiper-slide">
+                        {{-- <div class="swiper-slide">
                             <div class="testimonial-item">
                                 <img src="{{ asset('frontend/assets/img/testimonial-4.jpg') }}"
                                     class="testimonial-img" alt="">
@@ -641,10 +689,10 @@
                 </div>
 
             </div>
-        </section><!-- End Testimonials Section -->
+        </section><!-- End Testimonials Section --> --}}
 
         <!-- ======= Team Section ======= -->
-        <section id="team">
+        {{-- <section id="team">
             <div class="container" data-aos="fade-up">
                 <div class="section-header">
                     <h3>Team</h3>
@@ -728,7 +776,7 @@
                 </div>
 
             </div>
-        </section><!-- End Team Section -->
+        </section><!-- End Team Section --> --}}
 
         <!-- ======= Contact Section ======= -->
         <section id="contact" class="section-bg">

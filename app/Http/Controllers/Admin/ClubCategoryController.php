@@ -23,8 +23,8 @@ class ClubCategoryController extends Controller
     public function edit($id)
     {
         $club_categories = ClubCategory::paginate(4);
-        $club_category = ClubCategory::whereId($id)->firstOrFail();
-        return view('admin.club-category.index', compact('club_category', 'club_categories'));
+        $club_cat = ClubCategory::whereId($id)->firstOrFail();
+        return view('admin.club-category.index', compact('club_cat', 'club_categories'));
     }
 
     public function update($id, Request $request)

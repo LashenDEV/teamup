@@ -80,14 +80,14 @@
                         <div class="card p-4 shadow p-3 bg-white rounded">
                             <h3>Create a Club Category</h3>
                             @if (Route::is('admin.category.edit'))
-                                <form action="{{ route('admin.category.update', $club_category->id) }}" method="POST">
+                                <form action="{{ route('admin.category.update', $club_cat->id) }}" method="POST">
                                     @csrf
                                     @method('PUT')
                                     <div class="form-gorup">
                                         <input type="hidden" name="admin_id" value="{{ Auth::user()->id }}">
                                         <label for="formGroupExampleInput" class="form-label mt-3">Category Name</label>
                                         <input type="text" class="form-control" name="category_name"
-                                            value="{{ $club_category->category_name }}">
+                                            value="{{ $club_cat->category_name }}">
                                     </div>
                                     <div class="d-grid gap-2 d-flex justify-content-end mt-3">
                                         <button type="submit" class="btn btn-success">Create Club </button>

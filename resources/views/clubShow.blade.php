@@ -48,8 +48,13 @@
                 </div>
 
                 <div class="d-flex justify-content-center my-5">
-                    <a href="{{route('user.club.register', $club->id)}}"><button class="btn btn-danger">Join Club</button></a>
+                    <a href="{{route('user.club.register', $club->id)}}">
+                        <button class="btn btn-danger">Join Club</button>
+                    </a>
                 </div>
+
+
+
             </div>
             <div class="row gy-4">
                 <div class="col-lg-12">

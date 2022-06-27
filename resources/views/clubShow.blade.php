@@ -26,10 +26,15 @@
                         <div class="swiper-wrapper align-items-center" id="swiper-wrapper-03a3121122f539d1"
                              aria-live="off"
                              style="transform: translate3d(-2568px, 0px, 0px); transition-duration: 0ms;">
+                            <div class="swiper-slide swiper-slide-duplicate-next" data-swiper-slide-index="0"
+                                 role="group"
+                                 aria-label="1 / 3" style="width: 400px;">
+                                <img src="{{ asset($club->image) }}" alt="">
+                            </div>
                             @foreach($club_image_sliders as $club_image_slider)
                                 <div class="swiper-slide swiper-slide-duplicate-next" data-swiper-slide-index="0"
                                      role="group"
-                                     aria-label="1 / 3" style="width: 856px;">
+                                     aria-label="1 / 3" style="width: 400px;">
                                     <img src="{{ asset($club_image_slider->slider_image) }}" alt="">
                                 </div>
                             @endforeach

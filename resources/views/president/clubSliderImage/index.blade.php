@@ -7,10 +7,15 @@
             display: none;
         }
 
+        .form-element{
+            display: flex;
+            justify-content: center;
+        }
+
         .form-element img {
             cursor: pointer;
-            width: 500px;
-            height: 350px;
+            width:100%;
+            height: 300px;
             object-fit: cover;
         }
 

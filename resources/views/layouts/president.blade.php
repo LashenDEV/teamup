@@ -169,7 +169,12 @@
                             </div>
                         </ul>
                     </li>
-
+                    <li class="has-sub {{ request()->routeIs('president.history-logs*') ? 'active' : '' }}">
+                        <a class="sidenav-item-link" href="{{route('president.history-logs.index')}}" >
+                            <i class="fa-duotone fa-clock-rotate-left"></i>
+                            <span class="nav-text">History Logs</span>
+                        </a>
+                    </li>
 
                     {{-- <li class="has-sub">
                         <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"

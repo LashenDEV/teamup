@@ -83,6 +83,9 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['isAdmin',
     Route::get('category/{id}/edit/', [Admin\ClubCategoryController::class, 'edit'])->name('category.edit');
     Route::put('category/{id}/update', [Admin\ClubCategoryController::class, 'update'])->name('category.update');
     Route::delete('category/{id}', [Admin\ClubCategoryController::class, 'destroy'])->name('category.destroy');
+
+    //History-logs
+    Route::get('history-logs', [Admin\HistroyLogs::class, 'index'])->name('history-logs.index');
 });
 
 
@@ -139,6 +142,9 @@ Route::group(['as' => 'president.', 'prefix' => 'president', 'middleware' => ['i
     Route::put('meeting/{id}/update', [President\MeetingController::class, 'update'])->name('meeting.update');
     Route::get('meeting/{id}/publish', [President\MeetingController::class, 'publish'])->name('meeting.publish');
     Route::delete('meeting/{id}', [President\MeetingController::class, 'destroy'])->name('meeting.destroy');
+
+    //History-logs
+    Route::get('history-logs', [President\HistroyLogs::class, 'index'])->name('history-logs.index');
 });
 
 

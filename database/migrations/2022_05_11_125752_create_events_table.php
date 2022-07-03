@@ -16,6 +16,7 @@ class CreateEventsTable extends Migration
         Schema::create('events', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('president_id');
+            $table->unsignedBigInteger('club_id');
             $table->string('name');
             $table->text('description');
             $table->string('image');
@@ -23,6 +24,9 @@ class CreateEventsTable extends Migration
             $table->time('time')->nullable();
             $table->string('venue')->nullable();
             $table->timestamps();
+
+            $table->foreign('president_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('club_id')->references('id')->on('clubs')->onDelete('cascade');
         });
     }
 

@@ -20,6 +20,9 @@ class CreateClubSliderImagesTable extends Migration
             $table->integer('slider_no');
             $table->string('slider_image');
             $table->timestamps();
+
+            $table->foreign('president_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('club_id')->references('id')->on('clubs')->onDelete('cascade');
         });
     }
 

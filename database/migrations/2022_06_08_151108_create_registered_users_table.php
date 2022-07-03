@@ -18,6 +18,9 @@ class CreateRegisteredUsersTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('club_id');
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('club_id')->references('id')->on('clubs')->onDelete('cascade');
         });
     }
 

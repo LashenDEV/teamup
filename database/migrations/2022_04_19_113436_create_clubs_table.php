@@ -25,6 +25,8 @@ class CreateClubsTable extends Migration
             $table->boolean('approval')->nullable();
             $table->boolean('home_slider_approval')->nullable();
             $table->timestamps();
+
+            $table->foreign('president_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

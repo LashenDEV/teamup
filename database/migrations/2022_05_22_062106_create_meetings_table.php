@@ -16,6 +16,7 @@ class CreateMeetingsTable extends Migration
         Schema::create('meetings', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('president_id');
+            $table->unsignedBigInteger('club_id');
             $table->text('title');
             $table->text('meeting_link');
             $table->text('meeting_id');
@@ -24,6 +25,9 @@ class CreateMeetingsTable extends Migration
             $table->time('time');
             $table->boolean('status')->default(0);
             $table->timestamps();
+
+            $table->foreign('president_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('club_id')->references('id')->on('clubs')->onDelete('cascade');
         });
     }
 

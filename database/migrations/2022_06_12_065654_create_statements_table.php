@@ -19,6 +19,8 @@ class CreateStatementsTable extends Migration
             $table->string('title');
             $table->text('statement');
             $table->timestamps();
+
+            $table->foreign('admin_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

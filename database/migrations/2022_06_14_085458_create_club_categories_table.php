@@ -18,6 +18,8 @@ class CreateClubCategoriesTable extends Migration
             $table->unsignedBigInteger('admin_id');
             $table->string('category_name');
             $table->timestamps();
+
+            $table->foreign('admin_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

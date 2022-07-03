@@ -20,6 +20,8 @@ class CreateSlidersTable extends Migration
             $table->text('description');
             $table->string('image');
             $table->timestamps();
+
+            $table->foreign('president_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

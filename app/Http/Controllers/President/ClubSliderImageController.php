@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreClubSliderImage;
 use App\Models\Clubs;
 use App\Models\ClubSliderImage;
+use App\Models\HistoryLogs;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Image;
@@ -27,7 +28,7 @@ class ClubSliderImageController extends Controller
 
     public function store(StoreClubSliderImage $request)
     {
-        $club_image_slider_image= $request->file('slider_img');
+        $club_image_slider_image = $request->file('slider_img');
         $name_gen = hexdec(uniqid()) . '.' . $club_image_slider_image->getClientOriginalExtension();
         Image::make($club_image_slider_image)->resize(1288, 600)->save('image/club_slider_image/' . $name_gen);
         $last_img = 'image/club_slider_image/' . $name_gen;
@@ -39,6 +40,10 @@ class ClubSliderImageController extends Controller
             'slider_no' => $request->slider_no,
             'slider_image' => $last_img
         ]);
+        HistoryLogs::create([
+            'user_id' => \Auth::user()->id,
+            'description' => 'Added a club slider.'
+        ]);
 
         return redirect()->route('president.slider.image.index')->with('success', 'Club Image Slider Added Successfully');
     }
@@ -46,7 +51,7 @@ class ClubSliderImageController extends Controller
     public function update(Request $request, $id)
     {
         $old_image = $request->slider_old_img;
-        $club_image_slider_image= $request->file('slider_img');
+        $club_image_slider_image = $request->file('slider_img');
         $club_id = Clubs::where('president_id', Auth::user()->id)->first()->id;
 
         if ($club_image_slider_image) {
@@ -61,6 +66,11 @@ class ClubSliderImageController extends Controller
                 'slider_image' => $last_img
             ]);
         }
+        HistoryLogs::create([
+            'user_id' => \Auth::user()->id,
+            'description' => 'Updated a club slider.'
+        ]);
+
         return redirect()->route('president.slider.image.index')->with('success', 'Club Image Slider Updated Successfully');
     }
 }

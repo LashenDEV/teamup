@@ -5,6 +5,7 @@ namespace App\Http\Controllers\President;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreEventRequest;
 use App\Models\Event;
+use App\Models\HistoryLogs;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -46,6 +47,11 @@ class EventController extends Controller
         $event_image = $request->file('image');
         $event = new Event();
         $this->save($event, $request, $event_image);
+        HistoryLogs::create([
+            'user_id' => \Auth::user()->id,
+            'description' => 'Created an event as ' . $request->name . '.'
+        ]);
+
         return redirect()->route('president.event.index')->with('success', 'EVENT IS CREATED SUCCESSFULLY');
     }
 
@@ -76,6 +82,10 @@ class EventController extends Controller
             $event->created_at = Carbon::now();
             $event->save();
         }
+        HistoryLogs::create([
+            'user_id' => \Auth::user()->id,
+            'description' => 'Updated the ' . $request->name . ' event'
+        ]);
         return redirect()->route('president.event.index')->with('success', 'EVENT UPDATED SUCCESSFULLY');
     }
 
@@ -84,6 +94,11 @@ class EventController extends Controller
         $event = Event::findOrFail($id);
         unlink($event->image);
         $event->delete();
+        HistoryLogs::create([
+            'user_id' => \Auth::user()->id,
+            'description' => 'Deleted the ' . $event->name . ' event.'
+        ]);
+
         return redirect()->back()->with('success', 'EVENT DELETED SUCCESSFULLY');
     }
 }

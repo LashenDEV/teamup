@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Clubs;
+use App\Models\HistoryLogs;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Image;
@@ -23,6 +24,10 @@ class SliderController extends Controller
             $slider = Clubs::findOrFail($id);
             $slider->home_slider_approval = 1;
             $slider->save();
+            HistoryLogs::create([
+                'user_id' => \Auth::user()->id,
+                'description' => 'Added a home slider'
+            ]);
             return redirect()->back()->with('success', 'Added To Home Slider Successfully');
         } else {
             return redirect()->back()->with('error', 'Reached The Maximum Slider For HomePage');
@@ -34,6 +39,10 @@ class SliderController extends Controller
         $slider = Clubs::findOrFail($id);
         $slider->home_slider_approval = 0;
         $slider->save();
+        HistoryLogs::create([
+            'user_id' => \Auth::user()->id,
+            'description' => 'Removed a home slider'
+        ]);
         return redirect()->back()->with('success', 'Removed From The Home Slider Successfully');
     }
 }

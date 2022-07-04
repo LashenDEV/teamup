@@ -4,6 +4,7 @@ namespace App\Http\Controllers\President;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UpdateProfileDataRequest;
+use App\Models\HistoryLogs;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -42,6 +43,10 @@ class PresidentController extends Controller
         } else {
             User::findOrFail($president->id)->update($request->all());
         }
+        HistoryLogs::create([
+            'user_id' => \Auth::user()->id,
+            'description' => 'Updated your profile information.'
+        ]);
         return redirect()->back()->with('success', 'PROFILE UPDATED SUCCESSFULLY');
     }
 
@@ -57,6 +62,10 @@ class PresidentController extends Controller
             $president = User::findOrFail(Auth::id());
             $president->password = Hash::make($request->password);
             $president->save();
+            HistoryLogs::create([
+                'user_id' => \Auth::user()->id,
+                'description' => 'Your password has been reset.'
+            ]);
             Auth::logout();
             return redirect()->route('login')->with('success', 'Password Has been reset successfully');
         } else {
@@ -74,6 +83,10 @@ class PresidentController extends Controller
         $president->email_verified_at = null;
         $president->email = $request->new_email;
         $president->save();
+        HistoryLogs::create([
+            'user_id' => \Auth::user()->id,
+            'description' => 'Your email has been reset.'
+        ]);
         return redirect('email/verify')->with('success', 'Email Has been changed successfully');
     }
 

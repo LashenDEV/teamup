@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreMemberRequest;
 use App\Http\Requests\UpdateMemberRequest;
+use App\Models\HistoryLogs;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
@@ -30,6 +31,10 @@ class MemberController extends Controller
             'email verified at' => Null,
             'password' => $hashed_password,
         ]);
+        HistoryLogs::create([
+            'user_id' => \Auth::user()->id,
+            'description' => 'Added a '. $request->name . ' as a member.'
+        ]);
         return redirect()->route('admin.member.index')->with('success', 'Member Added Successfully');
     }
 
@@ -46,12 +51,20 @@ class MemberController extends Controller
             'name' => $request->name,
             'email' => $request->email,
         ]);
+        HistoryLogs::create([
+            'user_id' => \Auth::user()->id,
+            'description' => 'Edit '. $request->name . '\'s details.'
+        ]);
         return redirect()->route('admin.member.index')->with('success', 'Member Updated Successfully');
     }
 
     public function destroy($id)
     {
-        User::findOrFail($id)->delete();
+        $user = User::findOrFail($id)->delete();
+        HistoryLogs::create([
+            'user_id' => \Auth::user()->id,
+            'description' => 'Delete member profile of '. $user->name .'.'
+        ]);
         return redirect()->back()->with('success', 'Member removed Successfully');
     }
 }

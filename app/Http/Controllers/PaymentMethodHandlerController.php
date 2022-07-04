@@ -10,11 +10,6 @@ class PaymentMethodHandlerController extends Controller
 {
     public function paymentMethod($id, Request $request)
     {
-//        session()->regenerate();
-//        Session::put('club_id', $id);
-//        Session::put('description', 'Annual Fee');
-//        Session::put('amount', 20.00);
-
         if ($request->payment_method != null) {
             if ($request->payment_method == 'paypal') {
                 return redirect()->route('payment', ['club_id' => 1, 'description' => 'Annual Fee', 'amount'=>20]);

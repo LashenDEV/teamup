@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Models\Clubs;
 use App\Models\ClubSliderImage;
+use App\Models\HistoryLogs;
 use App\Models\RegisteredUser;
 use Illuminate\Support\Facades\Auth;
 
@@ -28,6 +29,11 @@ class ClubController extends Controller
                 'user_id' => Auth::user()->id,
                 'club_id' => $id
             ]);
+            HistoryLogs::create([
+                'user_id' => \Auth::user()->id,
+                'description' => 'Registered to the ' . $club->name . '.'
+            ]);
+
             return redirect()->route('club.view', $id)->with('success', 'Your Have Registered To The ' . $club->name . ' Successfully');
         } else {
             return redirect()->route('club.view', $id)->with('error', 'Your Have Already Registered To The ' . $club->name . ' Successfully');

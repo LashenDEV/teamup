@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\President;
 
 use App\Http\Controllers\Controller;
+use App\Models\HistoryLogs;
 use App\Models\Slider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
@@ -38,7 +39,10 @@ class SliderController extends Controller
                 'image' => $last_img,
                 'created_at' => Carbon::now()
             ]);
-
+            HistoryLogs::create([
+                'user_id' => \Auth::user()->id,
+                'description' => 'Slider added.'
+            ]);
             return redirect()->route('president.slider')->with('success', 'Slider Inserted Successfully');
         }
     }

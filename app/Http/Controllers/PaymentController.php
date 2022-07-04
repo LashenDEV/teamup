@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Clubs;
+use App\Models\HistoryLogs;
 use App\Models\Payment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -76,6 +77,11 @@ class PaymentController extends Controller
                     $payment->currency = env('PAYPAL_CURRENCY');
                     $payment->payment_status = $arr['state'];
                     $payment->save();
+                    HistoryLogs::create([
+                        'user_id' => \Auth::user()->id,
+                        'description' => 'Registered to the ' . Clubs::where('id', $item['name'])->first()->name . ' ' . $item['description'] . '.'
+                    ]);
+
                     return redirect()->route('club.view', $item['name'])->with('success', 'Thank you for your payment!');
                 }
             } else {

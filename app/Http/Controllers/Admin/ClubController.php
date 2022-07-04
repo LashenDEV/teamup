@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Clubs;
+use App\Models\HistoryLogs;
 use Illuminate\Http\Request;
 
 class ClubController extends Controller
@@ -20,6 +21,11 @@ class ClubController extends Controller
         $club = Clubs::whereId($id)->first();
         $club->approval = 1;
         $club->save();
+
+        HistoryLogs::create([
+            'user_id' => \Auth::user()->id,
+            'description' => 'Approved the ' . $club->name
+        ]);
         return redirect()->back()->with('success', 'Club Approved Successfully');
     }
 
@@ -28,12 +34,20 @@ class ClubController extends Controller
         $club = Clubs::whereId($id)->first();
         $club->approval = Null;
         $club->save();
+        HistoryLogs::create([
+            'user_id' => \Auth::user()->id,
+            'description' => 'Rejected the ' . $club->name
+        ]);
         return redirect()->back()->with('success', 'Club rejected Successfully');
     }
 
     public function destroy($id)
     {
-        Clubs::whereId($id)->delete();
+        $club = Clubs::whereId($id)->delete();
+        HistoryLogs::create([
+            'user_id' => \Auth::user()->id,
+            'description' => 'Approved the ' . $club->name
+        ]);
         return redirect()->route('admin.club.index')->with('success', 'Club Deleted Successfully');
     }
 }

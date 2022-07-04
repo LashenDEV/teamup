@@ -7,6 +7,7 @@ use App\Http\Requests\StoreClubRequest;
 use App\Http\Requests\UpdateClubRequest;
 use App\Models\ClubCategory;
 use App\Models\Clubs;
+use App\Models\HistoryLogs;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -49,7 +50,10 @@ class ClubController extends Controller
 
         $club = new Clubs();
         $this->save($club, $request, $club_image);
-
+        HistoryLogs::create([
+            'user_id' => \Auth::user()->id,
+            'description' => 'Created the ' . $request->name . '.'
+        ]);
 
         return redirect()->route('president.club.index')->with('success', 'Your Club Is Created Successfully');
     }
@@ -58,6 +62,7 @@ class ClubController extends Controller
     {
         $your_club = Clubs::findOrFail($id);
         $club_categories = ClubCategory::all();
+
         return view('president.club.edit', compact('your_club', 'club_categories'));
     }
 
@@ -81,14 +86,22 @@ class ClubController extends Controller
             $club->created_at = Carbon::now();
             $club->save();
         }
+        HistoryLogs::create([
+            'user_id' => \Auth::user()->id,
+            'description' => 'Updated the ' . $request->name . '.'
+        ]);
         return redirect()->route('president.club.index')->with('success', 'Club Updated Successfully');
     }
 
     public function destroy($id)
     {
-        $image =  Clubs::where('id', $id)->firstOrFail()->image;
+        $image = Clubs::where('id', $id)->firstOrFail()->image;
         unlink($image);
-        Clubs::find($id)->delete();
+        $club = Clubs::find($id)->delete();
+        HistoryLogs::create([
+            'user_id' => \Auth::user()->id,
+            'description' => 'Deleted the ' . $club->name . '.'
+        ]);
         return redirect()->back()->with('success', 'Club deleted Successfully');
     }
 }

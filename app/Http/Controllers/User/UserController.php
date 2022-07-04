@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UpdateProfileDataRequest;
 use App\Models\Clubs;
+use App\Models\HistoryLogs;
 use App\Models\RegisteredUser;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -47,6 +48,11 @@ class UserController extends Controller
         } else {
             User::findOrFail($user->id)->update($request->all());
         }
+        HistoryLogs::create([
+            'user_id' => \Auth::user()->id,
+            'description' => 'Updated your profile information.'
+        ]);
+
         return redirect()->back()->with('success', 'PROFILE UPDATED SUCCESSFULLY');
     }
 
@@ -62,7 +68,12 @@ class UserController extends Controller
             $user = User::findOrFail(Auth::id());
             $user->password = Hash::make($request->password);
             $user->save();
+            HistoryLogs::create([
+                'user_id' => \Auth::user()->id,
+                'description' => 'Your password has been reset.'
+            ]);
             Auth::logout();
+
             return redirect()->route('login')->with('success', 'Password Has been reset successfully');
         } else {
             return redirect()->back()->with('error', 'Current password is incorrect');
@@ -79,6 +90,11 @@ class UserController extends Controller
         $user->email_verified_at = null;
         $user->email = $request->new_email;
         $user->save();
+        HistoryLogs::create([
+            'user_id' => \Auth::user()->id,
+            'description' => 'Your email has been reset.'
+        ]);
+
         return redirect('email/verify')->with('success', 'Email Has been changed successfully');
     }
 

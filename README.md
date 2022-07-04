@@ -1,6 +1,8 @@
 # Welcome to TeamUp
+<p align="center" >
+<img style="background-color: #fff; border-radius: 50%;" src="https://github.com/LashenDEV/teamup/blob/main/public/assets/images/logos/teamup%20logo.png" width="30%" height="30%">
+</p>
 
-![CHEESE!](./public/assets/images/logos/teamup%20logo.png)
 
 _We are a group of undergraduate students concentrating on forming a community of students that will work as a team to study web development and be interested in digitalization. Through this web application, we hope to bring all the clubs in the University closer to the students through the online methodology_
 

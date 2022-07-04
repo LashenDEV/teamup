@@ -15,12 +15,15 @@
                 </div>
             </div>
             <div class="card-body">
-                <form action="{{ route('president.notice.update', $notice->id) }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('president.notice.update', $notice->id) }}" method="POST"
+                      enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="form-group">
                         <label for="notice">Notice</label>
                         <input type="hidden" value="{{Auth::user()->id}}" name="president_id">
+                        <input type="hidden" name="club_id"
+                               value="{{\App\Models\Clubs::where('president_id', auth()->user()->id)->first()->id}}">
                         <textarea class="form-control" id="notice" placeholder="Edit the Notice"
                                   name="notice" rows="3">{{$notice->notice}}</textarea>
                     </div>

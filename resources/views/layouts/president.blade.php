@@ -75,7 +75,7 @@
         <div id="sidebar" class="sidebar sidebar-with-footer">
             <!-- Aplication Brand -->
             <div class="app-brand">
-                <a href="/index.html" class="p-0">
+                <a href="{{route('president.dashboard')}}" class="p-0">
                     <img class="brand-icon p-2" src="{{ asset('assets/images/logos/teamup logo.png') }}"
                          alt="" width="75px" height="75px">
                     <span class="brand-name ml-0">President Dashboard</span>

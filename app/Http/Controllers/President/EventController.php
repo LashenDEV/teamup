@@ -19,6 +19,7 @@ class EventController extends Controller
         $last_img = 'image/events/' . $name_gen;
 
         $event->president_id = $request->president_id;
+        $event->club_id = $request->club_id;
         $event->name = $request->name;
         $event->description = $request->description;
         $event->date = $request->date;
@@ -66,6 +67,7 @@ class EventController extends Controller
         } else {
             $event = Event::findOrFail($id);
             $event->president_id = $request->president_id;
+            $event->club_id = $request->club_id;
             $event->name = $request->name;
             $event->description = $request->description;
             $event->date = $request->date;

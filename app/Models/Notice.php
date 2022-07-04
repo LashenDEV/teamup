@@ -10,6 +10,7 @@ class Notice extends Model
     use HasFactory;
     protected $fillable = [
         'president_id',
+        'club_id',
         'notice',
         'status'
     ];

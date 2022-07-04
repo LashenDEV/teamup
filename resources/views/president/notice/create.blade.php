@@ -20,10 +20,11 @@
                     <div class="form-group">
                         <label for="notice">Notice</label>
                         <input type="hidden" name="president_id" value="{{Auth::user()->id}}">
+                        <input type="hidden" name="club_id"
+                               value="{{\App\Models\Clubs::where('president_id', auth()->user()->id)->first()->id}}">
                         <textarea class="form-control" id="notice" placeholder="Enter the Notice"
                                   name="notice" rows="3"></textarea>
                     </div>
-
                     <div class="form-footer pt-4 pt-5 mt-4 border-top">
                         <button type="submit" class="btn btn-primary btn-default">Submit</button>
                     </div>

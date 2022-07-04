@@ -25,7 +25,7 @@
                         <input type="text" class="form-control" id="exampleFormControlInput1"
                                placeholder="Enter Event Name" name="name" value="{{ $event->name }}">
                         <input type="hidden" name="president_id" value="{{ auth()->user()->id }}">
-
+                        <input type="hidden" name="club_id" value="{{\App\Models\Clubs::where('president_id', auth()->user()->id)->first()->id}}">
                     </div>
 
                     <div class="form-group">

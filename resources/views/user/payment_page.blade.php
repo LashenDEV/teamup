@@ -6,7 +6,7 @@
             <div class="d-flex justify-content-between align-items-center">
                 <h2>{{ $club->name }}</h2>
                 <ol>
-                    <li><a href="{{ route('home') }}">Home</a></li>
+                    <li><a href="{{ route('dashboard') }}">Home</a></li>
                     <li><a href="{{ route('club.view', $club->id) }}">{{ $club->name }}</a></li>
                     <li>{{ $club->name }} Payment</li>
                 </ol>
@@ -21,8 +21,8 @@
             <div class="col-md-12">
                 <div class="row">
                     <div class="d-grid gap-2 d-flex justify-content-end my-3">
-                        <button type="button" class="btn btn-secondary"> Back
-                        </button>
+                        <a href="{{ route('club.view', $club->id) }}"><button type="button" class="btn btn-secondary"> Back
+                            </button></a>
                     </div>
                     <div class="col-md-8 d-flex flex-column">
                         <div class="card mb-4 ">

@@ -11,6 +11,7 @@ class Meeting extends Model
 
     protected $fillable = [
         'president_id',
+        'club_id',
         'title',
         'meeting_link',
         'meeting_id',

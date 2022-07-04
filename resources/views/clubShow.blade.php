@@ -7,7 +7,7 @@
             <div class="d-flex justify-content-between align-items-center">
                 <h2>{{ $club->name }}</h2>
                 <ol>
-                    <li><a href="{{ route('home') }}">Home</a></li>
+                    <li><a href="{{ route('dashboard') }}">Home</a></li>
                     <li><a href="{{ route('club.view', $club->id) }}">{{ $club->name }}</a></li>
                     <li>{{ $club->name }} Details</li>
                 </ol>

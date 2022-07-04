@@ -15,7 +15,8 @@
                 </div>
             </div>
             <div class="card-body">
-                <form action="{{ route('president.meeting.update', $meeting->id) }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('president.meeting.update', $meeting->id) }}" method="POST"
+                      enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="form-group">
@@ -23,12 +24,15 @@
                         <input type="text" class="form-control" id="exampleFormControlInput1"
                                placeholder="Enter the Meeting Title" name="title" value="{{$meeting->title}}">
                         <input type="hidden" name="president_id" value="{{ auth()->user()->id }}">
+                        <input type="hidden" name="club_id"
+                               value="{{\App\Models\Clubs::where('president_id', auth()->user()->id)->first()->id}}">
                     </div>
 
                     <div class="form-group">
                         <label for="exampleFormControlInput1">Meeting Link</label>
                         <input type="text" class="form-control" id="exampleFormControlInput1"
-                               placeholder="Enter the Meeting Link" name="meeting_link" value="{{$meeting->meeting_link}}">
+                               placeholder="Enter the Meeting Link" name="meeting_link"
+                               value="{{$meeting->meeting_link}}">
                     </div>
 
                     <div class="form-group">
@@ -40,7 +44,8 @@
                     <div class="form-group">
                         <label for="exampleFormControlInput1">Meeting Password</label>
                         <input type="text" class="form-control" id="exampleFormControlInput1"
-                               placeholder="Enter the Meeting Password" name="meeting_password" value="{{$meeting->meeting_password}}">
+                               placeholder="Enter the Meeting Password" name="meeting_password"
+                               value="{{$meeting->meeting_password}}">
                     </div>
 
                     <div class="form-group">

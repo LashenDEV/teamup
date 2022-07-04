@@ -6,7 +6,7 @@
             <div class="container-fluid">
                 <div class="d-sm-flex align-items-center justify-content-between mt-4 mb-4">
                     <h2>Admin Dashboard</h2>
-                    <a href="/"><button class="btn btn-secondary">Back</button></a>
+                    <a href="/"><button class="btn btn-outline-secondary">view site</button></a>
                 </div>
                 <div class="row mt-4">
                     <div class="col-xl-3 col-sm-6">

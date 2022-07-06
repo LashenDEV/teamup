@@ -85,7 +85,10 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['isAdmin',
     Route::delete('category/{id}', [Admin\ClubCategoryController::class, 'destroy'])->name('category.destroy');
 
     //History-logs
-    Route::get('history-logs', [Admin\HistroyLogs::class, 'index'])->name('history-logs.index');
+    Route::get('history-logs', [Admin\HistroyLogsController::class, 'index'])->name('history-logs.index');
+
+    //Notifications
+    Route::get('notification/read-all', [Admin\NotificationController::class, 'readAll'])->name('notification.read-all');
 });
 
 
@@ -144,7 +147,10 @@ Route::group(['as' => 'president.', 'prefix' => 'president', 'middleware' => ['i
     Route::delete('meeting/{id}', [President\MeetingController::class, 'destroy'])->name('meeting.destroy');
 
     //History-logs
-    Route::get('history-logs', [President\HistroyLogs::class, 'index'])->name('history-logs.index');
+    Route::get('history-logs', [President\HistroyLogsController::class, 'index'])->name('history-logs.index');
+
+    //Notifications
+    Route::get('notification/read-all', [President\NotificationController::class, 'readAll'])->name('notification.read-all');
 });
 
 

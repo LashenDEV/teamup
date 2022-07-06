@@ -8,7 +8,7 @@
             <div class="d-flex justify-content-between align-items-center">
                 <h2>User Profile</h2>
                 <ol>
-                    <li><a href="{{ route('home') }}">Home</a></li>
+                    <li><a href="{{ route('dashboard') }}">Home</a></li>
                     <li><a href="{{ route('user.profile', Auth::user()->id) }}">User Profile</a></li>
                 </ol>
             </div>
@@ -283,7 +283,7 @@
                                             </div>
                                             <div class="d-flex justify-content-end my-4">
                                                 <button type="submit" class="btn btn-primary">Save</button>
-                                                <a class="btn btn-outline-dark ms-2" href="{{ route('home') }}">Back</a>
+                                                <a class="btn btn-outline-dark ms-2" href="{{ route('dashboard') }}">Back</a>
                                             </div>
                                         </div>
             </form>

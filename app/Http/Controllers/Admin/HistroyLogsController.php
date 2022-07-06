@@ -1,17 +1,16 @@
 <?php
 
-namespace App\Http\Controllers\President;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\HistoryLogs;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class HistroyLogs extends Controller
+class HistroyLogsController extends Controller
 {
-    public function index()
-    {
+    public function index(){
         $history_logs = HistoryLogs::where('user_id', Auth::user()->id)->paginate(5);
-        return view('president.histroy-logs.index', compact('history_logs'));
+        return view('admin.histroy-logs.index', compact('history_logs'));
     }
 }

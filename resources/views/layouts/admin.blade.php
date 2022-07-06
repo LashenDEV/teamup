@@ -182,7 +182,7 @@
                         </ul>
                     </li>
                     <li class="has-sub {{ request()->routeIs('admin.history-logs*') ? 'active' : '' }}">
-                        <a class="sidenav-item-link" href="{{route('admin.history-logs.index')}}" >
+                        <a class="sidenav-item-link" href="{{route('admin.history-logs.index')}}">
                             <i class="fa-duotone fa-clock-rotate-left"></i>
                             <span class="nav-text">History Logs</span>
                         </a>
@@ -231,45 +231,23 @@
                                 <i class="mdi mdi-bell-outline"></i>
                             </button>
                             <ul class="dropdown-menu dropdown-menu-right">
-                                <li class="dropdown-header">You have 5 notifications</li>
-                                <li>
-                                    <a href="#">
-                                        <i class="mdi mdi-account-plus"></i> New user registered
-                                        <span class=" font-size-12 d-inline-block float-right"><i
-                                                class="mdi mdi-clock-outline"></i> 10 AM</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="mdi mdi-account-remove"></i> User deleted
-                                        <span class=" font-size-12 d-inline-block float-right"><i
-                                                class="mdi mdi-clock-outline"></i> 07 AM</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="mdi mdi-chart-areaspline"></i> Sales report is ready
-                                        <span class=" font-size-12 d-inline-block float-right"><i
-                                                class="mdi mdi-clock-outline"></i> 12 PM</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="mdi mdi-account-supervisor"></i> New client
-                                        <span class=" font-size-12 d-inline-block float-right"><i
-                                                class="mdi mdi-clock-outline"></i> 10 AM</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="mdi mdi-server-network-off"></i> Server overloaded
-                                        <span class=" font-size-12 d-inline-block float-right"><i
-                                                class="mdi mdi-clock-outline"></i> 05 AM</span>
-                                    </a>
-                                </li>
-                                <li class="dropdown-footer">
-                                    <a class="text-center" href="#"> View All </a>
-                                </li>
+                                @php($notifications = \App\Models\Notifications::where('show_to_admin', 1)->where('status_to_admin', 0)->get())
+                                <li class="dropdown-header">You have {{$notifications->count()}} notifications</li>
+                                @foreach($notifications as $notification)
+                                    <li>
+                                        <a href="#">
+                                            {!! $notification->icon !!}{{$notification->notification}}
+                                            <span class=" font-size-12 d-inline-block float-right"><i
+                                                    class="mdi mdi-clock-outline"></i> {{\Carbon\Carbon::parse($notification->created_at)->diffForHumans()}}</span>
+                                        </a>
+                                    </li>
+                                @endforeach
+                                @if($notifications->isNotEmpty())
+                                    <li class="dropdown-footer">
+                                        <a class="text-center" href="{{route('admin.notification.read-all')}}"> Mark as
+                                            Read </a>
+                                    </li>
+                                @endif
                             </ul>
                         </li>
                         <!-- user Account -->
@@ -298,17 +276,10 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="email-inbox.html">
+                                    <a href="{{ url('chatify') }}">
                                         <i class="mdi mdi-email"></i> Message
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="#"> <i class="mdi mdi-diamond-stone"></i> Projects </a>
-                                </li>
-                                <li>
-                                    <a href="#"> <i class="mdi mdi-settings"></i> Account Setting </a>
-                                </li>
-
                                 <li class="dropdown-footer">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Clubs;
 use App\Models\ClubSliderImage;
 use App\Models\HistoryLogs;
+use App\Models\Notifications;
 use App\Models\RegisteredUser;
 use Illuminate\Support\Facades\Auth;
 
@@ -32,6 +33,14 @@ class ClubController extends Controller
             HistoryLogs::create([
                 'user_id' => \Auth::user()->id,
                 'description' => 'Registered to the ' . $club->name . '.'
+            ]);
+            $user = Auth::user();
+            Notifications::create([
+                'user_id' => $user->id,
+                'icon' => '<i class="fa-duotone fa-user-plus ml-2"></i>',
+                'show_to_admin' => 1,
+                'show_to_president' => 1,
+                'notification' => $user->name .' registered to the ' . $club->name . '.',
             ]);
 
             return redirect()->route('club.view', $id)->with('success', 'Your Have Registered To The ' . $club->name . ' Successfully');

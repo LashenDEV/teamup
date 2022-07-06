@@ -130,22 +130,25 @@
                             <div class="sub-menu">
                                 <li class="{{ request()->routeIs('admin.president*') ? 'active' : '' }}">
                                     <a class="sidenav-item-link" href="{{ route('admin.president.index') }}">
-                                        <i class="fa-solid fa-person-dress-simple mr-2"></i><span
-                                            class="nav-text">Presidents</span>
+                                        <i class="fa-solid fa-user-tie-hair mr-2"></i>
+                                        <span class="nav-text">Presidents</span>
                                     </a>
                                 </li>
                                 <li class="{{ request()->routeIs('admin.club*') ? 'active' : '' }}">
                                     <a class="sidenav-item-link" href="{{ route('admin.club.index') }}">
+                                        <i class="fa-duotone fa-chalkboard-user mr-2"></i>
                                         <span class="nav-text">Clubs</span>
                                     </a>
                                 </li>
                                 <li class="{{ request()->routeIs('admin.category*') ? 'active' : '' }}">
                                     <a class="sidenav-item-link" href="{{ route('admin.category.index') }}">
+                                        <i class="fa-solid fa-compress-wide mr-2"></i>
                                         <span class="nav-text">Clubs Categories</span>
                                     </a>
                                 </li>
                                 <li class="">
                                     <a class="sidenav-item-link" href="#">
+                                        <i class="fa-solid fa-file-signature mr-2"></i>
                                         <span class="nav-text">Footer</span>
                                     </a>
                                 </li>
@@ -165,16 +168,19 @@
                             <div class="sub-menu">
                                 <li class="{{ request()->routeIs('admin.member*') ? 'active' : '' }}">
                                     <a class="sidenav-item-link" href="{{ route('admin.member.index') }}">
+                                        <i class="fa-solid fa-user-check mr-2"></i>
                                         <span class="nav-text">Members</span>
                                     </a>
                                 </li>
                                 <li class="">
                                     <a class="sidenav-item-link" href="index.html">
+                                        <i class="fa-solid fa-clipboard-question mr-2"></i>
                                         <span class="nav-text">About</span>
                                     </a>
                                 </li>
                                 <li class="">
                                     <a class="sidenav-item-link" href="#">
+                                        <i class="fa-solid fa-file-signature mr-2"></i>
                                         <span class="nav-text">Footer</span>
                                     </a>
                                 </li>

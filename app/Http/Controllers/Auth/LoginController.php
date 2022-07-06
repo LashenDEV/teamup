@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Notifications;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
@@ -64,8 +65,28 @@ class LoginController extends Controller
             if (Auth()->user()->role == 1) {
                 return redirect()->route('admin.dashboard');
             } elseif (Auth()->user()->role == 2) {
+                if ((Notifications::where('user_id', Auth::user()->id)->first()) == null) {
+                    $user = Auth::user();
+                    Notifications::create([
+                        'user_id' => $user->id,
+                        'icon' => '<i class="fa-duotone fa-user-plus ml-2"></i>',
+                        'show_to_admin' => 1,
+                        'show_to_president' => 1,
+                        'notification' => 'Registered president ' . $user->name . '.',
+                    ]);
+                }
                 return redirect()->route('president.dashboard');
             } elseif (Auth()->user()->role == 3) {
+                if ((Notifications::where('user_id', Auth::user()->id)->first()) == null) {
+                    $user = Auth::user();
+                    Notifications::create([
+                        'user_id' => $user->id,
+                        'icon' => '<i class="fa-duotone fa-right-to-bracket ml-2"></i>',
+                        'show_to_admin' => 1,
+                        'show_to_president' => 1,
+                        'notification' => 'Registered user ' . $user->name . '.',
+                    ]);
+                }
                 return redirect()->route('user.dashboard');
             }
         } else {

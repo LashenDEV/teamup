@@ -77,10 +77,9 @@
                             <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
                             <li><a class="nav-link scrollto" href="#about">About</a></li>
                             <li><a class="nav-link scrollto" href="#services">Services</a></li>
-                            <li><a class="nav-link scrollto " href="#portfolio">History</a></li>
                             <!--<li><a class="nav-link scrollto" href="#team">Team</a></li>
                         <li><a class="nav-link  " href="blog.html">Blog</a></li>-->
-                            <li class="dropdown"><a href="#"><span>Clubs</span> <i
+                            <li class="dropdown"><a href="#portfolio"><span>Clubs</span> <i
                                         class="bi bi-chevron-down"></i></a>
                                 <ul>
                                     <li><a href="#">Art Club</a></li>
@@ -151,13 +150,12 @@
                     @foreach ($home_sliders as $home_slider)
                         <div class="carousel-item" style="background-image: url({{ asset($home_slider->image) }});">
                             <div class="carousel-container">
-                                <div class="container">
+                                <div class="container" style="font-size: 150%;">
                                     <h2 class="animate__animated animate__fadeInDown">{{ $home_slider->name }}</h2>
                                     <p class="animate__animated animate__fadeInUp">{{ $home_slider->description }}
                                     </p>
                                     <a href="#featured-services"
-                                        class="btn-get-started scrollto animate__animated animate__fadeInUp">Get
-                                        Started</a>
+                                        class="btn-get-started scrollto animate__animated animate__fadeInUp">Join Club</a>
                                 </div>
                             </div>
                         </div>
@@ -178,54 +176,6 @@
     </section><!-- End Hero Section -->
 
     <main id="main">
-
-                <!-- ======= Portfolio Section ======= -->
-                <section id="portfolio" class="section-bg">
-                    <div class="container" data-aos="fade-up">
-
-                        <header class="section-header">
-                            <h3 class="section-title">Clubs</h3>
-                        </header>
-
-                        <div class="row" data-aos="fade-up" data-aos-delay="100">
-                            <div class=" col-lg-12">
-                                <ul id="portfolio-flters">
-                                    <li data-filter="*" class="filter-active">All</li>
-                                    @foreach ($club_categories as $club_category)
-                                        @php($filter = str_replace(' ', '_', $club_category->category_name))
-                                        <li data-filter=".{{ strtolower($filter) }}">
-                                            {{ $club_category->category_name }}
-                                    @endforeach
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
-                            @foreach ($clubs as $club)
-                                @php($filter = str_replace(' ', '_', $club->category_name))
-                                <div class="col-lg-4 col-md-6 portfolio-item cultural">
-                                    <div class="portfolio-wrap">
-                                        <figure>
-                                            <img src="{{ asset($club->image) }}" class="img-fluid" alt="">
-                                            <a href="{{ route('user.club.register', $club->id) }}" data-lightbox="portfolio"
-                                                data-title="App 1" class="link-preview"><i class="bi bi-plus"></i></a>
-                                            <a href="{{ route('club.view', $club->id) }}" class="link-details"
-                                                title="More Details"><i class="bi bi-link"></i>
-                                            </a>
-                                        </figure>
-
-                                        <div class="portfolio-info">
-                                            <h4><a href="portfolio-details.html">{{ $club->name }}</a></h4>
-                                            <p>{{ $club->description }}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <br>
-                            @endforeach
-                        </div>
-                        {{ $clubs->links('components.pagination') }}
-                    </div>
-                </section><!-- End Portfolio Section -->
 
         <!-- ======= Featured Services Section Section ======= -->
         {{-- <section id="featured-services">
@@ -388,6 +338,54 @@
             </div>
         </section><!-- End Services Section -->
 
+        <!-- ======= Portfolio Section ======= -->
+        <section id="portfolio" class="section-bg">
+            <div class="container" data-aos="fade-up">
+
+                <header class="section-header">
+                    <h3 class="section-title">Clubs</h3>
+                </header>
+
+                <div class="row" data-aos="fade-up" data-aos-delay="100">
+                    <div class=" col-lg-12">
+                        <ul id="portfolio-flters">
+                            <li data-filter="*" class="filter-active">All</li>
+                            @foreach ($club_categories as $club_category)
+                                @php($filter = str_replace(' ', '_', $club_category->category_name))
+                                <li data-filter=".{{ strtolower($filter) }}">
+                                    {{ $club_category->category_name }}
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+                    @foreach ($clubs as $club)
+                        @php($filter = str_replace(' ', '_', $club->category_name))
+                        <div class="col-lg-4 col-md-6 portfolio-item cultural">
+                            <div class="portfolio-wrap">
+                                <figure>
+                                    <img src="{{ asset($club->image) }}" class="img-fluid" alt="">
+                                    <a href="{{ route('user.club.register', $club->id) }}" data-lightbox="portfolio"
+                                        data-title="App 1" class="link-preview"><i class="bi bi-plus"></i></a>
+                                    <a href="{{ route('club.view', $club->id) }}" class="link-details"
+                                        title="More Details"><i class="bi bi-link"></i>
+                                    </a>
+                                </figure>
+
+                                <div class="portfolio-info">
+                                    <h4><a href="portfolio-details.html">{{ $club->name }}</a></h4>
+                                    <p>{{ $club->description }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                    @endforeach
+                </div>
+                {{ $clubs->links('components.pagination') }}
+            </div>
+        </section><!-- End Portfolio Section -->
+
         <!-- ======= Call To Action Section ======= -->
         {{-- <section id="call-to-action">
             <div class="container text-center" data-aos="zoom-in">
@@ -454,34 +452,34 @@
             <div class="container" data-aos="fade-up">
 
                 <header class="section-header">
-                    <h3>Facts</h3>
-                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
+                    <h3>All</h3>
+                    <p>Contents of Teamup</p>
                 </header>
 
                 <div class="row counters">
 
                     <div class="col-lg-3 col-6 text-center">
-                        <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1"
+                        <span data-purecounter-start="0" data-purecounter-end="5" data-purecounter-duration="1"
                             class="purecounter"></span>
-                        <p>Clients</p>
+                        <p>Clubs</p>
                     </div>
 
                     <div class="col-lg-3 col-6 text-center">
-                        <span data-purecounter-start="0" data-purecounter-end="421" data-purecounter-duration="1"
+                        <span data-purecounter-start="0" data-purecounter-end="10" data-purecounter-duration="1"
                             class="purecounter"></span>
-                        <p>Projects</p>
+                        <p>Presidents</p>
                     </div>
 
                     <div class="col-lg-3 col-6 text-center">
                         <span data-purecounter-start="0" data-purecounter-end="1364" data-purecounter-duration="1"
                             class="purecounter"></span>
-                        <p>Hours Of Support</p>
+                        <p>Members</p>
                     </div>
 
                     <div class="col-lg-3 col-6 text-center">
-                        <span data-purecounter-start="0" data-purecounter-end="38" data-purecounter-duration="1"
+                        <span data-purecounter-start="0" data-purecounter-end="6" data-purecounter-duration="1"
                             class="purecounter"></span>
-                        <p>Hard Workers</p>
+                        <p>Admins</p>
                     </div>
 
                 </div>
@@ -793,7 +791,7 @@
                         <div class="contact-address">
                             <i class="bi bi-geo-alt"></i>
                             <h3>Address</h3>
-                            <address>A108 Adam Street, NY 535022, USA</address>
+                            <address>No:- 105 Passara Road, Badulla.</address>
                         </div>
                     </div>
 
@@ -801,7 +799,7 @@
                         <div class="contact-phone">
                             <i class="bi bi-phone"></i>
                             <h3>Phone Number</h3>
-                            <p><a href="tel:+155895548855">+1 5589 55488 55</a></p>
+                            <p><a href="tel:+155895548855">+94 335672910</a></p>
                         </div>
                     </div>
 
@@ -809,7 +807,7 @@
                         <div class="contact-email">
                             <i class="bi bi-envelope"></i>
                             <h3>Email</h3>
-                            <p><a href="mailto:info@example.com">info@example.com</a></p>
+                            <p><a href="mailto:info@example.com">teamup@gmail.com</a></p>
                         </div>
                     </div>
 
@@ -856,11 +854,16 @@
             <div class="container">
                 <div class="row">
 
-                    <div class="col-lg-3 col-md-6 footer-info">
-                        <h3>BizPage</h3>
-                        <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita
-                            valies darta donna mare fermentum iaculis eu non diam phasellus. Scelerisque felis imperdiet
-                            proin fermentum leo. Amet volutpat consequat mauris nunc congue.</p>
+                    <div class="col-lg-3 col-md-4 footer-newsletter">
+                        <img src="temup logo.png" alt="">
+                    </div>
+
+
+                    <div class="col-lg-3 col-md-8 footer-info">
+                        <h3>TeamUp</h3>
+                        <p>We are pleased to welcome you to the University club management system. We have an excellent reputation for creating 
+                            innovative entrepreneurs. We aim to give every student in our care the best possible education to prepare them for
+                            life beyond University. Through this system, you can view any club of the University and stay connected with us.</p>
                     </div>
 
                     <div class="col-lg-3 col-md-6 footer-links">
@@ -869,19 +872,19 @@
                             <li><i class="bi bi-chevron-right"></i> <a href="#">Home</a></li>
                             <li><i class="bi bi-chevron-right"></i> <a href="#">About us</a></li>
                             <li><i class="bi bi-chevron-right"></i> <a href="#">Services</a></li>
-                            <li><i class="bi bi-chevron-right"></i> <a href="#">Terms of service</a></li>
-                            <li><i class="bi bi-chevron-right"></i> <a href="#">Privacy policy</a></li>
+                            <li><i class="bi bi-chevron-right"></i> <a href="#">Clubs</a></li>
+                            <li><i class="bi bi-chevron-right"></i> <a href="#">Contacts</a></li>
                         </ul>
                     </div>
 
                     <div class="col-lg-3 col-md-6 footer-contact">
                         <h4>Contact Us</h4>
                         <p>
-                            A108 Adam Street <br>
-                            New York, NY 535022<br>
-                            United States <br>
-                            <strong>Phone:</strong> +1 5589 55488 55<br>
-                            <strong>Email:</strong> info@example.com<br>
+                            105 Passara Road,
+                            Badulla,<br>
+                            Sri Lanka. <br>
+                            <strong>Phone:</strong> +94 335672910<br>
+                            <strong>Email:</strong> teamup@gmail.com <br>
                         </p>
 
                         <div class="social-links">
@@ -894,17 +897,7 @@
 
                     </div>
 
-                    <div class="col-lg-3 col-md-6 footer-newsletter">
-                        <h4>Our Newsletter</h4>
-                        <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna veniam enim veniam
-                            illum
-                            dolore legam minim quorum culpa amet magna export quem marada parida nodela caramase seza.
-                        </p>
-                        <form action="" method="post">
-                            <input type="email" name="email"><input type="submit" value="Subscribe">
-                        </form>
-                    </div>
-
+                    
                 </div>
             </div>
         </div>

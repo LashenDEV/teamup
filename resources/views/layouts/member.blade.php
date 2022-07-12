@@ -88,12 +88,9 @@
                             <ul>
                                 <li><a class="nav-link scrollto @if (url()->current() == route('user.dashboard')) active @endif"
                                         href="#hero">Home</a></li>
-                                <li><a class="nav-link scrollto" href="#about">About</a></li>
-                                <li><a class="nav-link scrollto" href="#services">Services</a></li>
-                                <li><a class="nav-link scrollto " href="#portfolio">History</a></li>
                                 <!--<li><a class="nav-link scrollto" href="#team">Team</a></li>
                 <li><a class="nav-link  " href="blog.html">Blog</a></li>-->
-                                <li class="dropdown"><a href="#"><span>Clubs</span> <i
+                                <li class="dropdown"><a href="#portfolio"><span>Clubs</span> <i
                                             class="bi bi-chevron-down"></i></a>
                                     <ul>
                                         <li><a href="#">Art Club</a></li>

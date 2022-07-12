@@ -159,17 +159,20 @@ Route::group(['as' => 'president.', 'prefix' => 'president', 'middleware' => ['i
 
 
 //Routes for Users
-Route::group(['prefix' => 'user', 'middleware' => ['isUser', 'auth', 'verified']], function () {
-    Route::get('dashboard', [User\UserController::class, 'index'])->name('user.dashboard');
-    Route::get('profile', [User\UserController::class, 'profile'])->name('user.profile');
-    Route::put('update', [User\UserController::class, 'update'])->name('profile.update');
+Route::group(['as' => 'user.','prefix' => 'user', 'middleware' => ['isUser', 'auth', 'verified']], function () {
+    Route::get('dashboard', [User\UserController::class, 'index'])->name('dashboard');
+    Route::get('profile', [User\UserController::class, 'profile'])->name('profile');
+    Route::put('update', [User\UserController::class, 'update'])->name('update');
     Route::put('change/password', [User\UserController::class, 'ChangePassword'])->name('password.change');
     Route::put('change/email', [User\UserController::class, 'ChangeEmail'])->name('email.change');
-    Route::get('settings', [User\UserController::class, 'settings'])->name('user.settings');
+    Route::get('settings', [User\UserController::class, 'settings'])->name('settings');
 
     //club
-    Route::get('club/register/{id}', [User\ClubController::class, 'register'])->name('user.club.register')->middleware('isPaidMembershipFee');
+    Route::get('club/register/{id}', [User\ClubController::class, 'register'])->name('club.register')->middleware('isPaidMembershipFee');
 
     //payment
-    Route::get('club/payment_page/{id}', [User\ClubController::class, 'payment_page'])->name('user.club.payment_page');
+    Route::get('club/payment_page/{id}', [User\ClubController::class, 'payment_page'])->name('club.payment_page');
+
+    //meeting
+    Route::get('club/upcoming-meetings/all', [User\MeetingController::class, 'all'])->name('upcoming-meetings.all');
 });

@@ -25,4 +25,8 @@ class Clubs extends Model
     {
         return $this->belongsTo(User::class, 'president_id', 'id');
     }
+
+    public function notices(){
+        return $this->hasMany(Notice::class, 'club_id', 'id');
+    }
 }

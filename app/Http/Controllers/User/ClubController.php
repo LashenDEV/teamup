@@ -51,9 +51,10 @@ class ClubController extends Controller
 
     public function view($id)
     {
-        $club = Clubs::findOrFail($id);
+        $club = Clubs::with('notices', 'clubOwner')->findOrFail($id);
+        $registerd_user = RegisteredUser::where('user_id', Auth::user()->id)->first();
         $club_image_sliders = ClubSliderImage::where('club_id', $club->id)->get();
-        return view('clubShow', compact('club', 'club_image_sliders'));
+        return view('clubShow', compact('club', 'club_image_sliders', 'registerd_user'));
     }
 
     public function payment_page($id)

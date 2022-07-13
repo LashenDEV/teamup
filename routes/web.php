@@ -62,6 +62,7 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['isAdmin',
     Route::get('president/{id}/edit/', [Admin\PresidentController::class, 'edit'])->name('president.edit');
     Route::put('president/{id}/update', [Admin\PresidentController::class, 'update'])->name('president.update');
     Route::delete('president/{id}', [Admin\PresidentController::class, 'destroy'])->name('president.destroy');
+    Route::get('president/search', [Admin\PresidentController::class, 'search'])->name('president.search');
 
     //Members
     Route::get('member', [Admin\MemberController::class, 'index'])->name('member.index');
@@ -70,12 +71,14 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['isAdmin',
     Route::get('member/{id}/edit/', [Admin\MemberController::class, 'edit'])->name('member.edit');
     Route::put('member/{id}/update', [Admin\MemberController::class, 'update'])->name('member.update');
     Route::delete('member/{id}', [Admin\MemberController::class, 'destroy'])->name('member.destroy');
+    Route::get('member/search', [Admin\MemberController::class, 'search'])->name('member.search');
 
     //Clubs
     Route::get('club', [Admin\ClubController::class, 'index'])->name('club.index');
     Route::get('club/{id}/approval/', [Admin\ClubController::class, 'approval'])->name('club.approval');
     Route::get('club/{id}/rejection/', [Admin\ClubController::class, 'rejection'])->name('club.rejection');
     Route::delete('club/{id}', [Admin\ClubController::class, 'destroy'])->name('club.destroy');
+    Route::get('club/search', [Admin\ClubController::class, 'search'])->name('club.search');
 
     //club-categories
     Route::get('category', [Admin\ClubCategoryController::class, 'index'])->name('category.index');
@@ -136,6 +139,7 @@ Route::group(['as' => 'president.', 'prefix' => 'president', 'middleware' => ['i
     Route::get('members', [President\MemberController::class, 'index'])->name('members.index');
     Route::get('members/{id}/edit/', [President\MemberController::class, 'edit'])->name('members.edit');
     Route::delete('members/{id}', [President\MemberController::class, 'destroy'])->name('members.destroy');
+    Route::get('member/search', [President\MemberController::class, 'search'])->name('member.search');
 
     //Meetings
     Route::get('meeting', [President\MeetingController::class, 'index'])->name('meeting.index');

@@ -75,7 +75,7 @@
         <div id="sidebar" class="sidebar sidebar-with-footer">
             <!-- Aplication Brand -->
             <div class="app-brand">
-                <a href="/index.html" class="p-0">
+                <a href="{{route('dashboard')}}" class="p-0">
                     <img class="brand-icon p-2" src="{{ asset('assets/images/logos/teamup logo.png') }}"
                          alt="" width="75px" height="75px">
                     <span class="brand-name ml-0">Admin Dashboard</span>
@@ -212,11 +212,17 @@
                 <!-- search form -->
                 <div class="search-form d-none d-lg-inline-block">
                     <div class="input-group">
-                        <button type="button" name="search" id="search-btn" class="btn btn-flat">
-                            <i class="mdi mdi-magnify"></i>
-                        </button>
-                        <input type="text" name="query" id="search-input" class="form-control"
-                               placeholder="Members" autofocus autocomplete="off"/>
+                        @if(request()->routeIs('admin.member.index') or (request()->routeIs('admin.president.index'))or (request()->routeIs('admin.club.index')))
+                            <button type="button" name="search" id="search-btn" class="btn btn-flat">
+                                <i class="mdi mdi-magnify"></i>
+                            </button> @endif
+                        <input type="search" name="query" id="search"
+                               class="form-control" @if(request()->routeIs('admin.member.index') or (request()->routeIs('admin.president.index') or (request()->routeIs('admin.club.index'))))
+                            '' @else disabled @endif
+                        placeholder="@if(request()->routeIs('admin.member.index')) Search a
+                        Member @elseif(request()->routeIs('admin.president.index')) Search a
+                        President @elseif(request()->routeIs('admin.club.index')) Search a Club  @endif"
+                        autofocus autocomplete="off"/>
                     </div>
                     <div id="search-results-container">
                         <ul id="search-results"></ul>
@@ -289,7 +295,7 @@
                                 <li class="dropdown-footer">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                             document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 
@@ -378,8 +384,6 @@
 <script src="{{ asset('backend/assets/js/date-range.js') }}"></script>
 <script src="{{ asset('backend/assets/js/map.js') }}"></script>
 <script src="{{ asset('backend/assets/js/custom.js') }}"></script>
-
-
 </body>
 
 </html>

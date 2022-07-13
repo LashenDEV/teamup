@@ -32,10 +32,9 @@
                     <th class="d-none d-md-table-cell">Address</th>
                     <th>Status</th>
                     <th class="d-none d-md-table-cell">Action</th>
-                    <th></th>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody class="alldata">
                 @foreach($members as $member)
                     <tr>
                         <td>{{$member->id}}</td>
@@ -46,20 +45,26 @@
                         <td class="d-none d-md-table-cell">{{$member->year}}</td>
                         <td class="d-none d-md-table-cell">{{$member->address_line1,}} {{$member->address_line2,}} {{$member->city,}}
                             {{$member->province}}</td>
-                        <td><span class="badge badge-success">Success</span></td>
-                        <td class="d-none d-md-table-cell"><a href="{{ route('admin.member.edit', $member->id) }}" class="pl-1">
+                        @if($member->email_verified_at)
+                            <td><span class="badge badge-success">Verified</span></td>
+                        @else
+                            <td><span class="badge badge-danger">Not Verified</span></td>
+                        @endif
+                        <td class="d-none d-md-table-cell">
+                            <a href="{{ route('admin.member.edit', $member->id) }}"
+                               class="pl-1">
                                 <button type="button" class="btn btn-dark"><i
                                         class="fa-duotone fa-pen-circle mr-1"></i>Edit
                                 </button>
                             </a>
-                            <a href="#deleteModal" data-toggle="modal" class="pl-1">
+                            <a href="#deleteModal_{{$member->id}}" data-toggle="modal" class="pl-1">
                                 <button type="submit" class="btn btn-danger"><i
                                         class="fa-duotone fa-circle-trash mr-1"></i>Delete
                                 </button>
                             </a>
                         </td>
                         <!-- Confirm Deletion Modal -->
-                        <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog"
+                        <div class="modal fade" id="deleteModal_{{$member->id}}" tabindex="-1" role="dialog"
                              aria-labelledby="deleteModalCenterTitle"
                              aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered" role="document">
@@ -97,9 +102,36 @@
                     </tr>
                 @endforeach
                 </tbody>
+                <tbody id="Content" class="searcheddata">
+                </tbody>
             </table>
-            {{ $members->links('components.pagination') }}
-
+            <span class="alldata">
+                {{ $members->links('components.pagination') }}
+                </span>
         </div>
     </div>
+    <script type="text/javascript">
+        $('#search').on('keyup', function () {
+            $value = $(this).val();
+
+            if ($value) {
+                $('.alldata').hide();
+                $('.searcheddata').show();
+            } else {
+                $('.alldata').show();
+                $('.searcheddata').hide();
+            }
+
+            $.ajax({
+                type: 'get',
+                headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                url: '{{URL::to('admin/member/search')}}',
+                data: {'search': $value},
+
+                success: function (data) {
+                    $('#Content').html(data);
+                }
+            })
+        })
+    </script>
 @endsection

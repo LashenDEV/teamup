@@ -389,11 +389,15 @@
                 <!-- search form -->
                 <div class="search-form d-none d-lg-inline-block">
                     <div class="input-group">
-                        <button type="button" name="search" id="search-btn" class="btn btn-flat">
-                            <i class="mdi mdi-magnify"></i>
-                        </button>
-                        <input type="text" name="query" id="search-input" class="form-control"
-                               placeholder="Members" autofocus autocomplete="off"/>
+                        @if(request()->routeIs('president.members.index'))
+                            <button type="button" name="search" id="search-btn" class="btn btn-flat">
+                                <i class="mdi mdi-magnify"></i>
+                            </button>  @endif
+                        <input type="text" name="query" id="search-input"
+                               class="form-control" @if(request()->routeIs('president.members.index'))
+                            '' @else disabled @endif
+                        placeholder="@if(request()->routeIs('president.members.index')) Search a Member @endif"
+                        autofocus autocomplete="off"/>
                     </div>
                     <div id="search-results-container">
                         <ul id="search-results"></ul>

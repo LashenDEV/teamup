@@ -35,7 +35,7 @@
                     <th></th>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody class="alldata">
                 @foreach($presidents as $president)
                     <tr>
                         <td>{{$president->id}}</td>
@@ -46,20 +46,25 @@
                         <td class="d-none d-md-table-cell">{{$president->year}}</td>
                         <td class="d-none d-md-table-cell">{{$president->address_line1,}} {{$president->address_line2,}} {{$president->city,}}
                             {{$president->province}}</td>
-                        <td><span class="badge badge-success">Success</span></td>
-                        <td class="d-none d-md-table-cell"><a href="{{ route('admin.president.edit', $president->id) }}" class="pl-1">
+                        @if($president->email_verified_at)
+                            <td><span class="badge badge-success">Verified</span></td>
+                        @else
+                            <td><span class="badge badge-danger">Not Verified</span></td>
+                        @endif
+                        <td class="d-none d-md-table-cell"><a href="{{ route('admin.president.edit', $president->id) }}"
+                                                              class="pl-1">
                                 <button type="button" class="btn btn-dark"><i
                                         class="fa-duotone fa-pen-circle mr-1"></i>Edit
                                 </button>
                             </a>
-                            <a href="#deleteModal" data-toggle="modal" class="pl-1">
+                            <a href="#deleteModal_{{$president->id}}" data-toggle="modal" class="pl-1">
                                 <button type="submit" class="btn btn-danger"><i
                                         class="fa-duotone fa-circle-trash mr-1"></i>Delete
                                 </button>
                             </a>
                         </td>
                         <!-- Confirm Deletion Modal -->
-                        <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog"
+                        <div class="modal fade" id="deleteModal_{{$president->id}}" tabindex="-1" role="dialog"
                              aria-labelledby="deleteModalCenterTitle"
                              aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered" role="document">
@@ -97,9 +102,36 @@
                     </tr>
                 @endforeach
                 </tbody>
+                <tbody id="Content" class="searcheddata">
+                </tbody>
             </table>
-            {{-- {{ $presidents->links('components.pagination') }} --}}
-
+            <span class="alldata">
+                {{ $presidents->links('components.pagination') }}
+                </span>
         </div>
     </div>
+    <script type="text/javascript">
+        $('#search').on('keyup', function () {
+            $value = $(this).val();
+
+            if ($value) {
+                $('.alldata').hide();
+                $('.searcheddata').show();
+            } else {
+                $('.alldata').show();
+                $('.searcheddata').hide();
+            }
+
+            $.ajax({
+                type: 'get',
+                headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                url: '{{URL::to('admin/president/search')}}',
+                data: {'search': $value},
+
+                success: function (data) {
+                    $('#Content').html(data);
+                }
+            })
+        })
+    </script>
 @endsection

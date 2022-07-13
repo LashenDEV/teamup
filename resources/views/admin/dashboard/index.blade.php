@@ -6,7 +6,9 @@
             <div class="container-fluid">
                 <div class="d-sm-flex align-items-center justify-content-between mt-4 mb-4">
                     <h2>Admin Dashboard</h2>
-                    <a href="/"><button class="btn btn-outline-secondary">view site</button></a>
+                    <a href="/">
+                        <button class="btn btn-outline-secondary">view site</button>
+                    </a>
                 </div>
                 <div class="row mt-4">
                     <div class="col-xl-3 col-sm-6">
@@ -157,8 +159,8 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
-                                        @foreach($recent_clubs as $recent_club)
+                                    @foreach($recent_clubs as $recent_club)
+                                        <tr>
                                             <td>{{$recent_club->id}}</td>
                                             <td>{{$recent_club->name}}</td>
                                             <td>{{$recent_club->created_at}}</td>
@@ -178,15 +180,16 @@
                                                         Approve
                                                     </button>
                                                 </a>
-                                                <a href="{{ route('admin.club.rejection', $recent_club->id) }}" class="pl-1">
+                                                <a href="{{ route('admin.club.rejection', $recent_club->id) }}"
+                                                   class="pl-1">
                                                     <button type="submit" class="btn btn-danger"><i
                                                             class="fa-duotone fa-circle-xmark"></i>
                                                         Reject
                                                     </button>
                                                 </a>
                                             </td>
-                                        @endforeach
-                                    </tr>
+                                        </tr>
+                                    @endforeach
                                     </tbody>
                                 </table>
                             </div>

@@ -156,6 +156,10 @@ Route::group(['as' => 'president.', 'prefix' => 'president', 'middleware' => ['i
 
     //Notifications
     Route::get('notification/read-all', [President\NotificationController::class, 'readAll'])->name('notification.read-all');
+
+    //Payments
+    Route::get('payment', [President\PaymentController::class, 'index'])->name('payment.index');
+
 });
 
 

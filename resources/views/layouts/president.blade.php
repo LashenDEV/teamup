@@ -131,13 +131,13 @@
                             </div>
                         </ul>
                     </li>
-                    <li class="has-sub {{ request()->routeIs('president.members*') ? 'active expand' : '' }}">
+                    <li class="has-sub {{ (request()->routeIs('president.members*') or request()->routeIs('president.payment*')) ? 'active expand' : '' }}">
                         <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
                            data-target="#members" aria-expanded="false" aria-controls="members">
                             <i class="mdi mdi-account-group"></i>
                             <span class="nav-text">Members</span> <b class="caret"></b>
                         </a>
-                        <ul class="collapse {{ request()->routeIs('president.members*') ? 'show' : '' }}"
+                        <ul class="collapse {{ (request()->routeIs('president.members*') or request()->routeIs('president.payment*')) ? 'show' : '' }}"
                             id="members" data-parent="#sidebar-menu">
                             <div class="sub-menu">
                                 <li class="{{ request()->routeIs('president.members*') ? 'active' : '' }}">
@@ -147,8 +147,8 @@
 
                                     </a>
                                 </li>
-                                <li class="">
-                                    <a class="sidenav-item-link" href="index.html">
+                                <li class="{{ request()->routeIs('president.payment*') ? 'active' : '' }}">
+                                    <a class="sidenav-item-link" href="{{ route('president.payment.index') }}">
                                         <i class="fa-duotone fa-money-check-dollar mr-3"></i>
                                         <span class="nav-text">Payments</span>
 

@@ -13,7 +13,7 @@ class MeetingController extends Controller
 {
     public function index()
     {
-        $meetings = Meeting::where('president_id', Auth::user()->id)->latest()->paginate(3);
+        $meetings = Meeting::where('president_id', Auth::user()->id)->orderBy('id','DESC')->paginate(3);
 
         return view('president.meeting.index', compact('meetings'));
     }
@@ -63,12 +63,25 @@ class MeetingController extends Controller
         return redirect()->route('president.meeting.index')->with('success', 'MEETING IS DELETED SUCCESSFULLY');
     }
 
-    public function publish($id){
-        $meeting = Meeting::findOrFail($id)->update(['status' => 1]);
+    public function publish($id)
+    {
+        $meeting = Meeting::findOrFail($id);
+        $meeting->update(['status' => 1]);
         HistoryLogs::create([
             'user_id' => \Auth::user()->id,
             'description' => 'Published the ' . $meeting->title . ' meeting.'
         ]);
         return redirect()->route('president.meeting.index')->with('success', 'MEETING IS PUBLISHED SUCCESSFULLY');
+    }
+
+    public function draft($id)
+    {
+        $meeting = Meeting::findOrFail($id);
+        $meeting->update(['status' => 0]);
+        HistoryLogs::create([
+            'user_id' => \Auth::user()->id,
+            'description' => 'Drafted the ' . $meeting->title . ' meeting.'
+        ]);
+        return redirect()->route('president.meeting.index')->with('success', 'MEETING IS DRAFTED SUCCESSFULLY');
     }
 }

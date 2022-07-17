@@ -441,8 +441,10 @@
                         <!-- user Account -->
                         <li class="dropdown user-menu">
                             <button href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                                <img src="{{ asset('backend/assets/img/user/user.png') }}" class="user-image"
-                                     alt="User Image"/>
+                                <img
+                                    src="{{ Auth::user()->profile_photo != null ? asset(Auth::user()->profile_photo) : asset('assets/images/Icons/User/profile_pic.png') }} "
+                                    class="user-image"
+                                    alt="User Image"/>
                                 <span class="d-none d-lg-inline-block">{{ Auth::user()->name }} </span>
                             </button>
                             <ul class="dropdown-menu dropdown-menu-right">

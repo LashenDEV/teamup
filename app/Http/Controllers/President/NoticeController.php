@@ -31,7 +31,7 @@ class NoticeController extends Controller
             'description' => 'Created a notice.'
         ]);
 
-        return redirect()->route('president.notice.index')->with('success', 'MEETING IS CREATED SUCCESSFULLY');
+        return redirect()->route('president.notice.index')->with('success', 'NOTICE IS CREATED SUCCESSFULLY');
     }
 
     public function edit($id)
@@ -49,7 +49,7 @@ class NoticeController extends Controller
             'description' => 'Updated a notice.'
         ]);
 
-        return redirect()->route('president.notice.index')->with('success', 'MEETING IS UPDATED SUCCESSFULLY');
+        return redirect()->route('president.notice.index')->with('success', 'NOTICE IS UPDATED SUCCESSFULLY');
     }
 
     public function destroy($id)
@@ -60,7 +60,7 @@ class NoticeController extends Controller
             'description' => 'Deleted a notice.'
         ]);
 
-        return redirect()->route('president.notice.index')->with('success', 'MEETING IS DELETED SUCCESSFULLY');
+        return redirect()->route('president.notice.index')->with('success', 'NOTICE IS DELETED SUCCESSFULLY');
     }
 
     public function publish($id){

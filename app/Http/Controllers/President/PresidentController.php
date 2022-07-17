@@ -4,9 +4,14 @@ namespace App\Http\Controllers\President;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UpdateProfileDataRequest;
+use App\Models\Clubs;
 use App\Models\HistoryLogs;
+use App\Models\Meeting;
+use App\Models\Payment;
+use App\Models\RegisteredUser;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Image;
@@ -15,7 +20,18 @@ class PresidentController extends Controller
 {
     public function index()
     {
-        return view('president.dashboard.index');
+        $club = Clubs::where('president_id', \Auth::user()->id)->first();
+        $member_count = RegisteredUser::where('club_id', $club->id)->count();
+        $meeting_count = Meeting::where('club_id', $club->id)->where('status', 1)->count();
+        $new_members = RegisteredUser::where('club_id', $club->id)->whereMonth('created_at', Carbon::now()->month)->count();
+        $revenues = Payment::where('club_id', $club->id)->where('payment_status', 'approved')->pluck('amount');
+        $total_revenue = 0;
+        foreach ($revenues as $revenue) {
+            $total_revenue = $total_revenue + $revenue;
+        }
+
+        $recent_members = RegisteredUser::with('registeredUsers')->where('club_id', $club->id)->orderBy('id', 'desc')->take(5)->get();
+        return view('president.dashboard.index', compact('member_count', 'total_revenue', 'meeting_count', 'new_members', 'recent_members'));
     }
 
     public function profile()

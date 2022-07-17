@@ -23,7 +23,6 @@ Route::get('/', [Admin\HomePageController::class, 'show'])->name('/');
 Auth::routes(['verify' => true]);
 
 Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
-Route::get('club/view/{id}', [User\ClubController::class, 'view'])->name('club.view');
 
 //Routes for Auth Users
 Route::group(['middleware' => ['auth', 'verified']], function () {
@@ -34,6 +33,9 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 
     //Payment Method Handler
     Route::post('payment_method/{id}', [Controllers\PaymentMethodHandlerController::class, 'paymentMethod'])->name('payment_method');
+
+    //Club
+    Route::get('club/view/{id}', [User\ClubController::class, 'view'])->name('club.view');
 });
 
 //Routes for Admin

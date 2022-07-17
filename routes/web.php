@@ -148,6 +148,7 @@ Route::group(['as' => 'president.', 'prefix' => 'president', 'middleware' => ['i
     Route::get('meeting/{id}/edit/', [President\MeetingController::class, 'edit'])->name('meeting.edit');
     Route::put('meeting/{id}/update', [President\MeetingController::class, 'update'])->name('meeting.update');
     Route::get('meeting/{id}/publish', [President\MeetingController::class, 'publish'])->name('meeting.publish');
+    Route::get('meeting/{id}/draft', [President\MeetingController::class, 'draft'])->name('meeting.draft');
     Route::delete('meeting/{id}', [President\MeetingController::class, 'destroy'])->name('meeting.destroy');
 
     //History-logs
@@ -159,10 +160,10 @@ Route::group(['as' => 'president.', 'prefix' => 'president', 'middleware' => ['i
 
 
 //Routes for Users
-Route::group(['as' => 'user.','prefix' => 'user', 'middleware' => ['isUser', 'auth', 'verified']], function () {
+Route::group(['as' => 'user.', 'prefix' => 'user', 'middleware' => ['isUser', 'auth', 'verified']], function () {
     Route::get('dashboard', [User\UserController::class, 'index'])->name('dashboard');
     Route::get('profile', [User\UserController::class, 'profile'])->name('profile');
-    Route::put('update', [User\UserController::class, 'update'])->name('update');
+    Route::put('profile/update', [User\UserController::class, 'update'])->name('profile.update');
     Route::put('change/password', [User\UserController::class, 'ChangePassword'])->name('password.change');
     Route::put('change/email', [User\UserController::class, 'ChangeEmail'])->name('email.change');
     Route::get('settings', [User\UserController::class, 'settings'])->name('settings');
@@ -174,5 +175,5 @@ Route::group(['as' => 'user.','prefix' => 'user', 'middleware' => ['isUser', 'au
     Route::get('club/payment_page/{id}', [User\ClubController::class, 'payment_page'])->name('club.payment_page');
 
     //meeting
-    Route::get('club/upcoming-meetings/all', [User\MeetingController::class, 'all'])->name('upcoming-meetings.all');
+    Route::get('club/{id}/upcoming-meetings/all', [User\MeetingController::class, 'all'])->name('upcoming-meetings.all');
 });

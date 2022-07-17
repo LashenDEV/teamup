@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Clubs;
 use App\Models\ClubSliderImage;
 use App\Models\HistoryLogs;
+use App\Models\Meeting;
 use App\Models\Notifications;
 use App\Models\RegisteredUser;
 use Illuminate\Support\Facades\Auth;
@@ -40,7 +41,7 @@ class ClubController extends Controller
                 'icon' => '<i class="fa-duotone fa-user-plus ml-2"></i>',
                 'show_to_admin' => 1,
                 'show_to_president' => 1,
-                'notification' => $user->name .' registered to the ' . $club->name . '.',
+                'notification' => $user->name . ' registered to the ' . $club->name . '.',
             ]);
 
             return redirect()->route('club.view', $id)->with('success', 'Your Have Registered To The ' . $club->name . ' Successfully');
@@ -51,10 +52,11 @@ class ClubController extends Controller
 
     public function view($id)
     {
+        $next_meeting = Meeting::where('club_id', $id)->where('status', 1)->orderBy('date', 'asc')->orderBy('time', 'asc')->first();
         $club = Clubs::with('notices', 'clubOwner')->findOrFail($id);
         $registerd_user = RegisteredUser::where('user_id', Auth::user()->id)->first();
         $club_image_sliders = ClubSliderImage::where('club_id', $club->id)->get();
-        return view('clubShow', compact('club', 'club_image_sliders', 'registerd_user'));
+        return view('clubShow', compact('club', 'club_image_sliders', 'registerd_user', 'next_meeting'));
     }
 
     public function payment_page($id)

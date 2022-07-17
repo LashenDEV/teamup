@@ -89,48 +89,65 @@
                                 <span class="visually-hidden">Next</span>
                             </button>
                         </div>
+                    @else
+                        <div class="col-lg-12">
+                            <div class="portfolio-info p-4" data-aos="zoom-in">
+                                <h2 class="text-center d-flex justify-content-center align-items-center m-0"><i
+                                        class="fa-solid fa-hexagon-exclamation fa-2x pe-3"></i>No Notices</h2>
+                            </div>
+                        </div>
                     @endif
                 </div>
                 <div class="col-lg-12 p-3 mt-3">
-                    <div class="row">
-                        <div class="d-flex justify-content-between pb-3">
+                    @if($next_meeting != null)
+                        <div class="row" data-aos="zoom-in">
+                            <div class="d-flex justify-content-between pb-3">
                             <span style="text-align:left;">
                                 <b>Next Meeting</b>
                                 <i class="fa-solid fa-circle fa-beat ps-2" style="color: #FF0000;"></i>
                             </span>
-                            <a href="{{route('user.upcoming-meetings.all')}}"><span style=" text-align:right;">UpComming Meeting <i
-                                        class="fa-solid fa-angles-right fa-beat ps-2"></i><i
-                                        class="fa-solid fa-angles-right fa-beat"></i></span></a>
+                                <a href="{{ route('user.upcoming-meetings.all', $club->id) }}"><span
+                                        style=" text-align:right;">UpComming Meeting <i
+                                            class="fa-solid fa-angles-right fa-beat ps-2"></i></span></a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-lg-12">
-                        <div class="portfolio-info p-4" data-aos="zoom-in">
-                            <div class="col-md-12">
-                                <div class="row">
-                                    <div class="d-md-flex d-block justify-content-between align-items-center">
-                                        <h3 class="pb-0 mb-0 border-0"><i class="fa-duotone fa-video pe-2"></i> Annual
-                                            Meeting <br></h3>
-                                        <span
-                                            class="text-secondary"><i
-                                                class="fa-duotone fa-clock pe-2"></i>14:00pm <br><i
-                                                class="fa-duotone fa-calendar-day pe-2"></i> 11/07/2022</span>
-                                        <div class="d-flex flex-column">
-                                            <div class="d-flex">
-                                                <div style="width: 200px"><b>Meeting ID :</b></div>
-                                                <div>3443553</div>
+                        <div class="col-lg-12">
+                            <div class="portfolio-info p-4" data-aos="zoom-in">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="d-md-flex d-block justify-content-between align-items-center">
+                                            <h3 class="pb-0 mb-0 border-0"><i class="fa-duotone fa-video pe-2"></i>
+                                                {{$next_meeting->title}}<br></h3>
+                                            <span
+                                                class="text-secondary"><i
+                                                    class="fa-duotone fa-clock pe-2"></i>{{$next_meeting->time}} <br><i
+                                                    class="fa-duotone fa-calendar-day pe-2"></i>{{$next_meeting->date}}</span>
+                                            <div class="d-flex flex-column">
+                                                <div class="d-flex">
+                                                    <div style="width: 200px"><b>Meeting ID :</b></div>
+                                                    <div>{{$next_meeting->meeting_id}}</div>
+                                                </div>
+                                                <div class="d-flex">
+                                                    <div style="width: 200px"><b>Meeting Passcode :</b></div>
+                                                    <div>{{$next_meeting->meeting_password}}</div>
+                                                </div>
                                             </div>
-                                            <div class="d-flex">
-                                                <div style="width: 200px"><b>Meeting Passcode :</b></div>
-                                                <div>45324353</div>
-                                            </div>
+                                            <a href="{{$next_meeting->meeting_link}}" class="mt-md-0 mt-2"><i
+                                                    class="fa-solid fa-link pe-2"></i>Join
+                                                Now</a>
                                         </div>
-                                        <a href="" class="mt-md-0 mt-2"><i class="fa-solid fa-link pe-2"></i>Join
-                                            Now</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    @else
+                        <div class="col-lg-12">
+                            <div class="portfolio-info p-4" data-aos="zoom-in">
+                                <h2 class="text-center d-flex justify-content-center align-items-center m-0"><i
+                                        class="fa-solid fa-hexagon-exclamation fa-2x pe-3"></i>No meetings</h2>
+                            </div>
+                        </div>
+                    @endif
                     @endif
                     <div class="col-lg-12 py-5">
                         <div class="portfolio-info" data-aos="zoom-in">

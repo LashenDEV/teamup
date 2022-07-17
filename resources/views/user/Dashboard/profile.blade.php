@@ -18,7 +18,7 @@
     <div class="card">
         <div class="container-fluid">
             {{-- Member details update form --}}
-            <form action="{{ route('profile.update') }}" method='POST' enctype="multipart/form-data">
+            <form action="{{ route('user.profile.update') }}" method='POST' enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="col-lg-12 d-flex flex-lg-row  flex-column p-3 border-none">
@@ -291,7 +291,7 @@
                 <div class="row mt-2">
                     <div class="dropdown-divider"></div>
                     <strong class="my-2">Change Password</strong>
-                    <form method="POST" action="{{ route('password.change') }}" class="form-pill">
+                    <form method="POST" action="{{ route('user.password.change') }}" class="form-pill">
                         @csrf
                         @method('PUT')
 
@@ -348,7 +348,7 @@
             <div class="row mt-2 px-2">
                 <div class="dropdown-divider"></div>
                 <strong class="my-2">Change Email</strong>
-                <form method="POST" action="{{ route('email.change') }}" class="form-pill">
+                <form method="POST" action="{{ route('user.email.change') }}" class="form-pill">
                     @csrf
                     @method('PUT')
                     <div class="col-xxl-12 d-xxl-flex  my-2">

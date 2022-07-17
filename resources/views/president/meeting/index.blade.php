@@ -10,7 +10,7 @@
             <div class="text-right">
                 <a href="{{route('president.meeting.create')}}">
                     <button type="button" class="btn btn-success"><i
-                            class="fa-light fa-plus"></i> Create An Event
+                            class="fa-light fa-plus"></i> Create A Meeting
                     </button>
                 </a>
                 <button type="button" class="btn btn-secondary">Back</button>
@@ -53,14 +53,30 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="d-flex align-items-end">
+                                        <div class="d-flex align-items-end flex-column justify-content-between">
+                                            <div>
+                                                @if($meeting->status == 1)
+                                                    <label class="bg-success p-2 text-white">Published</label>
+                                                @else
+                                                    <label class="bg-warning p-2">Drafted</label>
+                                                @endif
+                                            </div>
                                             <div class="text-right d-flex justify-content-end position-inherit">
-                                                <a href="{{route('president.meeting.publish', $meeting->id)}}"
-                                                   class="pl-1">
-                                                    <button type="button" class="btn btn-success"><i
-                                                            class="fa-duotone fa-paper-plane-top mr-1"></i>Publish
-                                                    </button>
-                                                </a>
+                                                @if($meeting->status == 1)
+                                                    <a href="{{route('president.meeting.draft', $meeting->id)}}"
+                                                       class="pl-1">
+                                                        <button type="button" class="btn btn-warning"><i
+                                                                class="fa-duotone fa-paper-plane-top mr-1"></i>Draft
+                                                        </button>
+                                                    </a>
+                                                @else
+                                                    <a href="{{route('president.meeting.publish', $meeting->id)}}"
+                                                       class="pl-1">
+                                                        <button type="button" class="btn btn-success"><i
+                                                                class="fa-duotone fa-paper-plane-top mr-1"></i>Publish
+                                                        </button>
+                                                    </a>
+                                                @endif
                                                 <a href="{{route('president.meeting.edit', $meeting->id)}}"
                                                    class="pl-1">
                                                     <button type="button" class="btn btn-dark"><i

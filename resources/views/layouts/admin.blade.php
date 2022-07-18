@@ -156,14 +156,14 @@
                         </ul>
                     </li>
 
-                    <li class="has-sub {{ request()->routeIs('admin.member*') ? 'active expand' : '' }}">
+                    <li class="has-sub {{ (request()->routeIs('admin.member*') or request()->routeIs('admin.payment*')) ? 'active expand' : '' }}">
                         <a class="              sidenav-item-link" href="javascript:void(0)"
                            data-toggle="collapse" data-target="#members" aria-expanded="false"
                            aria-controls="dashboard">
                             <i class="fa-duotone fa-people-group mr-3"></i>
                             <span class="nav-text">Members</span> <b class="caret"></b>
                         </a>
-                        <ul class="collapse  {{ request()->routeIs('admin.member*') ? 'show' : '' }}"
+                        <ul class="collapse  {{ (request()->routeIs('admin.member*') or request()->routeIs('admin.payment*')) ? 'show' : '' }}"
                             id="members" data-parent="#sidebar-menu">
                             <div class="sub-menu">
                                 <li class="{{ request()->routeIs('admin.member*') ? 'active' : '' }}">
@@ -172,16 +172,10 @@
                                         <span class="nav-text">Members</span>
                                     </a>
                                 </li>
-                                <li class="">
-                                    <a class="sidenav-item-link" href="index.html">
-                                        <i class="fa-solid fa-clipboard-question mr-2"></i>
-                                        <span class="nav-text">About</span>
-                                    </a>
-                                </li>
-                                <li class="">
-                                    <a class="sidenav-item-link" href="#">
-                                        <i class="fa-solid fa-file-signature mr-2"></i>
-                                        <span class="nav-text">Footer</span>
+                                <li class="{{ request()->routeIs('admin.payment*') ? 'active' : '' }}">
+                                    <a class="sidenav-item-link" href="{{ route('admin.payment.index') }}">
+                                        <i class="fa-duotone fa-circle-dollar mr-2"></i>
+                                        <span class="nav-text">Payments</span>
                                     </a>
                                 </li>
                             </div>

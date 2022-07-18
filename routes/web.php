@@ -94,6 +94,9 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['isAdmin',
 
     //Notifications
     Route::get('notification/read-all', [Admin\NotificationController::class, 'readAll'])->name('notification.read-all');
+
+    //Payments
+    Route::get('payment', [Admin\PaymentController::class, 'index'])->name('payment.index');
 });
 
 

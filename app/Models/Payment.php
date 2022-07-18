@@ -13,4 +13,9 @@ class Payment extends Model
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
+
+    public function club()
+    {
+        return $this->hasOne(Clubs::class, 'id', 'club_id');
+    }
 }

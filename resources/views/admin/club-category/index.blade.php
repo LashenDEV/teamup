@@ -8,8 +8,9 @@
                 <h1>All Club Categories</h1>
             </div>
             <div class="text-right">
-                <a href="{{ route('admin.dashboard') }}"><button type="button"
-                        class="btn btn-secondary">Back</button></a>
+                <a href="{{ url()->previous() }}">
+                    <button type="button" class="btn btn-secondary">Back</button>
+                </a>
             </div>
         </div>
         <div class="container-fluid mb-3" style="min-height: 61vh">

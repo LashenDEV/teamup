@@ -13,7 +13,9 @@
                             class="fa-light fa-plus"></i> Create A Meeting
                     </button>
                 </a>
-                <button type="button" class="btn btn-secondary">Back</button>
+                <a href="{{ url()->previous() }}">
+                    <button type="button" class="btn btn-secondary">Back</button>
+                </a>
             </div>
         </div>
         @if (!$meetings->isEmpty())

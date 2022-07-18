@@ -14,7 +14,7 @@
                             class="fa-light fa-plus"></i> Add Memeber
                     </button>
                 </a>
-                <a href="{{route('admin.dashboard')}}">
+                <a href="{{ url()->previous() }}">
                     <button type="button" class="btn btn-secondary">Back</button>
                 </a>
             </div>

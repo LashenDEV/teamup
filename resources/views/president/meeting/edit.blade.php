@@ -9,7 +9,7 @@
                     <h1>Edit the Meeting</h1>
                 </div>
                 <div class="text-right">
-                    <a href="{{ route('president.meeting.index') }}">
+                    <a href="{{ url()->previous() }}">
                         <button type="button" class="btn btn-secondary">Back</button>
                     </a>
                 </div>

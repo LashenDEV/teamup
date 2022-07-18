@@ -9,7 +9,7 @@
                     <h1>Submit a Notice</h1>
                 </div>
                 <div class="text-right">
-                    <a href="{{ route('president.event.index') }}">
+                    <a href="{{ url()->previous() }}">
                         <button type="button" class="btn btn-secondary">Back</button>
                     </a>
                 </div>

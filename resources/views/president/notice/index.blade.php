@@ -13,7 +13,9 @@
                             class="fa-light fa-plus"></i> Create A Notice
                     </button>
                 </a>
-                <button type="button" class="btn btn-secondary">Back</button>
+                <a href="{{ url()->previous() }}">
+                    <button type="button" class="btn btn-secondary">Back</button>
+                </a>
             </div>
         </div>
         @if (!$notices->isEmpty())
@@ -93,6 +95,7 @@
                     @endforeach
                 </div>
             </div>
+            {{ $notices->links('components.pagination') }}
     </div>
     @else
         <div class="d-flex justify-content-center flex-column align-items-center p-5" style="height: 61vh">

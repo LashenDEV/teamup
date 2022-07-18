@@ -12,7 +12,9 @@
                 <i class="fa-solid fa-trash-can"></i>
                 Delete</a>
         @endif
-        <a href="{{ route('president.dashboard') }}" class="btn btn-secondary">Back</a>
+        <a href="{{ url()->previous() }}">
+            <button type="button" class="btn btn-secondary">Back</button>
+        </a>
     </div>
     @if ($your_club != null)
         <!-- Button -->

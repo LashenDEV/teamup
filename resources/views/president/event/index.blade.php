@@ -13,7 +13,9 @@
                             class="fa-light fa-plus"></i> Create An Event
                     </button>
                 </a>
-                <button type="button" class="btn btn-secondary">Back</button>
+                <a href="{{ url()->previous() }}">
+                    <button type="button" class="btn btn-secondary">Back</button>
+                </a>
             </div>
         </div>
         @if (!$events->isEmpty())

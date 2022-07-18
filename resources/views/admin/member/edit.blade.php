@@ -9,7 +9,7 @@
                     <h1>Edit Member</h1>
                 </div>
                 <div class="text-right">
-                    <a href="{{ route('admin.member.index') }}">
+                    <a href="{{ url()->previous() }}">
                         <button type="button" class="btn btn-secondary">Back</button>
                     </a>
                 </div>

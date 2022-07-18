@@ -14,7 +14,7 @@
                             class="fa-light fa-plus"></i> Add President
                     </button>
                 </a>
-                <a href="{{route('president.dashboard')}}">
+                <a href="{{ url()->previous() }}">
                     <button type="button" class="btn btn-secondary">Back</button>
                 </a>
             </div>

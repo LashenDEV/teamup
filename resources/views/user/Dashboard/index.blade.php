@@ -10,15 +10,16 @@
                 <div class="carousel-inner" role="listbox">
 
                     <div class="carousel-item active"
-                         style="background-image: url({{asset('frontend/assets/img/hero-carousel/1.jpg')}})">
+                         style="background-image: url({{ asset('frontend/assets/img/hero-carousel/1.jpg') }})">
                         <div class="carousel-container">
                             <div class="container">
                                 <h2 class="animate__animated animate__fadeInDown">Welcome!</h2>
-                                <h3 p class="animate__animated animate__fadeInUp">Welcome to the club management system.
-                                    Through our website you can learn about all the clubs that exist in the university.
-                                    You can also register for any club online</p> </h3>
+                                <h3 class="animate__animated animate__fadeInUp text-white">
+                                    {{ $welcome->statement }}
+                                </h3>
                                 <a href="#featured-services"
-                                   class="btn-get-started scrollto animate__animated animate__fadeInUp">Get Started</a>
+                                   class="btn-get-started scrollto animate__animated animate__fadeInUp">Get
+                                    Started</a>
                             </div>
                         </div>
                     </div>
@@ -26,12 +27,12 @@
                     @foreach ($home_sliders as $home_slider)
                         <div class="carousel-item" style="background-image: url({{ asset($home_slider->image) }});">
                             <div class="carousel-container">
-                                <div class="container">
+                                <div class="container" style="font-size: 150%;">
                                     <h2 class="animate__animated animate__fadeInDown">{{ $home_slider->name }}</h2>
-                                    <p class="animate__animated animate__fadeInUp">{{ $home_slider->description }}</p>
-                                    <a href="{{ route('club.view', $home_slider->id)  }}"
-                                       class="btn-get-started scrollto animate__animated animate__fadeInUp">Get
-                                        Started</a>
+                                    <p class="animate__animated animate__fadeInUp">{{ $home_slider->description }}
+                                    </p>
+                                    <a href="{{route('user.club.register', $home_slider->id)}}"
+                                       class="btn-get-started scrollto animate__animated animate__fadeInUp">Join Club</a>
                                 </div>
                             </div>
                         </div>
@@ -64,30 +65,33 @@
                 <div class=" col-lg-12">
                     <ul id="portfolio-flters">
                         <li data-filter="*" class="filter-active">All</li>
-                        <li data-filter=".filter-app">Art Club</li>
-                        <li data-filter=".filter-card">IEEE</li>
-                        <li data-filter=".filter-web">Web</li>
+                        @foreach ($club_categories as $club_category)
+                            @php($filter = str_replace(' ', '_', $club_category->category_name))
+                            <li data-filter=".{{ strtolower($filter) }}">
+                                {{ $club_category->category_name }}
+                            </li>
+                        @endforeach
                     </ul>
                 </div>
             </div>
 
             <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
-                @foreach($clubs as $club)
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                @foreach ($clubs as $club)
+                    @php($filter = str_replace(' ', '_', $club->category_name))
+                    <div class="col-lg-4 col-md-6 portfolio-item cultural">
                         <div class="portfolio-wrap">
                             <figure>
-                                <img src="{{asset($club->image)}}" class="img-fluid" alt="">
-                                <a href="{{route('user.club.register', $club->id)}}" data-lightbox="portfolio"
+                                <img src="{{ asset($club->image) }}" class="img-fluid" alt="">
+                                <a href="{{ route('user.club.register', $club->id) }}" data-lightbox="portfolio"
                                    data-title="App 1" class="link-preview"><i class="bi bi-plus"></i></a>
-                                <a href="{{route('club.view', $club->id)}}" class="link-details"
-                                   title="More Details"><i
-                                        class="bi bi-link"></i>
+                                <a href="{{ route('club.view', $club->id) }}" class="link-details"
+                                   title="More Details"><i class="bi bi-link"></i>
                                 </a>
                             </figure>
 
                             <div class="portfolio-info">
-                                <h4><a href="portfolio-details.html">{{$club->name}}</a></h4>
-                                <p>{{$club->description}}</p>
+                                <h4><a href="portfolio-details.html">{{ $club->name }}</a></h4>
+                                <p>{{ $club->description }}</p>
                             </div>
                         </div>
                     </div>

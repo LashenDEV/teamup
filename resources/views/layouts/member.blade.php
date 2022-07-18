@@ -80,35 +80,23 @@
         <div class="row justify-content-center align-items-center">
             <div class="col-xl-11 d-flex align-items-center justify-content-between">
                 <div class="d-flex align-items-center justify-content-between">
-                <img src="{{ asset('logos/teamup-logo-new.png') }}" alt="logo" style="width:50px;" class="img-fluid"> &nbsp &nbsp &nbsp
-                <h1 class="logo"><a href="{{ route('user.dashboard') }}">TeamUp</a></h1>
+                    <img src="{{ asset('logos/teamup-logo-new.png') }}" alt="logo" style="width:50px;"
+                         class="img-fluid"> &nbsp &nbsp &nbsp
+                    <h1 class="logo"><a href="{{ route('user.dashboard') }}">TeamUp</a></h1>
                 </div>
-                <!-- Uncomment below if you prefer to use an image logo -->
-                <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
                 <nav id="navbar" class="navbar">
                     <ul>
                         <li><a class="nav-link scrollto @if (url()->current() == route('user.dashboard')) active @endif"
                                href="{{ route('user.dashboard')}}">Home</a></li>
-                        <!--<li><a class="nav-link scrollto" href="#team">Team</a></li>
-        <li><a class="nav-link  " href="blog.html">Blog</a></li>-->
                         <li class="dropdown"><a href="{{url('user/dashboard#portfolio')}}"> <span>Clubs</span> <i
                                     class="bi bi-chevron-down"></i></a>
                             <ul>
-                                <li><a href="#">Art Club</a></li>
-                                <li class="dropdown"><a href="#"><span>Sport Clubs</span> <i
-                                            class="bi bi-chevron-right"></i></a>
-                                    <ul>
-                                        <li><a href="#">Cricket</a></li>
-                                        <li><a href="#">Badminton</a></li>
-                                        <li><a href="#">Football</a></li>
-                                        <li><a href="#">Tenis</a></li>
-                                        <li><a href="#">Base Ball</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">Media & Publication Groups</a></li>
-                                <li><a href="#">Cultural Clubs</a></li>
-                                <li><a href="#">Religious & Spiritual Groups</a></li>
+                                @foreach ($clubs as $key => $c)
+                                    @if($key <= 6)
+                                        <li><a href="{{route('club.view',$c->id)}}">{{$c->name}}</a></li>
+                                    @endif
+                                @endforeach
                             </ul>
                         </li>
                         <!-- Avatar -->
@@ -186,45 +174,50 @@
     <div class="footer-top">
         <div class="container">
             <div class="row">
-            <div class="d-flex justify-content-between flex-md-row flex-column">
-                <div class="col-lg-2 col-md-4 footer-logo d-flex align-items-center justify-content-center pb-5 me-md-5">
-                    <img src="{{ asset('logos/teamup-logo-new.png') }}" alt="logo" style="width:300px;" class="img-fluid">
-                </div>
+                <div class="d-flex justify-content-between flex-md-row flex-column">
+                    <div
+                        class="col-lg-2 col-md-4 footer-logo d-flex align-items-center justify-content-center pb-5 me-md-5">
+                        <img src="{{ asset('logos/teamup-logo-new.png') }}" alt="logo" style="width:300px;"
+                             class="img-fluid">
+                    </div>
 
-                <div class="col-lg-3 col-md-9 footer-info">
-                    <h3>Teamup</h3>
-                    <p>We are pleased to welcome you to the University club management system. We have an excellent reputation for creating 
-                        innovative entrepreneurs. We aim to give every student in our care the best possible education to prepare them for
-                        life beyond University. Through this system, you can view any club of the University and stay connected with us.</p>
-                </div>
+                    <div class="col-lg-3 col-md-9 footer-info">
+                        <h3>Teamup</h3>
+                        <p>We are pleased to welcome you to the University club management system. We have an excellent
+                            reputation for creating
+                            innovative entrepreneurs. We aim to give every student in our care the best possible
+                            education to prepare them for
+                            life beyond University. Through this system, you can view any club of the University and
+                            stay connected with us.</p>
+                    </div>
 
-                <div class="col-lg-3 col-md-3 footer-links d-flex flex-column">
-                    <h4>Useful Links</h4>
-                    <ul>
-                        <li><i class="bi bi-chevron-right"></i> <a href="#hero">Home</a></li>
-                        <li><i class="bi bi-chevron-right"></i> <a href="#portfolio">Clubs</a></li>
-                    </ul>
-                </div>
+                    <div class="col-lg-3 col-md-3 footer-links d-flex flex-column">
+                        <h4>Useful Links</h4>
+                        <ul>
+                            <li><i class="bi bi-chevron-right"></i> <a href="#hero">Home</a></li>
+                            <li><i class="bi bi-chevron-right"></i> <a href="#portfolio">Clubs</a></li>
+                        </ul>
+                    </div>
 
-                <div class="col-lg-3 col-md-6 footer-contact">
-                    <h4>Contact Us</h4>
-                    <p>
-                        105 Passara Road,<br>
+                    <div class="col-lg-3 col-md-6 footer-contact">
+                        <h4>Contact Us</h4>
+                        <p>
+                            105 Passara Road,<br>
                             Badulla,<br>
                             Sri Lanka. <br>
                             <strong>Phone:</strong> +94 335672910<br>
                             <strong>Email:</strong> teamup@gmail.com <br>
-                    </p>
+                        </p>
 
-                    <div class="social-links">
-                        <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-                        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-                        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-                        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+                        <div class="social-links">
+                            <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+                            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+                            <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+                            <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+                        </div>
+
                     </div>
-
                 </div>
-            </div>
             </div>
         </div>
     </div>

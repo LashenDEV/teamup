@@ -4,9 +4,11 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UpdateProfileDataRequest;
+use App\Models\ClubCategory;
 use App\Models\Clubs;
 use App\Models\HistoryLogs;
 use App\Models\RegisteredUser;
+use App\Models\Statement;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -17,16 +19,19 @@ class UserController extends Controller
 {
     public function index()
     {
+        $club_categories = ClubCategory::all();
+        $welcome = Statement::where('title', 'welcome')->first();
         $clubs = Clubs::paginate(6);
         $home_sliders = Clubs::where('home_slider_approval', '1')->get();
-        return view('user.Dashboard.index', compact('clubs', 'home_sliders'));
+        return view('user.Dashboard.index', compact('club_categories', 'welcome', 'clubs', 'home_sliders'));
     }
 
     public function profile()
     {
+        $clubs = Clubs::paginate(6);
         $user = Auth::user();
         $registered_clubs = RegisteredUser::where('user_id', $user->id)->with('registeredClub')->get();
-        return view('user.Dashboard.profile', compact('user', 'registered_clubs'));
+        return view('user.Dashboard.profile', compact('clubs', 'user', 'registered_clubs'));
     }
 
     public function update(UpdateProfileDataRequest $request)

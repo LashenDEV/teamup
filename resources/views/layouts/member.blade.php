@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Clubs of University</title>
+    <title>{{env('APP_NAME')}}</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -87,9 +87,8 @@
 
                 <nav id="navbar" class="navbar">
                     <ul>
-                        <li><a class="nav-link scrollto @if (url()->current() == route('user.dashboard')) active @endif"
-                               href="{{ route('user.dashboard')}}">Home</a></li>
-                        <li class="dropdown"><a href="{{url('user/dashboard#portfolio')}}"> <span>Clubs</span> <i
+                        <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+                        <li class="dropdown"><a class="scrollto" href="{{url('user/dashboard#portfolio')}}"> <span>Clubs</span> <i
                                     class="bi bi-chevron-down"></i></a>
                             <ul>
                                 @foreach ($clubs as $key => $c)

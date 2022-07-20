@@ -8,7 +8,7 @@
                 <i class="fa-solid fa-pen-to-square"></i>
                 Edit Your Club</a>
             <a href="#deleteModal" class="trigger-btn btn btn-danger item-center" data-toggle="modal"
-                class="btn btn-danger item-center">
+               class="btn btn-danger item-center">
                 <i class="fa-solid fa-trash-can"></i>
                 Delete</a>
         @endif
@@ -22,10 +22,19 @@
             <div class="card body">
                 <!-- Background image -->
                 <div class="bg-image mb-5 d-flex align-items-center flex-column" style="background-color: #fff">
+                    <div class="d-flex flex-column w-100 align-items-end">
+                        @if($your_club->approval == 1)
+                            <span class="badge badge-success">Approved</span>
+                        @elseif($your_club->approval == null)
+                            <span class="badge badge-warning text-dark">Pending</span>
+                        @else
+                            <span class="badge badge-danger">Rejected</span>
+                        @endif
+                    </div>
                     <h1 class="text-dark py-4">{{ $your_club->name }}</h1>
                     @if($your_club->image != null)
-                    <img src="{{ asset($your_club->image) }}" alt="" class="img-fluid"
-                        style="height: 500px; width:95% !important;">
+                        <img src="{{ asset($your_club->image) }}" alt="" class="img-fluid"
+                             style="height: 500px; width:95% !important;">
                     @else
                         <div class="d-flex justify-content-center flex-column align-items-center p-5">
                             <h1 class="text-center">{{ __('Please Add a Club Image') }}</h1>
@@ -40,7 +49,7 @@
                     <div class="card shadow p-3 mb-5 rounded">
                         <div class="d-flex align-items-center">
                             <img src="{{ asset('assets/images/Icons/Clubs/description.png') }}" class="m-2 p-2"
-                                alt="..." width="60px" height="60px">
+                                 alt="..." width="60px" height="60px">
                             <h5 class="text-dark">Description:</h5>
                         </div>
                         <div class="card-body pt-0">
@@ -51,7 +60,7 @@
 
                         <div class="d-flex align-items-center">
                             <img src="{{ asset('assets/images/Icons/Clubs/vision.png') }}" class="m-2 p-2"
-                                alt="..." width="60px" height="60px">
+                                 alt="..." width="60px" height="60px">
                             <h5 class="text-dark">Goals of the Club:</h5>
                         </div>
                         <div class="card-body pt-0">
@@ -61,7 +70,7 @@
                     <div class="card shadow p-3 mb-5 rounded">
                         <div class="d-flex align-items-center">
                             <img src="{{ asset('assets/images/Icons/Clubs/mission.png') }}" class="m-2 p-2"
-                                alt="..." width="60px" height="60px">
+                                 alt="..." width="60px" height="60px">
                             <h5 class="text-dark">Mission of the Club:</h5>
                         </div>
                         <div class="card-body pt-0">
@@ -71,7 +80,8 @@
                 </div>
                 <!-- card -->
                 <!-- Confirm Deletion Modal -->
-                <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalCenterTitle"
+                <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog"
+                     aria-labelledby="deleteModalCenterTitle"
                      aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content text-center">
@@ -89,8 +99,10 @@
                                     <form method="POST" action="{{ route('president.club.destroy', $your_club->id) }}">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i>
-                                            Delete</button>
+                                        <button type="submit" class="btn btn-danger"><i
+                                                class="fa-solid fa-trash-can"></i>
+                                            Delete
+                                        </button>
                                     </form>
                                 </div>
                             </div>

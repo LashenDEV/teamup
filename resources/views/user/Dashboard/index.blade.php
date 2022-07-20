@@ -31,8 +31,15 @@
                                     <h2 class="animate__animated animate__fadeInDown">{{ $home_slider->name }}</h2>
                                     <p class="animate__animated animate__fadeInUp">{{ $home_slider->description }}
                                     </p>
-                                    <a href="{{route('user.club.register', $home_slider->id)}}"
-                                       class="btn-get-started scrollto animate__animated animate__fadeInUp">Join Club</a>
+                                    @if(\App\Models\RegisteredUser::where('user_id', Auth::user()->id)->first() == null)
+                                        <a href="{{route('user.club.register', $home_slider->id)}}"
+                                           class="btn-get-started scrollto animate__animated animate__fadeInUp">Join
+                                            Club</a>
+                                    @else
+                                        <a href="{{route('club.view', $home_slider->id)}}"
+                                           class="btn-get-started scrollto animate__animated animate__fadeInUp">View
+                                            Club</a>
+                                    @endif
                                 </div>
                             </div>
                         </div>

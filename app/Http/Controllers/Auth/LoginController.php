@@ -71,7 +71,7 @@ class LoginController extends Controller
                         'user_id' => $user->id,
                         'icon' => '<i class="fa-duotone fa-user-plus ml-2"></i>',
                         'show_to_admin' => 1,
-                        'show_to_president' => 1,
+                        'show_to_president' => 0,
                         'notification' => 'Registered president ' . $user->name . '.',
                     ]);
                 }

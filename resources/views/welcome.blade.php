@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>{{ env('APP_NAME') }}</title>
+    <title>{{env('APP_NAME')}}</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -79,7 +79,7 @@
                         <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
                         <li><a class="nav-link scrollto" href="#about">About</a></li>
                         <li><a class="nav-link scrollto" href="#services">Services</a></li>
-                        <li class="dropdown"><a href="#portfolio"><span>Clubs</span> <i
+                        <li class="dropdown"><a class="scrollto" href="#portfolio"><span>Clubs</span> <i
                                     class="bi bi-chevron-down"></i></a>
                             <ul>
                                 @foreach ($clubs as $key => $club)
@@ -130,7 +130,7 @@
                             <h3 class="animate__animated animate__fadeInUp text-white">
                                 {{ $welcome->statement }}
                             </h3>
-                            <a href="#featured-services"
+                            <a href="#portfolio"
                                class="btn-get-started scrollto animate__animated animate__fadeInUp">Get
                                 Started</a>
                         </div>
@@ -144,8 +144,8 @@
                                 <h2 class="animate__animated animate__fadeInDown">{{ $home_slider->name }}</h2>
                                 <p class="animate__animated animate__fadeInUp">{{ $home_slider->description }}
                                 </p>
-                                <a href="#featured-services"
-                                   class="btn-get-started scrollto animate__animated animate__fadeInUp">Join Club</a>
+                                <a href="{{route('club.view', $home_slider->id)}}"
+                                   class="btn-get-started scrollto animate__animated animate__fadeInUp">View Club</a>
                             </div>
                         </div>
                     </div>
@@ -450,19 +450,25 @@
             <div class="row counters">
 
                 <div class="col-lg-3 col-6 text-center">
-                        <span data-purecounter-start="0" data-purecounter-end="5" data-purecounter-duration="1"
+                        <span data-purecounter-start="0"
+                              data-purecounter-end="{{\App\Models\Clubs::where('approval', 1)->count()}}"
+                              data-purecounter-duration="1"
                               class="purecounter"></span>
                     <p>Clubs</p>
                 </div>
 
                 <div class="col-lg-3 col-6 text-center">
-                        <span data-purecounter-start="0" data-purecounter-end="10" data-purecounter-duration="1"
+                        <span data-purecounter-start="0"
+                              data-purecounter-end="{{\App\Models\User::where('role', 2)->count()}}"
+                              data-purecounter-duration="1"
                               class="purecounter"></span>
                     <p>Presidents</p>
                 </div>
 
                 <div class="col-lg-3 col-6 text-center">
-                        <span data-purecounter-start="0" data-purecounter-end="1364" data-purecounter-duration="1"
+                        <span data-purecounter-start="0"
+                              data-purecounter-end="{{\App\Models\User::where('role', 3)->count()}}"
+                              data-purecounter-duration="1"
                               class="purecounter"></span>
                     <p>Members</p>
                 </div>
@@ -470,7 +476,7 @@
                 <div class="col-lg-3 col-6 text-center">
                         <span data-purecounter-start="0" data-purecounter-end="6" data-purecounter-duration="1"
                               class="purecounter"></span>
-                    <p>Admins</p>
+                    <p>Projects</p>
                 </div>
 
             </div>

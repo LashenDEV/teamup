@@ -64,7 +64,7 @@
             <div class="col-xl-11 d-flex align-items-center justify-content-between">
                 <div class="d-flex align-items-center justify-content-between">
                     <a href="/"><img src="{{ asset('logos/teamup-logo-new.png') }}" alt="logo" style="width:50px;"
-                         class="img-fluid"></a> &nbsp &nbsp &nbsp
+                                     class="img-fluid"></a> &nbsp &nbsp &nbsp
                     <h1 class="logo"><a href="/">TeamUp</a></h1>
                 </div>
 
@@ -161,7 +161,7 @@
 
 <main id="main">
 
-<!-- ======= About Us Section ======= -->
+    <!-- ======= About Us Section ======= -->
     <section id="about">
         <div class="container" data-aos="fade-up">
 
@@ -251,13 +251,16 @@
                 <div class="col-lg-4 col-md-6 box" data-aos="fade-up" data-aos-delay="300">
                     <div class="icon"><i class="bi bi-brightness-high"></i></div>
                     <h4 class="title"><a href="">Club Activities</a></h4>
-                    <p class="description">TeamUp is a very supportive environment for the co-curricular activities of students. They are encouraged to get
-                        involved in the organizing of social activities, charity work, and activities pertaining to their own personality development</p>
+                    <p class="description">TeamUp is a very supportive environment for the co-curricular activities of
+                        students. They are encouraged to get
+                        involved in the organizing of social activities, charity work, and activities pertaining to
+                        their own personality development</p>
                 </div>
                 <div class="col-lg-4 col-md-6 box" data-aos="fade-up" data-aos-delay="400">
                     <div class="icon"><i class="bi bi-building"></i></div>
                     <h4 class="title"><a href="">Recreational Facilities</a></h4>
-                    <p class="description">TeamUp recreational building consists of a swimming pool with 6 lanes, a multi-purpose indoor sports building
+                    <p class="description">TeamUp recreational building consists of a swimming pool with 6 lanes, a
+                        multi-purpose indoor sports building
                         including a basketball court, a badminton court, and a table tennis court./p>
                 </div>
 
@@ -280,6 +283,7 @@
                         <li data-filter="*" class="filter-active">All</li>
                         @foreach ($club_categories as $club_category)
                             @php($filter = str_replace(' ', '_', $club_category->category_name))
+                            @php($filter = preg_replace('/[^a-zA-Z0-9_.]/', '', $filter))
                             <li data-filter=".{{ strtolower($filter) }}">
                                 {{ $club_category->category_name }}
                             </li>
@@ -291,7 +295,8 @@
             <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
                 @foreach ($clubs as $club)
                     @php($filter = str_replace(' ', '_', $club->category_name))
-                    <div class="col-lg-4 col-md-6 portfolio-item cultural">
+                    @php($filter = preg_replace('/[^a-zA-Z0-9_.]/', '', $filter))
+                    <div class="col-lg-4 col-md-6 portfolio-item {{ strtolower($filter) }}">
                         <div class="portfolio-wrap">
                             <figure>
                                 <img src="{{ asset($club->image) }}" class="img-fluid" alt="">
@@ -315,7 +320,7 @@
         </div>
     </section><!-- End Portfolio Section -->
 
-<!-- ======= Facts Section ======= -->
+    <!-- ======= Facts Section ======= -->
     <section id="facts">
         <div class="container" data-aos="fade-up">
 
@@ -360,7 +365,7 @@
         </div>
     </section><!-- End Facts Section -->
 
-<!-- ======= Contact Section ======= -->
+    <!-- ======= Contact Section ======= -->
     <section id="contact" class="section-bg">
         <div class="container" data-aos="fade-up">
 

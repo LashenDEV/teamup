@@ -74,6 +74,7 @@
                         <li data-filter="*" class="filter-active">All</li>
                         @foreach ($club_categories as $club_category)
                             @php($filter = str_replace(' ', '_', $club_category->category_name))
+                            @php($filter = preg_replace('/[^a-zA-Z0-9_.]/', '', $filter))
                             <li data-filter=".{{ strtolower($filter) }}">
                                 {{ $club_category->category_name }}
                             </li>
@@ -85,7 +86,8 @@
             <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
                 @foreach ($clubs as $club)
                     @php($filter = str_replace(' ', '_', $club->category_name))
-                    <div class="col-lg-4 col-md-6 portfolio-item cultural">
+                    @php($filter = preg_replace('/[^a-zA-Z0-9_.]/', '', $filter))
+                    <div class="col-lg-4 col-md-6 portfolio-item {{ strtolower($filter) }}">
                         <div class="portfolio-wrap">
                             <figure>
                                 <img src="{{ asset($club->image) }}" class="img-fluid" alt="">

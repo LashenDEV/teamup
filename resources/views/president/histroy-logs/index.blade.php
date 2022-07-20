@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title', 'Events')
+@section('title', 'History Logs')
 @section('content')
     <div class="card card-table-border-none border-0">
         <div class="card-header d-flex flex-column flex-md-row justify-content-between p-4"
@@ -8,13 +8,13 @@
                 <h1>History Logs</h1>
             </div>
             <div class="text-right">
-                <a href="{{ url()->previous() }}">
+                <a href="{{url()->previous() == 'https://teamup.test/president/dashboard' ? route('president.dashboard') : url()->previous()}}">
                     <button type="button" class="btn btn-secondary">Back</button>
                 </a>
             </div>
         </div>
         <div class="col-md-12 pt-3 bg-white">
-            <div class="col-md-12 pt-3 bg-white">
+            <div class="col-md-12 pt-3 bg-white" style="min-height: 60vh">
                 @if(!$history_logs->isEmpty())
                     @foreach($history_logs as $history_log)
                         <div class="card mb-2">

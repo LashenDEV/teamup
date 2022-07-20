@@ -11,8 +11,9 @@ class MeetingController extends Controller
 {
     public function all($id)
     {
+        $clubs = Clubs::paginate(6);
         $club = Clubs::with('notices', 'clubOwner')->findOrFail($id);
         $all_meetings = Meeting::where('club_id', $id)->where('status', 1)->orderBy('date', 'asc')->orderBy('time', 'asc')->get();
-        return view('user.meeting.index', compact('all_meetings', 'club'));
+        return view('user.meeting.index', compact('all_meetings', 'club', 'clubs'));
     }
 }

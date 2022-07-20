@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title', 'Events')
+@section('title', 'History Logs')
 @section('content')
     <div class="card card-table-border-none border-0">
         <div class="card-header d-flex flex-column flex-md-row justify-content-between p-4"
@@ -14,7 +14,7 @@
             </div>
         </div>
         <div class="col-md-12 pt-3 bg-white">
-            <div class="col-md-12 pt-3 bg-white">
+            <div class="col-md-12 pt-3 bg-white" style="min-height: 60vh">
                 @if(!$history_logs->isEmpty())
                     @foreach($history_logs as $history_log)
                         <div class="card mb-2">

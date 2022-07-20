@@ -418,7 +418,7 @@
                                 <i class="mdi mdi-bell-outline"></i>
                             </button>
                             <ul class="dropdown-menu dropdown-menu-right">
-                                @php($notifications = \App\Models\Notifications::where('show_to_president', 1)->where('status_to_president', 0)->get())
+                                @php($notifications = \App\Models\Notifications::where('user_id', Auth::user()->id)->where('show_to_president', 1)->where('status_to_president', 0)->get())
                                 <li class="dropdown-header">You have {{$notifications->count()}} notifications</li>
                                 @foreach($notifications as $notification)
                                     <li>

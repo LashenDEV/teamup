@@ -102,7 +102,7 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['isAdmin',
 
 //Routes for Presidents
 Route::group(['as' => 'president.', 'prefix' => 'president', 'middleware' => ['isPresident', 'auth', 'verified']], function () {
-    Route::get('dashboard', [President\PresidentController::class, 'index'])->name('dashboard');
+    Route::get('dashboard', [President\PresidentController::class, 'index'])->name('dashboard')->middleware('isClubCreated');
     Route::get('profile', [President\PresidentController::class, 'profile'])->name('profile');
     Route::put('update', [President\PresidentController::class, 'update'])->name('profile.update');
     Route::put('change/password', [President\PresidentController::class, 'ChangePassword'])->name('password.change');
@@ -117,54 +117,55 @@ Route::group(['as' => 'president.', 'prefix' => 'president', 'middleware' => ['i
     Route::put('club/{id}/update', [President\ClubController::class, 'update'])->name('club.update');
     Route::delete('club/{id}', [President\ClubController::class, 'destroy'])->name('club.destroy');
 
-    //Club Image Sliders
-    Route::get('club/slider/image', [President\ClubSliderImageController::class, 'index'])->name('slider.image.index');
-    Route::post('club/slider/image/store', [President\ClubSliderImageController::class, 'store'])->name('slider.image.store');
-    Route::put('club/slider/image/{id}/update', [President\ClubSliderImageController::class, 'update'])->name('slider.image.update');
+    Route::group(['middleware' => 'isClubCreated'], function () {
+        //Club Image Sliders
+        Route::get('club/slider/image', [President\ClubSliderImageController::class, 'index'])->name('slider.image.index');
+        Route::post('club/slider/image/store', [President\ClubSliderImageController::class, 'store'])->name('slider.image.store');
+        Route::put('club/slider/image/{id}/update', [President\ClubSliderImageController::class, 'update'])->name('slider.image.update');
 
-    //Events
-    Route::get('event', [President\EventController::class, 'index'])->name('event.index');
-    Route::get('event/create', [President\EventController::class, 'create'])->name('event.create');
-    Route::post('event/store', [President\EventController::class, 'store'])->name('event.store');
-    Route::get('event/{id}/edit/', [President\EventController::class, 'edit'])->name('event.edit');
-    Route::put('event/{id}/update', [President\EventController::class, 'update'])->name('event.update');
-    Route::delete('event/{id}', [President\EventController::class, 'destroy'])->name('event.destroy');
+        //Events
+        Route::get('event', [President\EventController::class, 'index'])->name('event.index');
+        Route::get('event/create', [President\EventController::class, 'create'])->name('event.create');
+        Route::post('event/store', [President\EventController::class, 'store'])->name('event.store');
+        Route::get('event/{id}/edit/', [President\EventController::class, 'edit'])->name('event.edit');
+        Route::put('event/{id}/update', [President\EventController::class, 'update'])->name('event.update');
+        Route::delete('event/{id}', [President\EventController::class, 'destroy'])->name('event.destroy');
 
-    //Notices
-    Route::get('notice', [President\NoticeController::class, 'index'])->name('notice.index');
-    Route::get('notice/create', [President\NoticeController::class, 'create'])->name('notice.create');
-    Route::post('notice/store', [President\NoticeController::class, 'store'])->name('notice.store');
-    Route::get('notice/{id}/edit/', [President\NoticeController::class, 'edit'])->name('notice.edit');
-    Route::put('notice/{id}/update', [President\NoticeController::class, 'update'])->name('notice.update');
-    Route::get('notice/{id}/publish', [President\NoticeController::class, 'publish'])->name('notice.publish');
-    Route::delete('notice/{id}', [President\NoticeController::class, 'destroy'])->name('notice.destroy');
+        //Notices
+        Route::get('notice', [President\NoticeController::class, 'index'])->name('notice.index');
+        Route::get('notice/create', [President\NoticeController::class, 'create'])->name('notice.create');
+        Route::post('notice/store', [President\NoticeController::class, 'store'])->name('notice.store');
+        Route::get('notice/{id}/edit/', [President\NoticeController::class, 'edit'])->name('notice.edit');
+        Route::put('notice/{id}/update', [President\NoticeController::class, 'update'])->name('notice.update');
+        Route::get('notice/{id}/publish', [President\NoticeController::class, 'publish'])->name('notice.publish');
+        Route::delete('notice/{id}', [President\NoticeController::class, 'destroy'])->name('notice.destroy');
 
 
-    //Members
-    Route::get('members', [President\MemberController::class, 'index'])->name('members.index');
-    Route::get('members/{id}/edit/', [President\MemberController::class, 'edit'])->name('members.edit');
-    Route::delete('members/{id}', [President\MemberController::class, 'destroy'])->name('members.destroy');
-    Route::get('member/search', [President\MemberController::class, 'search'])->name('member.search');
+        //Members
+        Route::get('members', [President\MemberController::class, 'index'])->name('members.index');
+        Route::get('members/{id}/edit/', [President\MemberController::class, 'edit'])->name('members.edit');
+        Route::delete('members/{id}', [President\MemberController::class, 'destroy'])->name('members.destroy');
+        Route::get('member/search', [President\MemberController::class, 'search'])->name('member.search');
 
-    //Meetings
-    Route::get('meeting', [President\MeetingController::class, 'index'])->name('meeting.index');
-    Route::get('meeting/create', [President\MeetingController::class, 'create'])->name('meeting.create');
-    Route::post('meeting/store', [President\MeetingController::class, 'store'])->name('meeting.store');
-    Route::get('meeting/{id}/edit/', [President\MeetingController::class, 'edit'])->name('meeting.edit');
-    Route::put('meeting/{id}/update', [President\MeetingController::class, 'update'])->name('meeting.update');
-    Route::get('meeting/{id}/publish', [President\MeetingController::class, 'publish'])->name('meeting.publish');
-    Route::get('meeting/{id}/draft', [President\MeetingController::class, 'draft'])->name('meeting.draft');
-    Route::delete('meeting/{id}', [President\MeetingController::class, 'destroy'])->name('meeting.destroy');
+        //Meetings
+        Route::get('meeting', [President\MeetingController::class, 'index'])->name('meeting.index');
+        Route::get('meeting/create', [President\MeetingController::class, 'create'])->name('meeting.create');
+        Route::post('meeting/store', [President\MeetingController::class, 'store'])->name('meeting.store');
+        Route::get('meeting/{id}/edit/', [President\MeetingController::class, 'edit'])->name('meeting.edit');
+        Route::put('meeting/{id}/update', [President\MeetingController::class, 'update'])->name('meeting.update');
+        Route::get('meeting/{id}/publish', [President\MeetingController::class, 'publish'])->name('meeting.publish');
+        Route::get('meeting/{id}/draft', [President\MeetingController::class, 'draft'])->name('meeting.draft');
+        Route::delete('meeting/{id}', [President\MeetingController::class, 'destroy'])->name('meeting.destroy');
 
-    //History-logs
-    Route::get('history-logs', [President\HistroyLogsController::class, 'index'])->name('history-logs.index');
+        //History-logs
+        Route::get('history-logs', [President\HistroyLogsController::class, 'index'])->name('history-logs.index');
 
-    //Notifications
-    Route::get('notification/read-all', [President\NotificationController::class, 'readAll'])->name('notification.read-all');
+        //Notifications
+        Route::get('notification/read-all', [President\NotificationController::class, 'readAll'])->name('notification.read-all');
 
-    //Payments
-    Route::get('payment', [President\PaymentController::class, 'index'])->name('payment.index');
-
+        //Payments
+        Route::get('payment', [President\PaymentController::class, 'index'])->name('payment.index');
+    });
 });
 
 

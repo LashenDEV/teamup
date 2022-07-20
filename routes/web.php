@@ -23,6 +23,7 @@ Route::get('/', [Admin\HomePageController::class, 'show'])->name('/');
 Auth::routes(['verify' => true]);
 
 Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
+Route::post('/contact-form', [App\Http\Controllers\ContactController::class, 'storeContactForm'])->name('contact-form.store');
 
 //Routes for Auth Users
 Route::group(['middleware' => ['auth', 'verified']], function () {

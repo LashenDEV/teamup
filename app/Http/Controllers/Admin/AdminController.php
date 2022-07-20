@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateProfileDataRequest;
 use App\Models\Clubs;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Image;
@@ -16,10 +17,13 @@ class AdminController extends Controller
     public function index()
     {
         $president_count = User::where('role', 2)->count();
-        $member_count = User::where('role', 2)->count();
-        $club_count = Clubs::all()->count();
+        $member_count = User::where('role', 3)->whereNotNull('email_verified_at')->count();
+        $new_members = User::where('role', 3)->whereMonth('created_at', Carbon::now()->month)->count();
+        $club_count = Clubs::where('approval', 1)->count();
         $recent_clubs = Clubs::orderBy('id', 'desc')->take(5)->get();
-        return view('admin.dashboard.index', compact('president_count', 'member_count','club_count', 'recent_clubs'));
+        $total_clubs_year = Clubs::where('approval', 1)->whereYear('created_at', Carbon::now()->year)->count();
+        $total_members_year = User::where('role', 3)->whereNotNull('email_verified_at')->whereYear('created_at', Carbon::now()->year)->count();
+        return view('admin.dashboard.index', compact('president_count', 'total_clubs_year', 'total_members_year', 'member_count', 'club_count', 'recent_clubs', 'new_members'));
     }
 
     public function profile()

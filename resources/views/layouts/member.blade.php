@@ -38,12 +38,6 @@
     <!-- Jquery CDN -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
-    <!-- =======================================================
-    * Template Name: BizPage - v5.8.0
-    * Template URL: https://bootstrapmade.com/bizpage-bootstrap-business-template/
-    * Author: BootstrapMade.com
-    * License: https://bootstrapmade.com/license/
-    ======================================================== -->
     <style>
         .button {
             border: none;
@@ -69,8 +63,6 @@
         /* Blue */
     </style>
 </head>
-
-<body>
 
 <body>
 
@@ -226,12 +218,6 @@
             &copy; Copyright <strong>TeamUp</strong>. All Rights Reserved
         </div>
         <div class="credits">
-            <!--
-All the links in the footer should remain intact.
-You can delete the links only if you purchased the pro version.
-Licensing information: https://bootstrapmade.com/license/
-Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=BizPage
--->
             Designed by <a href="https://bootstrapmade.com/">#team12</a>
         </div>
     </div>

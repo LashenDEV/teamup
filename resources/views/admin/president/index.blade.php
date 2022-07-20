@@ -14,7 +14,7 @@
                             class="fa-light fa-plus"></i> Add President
                     </button>
                 </a>
-                <a href="{{ url()->previous() }}">
+                <a href="{{url()->previous() == 'https://teamup.test/admin/dashboard' ? route('admin.dashboard') : url()->previous()}}">
                     <button type="button" class="btn btn-secondary">Back</button>
                 </a>
             </div>

@@ -9,7 +9,7 @@
                     <h1>Submit a Notice</h1>
                 </div>
                 <div class="text-right">
-                    <a href="{{ url()->previous() }}">
+                    <a href="{{url()->previous() == 'https://teamup.test/president/dashboard' ? route('president.dashboard') : url()->previous()}}">
                         <button type="button" class="btn btn-secondary">Back</button>
                     </a>
                 </div>

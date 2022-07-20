@@ -13,7 +13,7 @@
                             class="fa-light fa-plus"></i> Create A Meeting
                     </button>
                 </a>
-                <a href="{{ url()->previous() }}">
+                <a href="{{url()->previous() == 'https://teamup.test/president/dashboard' ? route('president.dashboard') : url()->previous()}}">
                     <button type="button" class="btn btn-secondary">Back</button>
                 </a>
             </div>

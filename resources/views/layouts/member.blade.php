@@ -38,12 +38,6 @@
     <!-- Jquery CDN -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
-    <!-- =======================================================
-    * Template Name: BizPage - v5.8.0
-    * Template URL: https://bootstrapmade.com/bizpage-bootstrap-business-template/
-    * Author: BootstrapMade.com
-    * License: https://bootstrapmade.com/license/
-    ======================================================== -->
     <style>
         .button {
             border: none;

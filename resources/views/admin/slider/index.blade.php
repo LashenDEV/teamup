@@ -22,6 +22,7 @@
                     <th>Image</th>
                     <th class="d-none d-md-table-cell" style="width: 500px">Description</th>
                     <th class="d-none d-md-table-cell">Add to Home Slider</th>
+                    <th>Status</th>
                 </thead>
                 <tbody>
                     @foreach ($sliders as $slider)

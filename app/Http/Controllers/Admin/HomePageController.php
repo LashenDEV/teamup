@@ -18,7 +18,7 @@ class HomePageController extends Controller
         $plan = Statement::where('title', 'plan')->first();
         $vision = Statement::where('title', 'vision')->first();
         $clubs = Clubs::where('approval', 1)->paginate(6);
-        $home_sliders = Clubs::where('home_slider_approval', '1')->get();
+        $home_sliders = Clubs::where('approval', 1)->where('home_slider_approval', '1')->get();
         $club_categories = ClubCategory::all();
         return view('welcome', compact('clubs', 'club_categories', 'home_sliders', 'welcome', 'about', 'mission', 'plan', 'vision'));
     }

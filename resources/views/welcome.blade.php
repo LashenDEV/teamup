@@ -380,7 +380,7 @@
                     <div class="contact-address">
                         <i class="bi bi-geo-alt"></i>
                         <h3>Address</h3>
-                        <address>No:- 105 Passara Road, Badulla.</address>
+                        <address>No: 105 Passara Road, Badulla.</address>
                     </div>
                 </div>
 
@@ -396,14 +396,15 @@
                     <div class="contact-email">
                         <i class="bi bi-envelope"></i>
                         <h3>Email</h3>
-                        <p><a href="mailto:info@example.com">teamup@gmail.com</a></p>
+                        <p><a href="mailto:info@example.com">teamup@info.com</a></p>
                     </div>
                 </div>
 
             </div>
 
             <div class="form">
-                <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                <form action="{{route('contact-form.store')}}" method="POST" class="php-email-form">
+                    @csrf
                     <div class="row">
                         <div class="form-group col-md-6">
                             <input type="text" name="name" class="form-control" id="name" placeholder="Your Name"
@@ -423,16 +424,15 @@
                                   required></textarea>
                     </div>
                     <div class="my-3">
-                        <div class="loading">Loading</div>
-                        <div class="error-message"></div>
-                        <div class="sent-message">Your message has been sent. Thank you!</div>
+                        @if (session('success'))
+                            <div class="sent-message">{{ session('success') }}</div>
+                        @endif
                     </div>
                     <div class="text-center">
                         <button type="submit">Send Message</button>
                     </div>
                 </form>
             </div>
-
         </div>
     </section><!-- End Contact Section -->
 
@@ -446,8 +446,10 @@
                 <div class="d-flex justify-content-between flex-md-row flex-column">
                     <div
                         class="col-lg-2 col-md-4 footer-logo d-flex align-items-center justify-content-center pb-5 me-md-5">
-                        <img src="{{ asset('logos/teamup-logo-new.png') }}" alt="logo" style="width:300px;"
-                             class="img-fluid">
+                        <a href="/">
+                            <img src="{{ asset('logos/teamup-logo-new.png') }}" alt="logo" style="width:300px;"
+                                 class="img-fluid">
+                        </a>
                     </div>
                     <div class="col-lg-3 col-md-9 footer-info">
                         <h3>TeamUp</h3>

@@ -20,7 +20,7 @@
                                     </div>
                                     <div class="text-center d-flex flex-column justify-content-center">
                                         <p class="mb-1">Total President Count</p>
-                                        <h1>{{$president_count}}</h1>
+                                        <h1>{{$president_count ? : 0}}</h1>
                                     </div>
                                 </div>
                             </div>
@@ -35,7 +35,7 @@
                                     </div>
                                     <div class="text-center d-flex flex-column justify-content-center">
                                         <p class="mb-1">Total Members Count</p>
-                                        <h1>{{$member_count}}</h1>
+                                        <h1>{{$member_count ? : 0}}</h1>
                                     </div>
                                 </div>
                             </div>
@@ -50,7 +50,7 @@
                                     </div>
                                     <div class="text-center d-flex flex-column justify-content-center">
                                         <p class="mb-1">Total Clubs Count</p>
-                                        <h1>{{$club_count}}</h1>
+                                        <h1>{{$club_count ? : 0}}</h1>
                                     </div>
                                 </div>
                             </div>
@@ -64,74 +64,8 @@
                                         <i class="fa-duotone fa-user-tie fa-5x"></i>
                                     </div>
                                     <div class="text-center d-flex flex-column justify-content-center">
-                                        <p class="mb-1">New Visitors Today</p>
-                                        <h1>9,503</h1>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mt-3">
-                    <div class="col-xl-8 col-md-12">
-                        <!-- Registration Graph -->
-                        <div class="card card-default shadow bg-body rounded" data-scroll-height="675">
-                            <div class="card-header">
-                                <h2>Overview of registration for the year</h2>
-                            </div>
-                            <div class="card-body">
-                                <canvas id="linechart" class="chartjs"></canvas>
-                            </div>
-                            <div class="card-footer d-flex flex-wrap bg-white p-0">
-                                <div class="col-6 px-0">
-                                    <div class="text-center p-4">
-                                        <h4>6,308</h4>
-                                        <p class="mt-2">Total clubs registered in the year</p>
-                                    </div>
-                                </div>
-                                <div class="col-6 px-0">
-                                    <div class="text-center p-4 border-left">
-                                        <h4>70,506</h4>
-                                        <p class="mt-2">Total members registered in the year</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-md-12">
-                        <!-- Doughnut Chart -->
-                        <div class="card card-default shadow bg-body rounded" data-scroll-height="675">
-                            <div class="card-header justify-content-center">
-                                <h2>Most Engaged Clubs</h2>
-                            </div>
-                            <div class="card-body">
-                                <canvas id="doChart"></canvas>
-                            </div>
-                            <a href="#" class="pb-5 d-block text-center text-muted"><i
-                                    class="mdi mdi-download mr-2"></i> Download overall report</a>
-                            <div class="card-footer d-flex flex-wrap bg-white p-0">
-                                <div class="col-6">
-                                    <div class="py-4 px-4">
-                                        <ul class="d-flex flex-column justify-content-between">
-                                            <li class="mb-2"><i class="mdi mdi-checkbox-blank-circle-outline mr-2"
-                                                                style="color: #4c84ff"></i>Rotract Club
-                                            </li>
-                                            <li><i class="mdi mdi-checkbox-blank-circle-outline mr-2"
-                                                   style="color: #80e1c1 "></i>Leo Club
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="col-6 border-left">
-                                    <div class="py-4 px-4 ">
-                                        <ul class="d-flex flex-column justify-content-between">
-                                            <li class="mb-2"><i class="mdi mdi-checkbox-blank-circle-outline mr-2"
-                                                                style="color: #8061ef"></i>Art Club
-                                            </li>
-                                            <li><i class="mdi mdi-checkbox-blank-circle-outline mr-2"
-                                                   style="color: #ffa128"></i>English Club
-                                            </li>
-                                        </ul>
+                                        <p class="mb-1">New Members This Month</p>
+                                        <h1>{{$new_members ? : 0}}</h1>
                                     </div>
                                 </div>
                             </div>

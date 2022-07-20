@@ -108,13 +108,6 @@
                                         <span class="nav-text"> Statements</span>
                                     </a>
                                 </li>
-                                <li class="active">
-                                    <a class="sidenav-item-link" href="#">
-                                        <i class="fa-solid fa-file-signature mr-2"></i><span
-                                            class="nav-text">Footer</span>
-                                    </a>
-                                </li>
-
                             </div>
                         </ul>
                     </li>
@@ -144,12 +137,6 @@
                                     <a class="sidenav-item-link" href="{{ route('admin.category.index') }}">
                                         <i class="fa-solid fa-compress-wide mr-2"></i>
                                         <span class="nav-text">Clubs Categories</span>
-                                    </a>
-                                </li>
-                                <li class="">
-                                    <a class="sidenav-item-link" href="#">
-                                        <i class="fa-solid fa-file-signature mr-2"></i>
-                                        <span class="nav-text">Footer</span>
                                     </a>
                                 </li>
                             </div>

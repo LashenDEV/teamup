@@ -13,7 +13,7 @@
                                 <a href="/index.html" class="pl-0">
                                     <img src="{{asset('assets/images/logos/teamup logo.png')}}" alt="">
                                     <span class="brand-name">
-                                        <h1>Teamup</h1>
+                                        <h1>TeamUp</h1>
                                     </span>
                                 </a>
                             </div>

@@ -80,8 +80,8 @@
         <div class="row justify-content-center align-items-center">
             <div class="col-xl-11 d-flex align-items-center justify-content-between">
                 <div class="d-flex align-items-center justify-content-between">
-                    <img src="{{ asset('logos/teamup-logo-new.png') }}" alt="logo" style="width:50px;"
-                         class="img-fluid"> &nbsp &nbsp &nbsp
+                    <a href="/"><img src="{{ asset('logos/teamup-logo-new.png') }}" alt="logo" style="width:50px;"
+                         class="img-fluid"></a> &nbsp &nbsp &nbsp
                     <h1 class="logo"><a href="{{ route('user.dashboard') }}">TeamUp</a></h1>
                 </div>
 

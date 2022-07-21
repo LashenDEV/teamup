@@ -23,6 +23,7 @@ class CreateEventsTable extends Migration
             $table->date('date')->nullable();
             $table->time('time')->nullable();
             $table->string('venue')->nullable();
+            $table->boolean('status')->default(0);
             $table->timestamps();
 
             $table->foreign('president_id')->references('id')->on('users')->onDelete('cascade');

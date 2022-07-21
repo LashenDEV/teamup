@@ -101,4 +101,26 @@ class EventController extends Controller
 
         return redirect()->back()->with('success', 'EVENT DELETED SUCCESSFULLY');
     }
+
+    public function publish($id)
+    {
+        $event = Event::findOrFail($id);
+        $event->update(['status' => 1]);
+        HistoryLogs::create([
+            'user_id' => \Auth::user()->id,
+            'description' => 'Published the ' . $event->title . ' event.'
+        ]);
+        return redirect()->route('president.event.index')->with('success', 'EVENT IS PUBLISHED SUCCESSFULLY');
+    }
+
+    public function draft($id)
+    {
+        $event = Event::findOrFail($id);
+        $event->update(['status' => 0]);
+        HistoryLogs::create([
+            'user_id' => \Auth::user()->id,
+            'description' => 'Drafted the ' . $event->title . ' event.'
+        ]);
+        return redirect()->route('president.event.index')->with('success', 'EVENT IS DRAFTED SUCCESSFULLY');
+    }
 }

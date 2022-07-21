@@ -148,73 +148,123 @@
                             </div>
                         </div>
                     @endif
-                    @endif
-                    <div class="col-lg-12 py-5">
-                        <div class="portfolio-info" data-aos="zoom-in">
-                            <div class="align-items-center">
-                                <h1>Get to know us</h1>
-                            </div>
-                            <div class="col-md-12" data-aos="zoom-in">
+                </div>
+                <div class="col-lg-12 p-3 mt-3">
+                    @if($events != null)
+                        <div class="portfolio-info p-4" data-aos="zoom-in">
+                            <div class="col-md-12">
                                 <div class="row">
-                                    <div class="col-md-4">
-                                        <div style="width: 4px; align:center;">
-                                            <img
-                                                src="{{ asset('https://www.uwu.ac.lk/wp-content/uploads/National_Y_Model_2017_1.jpg') }}"
-                                                alt="">
+                                    @foreach($events as $event)
+                                        <div class="col-md-6">
+                                            <div class="card shadow-sm p-2 bg-white rounded">
+                                                <div style="width: 100%; height: 300px">
+                                                    <img class="card-img-top"
+                                                         src="{{asset($event->image)}}"
+                                                         style="width: 100%; height: 100%; object-fit: cover"
+                                                         alt="{{$event->name}}">
+                                                </div>
+                                                <div class="card-body p-0 p-2" style="min-height: 70vh">
+                                                    <br>
+                                                    <h3 class="card-title text-primary">{{ $event->name }}</h3>
+                                                    <p class="card-text">{!! $event->description !!}</p>
+                                                    <div class="d-flex flex-column">
+                                                        <div class="d-flex flex-row p-1 align-items-center">
+                                                            <i class="fa-duotone fa-calendar-day"></i>
+                                                            <p class="card-text pe-2">{{ $event->date }}</p>
+                                                        </div>
+                                                        <div class="d-flex flex-row p-1 align-items-center">
+                                                            <i class="fa-duotone fa-clock"></i>
+                                                            <p class="card-text pe-2">{{ $event->time }}</p>
+                                                        </div>
+                                                        <div class="d-flex flex-row p-1 align-items-center">
+                                                            <i class="fa-duotone fa-circle-location-arrow"></i>
+                                                            <p class="card-text pe-2">{{ $event->venue }}</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <p data-aos="zoom-in">
-                                            {{ $club->description }}
-                                        </p>
-                                    </div>
+                                    @endforeach
                                 </div>
                             </div>
+                            {{ $events->links('components.pagination') }}
                         </div>
+                    @else
+                        <div class="col-lg-12">
+                            <div class="portfolio-info p-4" data-aos="zoom-in">
+                                <h2 class="text-center d-flex justify-content-center align-items-center m-0"><i
+                                        class="fa-solid fa-hexagon-exclamation fa-2x pe-3"></i>No Events</h2>
+                            </div>
+                        </div>
+                    @endif
+                </div>
+            @endif
+            <div class="col-lg-12 py-5">
+                <div class="portfolio-info" data-aos="zoom-in">
+                    <div class="align-items-center">
+                        <h1>Get to know us</h1>
                     </div>
-                    <div class="row gy-4">
-                        <div class="col-lg-4">
-                            <div class="portfolio-info h-100 py-4" data-aos="fade-up">
-                                <h3>Committee Members</h3>
-                                <div class="text-center">
-                                    <ul class="d-flex justify-content-center">
-                                        <li class="m-1"><img src="https://www.w3schools.com/howto/img_avatar.png"
-                                                             width="100px" style="border-radius: 58%"
-                                                             class="border border-primary border-5"
-                                                             alt=""><br><br><strong>President</strong><br> {{ $club->clubOwner->name }}
-                                        </li>
-                                        <li class="m-1"><img src="https://www.w3schools.com/howto/img_avatar.png"
-                                                             width="100px" style="border-radius: 58%"
-                                                             class="border border-primary border-5"
-                                                             alt=""><br><br><strong>Secretary</strong><br> {{ $club->clubOwner->name }}
-                                        </li>
-                                        <li class="m-1"><img src="https://www.w3schools.com/howto/img_avatar.png"
-                                                             width="100px" style="border-radius: 58%"
-                                                             class="border border-primary border-5"
-                                                             alt=""><br><br><strong>Treasurer</strong><br> {{ $club->clubOwner->name }}
-                                        </li>
-                                    </ul>
+                    <div class="col-md-12" data-aos="zoom-in">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div style="width: 4px; align:center;">
+                                    <img
+                                        src="{{ asset('https://www.uwu.ac.lk/wp-content/uploads/National_Y_Model_2017_1.jpg') }}"
+                                        alt="">
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-4 ">
-                            <div class="portfolio-info h-100" data-aos="fade-up">
-                                <h3>Vision</h3>
-                                <p>
-                                    {{ $club->vision }}
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 ">
-                            <div class="portfolio-info h-100" data-aos="fade-up" margin-bottom="10px;">
-                                <h3>Mission</h3>
-                                <p>
-                                    {{ $club->mission }}
+                            <div class="col-md-8">
+                                <p data-aos="zoom-in">
+                                    {{ $club->description }}
                                 </p>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="row gy-4">
+                <div class="col-lg-4">
+                    <div class="portfolio-info h-100 py-4" data-aos="fade-up">
+                        <h3>Committee Members</h3>
+                        <div class="text-center">
+                            <ul class="d-flex justify-content-center">
+                                <li class="m-1"><img src="https://www.w3schools.com/howto/img_avatar.png"
+                                                     width="100px" style="border-radius: 58%"
+                                                     class="border border-primary border-5"
+                                                     alt=""><br><br><strong>President</strong><br> {{ $club->clubOwner->name }}
+                                </li>
+                                <li class="m-1"><img src="https://www.w3schools.com/howto/img_avatar.png"
+                                                     width="100px" style="border-radius: 58%"
+                                                     class="border border-primary border-5"
+                                                     alt=""><br><br><strong>Secretary</strong><br> {{ $club->clubOwner->name }}
+                                </li>
+                                <li class="m-1"><img src="https://www.w3schools.com/howto/img_avatar.png"
+                                                     width="100px" style="border-radius: 58%"
+                                                     class="border border-primary border-5"
+                                                     alt=""><br><br><strong>Treasurer</strong><br> {{ $club->clubOwner->name }}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 ">
+                    <div class="portfolio-info h-100" data-aos="fade-up">
+                        <h3>Vision</h3>
+                        <p>
+                            {{ $club->vision }}
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 ">
+                    <div class="portfolio-info h-100" data-aos="fade-up" margin-bottom="10px;">
+                        <h3>Mission</h3>
+                        <p>
+                            {{ $club->mission }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
         </div>
     </section><!-- End Portfolio Details Section -->
 @endsection

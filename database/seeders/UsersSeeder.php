@@ -21,6 +21,7 @@ class UsersSeeder extends Seeder
                 'role' => '1',
                 'email_verified_at' => '2022-06-13 14:43:47',
                 'password' => bcrypt('12345678'),
+                'avatar' => 'assets/images/Icons/User/profile_pic.png',
             ]
         );
         User::create(
@@ -30,6 +31,7 @@ class UsersSeeder extends Seeder
                 'role' => '2',
                 'email_verified_at' => '2022-06-13 14:43:47',
                 'password' => bcrypt('12345678'),
+                'avatar' => 'assets/images/Icons/User/profile_pic.png',
             ]
         );
         User::create(
@@ -39,6 +41,7 @@ class UsersSeeder extends Seeder
                 'role' => '3',
                 'email_verified_at' => '2022-06-13 14:43:47',
                 'password' => bcrypt('12345678'),
+                'avatar' => 'assets/images/Icons/User/profile_pic.png',
             ]
         );
     }

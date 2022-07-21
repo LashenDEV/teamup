@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.president')
 @section('title', 'History Logs')
 @section('content')
     <div class="card card-table-border-none border-0">

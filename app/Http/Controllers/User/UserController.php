@@ -21,7 +21,7 @@ class UserController extends Controller
     {
         $club_categories = ClubCategory::all();
         $welcome = Statement::where('title', 'welcome')->first();
-        $clubs = Clubs::paginate(6);
+        $clubs = Clubs::where('approval', 1)->paginate(6);
         $home_sliders = Clubs::where('home_slider_approval', '1')->get();
         return view('user.Dashboard.index', compact('club_categories', 'welcome', 'clubs', 'home_sliders'));
     }

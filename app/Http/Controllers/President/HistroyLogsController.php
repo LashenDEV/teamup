@@ -11,7 +11,7 @@ class HistroyLogsController extends Controller
 {
     public function index()
     {
-        $history_logs = HistoryLogs::where('user_id', Auth::user()->id)->paginate(5);
+        $history_logs = HistoryLogs::where('user_id', Auth::user()->id)->orderBy('id', 'DESC')->paginate(5);
         return view('president.histroy-logs.index', compact('history_logs'));
     }
 }

@@ -33,8 +33,10 @@
                     </div>
                     <h1 class="text-dark py-4">{{ $your_club->name }}</h1>
                     @if($your_club->image != null)
-                        <img src="{{ asset($your_club->image) }}" alt="" class="img-fluid"
-                             style="height: 500px; width:95% !important;">
+                        <div style="height: 500px; width:95% !important;">
+                            <img src="{{ asset($your_club->image) }}" alt="" class="img-fluid"
+                                 style="height: 100%; width: 100%; object-fit: cover">
+                        </div>
                     @else
                         <div class="d-flex justify-content-center flex-column align-items-center p-5">
                             <h1 class="text-center">{{ __('Please Add a Club Image') }}</h1>

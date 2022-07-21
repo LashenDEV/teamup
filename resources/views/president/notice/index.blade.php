@@ -19,7 +19,7 @@
             </div>
         </div>
         @if (!$notices->isEmpty())
-            <div class="container-fluid mb-3">
+            <div class="container-fluid mb-3" style="height: 61vh">
                 <div class="row">
                     @foreach($notices as $notice)
                         <div class="col-lg-4 mt-3">

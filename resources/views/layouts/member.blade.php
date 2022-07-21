@@ -72,15 +72,17 @@
         <div class="row justify-content-center align-items-center">
             <div class="col-xl-11 d-flex align-items-center justify-content-between">
                 <div class="d-flex align-items-center justify-content-between">
-                    <a href="/"><img src="{{ asset('logos/teamup-logo-new.png') }}" alt="logo" style="width:50px;"
-                         class="img-fluid"></a> &nbsp &nbsp &nbsp
+                    <a href="{{route('dashboard')}}"><img src="{{ asset('logos/teamup-logo-new.png') }}" alt="logo"
+                                                          style="width:50px;"
+                                                          class="img-fluid"></a> &nbsp &nbsp &nbsp
                     <h1 class="logo"><a href="{{ route('user.dashboard') }}">TeamUp</a></h1>
                 </div>
 
                 <nav id="navbar" class="navbar">
                     <ul>
                         <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-                        <li class="dropdown"><a class="scrollto" href="{{url('user/dashboard#portfolio')}}"> <span>Clubs</span> <i
+                        <li class="dropdown"><a class="scrollto" href="{{url('user/dashboard#portfolio')}}">
+                                <span>Clubs</span> <i
                                     class="bi bi-chevron-down"></i></a>
                             <ul>
                                 @foreach ($clubs as $key => $c)
@@ -95,9 +97,10 @@
                             <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#"
                                id="navbarDropdownMenuAvatar" role="button" data-mdb-toggle="dropdown"
                                aria-expanded="false">
-                                <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
-                                     class="rounded-circle" height="25" alt="Black and White Portrait of a Man"
-                                     loading="lazy"/>
+                                <img
+                                    src="{{ Auth::user()->profile_photo != null ? asset(Auth::user()->profile_photo) : 'https://mdbcdn.b-cdn.net/img/new/avatars/2.webp'}}"
+                                    class="rounded-circle" height="25" alt="Black and White Portrait of a Man"
+                                    loading="lazy"/>
                             </a>
                             <ul>
                                 <li>
@@ -168,8 +171,9 @@
                 <div class="d-flex justify-content-between flex-md-row flex-column">
                     <div
                         class="col-lg-2 col-md-4 footer-logo d-flex align-items-center justify-content-center pb-5 me-md-5">
-                        <img src="{{ asset('logos/teamup-logo-new.png') }}" alt="logo" style="width:300px;"
-                             class="img-fluid">
+                        <a href="{{route('dashboard')}}"><img src="{{ asset('logos/teamup-logo-new.png') }}" alt="logo"
+                                                              style="width:300px;"
+                                                              class="img-fluid"></a>
                     </div>
 
                     <div class="col-lg-3 col-md-9 footer-info">
@@ -197,7 +201,7 @@
                             Badulla,<br>
                             Sri Lanka. <br>
                             <strong>Phone:</strong> +94 335672910<br>
-                            <strong>Email:</strong> teamup@gmail.com <br>
+                            <strong>Email:</strong> teamup@info.com <br>
                         </p>
 
                         <div class="social-links">

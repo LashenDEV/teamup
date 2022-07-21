@@ -479,7 +479,7 @@
                             Badulla,<br>
                             Sri Lanka. <br>
                             <strong>Phone:</strong> +94 335672910<br>
-                            <strong>Email:</strong> teamup@gmail.com <br>
+                            <strong>Email:</strong> teamup@info.com <br>
                         </p>
 
                         <div class="social-links">

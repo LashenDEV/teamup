@@ -130,6 +130,8 @@ Route::group(['as' => 'president.', 'prefix' => 'president', 'middleware' => ['i
         Route::post('event/store', [President\EventController::class, 'store'])->name('event.store');
         Route::get('event/{id}/edit/', [President\EventController::class, 'edit'])->name('event.edit');
         Route::put('event/{id}/update', [President\EventController::class, 'update'])->name('event.update');
+        Route::get('event/{id}/publish', [President\EventController::class, 'publish'])->name('event.publish');
+        Route::get('event/{id}/draft', [President\EventController::class, 'draft'])->name('event.draft');
         Route::delete('event/{id}', [President\EventController::class, 'destroy'])->name('event.destroy');
 
         //Notices

@@ -16,5 +16,6 @@ class Event extends Model
         'date',
         'time',
         'venue',
+        'status',
     ];
 }

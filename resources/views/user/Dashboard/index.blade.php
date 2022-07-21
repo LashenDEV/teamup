@@ -110,6 +110,4 @@
             {{ $clubs->links('components.pagination') }}
         </div>
     </section><!-- End Portfolio Section -->
-
-
 @endsection

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Models\Clubs;
 use App\Models\ClubSliderImage;
+use App\Models\Event;
 use App\Models\HistoryLogs;
 use App\Models\Meeting;
 use App\Models\Notifications;
@@ -52,18 +53,19 @@ class ClubController extends Controller
 
     public function view($id)
     {
+        $events = Event::where('club_id', $id)->where('status', 1)->paginate(2);
         $next_meeting = Meeting::where('club_id', $id)->where('status', 1)->orderBy('date', 'asc')->orderBy('time', 'asc')->first();
         $clubs = Clubs::paginate(6);
         $club = Clubs::with('notices', 'clubOwner')->findOrFail($id);
         $registerd_user = RegisteredUser::where('user_id', Auth::user()->id)->first();
         $club_image_sliders = ClubSliderImage::where('club_id', $club->id)->get();
-        return view('clubShow', compact('clubs','club', 'club_image_sliders', 'registerd_user', 'next_meeting'));
+        return view('clubShow', compact('clubs', 'club', 'club_image_sliders', 'registerd_user', 'next_meeting', 'events'));
     }
 
     public function payment_page($id)
     {
         $clubs = Clubs::paginate(6);
         $club = Clubs::findOrFail($id);
-        return view('user.payment_page', compact('clubs','club'));
+        return view('user.payment_page', compact('clubs', 'club'));
     }
 }

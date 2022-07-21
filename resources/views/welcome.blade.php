@@ -174,7 +174,7 @@
                 <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="about-col" style="min-height: 75vh !important">
                         <div class="img">
-                            <img src="{{ asset('frontend/assets/img/about-mission.jpg') }}" alt=""
+                            <img src="{{ asset('assets/about/mission.jpg') }}" alt=""
                                  class="img-fluid">
                             <div class="icon"><i class="bi bi-bar-chart"></i></div>
                         </div>
@@ -184,10 +184,10 @@
                         </p>
                     </div>
                 </div>
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="about-col" style="min-height: 75vh !important">
                         <div class="img">
-                            <img src="{{ asset('frontend/assets/img/about-plan.jpg') }}" alt=""
+                            <img src="{{ asset('assets/about/plan.jpg') }}" alt=""
                                  class="img-fluid">
                             <div class="icon"><i class="bi bi-brightness-high"></i></div>
                         </div>
@@ -201,7 +201,7 @@
                 <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
                     <div class="about-col" style="min-height: 75vh !important">
                         <div class="img">
-                            <img src="{{ asset('frontend/assets/img/about-vision.jpg') }}" alt=""
+                            <img src="{{ asset('assets/about/vission.jpg') }}" alt=""
                                  class="img-fluid">
                             <div class="icon"><i class="bi bi-calendar4-week"></i></div>
                         </div>

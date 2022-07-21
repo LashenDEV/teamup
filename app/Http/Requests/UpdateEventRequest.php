@@ -25,7 +25,7 @@ class UpdateEventRequest extends FormRequest
     {
         return [
             'name' => 'required|unique:events',
-            'description' => 'required|min:800',
+            'description' => 'required|min:200',
             'date' => 'required',
             'time' => 'required',
             'venue' => 'required',

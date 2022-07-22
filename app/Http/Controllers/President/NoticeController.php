@@ -70,6 +70,16 @@ class NoticeController extends Controller
             'description' => 'Published a notice.'
         ]);
 
-        return redirect()->route('president.notice.index')->with('success', 'MEETING IS PUBLISHED SUCCESSFULLY');
+        return redirect()->route('president.notice.index')->with('success', 'NOTICE IS PUBLISHED SUCCESSFULLY');
+    }
+
+    public function draft($id){
+        Notice::findOrFail($id)->update(['status' => 2]);
+        HistoryLogs::create([
+            'user_id' => \Auth::user()->id,
+            'description' => 'Published a notice.'
+        ]);
+
+        return redirect()->route('president.notice.index')->with('success', 'NOTICE IS REJECTED SUCCESSFULLY');
     }
 }

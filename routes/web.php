@@ -141,6 +141,7 @@ Route::group(['as' => 'president.', 'prefix' => 'president', 'middleware' => ['i
         Route::get('notice/{id}/edit/', [President\NoticeController::class, 'edit'])->name('notice.edit');
         Route::put('notice/{id}/update', [President\NoticeController::class, 'update'])->name('notice.update');
         Route::get('notice/{id}/publish', [President\NoticeController::class, 'publish'])->name('notice.publish');
+        Route::get('notice/{id}/draft', [President\NoticeController::class, 'draft'])->name('notice.draft');
         Route::delete('notice/{id}', [President\NoticeController::class, 'destroy'])->name('notice.destroy');
 
 

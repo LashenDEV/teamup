@@ -57,7 +57,7 @@ class ClubController extends Controller
         $next_meeting = Meeting::where('club_id', $id)->where('status', 1)->orderBy('date', 'asc')->orderBy('time', 'asc')->first();
         $clubs = Clubs::paginate(6);
         $club = Clubs::with('notices', 'clubOwner')->findOrFail($id);
-        $registerd_user = RegisteredUser::where('user_id', Auth::user()->id)->first();
+        $registerd_user = RegisteredUser::where('user_id', Auth::user()->id)->where('club_id', $club->id)->first();
         $club_image_sliders = ClubSliderImage::where('club_id', $club->id)->get();
         return view('clubShow', compact('clubs', 'club', 'club_image_sliders', 'registerd_user', 'next_meeting', 'events'));
     }

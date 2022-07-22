@@ -25,6 +25,13 @@
                         <div class="col-lg-4 mt-3">
                             <div class="card shadow-sm p-2 bg-white rounded">
                                 <div class="card-body p-0 p-2">
+                                    <div class="d-flex justify-content-end">
+                                        @if($notice->status == 1)
+                                            <label class="bg-success p-2 text-white">Published</label>
+                                        @else
+                                            <label class="bg-warning p-2">Drafted</label>
+                                        @endif
+                                    </div>
                                     <div style="min-height: 15vh">
                                         <p class="card-text">{{$notice->notice}}</p>
                                     </div>
@@ -37,11 +44,21 @@
                                         </div>
                                     </div>
                                     <div class="text-right d-flex justify-content-end position-inherit">
-                                        <a href="{{route('president.notice.publish', $notice->id)}}" class="pl-1">
-                                            <button type="button" class="btn btn-success"><i
-                                                    class="fa-duotone fa-paper-plane-top mr-1"></i>Publish
-                                            </button>
-                                        </a>
+                                        @if($notice->status == 1)
+                                            <a href="{{route('president.notice.draft', $notice->id)}}"
+                                               class="pl-1">
+                                                <button type="button" class="btn btn-warning"><i
+                                                        class="fa-duotone fa-paper-plane-top mr-1"></i>Draft
+                                                </button>
+                                            </a>
+                                        @else
+                                            <a href="{{route('president.notice.publish', $notice->id)}}"
+                                               class="pl-1">
+                                                <button type="button" class="btn btn-success"><i
+                                                        class="fa-duotone fa-paper-plane-top mr-1"></i>Publish
+                                                </button>
+                                            </a>
+                                        @endif
                                         <a href="{{route('president.notice.edit', $notice->id)}}" class="pl-1">
                                             <button type="button" class="btn btn-dark"><i
                                                     class="fa-duotone fa-pen-circle mr-1"></i>Edit

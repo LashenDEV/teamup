@@ -12,7 +12,7 @@ class PaymentMethodHandlerController extends Controller
     {
         if ($request->payment_method != null) {
             if ($request->payment_method == 'paypal') {
-                return redirect()->route('payment', ['club_id' => 1, 'description' => 'Annual Fee', 'amount'=>20]);
+                return redirect()->route('payment', ['club_id' => $id, 'description' => 'Annual Fee', 'amount'=>20]);
             } else {
                 return redirect()->back()->with('error', 'Oops something went wrong !');
             }

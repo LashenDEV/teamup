@@ -150,7 +150,7 @@
                     @endif
                 </div>
                 <div class="col-lg-12 p-3 mt-3">
-                    @if($events != null)
+                    @if($events->isNotEmpty())
                         <div class="portfolio-info p-4" data-aos="zoom-in">
                             <div class="col-md-12">
                                 <div class="row">

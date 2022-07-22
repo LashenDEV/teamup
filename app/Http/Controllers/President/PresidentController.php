@@ -37,7 +37,7 @@ class PresidentController extends Controller
     public function profile()
     {
         $president = Auth::user();
-        return view('President.dashboard.profile', compact('president'));
+        return view('president.dashboard.profile', compact('president'));
     }
 
     public function update(UpdateProfileDataRequest $request)

@@ -9,7 +9,7 @@
                     <h1>Create a Meeting</h1>
                 </div>
                 <div class="text-right">
-                    <a href="{{route('president.meetng.index')}}">
+                    <a href="{{route('president.meeting.index')}}">
                         <button type="button" class="btn btn-secondary">Back</button>
                     </a>
                 </div>

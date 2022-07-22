@@ -151,7 +151,6 @@
                 </div>
                 <div class="col-lg-12 p-3 mt-3">
                     @if($events->isNotEmpty())
-                        <h2><b>Events</b></h2>
                         <div class="portfolio-info p-4" data-aos="zoom-in">
                             <div class="col-md-12">
                                 <div class="row">

@@ -8,7 +8,7 @@
                 <h1>Home Slider</h1>
             </div>
             <div class="text-right">
-                <a href="{{url()->previous() == 'https://teamup.test/admin/dashboard' ? route('admin.dashboard') : url()->previous()}}">
+                <a href="{{route('admin.dashboard')}}">
                     <button type="button" class="btn btn-secondary">Back</button>
                 </a>
             </div>

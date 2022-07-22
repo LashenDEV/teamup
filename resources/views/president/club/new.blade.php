@@ -3,7 +3,7 @@
 @section('content')
     <div class="col-lg-12">
         <div class="text-right py-2">
-            <a href="{{url()->previous() == 'https://teamup.test/president/dashboard' ? route('president.dashboard') : url()->previous()}}">
+            <a href="{{route('president.club.index')}}">
                 <button type="button" class="btn btn-secondary">Back</button>
             </a>
         </div>

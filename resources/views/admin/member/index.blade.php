@@ -14,7 +14,7 @@
                             class="fa-light fa-plus"></i> Add Memeber
                     </button>
                 </a>
-                <a href="{{url()->previous() == 'https://teamup.test/admin/dashboard' ? route('admin.dashboard') : url()->previous()}}">
+                <a href="{{route('admin.dashboard')}}">
                     <button type="button" class="btn btn-secondary">Back</button>
                 </a>
             </div>

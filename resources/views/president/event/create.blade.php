@@ -10,7 +10,7 @@
                     <h1>Create an Event</h1>
                 </div>
                 <div class="text-right">
-                    <a href="{{url()->previous() == 'https://teamup.test/president/dashboard' ? route('president.dashboard') : url()->previous()}}">
+                    <a href="{{route('president.event.index')}}">
                         <button type="button" class="btn btn-secondary">Back</button>
                     </a>
                 </div>

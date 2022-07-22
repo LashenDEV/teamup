@@ -117,7 +117,7 @@
             <div class="carousel-inner" role="listbox">
 
                 <div class="carousel-item active"
-                     style="background-image: url({{ asset('frontend/assets/img/hero-carousel/1.jpg') }})">
+                     style="background-image: url({{ asset('assets/welcome/welcome.jpg') }})">
                     <div class="carousel-container">
                         <div class="container">
                             <h2 class="animate__animated animate__fadeInDown">Welcome!</h2>

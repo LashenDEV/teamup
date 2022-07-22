@@ -12,7 +12,7 @@
                 <i class="fa-solid fa-trash-can"></i>
                 Delete</a>
         @endif
-        <a href="{{ url()->previous() }}">
+        <a href="{{route('president.dashboard')}}">
             <button type="button" class="btn btn-secondary">Back</button>
         </a>
     </div>

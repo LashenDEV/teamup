@@ -1,13 +1,13 @@
--- MySQL dump 10.13  Distrib 8.0.29, for Linux (x86_64)
+-- MariaDB dump 10.19  Distrib 10.4.24-MariaDB, for Win64 (AMD64)
 --
 -- Host: localhost    Database: teamup
 -- ------------------------------------------------------
--- Server version	8.0.29-0ubuntu0.20.04.3
+-- Server version	10.4.24-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!50503 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8mb4 */;
 /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
 /*!40103 SET TIME_ZONE='+00:00' */;
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
@@ -21,11 +21,11 @@
 
 DROP TABLE IF EXISTS `ch_favorites`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `ch_favorites` (
-  `id` bigint NOT NULL,
-  `user_id` bigint NOT NULL,
-  `favorite_id` bigint NOT NULL,
+  `id` bigint(20) NOT NULL,
+  `user_id` bigint(20) NOT NULL,
+  `favorite_id` bigint(20) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -47,15 +47,15 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `ch_messages`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `ch_messages` (
-  `id` bigint NOT NULL,
+  `id` bigint(20) NOT NULL,
   `type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `from_id` bigint NOT NULL,
-  `to_id` bigint NOT NULL,
+  `from_id` bigint(20) NOT NULL,
+  `to_id` bigint(20) NOT NULL,
   `body` varchar(5000) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `attachment` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `seen` tinyint(1) NOT NULL DEFAULT '0',
+  `seen` tinyint(1) NOT NULL DEFAULT 0,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -78,10 +78,10 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `club_categories`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `club_categories` (
-  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `admin_id` bigint unsigned NOT NULL,
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `admin_id` bigint(20) unsigned NOT NULL,
   `category_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -107,12 +107,12 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `club_slider_images`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `club_slider_images` (
-  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `president_id` bigint unsigned NOT NULL,
-  `club_id` bigint unsigned NOT NULL,
-  `slider_no` int NOT NULL,
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `president_id` bigint(20) unsigned NOT NULL,
+  `club_id` bigint(20) unsigned NOT NULL,
+  `slider_no` int(11) NOT NULL,
   `slider_image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -121,7 +121,7 @@ CREATE TABLE `club_slider_images` (
   KEY `club_slider_images_club_id_foreign` (`club_id`),
   CONSTRAINT `club_slider_images_club_id_foreign` FOREIGN KEY (`club_id`) REFERENCES `clubs` (`id`) ON DELETE CASCADE,
   CONSTRAINT `club_slider_images_president_id_foreign` FOREIGN KEY (`president_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -130,7 +130,7 @@ CREATE TABLE `club_slider_images` (
 
 LOCK TABLES `club_slider_images` WRITE;
 /*!40000 ALTER TABLE `club_slider_images` DISABLE KEYS */;
-INSERT INTO `club_slider_images` VALUES (1,23,2,1,'image/club_slider_image/1738948028815607.jpg','2022-07-21 02:24:32','2022-07-21 02:24:32'),(2,23,2,2,'image/club_slider_image/1738948351401203.jpg','2022-07-21 02:29:40','2022-07-21 02:29:40'),(3,23,2,3,'image/club_slider_image/1738948829598255.jpg','2022-07-21 02:37:16','2022-07-21 02:37:16');
+INSERT INTO `club_slider_images` VALUES (1,23,2,1,'image/club_slider_image/1738979409121122.jpeg','2022-07-21 02:24:32','2022-07-21 10:43:19'),(2,23,2,2,'image/club_slider_image/1738979423161676.jpeg','2022-07-21 02:29:40','2022-07-21 10:43:32'),(3,23,2,3,'image/club_slider_image/1738979435365372.jpeg','2022-07-21 02:37:16','2022-07-21 10:43:44'),(4,24,3,1,'image/club_slider_image/1738989026129904.jpg','2022-07-21 13:16:10','2022-07-21 13:16:10'),(5,24,3,2,'image/club_slider_image/1738989039760001.jpg','2022-07-21 13:16:24','2022-07-21 13:16:24'),(6,24,3,3,'image/club_slider_image/1738989050229764.jpg','2022-07-21 13:16:34','2022-07-21 13:16:34');
 /*!40000 ALTER TABLE `club_slider_images` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -140,10 +140,10 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `clubs`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `clubs` (
-  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `president_id` bigint unsigned NOT NULL,
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `president_id` bigint(20) unsigned NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `category_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -157,7 +157,7 @@ CREATE TABLE `clubs` (
   PRIMARY KEY (`id`),
   KEY `clubs_president_id_foreign` (`president_id`),
   CONSTRAINT `clubs_president_id_foreign` FOREIGN KEY (`president_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -166,7 +166,7 @@ CREATE TABLE `clubs` (
 
 LOCK TABLES `clubs` WRITE;
 /*!40000 ALTER TABLE `clubs` DISABLE KEYS */;
-INSERT INTO `clubs` VALUES (1,2,'Art Club','The Art Club is a place for practicing artists to hone in on their skills, develop their techniques and portfolios, collaborate with other artists like themselves, create bonds with the community through the arts, and learn how to work together through group projects that will beautify the school and community.','Arts & Culture','Our vision is for the Vero Beach Art Club to be the voice and the representative of the visual arts and artists of our community, and to be a beacon of Artistic endeavor for the Treasure Coast. We will strive to do this by both continuing our existing programs and by strengthening our ties to our growing artistic community. We will continue our established programs as we seek to expand on them.','Purpose of the Club: Art Club gives students the opportunity to meet monthly in a more relaxed and informal setting to discuss and work on art. Students may work on projects of their own interest or may use the time as an extension of an enrolled art class.','image/club/art_club.jpg',1,1,'2022-07-21 00:13:16','2022-07-21 00:13:16'),(2,23,'UWU Cricket Club','NSBM Cricket club is one of the most pioneering sports clubs established at NSBM since its inception. We are a prosperous club with a long tradition of nurturing talented and aspiring young cricketers to be the best that they can be.\r\n\r\nNSBM Cricket Club is a friendly, vibrant and progressive cricket club that features competitive and successful players in the NSBM Green University Town. We are an inclusive and nurturing club where new players and supporters are always warmly welcomed.','Sports','To provide a safe and friendly environment for cricketers, support staff, family, and friends. To play within the true spirit of the game. To provide all aspiring cricketers the chance to develop and improve their cricket. To promote the development of junior players to senior cricketers.','The Goodwood Cricket Club aims to provide a positive and enjoyable cricket experience for people of all ages and abilities in a fully structured, organised and resourced club environment, while developing players, people and partnerships in the community.','image/club/1738947761161152.jpg',NULL,NULL,'2022-07-21 02:20:17','2022-07-21 02:20:17');
+INSERT INTO `clubs` VALUES (1,2,'Art Club','The Art Club is a place for practicing artists to hone in on their skills, develop their techniques and portfolios, collaborate with other artists like themselves, create bonds with the community through the arts, and learn how to work together through group projects that will beautify the school and community.','Arts & Culture','Our vision is for the Vero Beach Art Club to be the voice and the representative of the visual arts and artists of our community, and to be a beacon of Artistic endeavor for the Treasure Coast. We will strive to do this by both continuing our existing programs and by strengthening our ties to our growing artistic community. We will continue our established programs as we seek to expand on them.','Purpose of the Club: Art Club gives students the opportunity to meet monthly in a more relaxed and informal setting to discuss and work on art. Students may work on projects of their own interest or may use the time as an extension of an enrolled art class.','image/club/art_club.jpg',1,1,'2022-07-21 00:13:16','2022-07-21 00:13:16'),(2,23,'UWU Cricket Club','NSBM Cricket club is one of the most pioneering sports clubs established at NSBM since its inception. We are a prosperous club with a long tradition of nurturing talented and aspiring young cricketers to be the best that they can be.\r\n\r\nNSBM Cricket Club is a friendly, vibrant and progressive cricket club that features competitive and successful players in the NSBM Green University Town. We are an inclusive and nurturing club where new players and supporters are always warmly welcomed.','Sports','To provide a safe and friendly environment for cricketers, support staff, family, and friends. To play within the true spirit of the game. To provide all aspiring cricketers the chance to develop and improve their cricket. To promote the development of junior players to senior cricketers.','The Goodwood Cricket Club aims to provide a positive and enjoyable cricket experience for people of all ages and abilities in a fully structured, organised and resourced club environment, while developing players, people and partnerships in the community.','image/club/1738947761161152.jpg',NULL,NULL,'2022-07-21 02:20:17','2022-07-21 02:20:17'),(3,24,'Buddhist Society','Buddhist society of TeamUp is the only association that represents all Buddhist students of the university and conducts all Buddhist events under the guidance of Senior Lecturer,Former Brigadier Sanath Wickrmamsingha and Lecturer Ms.Sulari Fernando.','Cultural','This Buddhist vision for society evolved as the religion expanded; it was not part of the Buddha\'s original vision under the Bodhi tree. The Buddha had been seeking a path to enlightenment and escape from samsara, and his focus was on sharing his insights with the renunciants who followed him','The ultimate objective of all the activities by NSBM Buddhist Society is to witness religious citizens with a better motherland.','image/club/1738988892833165.jpg',NULL,NULL,'2022-07-21 13:17:54','2022-07-21 13:17:54');
 /*!40000 ALTER TABLE `clubs` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -176,9 +176,9 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `contacts`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `contacts` (
-  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `subject` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -204,17 +204,18 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `events`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `events` (
-  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `president_id` bigint unsigned NOT NULL,
-  `club_id` bigint unsigned NOT NULL,
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `president_id` bigint(20) unsigned NOT NULL,
+  `club_id` bigint(20) unsigned NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `date` date DEFAULT NULL,
   `time` time DEFAULT NULL,
   `venue` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` tinyint(1) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -222,7 +223,7 @@ CREATE TABLE `events` (
   KEY `events_club_id_foreign` (`club_id`),
   CONSTRAINT `events_club_id_foreign` FOREIGN KEY (`club_id`) REFERENCES `clubs` (`id`) ON DELETE CASCADE,
   CONSTRAINT `events_president_id_foreign` FOREIGN KEY (`president_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -231,7 +232,7 @@ CREATE TABLE `events` (
 
 LOCK TABLES `events` WRITE;
 /*!40000 ALTER TABLE `events` DISABLE KEYS */;
-INSERT INTO `events` VALUES (1,23,2,'Inter University Cricket Tourament - 2022','<p><strong>Inter University Cricket Tourament - 2022&nbsp;</strong></p><p>&nbsp;</p><p><strong>Organized by: </strong>Sociological society of Uva Wellassa University of Sri Lanka</p><p>The tournament is to be held for both male and female undergraduates on 25 &nbsp;th of August 2022.</p><p>&nbsp;</p><p><i><strong>Instructions for the participants</strong></i></p><p>&nbsp;</p><p>1. This premier league has 4 overs.</p><p>2. Every team must have 7 players.</p><p>3. A player cannot participate in two teams.</p><p>4. A player can throw only one over</p><p>5. Players must bring their university identity cards.</p><p>6. It will be a knock out match and the umpire\'s decision would be considered final.</p><p>7 .The tournament will be held according to international rules and regulations, the teams which violate the rules and regulations will be eliminated from the tournament.</p>','image/events/1738949682399417.jpeg','2022-08-25','08:00:00','Playground, Uva Wellassa University of Sri Lanka','2022-07-21 02:53:16','2022-07-21 02:53:16');
+INSERT INTO `events` VALUES (1,23,2,'Inter University Cricket Tourament - 2022','<p><strong>Inter University Cricket Tourament - 2022&nbsp;</strong></p><p>&nbsp;</p><p><strong>Organized by: </strong>Sociological society of Uva Wellassa University of Sri Lanka</p><p>The tournament is to be held for both male and female undergraduates on 25 &nbsp;th of August 2022.</p><p>&nbsp;</p><p><i><strong>Instructions for the participants</strong></i></p><p>&nbsp;</p><p>1. This premier league has 4 overs.</p><p>2. Every team must have 7 players.</p><p>3. A player cannot participate in two teams.</p><p>4. A player can throw only one over</p><p>5. Players must bring their university identity cards.</p><p>6. It will be a knock out match and the umpire\'s decision would be considered final.</p><p>7 .The tournament will be held according to international rules and regulations, the teams which violate the rules and regulations will be eliminated from the tournament.</p>','image/events/1738979521170764.jpeg','2022-08-25','08:00:00','Playground, Uva Wellassa University of Sri Lanka',1,'2022-07-21 10:45:06','2022-07-21 10:45:06'),(2,24,3,'Pirith ceremonies','<p>Throughout history, man has set apart space for the sacred-be it a shrine, a temple, or a particular spot on earth where he or she can disconnect with the mundane and unite with spirit. In Sri Lanka, the pirith mandapaya is one such space- a consecrated spot where the words of the Buddha are chanted.</p><p><br>Pirith (paritta in Pali) means ‘protection\', usually ‘protection from all directions.\'&nbsp; It is a space for chanting the suttas (discourses) of Gautama the Buddha and his disciples such as Arahat Ananda, to ward off the various forms of danger, including disease, malevolent planetary influences, interference by spirits, and invocation for worldly fortune and success. Importantly, it also aims to elevate consciousness, clearing delusory states of mind and refining the consciousness of the recipient. &nbsp;</p><p><br>Pirith chanting is an ancient practice. The historical chronicle, the Mahavamsa, records a pirith ceremony conducted by King Upatissa (4th Century) when the country faced severe drought, famine and disease. There are also references to pirith ceremonies during the reign of Aggabodhi IV (658-674 AD) and Kassapa V (913-923 AD). At the heart of the ceremony is the power of the purity of the Buddha\'s teachings, imparted with the singular intent to free sentient beings from the intrinsic suffering of samsara. The sincere recital of the suttas as statements of unshakeable purity (sccakiriya) is believed to have the power to alleviate suffering.</p>','image/events/1739038685320676.jpg','2022-07-15','21:25:00','University Main Hall',0,'2022-07-22 02:25:30','2022-07-22 02:25:30');
 /*!40000 ALTER TABLE `events` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -241,15 +242,15 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `failed_jobs`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `failed_jobs` (
-  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `uuid` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `connection` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `failed_at` timestamp NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
   UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -270,17 +271,17 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `history_logs`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `history_logs` (
-  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `user_id` bigint unsigned NOT NULL,
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` bigint(20) unsigned NOT NULL,
   `description` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `history_logs_user_id_foreign` (`user_id`),
   CONSTRAINT `history_logs_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -289,7 +290,7 @@ CREATE TABLE `history_logs` (
 
 LOCK TABLES `history_logs` WRITE;
 /*!40000 ALTER TABLE `history_logs` DISABLE KEYS */;
-INSERT INTO `history_logs` VALUES (1,3,'Registered to the Art Club Annual Fee.','2022-07-21 00:57:54','2022-07-21 00:57:54'),(2,3,'Registered to the Art Club.','2022-07-21 00:57:59','2022-07-21 00:57:59'),(3,5,'Registered to the Art Club Annual Fee.','2022-07-21 01:24:00','2022-07-21 01:24:00'),(4,23,'Created the UWU Cricket Club.','2022-07-21 02:20:17','2022-07-21 02:20:17'),(5,23,'Added a club slider.','2022-07-21 02:24:32','2022-07-21 02:24:32'),(6,23,'Added a club slider.','2022-07-21 02:29:40','2022-07-21 02:29:40'),(7,23,'Added a club slider.','2022-07-21 02:37:16','2022-07-21 02:37:16'),(8,23,'Created an event as Inter University Cricket Tourament - 2022.','2022-07-21 02:50:49','2022-07-21 02:50:49'),(9,23,'Updated the Inter University Cricket Tourament - 2022 event','2022-07-21 02:51:13','2022-07-21 02:51:13'),(10,23,'Updated the Inter University Cricket Tourament - 2022 event','2022-07-21 02:53:16','2022-07-21 02:53:16'),(11,23,'Created a notice.','2022-07-21 02:54:15','2022-07-21 02:54:15'),(12,23,'Published a notice.','2022-07-21 02:54:26','2022-07-21 02:54:26');
+INSERT INTO `history_logs` VALUES (1,3,'Registered to the Art Club Annual Fee.','2022-07-21 00:57:54','2022-07-21 00:57:54'),(2,3,'Registered to the Art Club.','2022-07-21 00:57:59','2022-07-21 00:57:59'),(3,5,'Registered to the Art Club Annual Fee.','2022-07-21 01:24:00','2022-07-21 01:24:00'),(4,23,'Created the UWU Cricket Club.','2022-07-21 02:20:17','2022-07-21 02:20:17'),(5,23,'Added a club slider.','2022-07-21 02:24:32','2022-07-21 02:24:32'),(6,23,'Added a club slider.','2022-07-21 02:29:40','2022-07-21 02:29:40'),(7,23,'Added a club slider.','2022-07-21 02:37:16','2022-07-21 02:37:16'),(8,23,'Created an event as Inter University Cricket Tourament - 2022.','2022-07-21 02:50:49','2022-07-21 02:50:49'),(9,23,'Updated the Inter University Cricket Tourament - 2022 event','2022-07-21 02:51:13','2022-07-21 02:51:13'),(10,23,'Updated the Inter University Cricket Tourament - 2022 event','2022-07-21 02:53:16','2022-07-21 02:53:16'),(11,23,'Created a notice.','2022-07-21 02:54:15','2022-07-21 02:54:15'),(12,23,'Published a notice.','2022-07-21 02:54:26','2022-07-21 02:54:26'),(13,23,'Published the  event.','2022-07-21 10:14:24','2022-07-21 10:14:24'),(14,23,'Updated a club slider.','2022-07-21 10:35:10','2022-07-21 10:35:10'),(15,23,'Updated a club slider.','2022-07-21 10:43:19','2022-07-21 10:43:19'),(16,23,'Updated a club slider.','2022-07-21 10:43:32','2022-07-21 10:43:32'),(17,23,'Updated a club slider.','2022-07-21 10:43:44','2022-07-21 10:43:44'),(18,23,'Updated the Inter University Cricket Tourament - 2022 event','2022-07-21 10:45:06','2022-07-21 10:45:06'),(19,24,'Created the Buddhist Society.','2022-07-21 13:14:04','2022-07-21 13:14:04'),(20,24,'Added a club slider.','2022-07-21 13:16:10','2022-07-21 13:16:10'),(21,24,'Added a club slider.','2022-07-21 13:16:24','2022-07-21 13:16:24'),(22,24,'Added a club slider.','2022-07-21 13:16:34','2022-07-21 13:16:34'),(23,24,'Updated the Buddhist Society.','2022-07-21 13:17:54','2022-07-21 13:17:54'),(24,24,'Created a notice.','2022-07-21 13:21:43','2022-07-21 13:21:43'),(25,24,'Published a notice.','2022-07-21 13:21:47','2022-07-21 13:21:47'),(26,24,'Created Pirith Chanting Ceremony meeting.','2022-07-21 13:24:36','2022-07-21 13:24:36'),(27,24,'Published the Pirith Chanting Ceremony meeting.','2022-07-21 13:24:41','2022-07-21 13:24:41'),(28,24,'Updated a notice.','2022-07-21 13:52:25','2022-07-21 13:52:25'),(29,24,'Updated your profile information.','2022-07-21 19:10:55','2022-07-21 19:10:55'),(30,24,'Created an event as Pirith ceremonies.','2022-07-22 02:25:30','2022-07-22 02:25:30');
 /*!40000 ALTER TABLE `history_logs` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -299,18 +300,18 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `meetings`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `meetings` (
-  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `president_id` bigint unsigned NOT NULL,
-  `club_id` bigint unsigned NOT NULL,
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `president_id` bigint(20) unsigned NOT NULL,
+  `club_id` bigint(20) unsigned NOT NULL,
   `title` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `meeting_link` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `meeting_id` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `meeting_password` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `date` date NOT NULL,
   `time` time NOT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT '0',
+  `status` tinyint(1) NOT NULL DEFAULT 0,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -318,7 +319,7 @@ CREATE TABLE `meetings` (
   KEY `meetings_club_id_foreign` (`club_id`),
   CONSTRAINT `meetings_club_id_foreign` FOREIGN KEY (`club_id`) REFERENCES `clubs` (`id`) ON DELETE CASCADE,
   CONSTRAINT `meetings_president_id_foreign` FOREIGN KEY (`president_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -327,6 +328,7 @@ CREATE TABLE `meetings` (
 
 LOCK TABLES `meetings` WRITE;
 /*!40000 ALTER TABLE `meetings` DISABLE KEYS */;
+INSERT INTO `meetings` VALUES (1,24,3,'Pirith Chanting Ceremony','https://zoom.us/j/5551112222','1234v','qade2345tgy','2022-07-23','00:23:00',1,'2022-07-21 13:24:36','2022-07-21 13:24:41');
 /*!40000 ALTER TABLE `meetings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -336,11 +338,11 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `migrations`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `migrations` (
-  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `batch` int NOT NULL,
+  `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=70 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -361,13 +363,13 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `notices`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `notices` (
-  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `president_id` bigint unsigned NOT NULL,
-  `club_id` bigint unsigned NOT NULL,
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `president_id` bigint(20) unsigned NOT NULL,
+  `club_id` bigint(20) unsigned NOT NULL,
   `notice` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT '0',
+  `status` tinyint(1) NOT NULL DEFAULT 0,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -375,7 +377,7 @@ CREATE TABLE `notices` (
   KEY `notices_club_id_foreign` (`club_id`),
   CONSTRAINT `notices_club_id_foreign` FOREIGN KEY (`club_id`) REFERENCES `clubs` (`id`) ON DELETE CASCADE,
   CONSTRAINT `notices_president_id_foreign` FOREIGN KEY (`president_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -384,7 +386,7 @@ CREATE TABLE `notices` (
 
 LOCK TABLES `notices` WRITE;
 /*!40000 ALTER TABLE `notices` DISABLE KEYS */;
-INSERT INTO `notices` VALUES (1,2,1,'Drawing and Painting Competition\n                             Arts Club of our university is going to organise a drawing and painting competition, to be held on Saturday, 9th March, 2022, 10:00 A.M. onwards in the university playground. The competition is open to students of all faculties. Students are requested to bring their own paints and colours, sheets will be provided on the spot. For more information, contact the undersigned.\n                             Rohan\n                            (Secretary, Arts Club)',1,'2022-07-21 00:13:16','2022-07-21 00:13:16'),(2,2,1,'Inter-House Drama Competition 2022:\n                             The Inter-House Drama Competition was held at the university auditorium on 18th February 2022. Performances were produced and directed by students of every faculty. Yellow House emerged champions performing the comedy ‘The Actor’s Nightmare’ and the ICT degree program followed as the Runner Up House. The Best Director Award was shared by Kehara Edirisinghe and Haresh Wedanayake of the BBST degree program. The Best Actor award was also bagged by Haresh Wedanayake of ICT. Ayesha Ariff and Suha Farouk (CST Degree) shared the award for Best Actress while Atara Isaac of ICT Degree won the award for Best Supporting Actor. Raid Rizan of BET degree won the award for Best Stage Manager.\n                             Congratulations to all the participants both on stage and behind the curtains for presenting such a wonderful evening of drama. The link below can be used to view the performance.',1,'2022-07-21 00:13:16','2022-07-21 00:13:16'),(3,2,1,'Ramazan and Wesak Assemblies:\n                             This term we have held two beautiful assemblies in the Auditorium to mark important religious events, Ramazan and Wesak. These included readings, dances and skits, and were a wonderful way for us to come together and share in times of cultural significance.\n                             Congratulations to all students and staff involved and thank you for creating such lovely events for us to all enjoy!',1,'2022-07-21 00:13:16','2022-07-21 00:13:16'),(4,23,2,'Cricket Trials For Under-18 School Team\r\n\r\nThe is to inform all our cricket players that selection for the school teams will be made on 29th July, 20xx between 9:00 AM and 2:00 PM in the school playground. Student Cricketers who wish to be in the school team must attend the trials. For any further details, contact the undersigned.\r\n\r\nAnkur\r\nSports Captain',1,'2022-07-21 02:54:15','2022-07-21 02:54:26');
+INSERT INTO `notices` VALUES (1,2,1,'Drawing and Painting Competition\n                             Arts Club of our university is going to organise a drawing and painting competition, to be held on Saturday, 9th March, 2022, 10:00 A.M. onwards in the university playground. The competition is open to students of all faculties. Students are requested to bring their own paints and colours, sheets will be provided on the spot. For more information, contact the undersigned.\n                             Rohan\n                            (Secretary, Arts Club)',1,'2022-07-21 00:13:16','2022-07-21 00:13:16'),(2,2,1,'Inter-House Drama Competition 2022:\n                             The Inter-House Drama Competition was held at the university auditorium on 18th February 2022. Performances were produced and directed by students of every faculty. Yellow House emerged champions performing the comedy ‘The Actor’s Nightmare’ and the ICT degree program followed as the Runner Up House. The Best Director Award was shared by Kehara Edirisinghe and Haresh Wedanayake of the BBST degree program. The Best Actor award was also bagged by Haresh Wedanayake of ICT. Ayesha Ariff and Suha Farouk (CST Degree) shared the award for Best Actress while Atara Isaac of ICT Degree won the award for Best Supporting Actor. Raid Rizan of BET degree won the award for Best Stage Manager.\n                             Congratulations to all the participants both on stage and behind the curtains for presenting such a wonderful evening of drama. The link below can be used to view the performance.',1,'2022-07-21 00:13:16','2022-07-21 00:13:16'),(3,2,1,'Ramazan and Wesak Assemblies:\n                             This term we have held two beautiful assemblies in the Auditorium to mark important religious events, Ramazan and Wesak. These included readings, dances and skits, and were a wonderful way for us to come together and share in times of cultural significance.\n                             Congratulations to all students and staff involved and thank you for creating such lovely events for us to all enjoy!',1,'2022-07-21 00:13:16','2022-07-21 00:13:16'),(4,23,2,'Cricket Trials For Under-18 School Team\r\n\r\nThe is to inform all our cricket players that selection for the school teams will be made on 29th July, 20xx between 9:00 AM and 2:00 PM in the school playground. Student Cricketers who wish to be in the school team must attend the trials. For any further details, contact the undersigned.\r\n\r\nAnkur\r\nSports Captain',1,'2022-07-21 02:54:15','2022-07-21 02:54:26'),(5,24,3,'Annual Pirith Chanting Ceremony was held on 21st of October 2022, celebrating the 2nd anniversary of NSBM Green University Town. Members of the Buddhist society along with the academic and non-academic staff successfully organized the overnight Pirith chanting and “heel danaya” in next day morning',1,'2022-07-21 13:21:43','2022-07-21 13:21:47');
 /*!40000 ALTER TABLE `notices` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -394,22 +396,22 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `notifications`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `notifications` (
-  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `user_id` bigint unsigned NOT NULL,
-  `show_to_admin` tinyint(1) NOT NULL DEFAULT '0',
-  `show_to_president` tinyint(1) NOT NULL DEFAULT '0',
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` bigint(20) unsigned NOT NULL,
+  `show_to_admin` tinyint(1) NOT NULL DEFAULT 0,
+  `show_to_president` tinyint(1) NOT NULL DEFAULT 0,
   `icon` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `notification` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `status_to_admin` tinyint(1) NOT NULL DEFAULT '0',
-  `status_to_president` tinyint(1) NOT NULL DEFAULT '0',
+  `status_to_admin` tinyint(1) NOT NULL DEFAULT 0,
+  `status_to_president` tinyint(1) NOT NULL DEFAULT 0,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `notifications_user_id_foreign` (`user_id`),
   CONSTRAINT `notifications_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -418,7 +420,7 @@ CREATE TABLE `notifications` (
 
 LOCK TABLES `notifications` WRITE;
 /*!40000 ALTER TABLE `notifications` DISABLE KEYS */;
-INSERT INTO `notifications` VALUES (1,3,1,1,'<i class=\"fa-duotone fa-right-to-bracket ml-2\"></i>','Registered user Member.',0,0,'2022-07-21 00:20:25','2022-07-21 00:20:25'),(2,3,1,1,'<i class=\"fa-duotone fa-user-plus ml-2\"></i>','Member registered to the Art Club.',0,0,'2022-07-21 00:57:59','2022-07-21 00:57:59'),(3,2,1,0,'<i class=\"fa-duotone fa-user-plus ml-2\"></i>','Registered president President.',0,0,'2022-07-21 01:17:34','2022-07-21 01:17:34'),(4,5,1,1,'<i class=\"fa-duotone fa-right-to-bracket ml-2\"></i>','Registered user Member3.',0,0,'2022-07-21 01:23:20','2022-07-21 01:23:20'),(5,23,1,0,'<i class=\"fa-duotone fa-user-plus ml-2\"></i>','Registered president President2.',0,0,'2022-07-21 02:05:13','2022-07-21 02:05:13');
+INSERT INTO `notifications` VALUES (1,3,1,1,'<i class=\"fa-duotone fa-right-to-bracket ml-2\"></i>','Registered user Member.',0,0,'2022-07-21 00:20:25','2022-07-21 00:20:25'),(2,3,1,1,'<i class=\"fa-duotone fa-user-plus ml-2\"></i>','Member registered to the Art Club.',0,0,'2022-07-21 00:57:59','2022-07-21 00:57:59'),(3,2,1,0,'<i class=\"fa-duotone fa-user-plus ml-2\"></i>','Registered president President.',0,0,'2022-07-21 01:17:34','2022-07-21 01:17:34'),(4,5,1,1,'<i class=\"fa-duotone fa-right-to-bracket ml-2\"></i>','Registered user Member3.',0,0,'2022-07-21 01:23:20','2022-07-21 01:23:20'),(5,23,1,0,'<i class=\"fa-duotone fa-user-plus ml-2\"></i>','Registered president President2.',0,0,'2022-07-21 02:05:13','2022-07-21 02:05:13'),(6,24,1,0,'<i class=\"fa-duotone fa-user-plus ml-2\"></i>','Registered president President3.',0,0,'2022-07-21 11:09:45','2022-07-21 11:09:45'),(7,25,1,0,'<i class=\"fa-duotone fa-user-plus ml-2\"></i>','Registered president President4.',0,0,'2022-07-21 20:03:19','2022-07-21 20:03:19'),(8,4,1,1,'<i class=\"fa-duotone fa-right-to-bracket ml-2\"></i>','Registered user Member2.',0,0,'2022-07-22 02:43:05','2022-07-22 02:43:05');
 /*!40000 ALTER TABLE `notifications` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -428,7 +430,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `password_resets`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `password_resets` (
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -452,11 +454,11 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `payments`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `payments` (
-  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `user_id` bigint unsigned NOT NULL,
-  `club_id` bigint unsigned NOT NULL,
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` bigint(20) unsigned NOT NULL,
+  `club_id` bigint(20) unsigned NOT NULL,
   `description` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `payment_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `payer_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -486,14 +488,14 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `personal_access_tokens`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `personal_access_tokens` (
-  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `tokenable_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `tokenable_id` bigint unsigned NOT NULL,
+  `tokenable_id` bigint(20) unsigned NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `token` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `abilities` text COLLATE utf8mb4_unicode_ci,
+  `abilities` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `last_used_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -518,11 +520,11 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `registered_users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `registered_users` (
-  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `user_id` bigint unsigned NOT NULL,
-  `club_id` bigint unsigned NOT NULL,
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` bigint(20) unsigned NOT NULL,
+  `club_id` bigint(20) unsigned NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -549,10 +551,10 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `sliders`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `sliders` (
-  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `president_id` bigint unsigned NOT NULL,
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `president_id` bigint(20) unsigned NOT NULL,
   `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -579,10 +581,10 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `statements`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `statements` (
-  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `admin_id` bigint unsigned NOT NULL,
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `admin_id` bigint(20) unsigned NOT NULL,
   `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `statement` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -609,9 +611,9 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `users` (
-  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `role` tinyint(1) DEFAULT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -635,9 +637,9 @@ CREATE TABLE `users` (
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `active_status` tinyint(1) NOT NULL DEFAULT '0',
+  `active_status` tinyint(1) NOT NULL DEFAULT 0,
   `avatar` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `dark_mode` tinyint(1) NOT NULL DEFAULT '0',
+  `dark_mode` tinyint(1) NOT NULL DEFAULT 0,
   `messenger_color` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '#2180f3',
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
@@ -650,7 +652,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,1,'Admin','admin@demo.com','2022-06-13 09:13:47',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$UQMWKz2BJIdqsN0NbIw4MOexYWHVUa4r9UiyzU1frlXuPMahTTTOa',NULL,'2022-07-21 00:13:16','2022-07-21 00:13:16',0,'assets/images/Icons/User/profile_pic.png',0,'#2180f3'),(2,2,'President','president@demo.com','2022-06-13 09:13:47',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$ZK4ob9qOzvzJ5KuXlJrk0Ova2XwFWvjoSjxAAPMZ9MUWVl6ZpNc9q',NULL,'2022-07-21 00:13:16','2022-07-21 00:13:16',0,'assets/images/Icons/User/profile_pic.png',0,'#2180f3'),(3,3,'Member','member@demo.com','2022-06-13 09:13:47',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$kxLOgsASn0uLEt1fMe4sy.7eXM1eI9NDVX4wD01nNlmuBeUGLKaY2',NULL,'2022-07-21 00:13:16','2022-07-21 00:13:16',0,'assets/images/Icons/User/profile_pic.png',0,'#2180f3'),(4,3,'Member2','member2@demo.com','2022-07-21 01:21:16',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$jXT.4nkmcKcOePNg3DXOheny9wInJPpuic8cmVPC6w31q92mpT31W',NULL,'2022-07-21 01:18:33','2022-07-21 01:21:16',0,'',0,'#2180f3'),(5,3,'Member3','member3@demo.com','2022-07-21 01:21:16',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$jXT.4nkmcKcOePNg3DXOheny9wInJPpuic8cmVPC6w31q92mpT31W',NULL,'2022-07-21 01:18:33','2022-07-21 01:21:16',0,'',0,'#2180f3'),(6,3,'Member4','member4@demo.com','2022-07-21 01:21:16',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$jXT.4nkmcKcOePNg3DXOheny9wInJPpuic8cmVPC6w31q92mpT31W',NULL,'2022-07-21 01:18:33','2022-07-21 01:21:16',0,'',0,'#2180f3'),(7,3,'Member5','member5@demo.com','2022-07-21 01:21:16',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$jXT.4nkmcKcOePNg3DXOheny9wInJPpuic8cmVPC6w31q92mpT31W',NULL,'2022-07-21 01:18:33','2022-07-21 01:21:16',0,'',0,'#2180f3'),(8,3,'Member6','member6@demo.com','2022-07-21 01:21:16',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$jXT.4nkmcKcOePNg3DXOheny9wInJPpuic8cmVPC6w31q92mpT31W',NULL,'2022-07-21 01:18:33','2022-07-21 01:21:16',0,'',0,'#2180f3'),(9,3,'Member7','member7@demo.com','2022-07-21 01:21:16',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$jXT.4nkmcKcOePNg3DXOheny9wInJPpuic8cmVPC6w31q92mpT31W',NULL,'2022-07-21 01:18:33','2022-07-21 01:21:16',0,'',0,'#2180f3'),(10,3,'Member8','member8@demo.com','2022-07-21 01:21:16',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$jXT.4nkmcKcOePNg3DXOheny9wInJPpuic8cmVPC6w31q92mpT31W',NULL,'2022-07-21 01:18:33','2022-07-21 01:21:16',0,'',0,'#2180f3'),(11,3,'Member9','member9@demo.com','2022-07-21 01:21:16',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$jXT.4nkmcKcOePNg3DXOheny9wInJPpuic8cmVPC6w31q92mpT31W',NULL,'2022-07-21 01:18:33','2022-07-21 01:21:16',0,'',0,'#2180f3'),(12,3,'Member10','member10@demo.com','2022-07-21 01:21:16',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$jXT.4nkmcKcOePNg3DXOheny9wInJPpuic8cmVPC6w31q92mpT31W',NULL,'2022-07-21 01:18:33','2022-07-21 01:21:16',0,'',0,'#2180f3'),(13,3,'Member11','member11@demo.com','2022-07-21 01:21:16',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$jXT.4nkmcKcOePNg3DXOheny9wInJPpuic8cmVPC6w31q92mpT31W',NULL,'2022-07-21 01:18:33','2022-07-21 01:21:16',0,'',0,'#2180f3'),(14,3,'Member12','member12@demo.com','2022-07-21 01:21:16',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$jXT.4nkmcKcOePNg3DXOheny9wInJPpuic8cmVPC6w31q92mpT31W',NULL,'2022-07-21 01:18:33','2022-07-21 01:21:16',0,'',0,'#2180f3'),(15,3,'Member13','member13@demo.com','2022-07-21 01:21:16',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$jXT.4nkmcKcOePNg3DXOheny9wInJPpuic8cmVPC6w31q92mpT31W',NULL,'2022-07-21 01:18:33','2022-07-21 01:21:16',0,'',0,'#2180f3'),(16,3,'Member14','member14@demo.com','2022-07-21 01:21:16',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$jXT.4nkmcKcOePNg3DXOheny9wInJPpuic8cmVPC6w31q92mpT31W',NULL,'2022-07-21 01:18:33','2022-07-21 01:21:16',0,'',0,'#2180f3'),(17,3,'Member15','member15@demo.com','2022-07-21 01:21:16',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$jXT.4nkmcKcOePNg3DXOheny9wInJPpuic8cmVPC6w31q92mpT31W',NULL,'2022-07-21 01:18:33','2022-07-21 01:21:16',0,'',0,'#2180f3'),(18,3,'Member16','member16@demo.com','2022-07-21 01:21:16',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$jXT.4nkmcKcOePNg3DXOheny9wInJPpuic8cmVPC6w31q92mpT31W',NULL,'2022-07-21 01:18:33','2022-07-21 01:21:16',0,'',0,'#2180f3'),(19,3,'Member17','member17@demo.com','2022-07-21 01:21:16',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$jXT.4nkmcKcOePNg3DXOheny9wInJPpuic8cmVPC6w31q92mpT31W',NULL,'2022-07-21 01:18:33','2022-07-21 01:21:16',0,'',0,'#2180f3'),(20,3,'Member18','member18@demo.com','2022-07-21 01:21:16',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$jXT.4nkmcKcOePNg3DXOheny9wInJPpuic8cmVPC6w31q92mpT31W',NULL,'2022-07-21 01:18:33','2022-07-21 01:21:16',0,'',0,'#2180f3'),(21,3,'Member19','member19@demo.com','2022-07-21 01:21:16',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$jXT.4nkmcKcOePNg3DXOheny9wInJPpuic8cmVPC6w31q92mpT31W',NULL,'2022-07-21 01:18:33','2022-07-21 01:21:16',0,'',0,'#2180f3'),(22,3,'Member20','member20@demo.com','2022-07-21 01:21:16',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$jXT.4nkmcKcOePNg3DXOheny9wInJPpuic8cmVPC6w31q92mpT31W',NULL,'2022-07-21 01:18:33','2022-07-21 01:21:16',0,'',0,'#2180f3'),(23,2,'President2','president2@demo.com','2022-07-21 01:21:16',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$jXT.4nkmcKcOePNg3DXOheny9wInJPpuic8cmVPC6w31q92mpT31W',NULL,'2022-07-21 01:18:33','2022-07-21 01:21:16',0,'',0,'#2180f3'),(24,2,'President3','president3@demo.com','2022-07-21 01:21:16',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$jXT.4nkmcKcOePNg3DXOheny9wInJPpuic8cmVPC6w31q92mpT31W',NULL,'2022-07-21 01:18:33','2022-07-21 01:21:16',0,'',0,'#2180f3'),(25,2,'President4','president4@demo.com','2022-07-21 01:21:16',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$jXT.4nkmcKcOePNg3DXOheny9wInJPpuic8cmVPC6w31q92mpT31W',NULL,'2022-07-21 01:18:33','2022-07-21 01:21:16',0,'',0,'#2180f3'),(26,2,'President5','president5@demo.com','2022-07-21 01:21:16',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$jXT.4nkmcKcOePNg3DXOheny9wInJPpuic8cmVPC6w31q92mpT31W',NULL,'2022-07-21 01:18:33','2022-07-21 01:21:16',0,'',0,'#2180f3'),(27,2,'President6','president6@demo.com','2022-07-21 01:21:16',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$jXT.4nkmcKcOePNg3DXOheny9wInJPpuic8cmVPC6w31q92mpT31W',NULL,'2022-07-21 01:18:33','2022-07-21 01:21:16',0,'',0,'#2180f3'),(28,2,'President7','president7@demo.com','2022-07-21 01:21:16',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$jXT.4nkmcKcOePNg3DXOheny9wInJPpuic8cmVPC6w31q92mpT31W',NULL,'2022-07-21 01:18:33','2022-07-21 01:21:16',0,'',0,'#2180f3'),(29,2,'President8','president8@demo.com','2022-07-21 01:21:16',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$jXT.4nkmcKcOePNg3DXOheny9wInJPpuic8cmVPC6w31q92mpT31W',NULL,'2022-07-21 01:18:33','2022-07-21 01:21:16',0,'',0,'#2180f3'),(30,2,'President9','president9@demo.com','2022-07-21 01:21:16',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$jXT.4nkmcKcOePNg3DXOheny9wInJPpuic8cmVPC6w31q92mpT31W',NULL,'2022-07-21 01:18:33','2022-07-21 01:21:16',0,'',0,'#2180f3'),(31,2,'President10','president10@demo.com','2022-07-21 01:21:16',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$jXT.4nkmcKcOePNg3DXOheny9wInJPpuic8cmVPC6w31q92mpT31W',NULL,'2022-07-21 01:18:33','2022-07-21 01:21:16',0,'',0,'#2180f3');
+INSERT INTO `users` VALUES (1,1,'Admin','admin@demo.com','2022-06-13 09:13:47',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$UQMWKz2BJIdqsN0NbIw4MOexYWHVUa4r9UiyzU1frlXuPMahTTTOa',NULL,'2022-07-21 00:13:16','2022-07-21 00:13:16',0,'assets/images/Icons/User/profile_pic.png',0,'#2180f3'),(2,2,'President','president@demo.com','2022-06-13 09:13:47',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$ZK4ob9qOzvzJ5KuXlJrk0Ova2XwFWvjoSjxAAPMZ9MUWVl6ZpNc9q',NULL,'2022-07-21 00:13:16','2022-07-21 00:13:16',0,'assets/images/Icons/User/profile_pic.png',0,'#2180f3'),(3,3,'Member','member@demo.com','2022-06-13 09:13:47',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$kxLOgsASn0uLEt1fMe4sy.7eXM1eI9NDVX4wD01nNlmuBeUGLKaY2',NULL,'2022-07-21 00:13:16','2022-07-21 00:13:16',0,'assets/images/Icons/User/profile_pic.png',0,'#2180f3'),(4,3,'Member2','member2@demo.com','2022-07-21 01:21:16',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$jXT.4nkmcKcOePNg3DXOheny9wInJPpuic8cmVPC6w31q92mpT31W',NULL,'2022-07-21 01:18:33','2022-07-21 01:21:16',0,'',0,'#2180f3'),(5,3,'Member3','member3@demo.com','2022-07-21 01:21:16',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$jXT.4nkmcKcOePNg3DXOheny9wInJPpuic8cmVPC6w31q92mpT31W',NULL,'2022-07-21 01:18:33','2022-07-21 01:21:16',0,'',0,'#2180f3'),(6,3,'Member4','member4@demo.com','2022-07-21 01:21:16',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$jXT.4nkmcKcOePNg3DXOheny9wInJPpuic8cmVPC6w31q92mpT31W',NULL,'2022-07-21 01:18:33','2022-07-21 01:21:16',0,'',0,'#2180f3'),(7,3,'Member5','member5@demo.com','2022-07-21 01:21:16',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$jXT.4nkmcKcOePNg3DXOheny9wInJPpuic8cmVPC6w31q92mpT31W',NULL,'2022-07-21 01:18:33','2022-07-21 01:21:16',0,'',0,'#2180f3'),(8,3,'Member6','member6@demo.com','2022-07-21 01:21:16',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$jXT.4nkmcKcOePNg3DXOheny9wInJPpuic8cmVPC6w31q92mpT31W',NULL,'2022-07-21 01:18:33','2022-07-21 01:21:16',0,'',0,'#2180f3'),(9,3,'Member7','member7@demo.com','2022-07-21 01:21:16',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$jXT.4nkmcKcOePNg3DXOheny9wInJPpuic8cmVPC6w31q92mpT31W',NULL,'2022-07-21 01:18:33','2022-07-21 01:21:16',0,'',0,'#2180f3'),(10,3,'Member8','member8@demo.com','2022-07-21 01:21:16',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$jXT.4nkmcKcOePNg3DXOheny9wInJPpuic8cmVPC6w31q92mpT31W',NULL,'2022-07-21 01:18:33','2022-07-21 01:21:16',0,'',0,'#2180f3'),(11,3,'Member9','member9@demo.com','2022-07-21 01:21:16',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$jXT.4nkmcKcOePNg3DXOheny9wInJPpuic8cmVPC6w31q92mpT31W',NULL,'2022-07-21 01:18:33','2022-07-21 01:21:16',0,'',0,'#2180f3'),(12,3,'Member10','member10@demo.com','2022-07-21 01:21:16',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$jXT.4nkmcKcOePNg3DXOheny9wInJPpuic8cmVPC6w31q92mpT31W',NULL,'2022-07-21 01:18:33','2022-07-21 01:21:16',0,'',0,'#2180f3'),(13,3,'Member11','member11@demo.com','2022-07-21 01:21:16',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$jXT.4nkmcKcOePNg3DXOheny9wInJPpuic8cmVPC6w31q92mpT31W',NULL,'2022-07-21 01:18:33','2022-07-21 01:21:16',0,'',0,'#2180f3'),(14,3,'Member12','member12@demo.com','2022-07-21 01:21:16',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$jXT.4nkmcKcOePNg3DXOheny9wInJPpuic8cmVPC6w31q92mpT31W',NULL,'2022-07-21 01:18:33','2022-07-21 01:21:16',0,'',0,'#2180f3'),(15,3,'Member13','member13@demo.com','2022-07-21 01:21:16',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$jXT.4nkmcKcOePNg3DXOheny9wInJPpuic8cmVPC6w31q92mpT31W',NULL,'2022-07-21 01:18:33','2022-07-21 01:21:16',0,'',0,'#2180f3'),(16,3,'Member14','member14@demo.com','2022-07-21 01:21:16',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$jXT.4nkmcKcOePNg3DXOheny9wInJPpuic8cmVPC6w31q92mpT31W',NULL,'2022-07-21 01:18:33','2022-07-21 01:21:16',0,'',0,'#2180f3'),(17,3,'Member15','member15@demo.com','2022-07-21 01:21:16',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$jXT.4nkmcKcOePNg3DXOheny9wInJPpuic8cmVPC6w31q92mpT31W',NULL,'2022-07-21 01:18:33','2022-07-21 01:21:16',0,'',0,'#2180f3'),(18,3,'Member16','member16@demo.com','2022-07-21 01:21:16',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$jXT.4nkmcKcOePNg3DXOheny9wInJPpuic8cmVPC6w31q92mpT31W',NULL,'2022-07-21 01:18:33','2022-07-21 01:21:16',0,'',0,'#2180f3'),(19,3,'Member17','member17@demo.com','2022-07-21 01:21:16',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$jXT.4nkmcKcOePNg3DXOheny9wInJPpuic8cmVPC6w31q92mpT31W',NULL,'2022-07-21 01:18:33','2022-07-21 01:21:16',0,'',0,'#2180f3'),(20,3,'Member18','member18@demo.com','2022-07-21 01:21:16',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$jXT.4nkmcKcOePNg3DXOheny9wInJPpuic8cmVPC6w31q92mpT31W',NULL,'2022-07-21 01:18:33','2022-07-21 01:21:16',0,'',0,'#2180f3'),(21,3,'Member19','member19@demo.com','2022-07-21 01:21:16',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$jXT.4nkmcKcOePNg3DXOheny9wInJPpuic8cmVPC6w31q92mpT31W',NULL,'2022-07-21 01:18:33','2022-07-21 01:21:16',0,'',0,'#2180f3'),(22,3,'Member20','member20@demo.com','2022-07-21 01:21:16',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$jXT.4nkmcKcOePNg3DXOheny9wInJPpuic8cmVPC6w31q92mpT31W',NULL,'2022-07-21 01:18:33','2022-07-21 01:21:16',0,'',0,'#2180f3'),(23,2,'President2','president2@demo.com','2022-07-21 01:21:16',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$jXT.4nkmcKcOePNg3DXOheny9wInJPpuic8cmVPC6w31q92mpT31W',NULL,'2022-07-21 01:18:33','2022-07-21 01:21:16',0,'',0,'#2180f3'),(24,2,'Lily','president3@demo.com','2022-07-21 01:21:16','ily','Jones','Liliy Jones','image/profile_photos/1739011344971472.jpg','123456789v','2022-07-21','Female','BICT','first year','(089) 665-7789','87/ A,','Wathumulla , Udugampola','Gampaha','Western','11030','$2y$10$jXT.4nkmcKcOePNg3DXOheny9wInJPpuic8cmVPC6w31q92mpT31W',NULL,'2022-07-21 01:18:33','2022-07-21 19:10:55',0,'',0,'#2180f3'),(25,2,'President4','president4@demo.com','2022-07-21 01:21:16',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$jXT.4nkmcKcOePNg3DXOheny9wInJPpuic8cmVPC6w31q92mpT31W',NULL,'2022-07-21 01:18:33','2022-07-21 01:21:16',0,'',0,'#2180f3'),(26,2,'President5','president5@demo.com','2022-07-21 01:21:16',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$jXT.4nkmcKcOePNg3DXOheny9wInJPpuic8cmVPC6w31q92mpT31W',NULL,'2022-07-21 01:18:33','2022-07-21 01:21:16',0,'',0,'#2180f3'),(27,2,'President6','president6@demo.com','2022-07-21 01:21:16',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$jXT.4nkmcKcOePNg3DXOheny9wInJPpuic8cmVPC6w31q92mpT31W',NULL,'2022-07-21 01:18:33','2022-07-21 01:21:16',0,'',0,'#2180f3'),(28,2,'President7','president7@demo.com','2022-07-21 01:21:16',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$jXT.4nkmcKcOePNg3DXOheny9wInJPpuic8cmVPC6w31q92mpT31W',NULL,'2022-07-21 01:18:33','2022-07-21 01:21:16',0,'',0,'#2180f3'),(29,2,'President8','president8@demo.com','2022-07-21 01:21:16',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$jXT.4nkmcKcOePNg3DXOheny9wInJPpuic8cmVPC6w31q92mpT31W',NULL,'2022-07-21 01:18:33','2022-07-21 01:21:16',0,'',0,'#2180f3'),(30,2,'President9','president9@demo.com','2022-07-21 01:21:16',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$jXT.4nkmcKcOePNg3DXOheny9wInJPpuic8cmVPC6w31q92mpT31W',NULL,'2022-07-21 01:18:33','2022-07-21 01:21:16',0,'',0,'#2180f3'),(31,2,'President10','president10@demo.com','2022-07-21 01:21:16',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$jXT.4nkmcKcOePNg3DXOheny9wInJPpuic8cmVPC6w31q92mpT31W',NULL,'2022-07-21 01:18:33','2022-07-21 01:21:16',0,'',0,'#2180f3');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -663,4 +665,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-07-21 14:09:31
+-- Dump completed on 2022-07-22 14:50:51

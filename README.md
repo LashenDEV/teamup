@@ -22,6 +22,14 @@ php artisan key:generate
 ```
 
 ```bash
+create a database as "teamup"
+```
+
+```bash
+import teamup.sql from the project directory into the teamup database
+```
+
+```bash
 php artisan migrate --seed
 ```
 
